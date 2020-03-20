@@ -19,7 +19,11 @@ super + w
 
 # calcurse
 super + c
-	st -e calcurse
+	kitty -e calcurse
+
+# code
+super + e
+	code
 
 # gimp
 super + g
