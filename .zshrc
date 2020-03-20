@@ -8,8 +8,6 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
-# ohmyzsh
-export ZSH="/home/tomas/.oh-my-zsh"
 # scripts
 export PATH=$PATH:"$(printf "%s:" ${HOME}/.local/bin/*)"
 # encoding
@@ -29,25 +27,9 @@ export PATH=$PATH:$GOPATH/bin
 #export GOROOT=/usr/lib/go
 export GOBIN=$GOROOT/bin
 
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_THEME="spaceship"
-# ZSH_THEME="lambda-gitster"
-# ZSH_THEME="typewritten"
-# ZSH_THEME="elessar"
+source $HOME/.local/bin/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-plugins=(
-	git
-	colored-man-pages
-	zsh-syntax-highlighting
-)
-source $ZSH/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
 alias getvid="youtube-dl --restrict-filenames -f 22"
@@ -56,3 +38,13 @@ alias dmi="doas make install"
 alias dmci="doas make clean install"
 alias drc="sudo make install & pkill dwm"
 alias rcst="rm config.h & make & sudo make install"
+alias ls="ls --color=auto"
+alias l="ls -la"
+alias v="vim"
+
+# KEYBINDINGS
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey "\e[3~" delete-char
+
+/opt/shell-color-scripts/crunchbang-mini
