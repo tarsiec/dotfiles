@@ -118,11 +118,10 @@ ws-icon-6 = VII;
 ws-icon-7 = VIII;
 ws-icon-8 = IX;
 ws-icon-9 = X;
-ws-icon-default = 
+ws-icon-default = 
 
 format = <label-state> <label-mode>
 label-monitor = %name%
-
 
 type = internal/bspwm
 
@@ -131,10 +130,10 @@ label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = " %icon% "
+label-occupied = "{%icon%}"
 label-occupied-padding = 2
 
-label-urgent = " %index%!"
+label-urgent = "!%index%!"
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
