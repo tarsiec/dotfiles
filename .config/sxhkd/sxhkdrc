@@ -15,7 +15,7 @@ super + Escape
 
 # firefox
 super + w
-	firefox
+	chromium
 
 # calcurse
 super + c

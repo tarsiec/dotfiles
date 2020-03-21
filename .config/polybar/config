@@ -16,14 +16,24 @@
 ;
 ;==========================================================
 
+//TODO change -alts and 1aries, and all of that for color names and start cleaning all of this mess up
+//TODO divide modules in files and write custom startup script
+
 [colors]
 background = #0f111a
 background-alt = #292d3e
 foreground = #e5e9f0
 foreground-alt = #82aaff
-primary = #82aaff
-secondary = #b79408
-alert = #f78c6c
+
+black = #3b4252
+red = #f78c6c
+green = #c3e88d
+yellow = #f9dd6c
+blue = #82aaff
+magenta = #c792ea
+cyan = #89ddff
+grey = #a6accd
+dark-grey = #464b5d
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -38,10 +48,10 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 1
-line-color = #cb4b16
+line-color = ${colors.yellow}
 
 border-size = 0
-border-color = #00002b36
+border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -53,8 +63,9 @@ font-0 = Fira Code Retina:pixelsize=10;1
 font-1 = Font Awesome:style=Bold:pixelsize=10;1
 
 modules-left = bspwm
-; modules-center =
-modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = date
+; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = filesystem pulseaudio xkeyboard memory cpu temperature wlan eth battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -84,15 +95,15 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = ${colors.green}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.green}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-background = ${colors.red}
+label-indicator-underline = ${colors.red}
 
 [module/filesystem]
 type = internal/fs
@@ -101,7 +112,7 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F#82aaff}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
 
@@ -110,10 +121,11 @@ ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
 ws-icon-default = 
 
 format = <label-state> <label-mode>
@@ -123,15 +135,15 @@ type = internal/bspwm
 
 label-focused = %name%:[%icon%]
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.blue}
 label-focused-padding = 2
 
 label-occupied = "%name%:/%icon%/"
 label-occupied-padding = 2
 
 label-urgent = "%name%:!%index%!"
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-background = ${colors.red}
+label-nrgent-padding = 2
 
 label-empty = "%name%: %icon% "
 label-empty-foreground = ${colors.foreground-alt}
@@ -181,7 +193,7 @@ interval = 2
 format-prefix = " "
 ; format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-foreground = ${colors.foreground}
-format-underline = #f90000
+format-underline = ${colors.red}
 label = %percentage:2%%
 
 [module/memory]
@@ -190,7 +202,7 @@ interval = 2
 format-prefix = " "
 ; format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-foreground = ${colors.foreground}
-format-underline = #4bffdc
+format-underline = ${colors.cyan}
 label = %percentage_used%%
 
 [module/wlan]
@@ -198,8 +210,9 @@ type = internal/network
 interface = wlp58s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+; format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal> wifi
+format-connected-underline = ${colors.magenta}
 label-connected = %essid%
 
 format-disconnected = <label-disconnected>
@@ -221,7 +234,7 @@ type = internal/network
 interface = wwp0s20f0u6i12
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.magenta}
 format-connected-prefix = " "
 ; format-connected-prefix-foreground = ${colors.foreground-alt}
 format-connected-prefix-foreground = ${colors.foreground}
@@ -238,7 +251,7 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = "%d/%m/%Y"
+date-alt = " %d/%m/%Y"
 
 time = %H:%M
 time-alt = [%H:%M:%S]
@@ -246,19 +259,20 @@ time-alt = [%H:%M:%S]
 format-prefix = 
 ; format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+format-underline = ${colors.blue}
 
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
+; format-volume = <label-volume> <bar-volume>
+format-volume =  <label-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${colors.blue}
 
-label-muted =  muted
-label-muted-foreground = #666
+label-muted = 
+label-muted-foreground = ${colors.red}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -313,7 +327,7 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.yellow}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -351,13 +365,13 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.red}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.red}
 
 ramp-0 = 
 ramp-1 = 
@@ -374,7 +388,7 @@ format-spacing = 1
 label-open = 
 label-open-foreground = ${colors.foreground}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.red}
 label-separator = |
 label-separator-foreground = ${colors.foreground}
 
