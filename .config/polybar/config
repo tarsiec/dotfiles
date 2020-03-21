@@ -20,8 +20,8 @@
 background = #0f111a
 background-alt = #292d3e
 foreground = #e5e9f0
-foreground-alt = #c3e88d
-primary = #c3e88d
+foreground-alt = #82aaff
+primary = #82aaff
 secondary = #b79408
 alert = #f78c6c
 
