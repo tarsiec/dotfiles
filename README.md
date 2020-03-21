@@ -25,4 +25,4 @@ Programs modified:
 + That's it for now
 
 I asume you have all of the programs I use installed, apart from
-```vim-plug```, ```oh-my-zsh```, ```RobotoMono Nerd Font```, ```Font Awesome```, and anything I have autorun on my xinit.
+```vim-plug```, ```oh-my-zsh```, ```Noto Fonts Emoji```, ```RobotoMono Nerd Font```, ```Font Awesome```, and anything I have autorun on my xinit.
