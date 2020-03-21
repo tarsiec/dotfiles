@@ -20,8 +20,8 @@
 background = #0f111a
 background-alt = #292d3e
 foreground = #e5e9f0
-foreground-alt = #b79408
-primary = #b79408
+foreground-alt = #c3e88d
+primary = #c3e88d
 secondary = #b79408
 alert = #f78c6c
 
@@ -179,7 +179,8 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 format-underline = #f90000
 label = %percentage:2%%
 
@@ -187,7 +188,8 @@ label = %percentage:2%%
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 format-underline = #4bffdc
 label = %percentage_used%%
 
@@ -211,7 +213,8 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-5 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+; ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
@@ -220,7 +223,8 @@ interval = 3.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+; format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -240,7 +244,8 @@ time = %H:%M
 time-alt = [%H:%M:%S]
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 format-underline = #0a6cf5
 
 label = %date% %time%
@@ -270,7 +275,8 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/alsa]
 type = internal/alsa
@@ -313,7 +319,7 @@ format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
@@ -336,7 +342,7 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-foreground = ${colors.foreground}
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -356,7 +362,7 @@ label-warn-foreground = ${colors.secondary}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
