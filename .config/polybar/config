@@ -29,7 +29,7 @@ black = #3b4252
 red = #f78c6c
 green = #c3e88d
 yellow = #f9dd6c
-blue = #82aaff
+blue = #2979ff
 magenta = #c792ea
 cyan = #89ddff
 grey = #a6accd
@@ -38,11 +38,11 @@ dark-grey = #464b5d
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -63,13 +63,13 @@ font-0 = Fira Code Retina:pixelsize=10;1
 font-1 = Font Awesome:style=Bold:pixelsize=10;1
 
 modules-left = bspwm
-modules-center = date
+modules-center = title
 ; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
-modules-right = filesystem pulseaudio xkeyboard memory cpu temperature wlan eth battery powermenu
+modules-right = filesystem pulseaudio xkeyboard temperature wlan eth battery date powermenu
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
+; tray-background = #0063ff
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -133,24 +133,44 @@ label-monitor = %name%
 
 type = internal/bspwm
 
-label-focused = %name%:[%icon%]
+label-focused = %name%: %icon%
+; label-focused = %name%:[%icon%]
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.blue}
 label-focused-padding = 2
 
-label-occupied = "%name%:/%icon%/"
+label-occupied = "%name%: %icon%"
+; label-occupied = "%name%:/%icon%/"
 label-occupied-padding = 2
 
-label-urgent = "%name%:!%index%!"
+label-urgent = "%name%: %icon%"
+; label-urgent = "%name%:!%index%!"
 label-urgent-background = ${colors.red}
 label-nrgent-padding = 2
 
-label-empty = "%name%: %icon% "
+label-empty = "%name%: %icon%"
+; label-empty = "%name%: %icon% "
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = 
+
+[module/title]
+type = internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-foreground = ${colors.foreground-alt}
+format-padding = 0
+
+label = %title%
+label-maxlen = 40
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty =
 
 [module/mpd]
 type = internal/mpd
@@ -235,10 +255,10 @@ interface = wwp0s20f0u6i12
 interval = 3.0
 
 format-connected-underline = ${colors.magenta}
-format-connected-prefix = " "
+format-connected-prefix = " "
 ; format-connected-prefix-foreground = ${colors.foreground-alt}
 format-connected-prefix-foreground = ${colors.foreground}
-label-connected = %local_ip%
+label-connected = eth
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>

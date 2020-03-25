@@ -1,38 +1,38 @@
 
-*.background: #0e1419
-*.foreground: #e5e1cf
-*.cursor:     #f19618
+*.background: #0f111a
+*.foreground: #a6accd
+*.cursor:     #c0c5ce
 ! selection_background #243340
 ! black
-*.color0: #000000
-*.color8: #323232
+*.color0: #3b4252
+*.color8: #464b5d
 ! red
-*.color1: #ff3333
-*.color9: #ff6565
+*.color1: #f78c6c
+*.color9: #f79f87
 ! green
-*.color2: #b8cc52
-*.color10: #e9fe83
+*.color2: #c3e88d
+*.color10: #def2c0
 ! yellow
-*.color3: #e6c446
-*.color11: #fff778
+*.color3: #f9dd6c
+*.color11: #fceeb6
 ! blue
 ! color4 #36a3d9
-*.color4: #217dab
-*.color12: #68d4ff
+*.color4: #2979ff
+*.color12: #ccdcff
 ! magenta
-*.color5: #f07078
-*.color13: #ffa3aa
+*.color5: #c792ea
+*.color13: #e9d4f7
 ! cyan
-*.color6: #95e5cb
-*.color14: #c7fffc
+*.color6: #89ddff
+*.color14: #ccf1ff
 ! white
-*.color7: #ffffff
-*.color15: #ffffff
-*.selection_foreground: #0e1419
+*.color7: #a6accf
+*.color15: #dee1ed
+*.selection_foreground: #c0c5ce
 
 
 !! URxvt Appearance
-*.font: xft:Roboto Mono for Powerline:style=Regular:size=14,xft:ttf-linux-libertine
+*.font: xft:Fira Code Retina:style=Regular:size=14,xft:FontAwesome:size=14
 !*.font: xft:ttf-linux-libertine:style=Regular:size=14
 *.boldFont: xft:Roboto Mono for Powerline:style=Bold:size=14
 *.italicFont: xft:Roboto Mono for Powerline:style=Italic:size=14

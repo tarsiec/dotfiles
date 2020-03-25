@@ -8,23 +8,16 @@ let mapleader=" "
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
-Plug 'LukeSmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
 Plug 'plasticboy/vim-markdown'
 " colorschemes
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'ayu-theme/ayu-vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'Rigellute/rigel'
-Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
+Plug 'hzchirs/vim-material'
 call plug#end() " Colorscheme
-	" set t_Co=256
-	" set termguicolors
+	set t_Co=256
+	set termguicolors
 
 	" ayu
 		" let ayucolor="dark"
@@ -46,8 +39,13 @@ call plug#end() " Colorscheme
 		" let g:gruvbox_contrast_dark = 'medium'
 
 	" solarized
+		" set background=dark
+		" colorscheme solarized
+	" material ocean
 		set background=dark
-		colorscheme solarized
+		let g:material_style='oceanic'
+		colorscheme vim-material
+
 " Basics
 	set nocompatible
 	filetype plugin on
@@ -111,14 +109,7 @@ call plug#end() " Colorscheme
 	:noremap ,, :w<Home>silent <End> !urlscan<CR>
 
 " Airline
-	" let g:airline_theme='fruit_punch'
-	" let g:airline_theme='bubblegum'
-	" let g:rigel_airline=1
-	" let g:airline_theme='ayu'
-	" let g:airline_theme='gruvbox'
-	" let g:airline_theme='ayu_mirage'
-	" let g:airline_theme='snazzyfied'
-	let g:airline_theme='solarized'
+	let g:airline_theme='material'
 	let g:airline_powerline_fonts=1
 	let g:airline#extensions#tabline#enabled=1
 
