@@ -60,7 +60,7 @@ call plug#end() " Colorscheme
 " set tab size
 	set tabstop=4
 
-" Display unprintable chars f12
+" Display unprintable chars
 	set list
 	set listchars=tab:⇒\ ,trail:•,extends:»,precedes:«
 
