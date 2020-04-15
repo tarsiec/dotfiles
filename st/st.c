@@ -14,6 +14,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <termios.h>
+#include <time.h>
 #include <unistd.h>
 #include <wchar.h>
 
@@ -39,6 +40,7 @@
 
 /* macros */
 #define IS_SET(flag)		((term.mode & (flag)) != 0)
+#define NUMMAXLEN(x)		((int)(sizeof(x) * 2.56 + 0.5) + 1)
 #define ISCONTROLC0(c)		(BETWEEN(c, 0, 0x1f) || (c) == '\177')
 #define ISCONTROLC1(c)		(BETWEEN(c, 0x80, 0x9f))
 #define ISCONTROL(c)		(ISCONTROLC0(c) || ISCONTROLC1(c))
@@ -46,6 +48,11 @@
 #define TLINE(y)		((y) < term.scr ? term.hist[((y) + term.histi - \
 				term.scr + HISTSIZE + 1) % HISTSIZE] : \
 				term.line[(y) - term.scr])
+
+#define TLINE_HIST(y)           ((y) <= HISTSIZE-term.row+2 ? term.hist[(y)] : term.line[(y-HISTSIZE+term.row-3)])
+
+/* constants */
+#define ISO14755CMD		"dmenu -w \"$WINDOWID\" -p codepoint: </dev/null"
 
 enum term_mode {
 	MODE_WRAP        = 1 << 0,
@@ -136,13 +143,14 @@ typedef struct {
 	int charset;  /* current charset */
 	int icharset; /* selected charset for sequence */
 	int *tabs;
+	struct timespec last_ximspot_update;
 } Term;
 
 /* CSI Escape sequence structs */
 /* ESC '[' [[ [<priv>] <arg> [;]] <mode> [<mode>]] */
 typedef struct {
 	char buf[ESC_BUF_SIZ]; /* raw string */
-	size_t len;            /* raw string length */
+	int len;               /* raw string length */
 	char priv;
 	int arg[ESC_ARG_SIZ];
 	int narg;              /* nb of args */
@@ -153,9 +161,8 @@ typedef struct {
 /* ESC type [[ [<priv>] <arg> [;]] <mode>] ESC '\' */
 typedef struct {
 	char type;             /* ESC type ... */
-	char *buf;             /* allocated raw string */
-	size_t siz;            /* allocation size */
-	size_t len;            /* raw string length */
+	char buf[STR_BUF_SIZ]; /* raw string */
+	int len;               /* raw string length */
 	char *args[STR_ARG_SIZ];
 	int narg;              /* nb of args */
 } STREscape;
@@ -374,7 +381,7 @@ char
 base64dec_getc(const char **src)
 {
 	while (**src && !isprint(**src)) (*src)++;
-	return **src ? *((*src)++) : '=';  /* emulate padding if string ends */
+	return *((*src)++);
 }
 
 char *
@@ -391,10 +398,6 @@ base64dec(const char *src)
 		int b = base64_digits[(unsigned char) base64dec_getc(&src)];
 		int c = base64_digits[(unsigned char) base64dec_getc(&src)];
 		int d = base64_digits[(unsigned char) base64dec_getc(&src)];
-
-		/* invalid input. 'a' can be -1, e.g. if src is "\n" (c-str) */
-		if (a == -1 || b == -1)
-			break;
 
 		*dst++ = (a << 2) | ((b & 0x30) >> 4);
 		if (c == -1)
@@ -425,6 +428,20 @@ tlinelen(int y)
 		return i;
 
 	while (i > 0 && TLINE(y)[i - 1].u == ' ')
+		--i;
+
+	return i;
+}
+
+int
+tlinehistlen(int y)
+{
+	int i = term.col;
+
+	if (TLINE_HIST(y)[i - 1].mode & ATTR_WRAP)
+		return i;
+
+	while (i > 0 && TLINE_HIST(y)[i - 1].u == ' ')
 		--i;
 
 	return i;
@@ -1041,6 +1058,7 @@ void
 tnew(int col, int row)
 {
 	term = (Term){ .c = { .attr = { .fg = defaultfg, .bg = defaultbg } } };
+	clock_gettime(CLOCK_MONOTONIC, &term.last_ximspot_update);
 	tresize(col, row);
 	treset();
 }
@@ -1864,7 +1882,7 @@ csihandle(void)
 void
 csidump(void)
 {
-	size_t i;
+	int i;
 	uint c;
 
 	fprintf(stderr, "ESC[");
@@ -1932,7 +1950,7 @@ strhandle(void)
 				if (par == 104 && narg <= 1)
 					return; /* color reset without parameter */
 				fprintf(stderr, "erresc: invalid color j=%d, p=%s\n",
-				        j, p ? p : "(null)");
+					j, p ? p : "(null)");
 			} else {
 				/*
 				 * TODO if defaultbg color is changed, borders
@@ -1980,6 +1998,56 @@ strparse(void)
 }
 
 void
+strdump(void)
+{
+	int i;
+	uint c;
+
+	fprintf(stderr, "ESC%c", strescseq.type);
+	for (i = 0; i < strescseq.len; i++) {
+		c = strescseq.buf[i] & 0xff;
+		if (c == '\0') {
+			putc('\n', stderr);
+			return;
+		} else if (isprint(c)) {
+			putc(c, stderr);
+		} else if (c == '\n') {
+			fprintf(stderr, "(\\n)");
+		} else if (c == '\r') {
+			fprintf(stderr, "(\\r)");
+		} else if (c == 0x1b) {
+			fprintf(stderr, "(\\e)");
+		} else {
+			fprintf(stderr, "(%02x)", c);
+		}
+	}
+	fprintf(stderr, "ESC\\\n");
+}
+
+void
+strreset(void)
+{
+	memset(&strescseq, 0, sizeof(strescseq));
+}
+
+void
+sendbreak(const Arg *arg)
+{
+	if (tcsendbreak(cmdfd, 0))
+		perror("Error sending break");
+}
+
+void
+tprinter(char *s, size_t len)
+{
+	if (iofd != -1 && xwrite(iofd, s, len) < 0) {
+		perror("Error writing to output file");
+		close(iofd);
+		iofd = -1;
+	}
+}
+
+void
 externalpipe(const Arg *arg)
 {
 	int to[2];
@@ -2010,16 +2078,19 @@ externalpipe(const Arg *arg)
 	/* ignore sigpipe for now, in case child exists early */
 	oldsigpipe = signal(SIGPIPE, SIG_IGN);
 	newline = 0;
-	for (n = 0; n < term.row; n++) {
-		bp = term.line[n];
-		lastpos = MIN(tlinelen(n) + 1, term.col) - 1;
+	/* modify externalpipe patch to pipe history too      */
+	for (n = 0; n <= HISTSIZE + 2; n++) {
+		bp = TLINE_HIST(n);
+		lastpos = MIN(tlinehistlen(n) +1, term.col) - 1;
 		if (lastpos < 0)
 			break;
+		if (lastpos == 0)
+			continue;
 		end = &bp[lastpos + 1];
 		for (; bp < end; ++bp)
 			if (xwrite(to[1], buf, utf8encode(bp->u, buf)) < 0)
 				break;
-		if ((newline = term.line[n][lastpos].mode & ATTR_WRAP))
+		if ((newline = TLINE_HIST(n)[lastpos].mode & ATTR_WRAP))
 			continue;
 		if (xwrite(to[1], "\n", 1) < 0)
 			break;
@@ -2033,56 +2104,25 @@ externalpipe(const Arg *arg)
 }
 
 void
-strdump(void)
+iso14755(const Arg *arg)
 {
-	size_t i;
-	uint c;
+	FILE *p;
+	char *us, *e, codepoint[9], uc[UTF_SIZ];
+	unsigned long utf32;
 
-	fprintf(stderr, "ESC%c", strescseq.type);
-	for (i = 0; i < strescseq.len; i++) {
-		c = strescseq.buf[i] & 0xff;
-		if (c == '\0') {
-			putc('\n', stderr);
-			return;
-		} else if (isprint(c)) {
-			putc(c, stderr);
-		} else if (c == '\n') {
-			fprintf(stderr, "(\\n)");
-		} else if (c == '\r') {
-			fprintf(stderr, "(\\r)");
-		} else if (c == 0x1b) {
-			fprintf(stderr, "(\\e)");
-		} else {
-			fprintf(stderr, "(%02x)", c);
-		}
-	}
-	fprintf(stderr, "ESC\\\n");
-}
+	if (!(p = popen(ISO14755CMD, "r")))
+		return;
 
-void
-strreset(void)
-{
-	strescseq = (STREscape){
-		.buf = xrealloc(strescseq.buf, STR_BUF_SIZ),
-		.siz = STR_BUF_SIZ,
-	};
-}
+	us = fgets(codepoint, sizeof(codepoint), p);
+	pclose(p);
 
-void
-sendbreak(const Arg *arg)
-{
-	if (tcsendbreak(cmdfd, 0))
-		perror("Error sending break");
-}
+	if (!us || *us == '\0' || *us == '-' || strlen(us) > 7)
+		return;
+	if ((utf32 = strtoul(us, &e, 16)) == ULONG_MAX ||
+	    (*e != '\n' && *e != '\0'))
+		return;
 
-void
-tprinter(char *s, size_t len)
-{
-	if (iofd != -1 && xwrite(iofd, s, len) < 0) {
-		perror("Error writing to output file");
-		close(iofd);
-		iofd = -1;
-	}
+	ttywrite(uc, utf8encode(utf32, uc), 1);
 }
 
 void
@@ -2447,7 +2487,7 @@ tputc(Rune u)
 		if (term.esc&ESC_DCS && strescseq.len == 0 && u == 'q')
 			term.mode |= MODE_SIXEL;
 
-		if (strescseq.len+len >= strescseq.siz) {
+		if (strescseq.len+len >= sizeof(strescseq.buf)-1) {
 			/*
 			 * Here is a bug in terminals. If the user never sends
 			 * some code to stop the str or esc command, then st
@@ -2461,10 +2501,7 @@ tputc(Rune u)
 			 * term.esc = 0;
 			 * strhandle();
 			 */
-			if (strescseq.siz > (SIZE_MAX - UTF_SIZ) / 2)
-				return;
-			strescseq.siz *= 2;
-			strescseq.buf = xrealloc(strescseq.buf, strescseq.siz);
+			return;
 		}
 
 		memmove(&strescseq.buf[strescseq.len], c, len);
@@ -2710,7 +2747,13 @@ draw(void)
 				term.ocx, term.ocy, term.line[term.ocy][term.ocx]);
 	term.ocx = cx, term.ocy = term.c.y;
 	xfinishdraw();
-	xximspot(term.ocx, term.ocy);
+
+	struct timespec now;
+	clock_gettime(CLOCK_MONOTONIC, &now);
+	if (ximspot_update_interval && TIMEDIFF(now, term.last_ximspot_update) > ximspot_update_interval) {
+		xximspot(term.ocx, term.ocy);
+		term.last_ximspot_update = now;
+	}
 }
 
 void

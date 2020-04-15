@@ -16,24 +16,47 @@
 ;
 ;==========================================================
 
-//TODO change -alts and 1aries, and all of that for color names and start cleaning all of this mess up
-//TODO divide modules in files and write custom startup script
+;TODO change -alts and 1aries, and all of that for color names and start cleaning all of this mess up
+;TODO divide modules in files and write custom startup script
 
 [colors]
-background = #0f111a
-background-alt = #292d3e
-foreground = #e5e9f0
-foreground-alt = #82aaff
+background = #21252b
+;background = #0f111a
+;background = #2d2a2e
+background-alt = #282c34
+;background-alt = #292d3e
+;background-alt = #444444
+foreground = #eeeeee
+;foreground = #e5e9f0
+;foreground = #fcfcfa
+foreground-alt = #464b5d
+;foreground-alt = #82aaff
+;foreground-alt = #f9dd6c
 
-black = #3b4252
-red = #f78c6c
-green = #c3e88d
-yellow = #f9dd6c
-blue = #2979ff
-magenta = #c792ea
-cyan = #89ddff
-grey = #a6accd
-dark-grey = #464b5d
+black = 282c34
+;black = #3b4252
+;black = #19181a
+red = e06c75
+;red = #f78c6c
+;red = #ff5c57
+green = #98c379
+;green = #c3e88d
+;green = #a9dc76
+yellow = #e5c07b
+;yellow = #f9dd6c
+;yellow = #ffd866
+blue = #61afef
+;blue = #2979ff
+;blue = #3399cc
+magenta = #c678dd
+;magenta = #c792ea
+;magenta = #ff6188
+cyan = #56b6c2
+;cyan = #89ddff
+;cyan = #78dce8
+white = #abb2bf
+;white = #a6accd
+;white = #fcfcfa
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -47,7 +70,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 2
 line-color = ${colors.yellow}
 
 border-size = 0
@@ -60,16 +83,16 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = Fira Code Retina:pixelsize=10;1
-font-1 = Font Awesome:style=Bold:pixelsize=10;1
+font-1 = FontAwesome:style=Regular:pixelsize=10;1
 
 modules-left = bspwm
-modules-center = title
+; modules-center = title
 ; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
-modules-right = filesystem pulseaudio xkeyboard temperature wlan eth battery date powermenu
+modules-right = filesystem pulseaudio xkeyboard temperature wlan eth battery0 battery1 date powermenu
 
 tray-position = right
 tray-padding = 2
-; tray-background = #0063ff
+tray-background = #0063ff
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -112,7 +135,7 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 
-label-mounted = %{F#82aaff}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F#61afef}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
 
@@ -136,7 +159,7 @@ type = internal/bspwm
 label-focused = %name%: %icon%
 ; label-focused = %name%:[%icon%]
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.blue}
+label-focused-underline= ${colors.cyan}
 label-focused-padding = 2
 
 label-occupied = "%name%: %icon%"
@@ -340,9 +363,48 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
+[module/battery0]
 type = internal/battery
 battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.yellow}
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = ${colors.foreground}
+animation-discharging-framerate = 750
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
 adapter = AC
 full-at = 98
 
@@ -436,7 +498,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini

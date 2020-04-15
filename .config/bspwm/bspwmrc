@@ -5,12 +5,15 @@ polybar example &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
+bspc config focused_border_color "#aab1be"
+bspc config normal_border_color  "#262931"
 bspc config border_width         2
-bspc config window_gap           20
+bspc config window_gap           8
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+bspc config top_padding          0
 
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a Firefox desktop='^2'

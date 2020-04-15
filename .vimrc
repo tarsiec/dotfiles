@@ -13,8 +13,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
 Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 " colorschemes
 Plug 'hzchirs/vim-material'
+Plug 'herrbischoff/cobalt2.vim'
+" monokai
+Plug 'phanviet/vim-monokai-pro'
+Plug 'patstockwell/vim-monokai-tasty'
 call plug#end() " Colorscheme
 	set t_Co=256
 	set termguicolors
@@ -45,6 +50,14 @@ call plug#end() " Colorscheme
 		set background=dark
 		let g:material_style='oceanic'
 		colorscheme vim-material
+
+	" cobalt2
+		" set background=dark
+		" colorscheme cobalt2
+	
+	" monokai pro
+		" colorscheme monokai_pro
+
 
 " Basics
 	set nocompatible

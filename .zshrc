@@ -4,35 +4,49 @@
 #  / /_(__  ) / / / /  / /__
 # /___/____/_/ /_/_/   \___/	t0maslb@github
 
+
+### ohmyzsh
+export ZSH="/home/tomas/.oh-my-zsh"
+### DEFAULT SOFTWARE ###
+export EDITOR=nvim
+export TERM=st
+export VISUAL=code-oss
+
 ### scripts
 export PATH=$PATH:"$(du "$HOME/.local/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-
 ### ENCODING ###
 export LANG=en_GB.UTF-8
 export LC_ALL=es_ES.UTF-8
 ### CODE & LANGS ###
-export CODE_DIR=$HOME/code
+export CODE_DIR=$HOME/Code
 export CODE_RSC=$CODE_DIR/resources
 export CODE_PRJ=$CODE_DIR/projects
 # rust
 export RUSTUP_HOME=$CODE_RSC/rust/rustup
 export CARGO_HOME=$CODE_RSC/rust/cargo
 export PATH=$PATH:$CARGO_HOME/bin
-export PATH=$PATH:
 # go
 export GOPATH=$CODE_PRJ/go
-export PATH=$PATH:$GOPATH/bin
-export GOBIN=$GOROOT/bin
-
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+### DO NOT CHANGE ###
 export XAUTHORIY="$HOME/.Xauthority"
+### starship.rs
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+source $ZSH/oh-my-zsh.sh
+source $HOME/.local/share/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh_plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+fpath=(.local/share/zsh_plugins/zsh-completions/zsh-completions/src $fpath)
+# source /home/tomas/.local/share/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 ### ZSH PLUGINS & THEMES ###
-export STARSHIP_CONFIG=/home/tomas/.config/starship/starship.toml
-source $HOME/.local/share/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+# ZSH_THEME="robbyrussell"
+# plugins=(git)
 
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
-eval "$(hub alias -s git)"
 
 alias getvid="youtube-dl --restrict-filenames -f 22"
 alias getaudio="youtube-dl --restrict-filenames -x --audio-format mp3"
@@ -44,11 +58,8 @@ alias ls="exa"
 alias l="exa -lag"
 alias lsize="exa -lags size"
 alias lname="exa -lags name"
-alias v="vim"
-
-# KEYBINDINGS
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey "\e[3~" delete-char
-
-/opt/shell-color-scripts/crunchbang-mini
+alias v="nvim"
+alias nv="nvim"
+alias -g Z="| fzf"
+alias mv="mv -i"
+alias m="mocp"
