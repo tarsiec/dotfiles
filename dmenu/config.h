@@ -4,15 +4,25 @@
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"Fira Code Retina:size=12"
+	"Fira Code Retina:size=12",
+	"JoyPixels:pixelsize=12:antialias=true:autohint=true"
 };
+static const unsigned int bgalpha = 0xee;
+static const unsigned int fgalpha = OPAQUE;
 static const char *prompt      = "Run:";      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#eeeeee", "#282c34" },
-	[SchemeSel] = { "#282c34", "#56b6c2" },
+	[SchemeNorm] = { "#ebdbb2", "#282828" },
+	[SchemeSel] = { "#282828", "#689d6a" },
 	[SchemeOut] = { "#000000", "#00ffff" },
 };
+static const unsigned int alphas[SchemeLast][2] = {
+	/*		fgalpha		bgalphga	*/
+	[SchemeNorm] = { fgalpha, bgalpha },
+	[SchemeSel] = { fgalpha, bgalpha },
+	[SchemeOut] = { fgalpha, bgalpha },
+};
+
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
 

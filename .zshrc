@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #               __
 #  ____  _____/ /_  __________
 # /_  / / ___/ __ \/ ___/ ___/
@@ -6,17 +13,32 @@
 
 
 ### ohmyzsh
-export ZSH="/home/tomas/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+
 ### DEFAULT SOFTWARE ###
 export EDITOR=nvim
 export TERM=st
-export VISUAL=code-oss
+export VISUAL=nvim
 
 ### scripts
 export PATH=$PATH:"$(du "$HOME/.local/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 ### ENCODING ###
-export LANG=en_GB.UTF-8
-export LC_ALL=es_ES.UTF-8
+# export LANG="es_ES.UTF-8"
+# export LC_ALL="es_ES.UTF-8"
+# export LANGUAGE="es"
+# export LC_CTYPE="es_ES.UTF-8"
+# export LC_NUMERIC="es_ES.UTF-8"
+# export LC_TIME="es_ES.UTF-8"
+# export LC_COLLATE="es_ES.UTF-8"
+# export LC_MONETARY="es_ES.UTF-8"
+# export LC_MESSAGES="es_ES.UTF-8"
+# export LC_PAPER="es_ES.UTF-8"
+# export LC_NAME="es_ES.UTF-8"
+# export LC_ADDRESS="es_ES.UTF-8"
+# export LC_TELEPHONE="es_ES.UTF-8"
+# export LC_MEASUREMENT="es_ES.UTF-8"
+# export LC_IDENTIFICATION="es_ES.UTF-8"
+# export LC_ALL="es_ES.UTF-8"
 ### CODE & LANGS ###
 export CODE_DIR=$HOME/Code
 export CODE_RSC=$CODE_DIR/resources
@@ -42,10 +64,13 @@ fpath=(.local/share/zsh_plugins/zsh-completions/zsh-completions/src $fpath)
 
 
 ### ZSH PLUGINS & THEMES ###
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 # plugins=(git)
 
+### THEME ###
 eval "$(starship init zsh)"
+
+
 eval "$(thefuck --alias)"
 
 alias getvid="youtube-dl --restrict-filenames -f 22"
@@ -58,8 +83,12 @@ alias ls="exa"
 alias l="exa -lag"
 alias lsize="exa -lags size"
 alias lname="exa -lags name"
-alias v="nvim"
+alias v="vim"
 alias nv="nvim"
 alias -g Z="| fzf"
 alias mv="mv -i"
 alias m="mocp"
+alias screenshot="scrot"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

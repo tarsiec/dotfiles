@@ -32,7 +32,7 @@
 
 
 !! URxvt Appearance
-*.font: xft:Fira Code Retina:style=Regular:size=14,xft:FontAwesome:size=14
+*.font: xft:Fira Code Retina:style=Regular:size=14,xft:Material Design Icons:size=14
 !*.font: xft:ttf-linux-libertine:style=Regular:size=14
 *.boldFont: xft:Roboto Mono for Powerline:style=Bold:size=14
 *.italicFont: xft:Roboto Mono for Powerline:style=Italic:size=14

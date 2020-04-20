@@ -5,22 +5,19 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code Retina:pixelsize=16:antialias=true:autohint=true";
-static char *font2[] = { "FontAwesome:pixelsize=13:antialias=true:autohint=true" };
+static char *font = "Iosevka:pixelsize=16:antialias=true:autohint=true";
+//static char *font2[] = { "FontAwesome:pixelsize=12:antialias=true:autohint=true" };
+static char *font2[] = { 
+	"Material Design Icons:pixelsize=14:antialias=true:autohint=true"
+//	"JoyPixels:pixelsize=12:antialias=true:autohint=true"
+};
 static int borderpx = 5;
 
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
  * 2: utmp option
- * 3: SHELL environment variable
- * 4: value of shell in /etc/passwd
- * 5: value of shell in config.h
- */
-static char *shell = "/bin/sh";
-char *utmp = NULL;
-char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
-
+ * 3: SHELL environment variable 4: value of shell in /etc/passwd 5: value of shell in config.h */ static char *shell = "/bin/zsh"; char *utmp = NULL; char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400"; 
 /* identification sequence returned in DA and DECID */
 char *vtiden = "\033[?6c";
 
@@ -88,57 +85,37 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* bg opacity */
 float alpha = 0.95;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	// "#3b4252", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	// "#f78c6c",
-	// "#c3e88d",
-	// "#f9dd6c",
-	// "#2979ff",
-	// "#c792ea",
-	// "#89ddff",
-	// "#a6accd",
-	// "#464b5d",
-	// "#f79f87",
-	// "#def2c0",
-	// "#fceeb6",
-	// "#ccdcff",
-	// "#e9d4f7",
-	// "#ccf1ff",
-	// "#dee1ed",
-	// [255] = 0,
-	// /* more colors can be added after 255 to use with DefaultXX */
-	// "#c0c5ce", /* 256 -> cursor */
-	// "#555555", /* 257 -> rev cursor*/
-	// "#0f111a", /* 258 -> bg */
-	// "#a6accd", /* 259 -> fg */
-	"#282c34",
-	"#e06c75",
-	"#98c379",
-	"#e5c07b",
-	"#61afef",
-	"#c678dd",
-	"#56b6c2",
-	"#abb2bf",
-	"#464b5d",
-	"#f79f87",
-	"#def2c0",
-	"#fceeb6",
-	"#ccdcff",
-	"#e9d4f7",
-	"#ccf1ff",
-	"#dee1ed",
+	"#282c34", /* black   */
+	"#e06c75", /* red     */
+	"#98c379", /* green   */
+	"#e5c07b", /* yellow  */
+	"#61afef", /* blue    */
+	"#c678dd", /* magenta */
+	"#56b6c2", /* cyan    */
+	"#abb2bf", /* white   */
+	"#282c34", /* black   */
+	"#e06c75", /* red     */
+	"#98c379", /* green   */
+	"#e5c07b", /* yellow  */
+	"#61afef", /* blue    */
+	"#c678dd", /* magenta */
+	"#56b6c2", /* cyan    */
+	"#abb2bf", /* white   */
+
 	[255] = 0,
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#c0c5ce", /* 256 -> cursor */
+	"#add8e6", /* 256 -> cursor */
 	"#555555", /* 257 -> rev cursor*/
-	"#282c34", /* 258 -> bg */
-	"#a5acb9", /* 259 -> fg */
+	"#282c34", /* background */
+	"#eeeeee", /* foreground */
+
 };
 
 
@@ -244,11 +221,11 @@ MouseKey mkeys[] = {
 };
 
 static char *openurlcmd[] = { "/bin/sh", "-c",
-    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?$#=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)'| uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -i -p 'Follow which url?' -l 10 | xargs -r xdg-open",
+    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./@&%?$#=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)'| uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -w $(xdotool getactivewindow) -i -p 'Follow which url?' -l 10 | xargs -r xdg-open",
     "externalpipe", NULL };
 
 static char *copyurlcmd[] = { "/bin/sh", "-c",
-    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?$#=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n' | xclip -selection clipboard",
+    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./@&%?$#=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -w $(xdotool getactivewindow) -i -p 'Copy which url?' -l 10 | tr -d '\n' | xclip -selection clipboard",
     "externalpipe", NULL };
 
 static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
@@ -262,10 +239,9 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ MODKEY,               XK_Home,        zoomreset,      {.f =  0} },
-	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
 	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
+	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
 	{ MODKEY,               XK_v,           clippaste,      {.i =  0} },
-	{ MODKEY,               XK_p,           selpaste,       {.i =  0} },
 	{ XK_ANY_MOD,		Button2,	selpaste,	{.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_Control_L,   iso14755,       {.i =  0} },

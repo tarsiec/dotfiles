@@ -2,9 +2,11 @@
 # wm independent hotkeys
 #
 
+TERM = st
+
 # terminal emulator
 super + Return
-	st
+	$TERM
 # program launcher
 super+@space
 	dmenu_run
@@ -19,7 +21,7 @@ super + w
 
 # calcurse
 super + c
-	kitty -e calcurse
+	$TERM -e calcurse
 
 # code
 super + e
@@ -27,7 +29,7 @@ super + e
 
 # moc (music player)
 super + m
-	st -e mocp
+	$TERM -e mocp
 
 # emacs
 super + shift + e
@@ -55,11 +57,11 @@ super + alt + shift + z
 
 # emoji picker
 super + u
-	dmenu unicode
+	dmenuunicode
 
 # thunar
-super + n
-	thunar
+super + r
+	$TERM -e ranger
 
 # audio control via amixer
 XF86Audio{Raise,Lower}Volume

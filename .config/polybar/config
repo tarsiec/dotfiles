@@ -20,51 +20,27 @@
 ;TODO divide modules in files and write custom startup script
 
 [colors]
-background = #21252b
-;background = #0f111a
-;background = #2d2a2e
-background-alt = #282c34
-;background-alt = #292d3e
-;background-alt = #444444
+background = #282c34
+background-alt = #3e4452
 foreground = #eeeeee
-;foreground = #e5e9f0
-;foreground = #fcfcfa
-foreground-alt = #464b5d
-;foreground-alt = #82aaff
-;foreground-alt = #f9dd6c
+foreground-alt = #8190aa
 
-black = 282c34
-;black = #3b4252
-;black = #19181a
-red = e06c75
-;red = #f78c6c
-;red = #ff5c57
+black = #282c34
+red = #e06c75
 green = #98c379
-;green = #c3e88d
-;green = #a9dc76
 yellow = #e5c07b
-;yellow = #f9dd6c
-;yellow = #ffd866
 blue = #61afef
-;blue = #2979ff
-;blue = #3399cc
 magenta = #c678dd
-;magenta = #c792ea
-;magenta = #ff6188
 cyan = #56b6c2
-;cyan = #89ddff
-;cyan = #78dce8
 white = #abb2bf
-;white = #a6accd
-;white = #fcfcfa
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 25
+height = 28
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0
+radius = 5
 fixed-center = true
 
 background = ${colors.background}
@@ -73,7 +49,7 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = ${colors.yellow}
 
-border-size = 0
+border-size = 8
 border-color = #00000000
 
 padding-left = 0
@@ -82,13 +58,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Fira Code Retina:pixelsize=10;1
-font-1 = FontAwesome:style=Regular:pixelsize=10;1
+font-0 = Iosevka:pixelsize=12;1
+font-1 = Material Design Icons:style=Bold:pixelsize=12;1
+
+; font-1 = FontAwesome:style=Regular:pixelsize=10;1
 
 modules-left = bspwm
 ; modules-center = title
 ; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
-modules-right = filesystem pulseaudio xkeyboard temperature wlan eth battery0 battery1 date powermenu
+modules-right = xkeyboard alsa temperature wlan eth battery0 battery1 date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -116,7 +94,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = "󰌌 "
 format-prefix-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.green}
 
@@ -133,23 +111,32 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home
 
 label-mounted = %{F#61afef}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
 
 [module/bspwm]
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-default = 
+; ws-icon-0 = 1;
+; ws-icon-1 = 2;
+; ws-icon-2 = 3;
+; ws-icon-3 = 4;
+; ws-icon-4 = 5;
+; ws-icon-5 = 6;
+; ws-icon-6 = 7;
+; ws-icon-7 = 8;
+; ws-icon-8 = 9;
+; ws-icon-default = 
+ws-icon-0 = 1;󰌨
+ws-icon-1 = 2;󰘦
+ws-icon-2 = 3;󰆋
+ws-icon-3 = 4;󰊢
+ws-icon-4 = 5;󰉋
+ws-icon-5 = 6;󰈔
+ws-icon-6 = 7;󰋩
+ws-icon-7 = 8;󰨜
+ws-icon-8 = 9;󰝚
+ws-icon-default = 󰧾
 
 format = <label-state> <label-mode>
 label-monitor = %name%
@@ -159,7 +146,7 @@ type = internal/bspwm
 label-focused = %name%: %icon%
 ; label-focused = %name%:[%icon%]
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.cyan}
+label-focused-underline= ${colors.yellow}
 label-focused-padding = 2
 
 label-occupied = "%name%: %icon%"
@@ -173,7 +160,7 @@ label-nrgent-padding = 2
 
 label-empty = "%name%: %icon%"
 ; label-empty = "%name%: %icon% "
-label-empty-foreground = ${colors.foreground-alt}
+label-empty-foreground = ${colors.background-alt}
 label-empty-padding = 2
 
 ; Separator in between workspaces
@@ -242,7 +229,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "󰉉 "
 ; format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.cyan}
@@ -263,12 +250,12 @@ format-disconnected = <label-disconnected>
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-5 = 
+ramp-signal-0 = 󰤭
+ramp-signal-1 = 󰤯
+ramp-signal-2 = 󰤟
+ramp-signal-3 = 󰤢
+ramp-signal-4 = 󰤥
+ramp-signal-5 = 󰤨
 ; ramp-signal-foreground = ${colors.foreground-alt}
 ramp-signal-foreground = ${colors.foreground}
 
@@ -299,7 +286,7 @@ date-alt = " %d/%m/%Y"
 time = %H:%M
 time-alt = [%H:%M:%S]
 
-format-prefix = 
+format-prefix = 󰅐
 ; format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
@@ -342,9 +329,9 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+; format-muted-prefix = "󰝛 "
+format-muted-foreground = ${colors.red}
+label-muted = "󰝛"
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -379,28 +366,37 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 󰁺
+ramp-capacity-1 = 󰁻
+ramp-capacity-2 = 󰁼
+ramp-capacity-3 = 󰁾
+ramp-capacity-4 = 󰁿
+ramp-capacity-5 = 󰂀
+ramp-capacity-6 = 󰂂
+ramp-capacity-7 = 󰂂
+ramp-capacity-8 = 󰁹
 ramp-capacity-foreground = ${colors.foreground}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 󰢟
+animation-charging-1 = 󰢜
+animation-charging-2 = 󰢝
+animation-charging-3 = 󰢝
+; animation-charging-4 = 󰢝
 animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 750
+animation-charging-framerate = 600
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
+animation-discharging-0 = 󰁹
+animation-discharging-1 = 󰂁
+animation-discharging-2 = 󰂁
+animation-discharging-3 = 󰂀
+animation-discharging-4 = 󰁾
+animation-discharging-5 = 󰁾
+animation-discharging-6 = 󰁽
+animation-discharging-7 = 󰁻
+animation-discharging-8 = 󰁺
+
 animation-discharging-foreground = ${colors.foreground}
-animation-discharging-framerate = 750
+animation-discharging-framerate = 600
 
 [module/battery1]
 type = internal/battery
@@ -418,28 +414,37 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 󰁺
+ramp-capacity-1 = 󰁻
+ramp-capacity-2 = 󰁼
+ramp-capacity-3 = 󰁾
+ramp-capacity-4 = 󰁿
+ramp-capacity-5 = 󰂀
+ramp-capacity-6 = 󰂂
+ramp-capacity-7 = 󰂂
+ramp-capacity-8 = 󰁹
+
 ramp-capacity-foreground = ${colors.foreground}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 󰢟
+animation-charging-1 = 󰢜
+animation-charging-2 = 󰢝
+animation-charging-3 = 󰢝
 animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 750
+animation-charging-framerate = 600
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
+animation-discharging-0 = 󰁹
+animation-discharging-1 = 󰂁
+animation-discharging-2 = 󰂁
+animation-discharging-3 = 󰂀
+animation-discharging-4 = 󰁾
+animation-discharging-5 = 󰁾
+animation-discharging-6 = 󰁽
+animation-discharging-7 = 󰁻
+animation-discharging-8 = 󰁺
+
 animation-discharging-foreground = ${colors.foreground}
-animation-discharging-framerate = 750
+animation-discharging-framerate = 600
 
 [module/temperature]
 type = internal/temperature
@@ -455,9 +460,11 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.red}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 󰸄
+ramp-1 = 󰸂
+ramp-2 = 󰸃
+ramp-3 = 󰸅
+
 ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
@@ -467,16 +474,16 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 󰉁
 label-open-foreground = ${colors.foreground}
-label-close =  cancel
+label-close = 󰕌 cancel
 label-close-foreground = ${colors.red}
 label-separator = |
 label-separator-foreground = ${colors.foreground}
 
-menu-0-0 =  reboot
+menu-0-0 = 󰑐 reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 =  power off
+menu-0-1 = 󰤆 power off
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
@@ -499,6 +506,6 @@ screenchange-reload = true
 
 [global/wm]
 margin-top = 0
-margin-bottom = 0
+margin-bottom = -8
 
 ; vim:ft=dosini
