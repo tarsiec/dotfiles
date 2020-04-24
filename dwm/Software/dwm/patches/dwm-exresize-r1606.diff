@@ -1,0 +1,372 @@
+diff --git a/config.def.h b/config.def.h
+index 7fb4d82..959a119 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -88,6 +88,33 @@ static Key keys[] = {
+ 	TAGKEYS(                        XK_8,                      7)
+ 	TAGKEYS(                        XK_9,                      8)
+ 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
++
++	{ MODKEY,                       XK_KP_7,   explace,                {.ui = EX_NW }},
++	{ MODKEY,                       XK_KP_8,   explace,                {.ui = EX_N  }},
++	{ MODKEY,                       XK_KP_9,   explace,                {.ui = EX_NE }},
++	{ MODKEY,                       XK_KP_4,   explace,                {.ui = EX_W  }},
++	{ MODKEY,                       XK_KP_5,   explace,                {.ui = EX_C  }},
++	{ MODKEY,                       XK_KP_6,   explace,                {.ui = EX_E  }},
++	{ MODKEY,                       XK_KP_1,   explace,                {.ui = EX_SW }},
++	{ MODKEY,                       XK_KP_2,   explace,                {.ui = EX_S  }},
++	{ MODKEY,                       XK_KP_3,   explace,                {.ui = EX_SE }},
++
++	{ MODKEY|ShiftMask,             XK_KP_8,   exresize,               {.v = (int []){   0,  25 }}},
++	{ MODKEY|ShiftMask,             XK_KP_2,   exresize,               {.v = (int []){   0, -25 }}},
++	{ MODKEY|ShiftMask,             XK_KP_6,   exresize,               {.v = (int []){  25,   0 }}},
++	{ MODKEY|ShiftMask,             XK_KP_4,   exresize,               {.v = (int []){ -25,   0 }}},
++	{ MODKEY|ShiftMask,             XK_KP_5,   exresize,               {.v = (int []){  25,  25 }}},
++	{ MODKEY|ShiftMask|ControlMask, XK_KP_5,   exresize,               {.v = (int []){ -25, -25 }}},
++
++	{ MODKEY|ControlMask,           XK_KP_6,   togglehorizontalexpand, {.i = +1} },
++	{ MODKEY|ControlMask,           XK_KP_3,   togglehorizontalexpand, {.i =  0} },
++	{ MODKEY|ControlMask,           XK_KP_4,   togglehorizontalexpand, {.i = -1} },
++	{ MODKEY|ControlMask,           XK_KP_8,   toggleverticalexpand,   {.i = +1} },
++	{ MODKEY|ControlMask,           XK_KP_1,   toggleverticalexpand,   {.i =  0} },
++	{ MODKEY|ControlMask,           XK_KP_2,   toggleverticalexpand,   {.i = -1} },
++	{ MODKEY|ControlMask,           XK_KP_9,   togglemaximize,         {.i = -1} },
++	{ MODKEY|ControlMask,           XK_KP_7,   togglemaximize,         {.i = +1} },
++	{ MODKEY|ControlMask,           XK_KP_5,   togglemaximize,         {.i =  0} },
+ };
+ 
+ /* button definitions */
+diff --git a/dwm.c b/dwm.c
+index 4986b07..8fc0c57 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -89,11 +89,14 @@ struct Client {
+ 	char name[256];
+ 	float mina, maxa;
+ 	int x, y, w, h;
++	int sfx, sfy, sfw, sfh; /* stored float geometry, used on mode revert */
+ 	int oldx, oldy, oldw, oldh;
+ 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
+ 	int bw, oldbw;
+ 	unsigned int tags;
+-	Bool isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
++	unsigned char expandmask;
++	int expandx1, expandy1, expandx2, expandy2;
++	Bool wasfloating, isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
+ 	Client *next;
+ 	Client *snext;
+ 	Monitor *mon;
+@@ -1132,8 +1135,14 @@ manage(Window w, XWindowAttributes *wa) {
+ 	updatewindowtype(c);
+ 	updatesizehints(c);
+ 	updatewmhints(c);
++	c->sfx = c->x;
++	c->sfy = c->y;
++	c->sfw = c->w;
++	c->sfh = c->h;
+ 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
+ 	grabbuttons(c, False);
++	c->wasfloating = False;
++	c->expandmask = 0;
+ 	if(!c->isfloating)
+ 		c->isfloating = c->oldstate = trans != None || c->isfixed;
+ 	if(c->isfloating)
+@@ -1234,8 +1243,9 @@ movemouse(const Arg *arg) {
+ 		case MotionNotify:
+ 			nx = ocx + (ev.xmotion.x - x);
+ 			ny = ocy + (ev.xmotion.y - y);
+-			if(nx >= selmon->wx && nx <= selmon->wx + selmon->ww
+-			&& ny >= selmon->wy && ny <= selmon->wy + selmon->wh) {
++			if ((m = recttomon(nx, ny, c->w, c->h))) {
++				if (m != selmon) 
++					sendmon(c, m);
+ 				if(abs(selmon->wx - nx) < snap)
+ 					nx = selmon->wx;
+ 				else if(abs((selmon->wx + selmon->ww) - (nx + WIDTH(c))) < snap)
+@@ -1343,6 +1353,7 @@ resizeclient(Client *c, int x, int y, int w, int h) {
+ 	c->oldy = c->y; c->y = wc.y = y;
+ 	c->oldw = c->w; c->w = wc.width = w;
+ 	c->oldh = c->h; c->h = wc.height = h;
++	c->expandmask = 0;
+ 	wc.border_width = c->bw;
+ 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
+ 	configure(c);
+@@ -1379,9 +1390,9 @@ resizemouse(const Arg *arg) {
+ 		case MotionNotify:
+ 			nw = MAX(ev.xmotion.x - ocx - 2 * c->bw + 1, 1);
+ 			nh = MAX(ev.xmotion.y - ocy - 2 * c->bw + 1, 1);
+-			if(c->mon->wx + nw >= selmon->wx && c->mon->wx + nw <= selmon->wx + selmon->ww
+-			&& c->mon->wy + nh >= selmon->wy && c->mon->wy + nh <= selmon->wy + selmon->wh)
+-			{
++			if ((m = recttomon(c->x, c->y, nw, nh))) {
++				if (m != selmon) 
++					sendmon(c, m);
+ 				if(!c->isfloating && selmon->lt[selmon->sellt]->arrange
+ 				&& (abs(nw - c->w) > snap || abs(nh - c->h) > snap))
+ 					togglefloating(NULL);
+@@ -1463,6 +1474,7 @@ scan(void) {
+ 
+ void
+ sendmon(Client *c, Monitor *m) {
++	Monitor *oldm = selmon;
+ 	if(c->mon == m)
+ 		return;
+ 	unfocus(c, True);
+@@ -1472,8 +1484,11 @@ sendmon(Client *c, Monitor *m) {
+ 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+ 	attach(c);
+ 	attachstack(c);
+-	focus(NULL);
+-	arrange(NULL);
++	if (oldm != m)
++		arrange(oldm);
++	arrange(m);
++	focus(c);
++	restack(m);
+ }
+ 
+ void
+@@ -1549,8 +1564,18 @@ setfullscreen(Client *c, Bool fullscreen) {
+ 
+ void
+ setlayout(const Arg *arg) {
+-	if(!arg || !arg->v || arg->v != selmon->lt[selmon->sellt])
++	if(!arg || !arg->v || arg->v != selmon->lt[selmon->sellt]) {
+ 		selmon->sellt ^= 1;
++		if (!selmon->lt[selmon->sellt]->arrange) {
++			for (Client *c = selmon->clients ; c ; c = c->next) {
++				if(!c->isfloating) {
++					/*restore last known float dimensions*/
++					resize(c, selmon->mx + c->sfx, selmon->my + c->sfy,
++					       c->sfw, c->sfh, False);
++				}
++			}
++		}
++	}
+ 	if(arg && arg->v)
+ 		selmon->lt[selmon->sellt] = (Layout *)arg->v;
+ 	strncpy(selmon->ltsymbol, selmon->lt[selmon->sellt]->symbol, sizeof selmon->ltsymbol);
+@@ -1732,9 +1757,19 @@ togglefloating(const Arg *arg) {
+ 	if(selmon->sel->isfullscreen) /* no support for fullscreen windows */
+ 		return;
+ 	selmon->sel->isfloating = !selmon->sel->isfloating || selmon->sel->isfixed;
+-	if(selmon->sel->isfloating)
+-		resize(selmon->sel, selmon->sel->x, selmon->sel->y,
+-		       selmon->sel->w, selmon->sel->h, False);
++	if(selmon->sel->isfloating) {
++		/*restore last known float dimensions*/
++		resize(selmon->sel, selmon->mx + selmon->sel->sfx, selmon->my + selmon->sel->sfy,
++		       selmon->sel->sfw, selmon->sel->sfh, False);
++	} else {
++		if (selmon->sel->isfullscreen)
++			setfullscreen(selmon->sel, False);
++		/*save last known float dimensions*/
++		selmon->sel->sfx = selmon->sel->x - selmon->mx;
++		selmon->sel->sfy = selmon->sel->y - selmon->my;
++		selmon->sel->sfw = selmon->sel->w;
++		selmon->sel->sfh = selmon->sel->h;
++	}
+ 	arrange(selmon);
+ }
+ 
+diff --git a/exresize.c b/exresize.c
+new file mode 100644
+index 0000000..2343ffe
+--- /dev/null
++++ b/exresize.c
+@@ -0,0 +1,195 @@
++#define EXPAND_LEFT  (1 << 0)
++#define EXPAND_RIGHT (1 << 2)
++#define EXPAND_UP    (1 << 4)
++#define EXPAND_DOWN  (1 << 6)
++
++#define IS_SET(q, w) ((q & w) != 0)
++#define IS_FORCED(q, w) IS_SET((q << 1), w)
++
++#define EXPANDALL       (EXPAND_LEFT | EXPAND_RIGHT | EXPAND_UP | EXPAND_DOWN)
++#define UNEXPAND       (EXPANDALL << 1) // Force all directions to 0
++#define FORCE_EXPANDALL ~0 // Force expand in all directions
++
++enum { EX_NW, EX_N, EX_NE, EX_W, EX_C, EX_E, EX_SW, EX_S, EX_SE };
++
++void expand(unsigned char mask);
++
++void togglemaximize(const Arg *arg);
++void toggleverticalexpand(const Arg *arg);
++void togglehorizontalexpand(const Arg *arg);
++void exresize(const Arg *arg);
++void explace(const Arg *arg);
++
++void
++exresize(const Arg *arg) {
++	Client *c;
++	int x, y, nx, ny, nw, nh;
++	c = selmon->sel;
++
++	if (!c || !arg) return;
++	if (selmon->lt[selmon->sellt]->arrange && !c->isfloating)
++		togglefloating(NULL);
++	if (c->expandmask != 0)
++		expand(UNEXPAND);
++
++	x = ((int *)arg->v)[0];
++	y = ((int *)arg->v)[1];
++
++	nw = MIN(selmon->ww - c->bw*2, c->w + x);
++	nh = MIN(selmon->wh - c->bw*2, c->h + y);
++	nx = c->x - x/2;
++	ny = c->y - y/2;
++
++	if (!((abs(c->x + c->w/2 - (selmon->wx + selmon->ww/2)) < snap))) {
++		if ((nw == selmon->ww) || 
++				(nx < selmon->wx) ||
++				(abs(selmon->wx - c->x) < snap))
++			nx = selmon->wx;
++		else if ((nx+nw > (selmon->wx + selmon->ww)) || 
++				(abs((selmon->wx + selmon->ww) - (c->x + c->w)) < snap))
++			nx = (selmon->wx + selmon->ww) - nw - c->bw*2;
++    } else 
++		nx = selmon->wx + selmon->ww/2 - nw/2;
++
++    if (!((abs(c->y + c->h/2 - (selmon->wy + selmon->wh/2)) < snap))) {
++
++		if ((nh == selmon->wh) || 
++				(ny < selmon->wy) ||
++				(abs(selmon->wy - c->y) < snap))
++			ny = selmon->wy;
++		else if ((ny+nh > (selmon->wy + selmon->wh)) ||
++				(abs((selmon->wy + selmon->wh) - (c->y + c->h)) < snap))
++			ny = (selmon->wy + selmon->wh) - nh - c->bw*2;
++	} else 
++        ny = selmon->wy + selmon->wh/2 - nh/2;
++
++
++	resizeclient(c, nx, ny, MAX(nw, 32), MAX(nh, 32));
++	XWarpPointer(dpy, None, c->win, 0, 0, 0, 0, c->w/2, c->h/2);
++}
++
++void
++explace(const Arg *arg) {
++	Client *c;
++	int nx, ny;
++
++	c = selmon->sel;
++	if (!c || (arg->ui >= 9)) return;
++	if (selmon->lt[selmon->sellt]->arrange && !c->isfloating)
++		togglefloating(NULL);
++
++	nx = (arg->ui % 3) - 1;
++	ny = (arg->ui / 3) - 1;
++
++	if (nx < 0) nx = selmon->wx;
++	else if (nx > 0) nx = selmon->wx + selmon->ww - c->w - c->bw*2;
++	else nx = selmon->wx + selmon->ww/2 - c->w/2;
++
++	if (ny < 0) ny = selmon->wy;
++	else if (ny > 0) ny = selmon->wy + selmon->wh - c->h - c->bw*2;
++	else ny = selmon->wy + selmon->wh/2 - c->h/2;
++
++	resize(c, nx, ny, c->w, c->h, True);
++	XWarpPointer(dpy, None, c->win, 0, 0, 0, 0, c->w/2, c->h/2);
++}
++
++int
++calculate_expand(unsigned char mask, unsigned char curmask,
++		unsigned char *newmask, unsigned char key,
++		int *reset_value, int new_reset_value,
++		int max_value, int old_value) {
++	if (IS_SET(key, mask) ||
++			(IS_SET(key, curmask) && (!IS_SET(key, mask) && IS_FORCED(key, mask))) ||
++			(!IS_SET(key, curmask) && (IS_SET(key, mask) && IS_FORCED(key, mask)))) {
++
++		if (IS_SET(key, mask) && (!IS_SET(key,curmask) || IS_FORCED(key,mask)))
++		{
++			if (!IS_SET(key, curmask))
++				*reset_value = new_reset_value;
++			*newmask |= key;
++			return max_value;
++		} else if ((IS_SET(key,curmask) && IS_SET(key, mask)) ||
++				(!IS_SET(key, mask) && IS_FORCED(key, mask))) {
++			*newmask &= ~key;
++			return *reset_value;
++		} else {
++			*newmask &= ~key;
++			return old_value;
++		}
++	} else
++		return new_reset_value;
++}
++
++void
++expand(unsigned char mask) {
++	XEvent ev;
++	int nx1, ny1, nx2, ny2;
++	unsigned char curmask;
++	unsigned char newmask;
++
++	if(!selmon->sel || selmon->sel->isfixed)
++		return;
++	XRaiseWindow(dpy, selmon->sel->win);
++	newmask = curmask = selmon->sel->expandmask;
++
++	if (curmask == 0) {
++		if(!selmon->lt[selmon->sellt]->arrange || selmon->sel->isfloating)
++			selmon->sel->wasfloating = True;
++		else {
++			togglefloating(NULL);
++			selmon->sel->wasfloating = False;
++		}
++	}
++
++	nx1 = calculate_expand(mask, curmask, &newmask,
++			EXPAND_LEFT, &selmon->sel->expandx1,
++			selmon->sel->x,
++			selmon->wx,
++			selmon->sel->oldx);
++	nx2 = calculate_expand(mask, curmask, &newmask,
++			EXPAND_RIGHT, &selmon->sel->expandx2,
++			selmon->sel->x + selmon->sel->w,
++			selmon->wx + selmon->ww - 2*borderpx,
++			selmon->sel->oldw + selmon->sel->x);
++	ny1 = calculate_expand(mask, curmask, &newmask,
++			EXPAND_UP, &selmon->sel->expandy1,
++			selmon->sel->y,
++			selmon->wy,
++			selmon->sel->oldy);
++	ny2 = calculate_expand(mask, curmask, &newmask,
++			EXPAND_DOWN, &selmon->sel->expandy2,
++			selmon->sel->y + selmon->sel->h,
++			selmon->wy + selmon->wh - 2*borderpx,
++			selmon->sel->oldh + selmon->sel->y);
++
++
++	resizeclient(selmon->sel, nx1, ny1, MAX(nx2-nx1, 32), MAX(ny2-ny1, 32));
++
++	if ((newmask == 0) && (!selmon->sel->wasfloating))
++		togglefloating(NULL);
++	selmon->sel->expandmask = newmask;
++	drawbar(selmon);
++	while(XCheckMaskEvent(dpy, EnterWindowMask, &ev));
++}
++
++void
++togglemaximize(const Arg *arg) {
++	if (arg->i > 0) expand(FORCE_EXPANDALL);
++	else if (arg->i < 0) expand(UNEXPAND);
++	else expand(EXPANDALL);
++}
++
++void
++toggleverticalexpand(const Arg *arg) {
++	if (arg->i < 0) expand(EXPAND_DOWN);
++	else if (arg->i > 0) expand(EXPAND_UP);
++	else expand(EXPAND_DOWN | EXPAND_UP);
++}
++
++void
++togglehorizontalexpand(const Arg *arg) {
++	if (arg->i < 0) expand(EXPAND_LEFT);
++	else if (arg->i > 0) expand(EXPAND_RIGHT);
++	else expand(EXPAND_LEFT | EXPAND_RIGHT);
++}
++
