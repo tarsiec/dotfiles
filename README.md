@@ -27,4 +27,4 @@ Programs modified:
 
 
 I asume you have all of the programs I use installed, apart from
-`vim-plug`, `oh-my-zsh`, `JoyPixels`, `Material Design Icons`, `Font Awesome`, and anything I have autoran on my xinit.
+`vim-plug`, `oh-my-zsh`, a "nerd font" patched font, and anything I have autoran on my xinit.
