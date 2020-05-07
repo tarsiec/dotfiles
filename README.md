@@ -1,6 +1,6 @@
 # My personal configuration files
 
-(img.png)[img.png]
+![](img.png?raw=true)
 
 These are the dotfiles for the programs I use in my Arch Linux system. The
 amount of modification varies between the programs. And they are gathered here
