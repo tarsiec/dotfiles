@@ -1,5 +1,7 @@
 # My personal configuration files
 
+(Screenshot)[img.png]
+
 These are the dotfiles for the programs I use in my Arch Linux system. The
 amount of modification varies between the programs. And they are gathered here
 mainly to be easier fot me to access them any time I want, without having to
