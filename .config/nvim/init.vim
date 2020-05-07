@@ -9,12 +9,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'jreybert/vimagit'
 Plug 'fatih/vim-go'
 Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
 " ide-ing
 Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
 " ncm2
@@ -22,16 +23,16 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 " colorschemes
-Plug 'joshdick/onedark.vim'
+" Plug 'chuling/vim-equinusocio-material'
+Plug 'dracula/vim'
 call plug#end() " Colorscheme
 set t_Co=256
 set termguicolors
 
 set background=dark
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
-let g:gruvbox_contrast_dark="medium"
-colorscheme onedark
+"let g:equinusocio_material_darker = 1
+"let g:equinusocio_material_hide_vertsplit = 1
+colorscheme dracula
 " Basics
 set nocompatible
 filetype plugin on
@@ -99,22 +100,16 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 	map <leader>n :NERDTreeToggle<CR>
 
-" lightline
-"set laststatus=2
-"let g:lightline = {
-"\ 'colorscheme': 'one',
-"\ }
-
 " airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='default'
-let g:airline_powerline_fonts=1
-let g:airline_theme='onedark'
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#tabline#formatter='default'
+"let g:airline_powerline_fonts=1
+"let g:airline_theme='dracula'
 
 " lightline
-"let g:lightline = {
-"\ 'colorscheme': 'onedark',
-"\ }
+let g:lightline = {
+\ 'colorscheme': 'dracula',
+\ }
 
 " ncm2
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
