@@ -1,1 +1,16 @@
-/home/tlb/.config/starship/starship.toml
+[prompt]
+add_newline = true
+
+[battery]
+full_symbol = "󰁹"
+[[battery.display]]
+threshold = 20
+style = "bold yellow"
+
+[character]
+symbol = "λ"
+error_symbol = "ε"
+vicmd_symbol = "Λ"
+
+[username]
+show_always = true

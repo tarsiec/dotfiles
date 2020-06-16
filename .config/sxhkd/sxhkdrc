@@ -1,1 +1,78 @@
-/home/tlb/.config/sxhkd/sxhkdrc
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	alacritty
+
+# program launcher
+super+@space
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# brave
+super + w
+	brave
+
+# calcurse
+super + c
+	alacritty -e calcurse
+
+super + a
+    alacritty -e abook
+
+# moc (music player)
+super + o
+	alacritty -e mocp
+
+# emacs
+super + e
+    emacs
+
+# gimp
+super + g
+	gimp
+
+# toggle between dark and light theme for alacritty
+super + n
+    toggle-term-theme
+
+
+
+# lockscreen
+super + shift + x
+	betterlockscreen -l dimblur -t "hackers gtfo"
+
+# confirm shutdown
+super + alt + shift + x
+	prompt "Shutdown?" "shutdown -h now"
+
+# confirm reboot
+super + alt + shift + c
+	prompt "Reboot?" "reboot"
+
+# emoji picker
+super + u
+	dmenuunicode
+
+# mount and unmount
+super + shift + m
+    dmenumount
+
+super + alt + shift + m
+    dmenuumount
+
+# lf
+super + i
+	alacritty -e lf
+
+# audio control via amixer
+XF86Audio{Raise,Lower}Volume
+	amixer sset Master 5{+,-}
+
+XF86AudioMute
+	amixer sset Master toggle
