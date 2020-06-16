@@ -1,17 +1,1 @@
-[prompt]
-add_newline = true
-
-
-[battery]
-full_symbol = "󰁹"
-[[battery.display]]
-threshold = 20
-style = "bold yellow"
-
-[character]
-symbol = "󰅂 "
-error_symbol = "ε"
-vicmd_symbol = "μ"
-
-[git_branch]
-#symbol = "󰓁  "
+/home/tlb/.config/starship/starship.toml

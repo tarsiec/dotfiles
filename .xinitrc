@@ -1,1 +1,1 @@
-exec bspwm
+/home/tlb/.xinitrc
