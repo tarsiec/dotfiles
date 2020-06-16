@@ -8,5 +8,6 @@ source $HOME/.zprofile
 
 ### THEME ###
 eval "$(starship init zsh)"
+eval "$(ssh-agent -s)" >/dev/null
 
 pfetch
