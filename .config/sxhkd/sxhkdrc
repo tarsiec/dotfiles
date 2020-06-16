@@ -6,6 +6,10 @@
 super + Return
 	alacritty
 
+# tabbed terminal emulator
+super + shift + Return
+    tabbed alacritty --embed
+
 # program launcher
 super+@space
 	dmenu_run
