@@ -31,10 +31,9 @@ export PATH=$PATH:$GOBIN
 # starship.rs
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
-### ZSH PLUGINS ###
+### "PLUGINS" ###
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-fpath=(.local/share/zsh/plugins/zsh-completions/zsh-completions/src $fpath)
 #source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # oh my zsh
