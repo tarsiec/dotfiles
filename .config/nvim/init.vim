@@ -174,4 +174,7 @@ let g:airline_theme='base16_tomorrow'
 
 " hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
+<<<<<<< HEAD
 noremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+=======
+>>>>>>> script
