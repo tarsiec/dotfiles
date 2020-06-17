@@ -2,7 +2,7 @@
 "  _   __(_)___ ___  __________
 " | | / / / __ `__ \/ ___/ ___/
 " | |/ / / / / / / / /  / /__
-" |___/_/_/ /_/ /_/_/   \___/  t0maslb@github
+" |___/_/_/ /_/ /_/_/   \___/  t0maslb@github d
 
 let mapleader=" "
 
@@ -174,7 +174,3 @@ let g:airline_theme='base16_tomorrow'
 
 " hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
-<<<<<<< HEAD
-noremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-=======
->>>>>>> script
