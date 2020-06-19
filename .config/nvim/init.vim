@@ -2,22 +2,17 @@
 "  _   __(_)___ ___  __________
 " | | / / / __ `__ \/ ___/ ___/
 " | |/ / / / / / / / /  / /__
-" |___/_/_/ /_/ /_/_/   \___/  t0maslb@github d
+" |___/_/_/ /_/ /_/_/   \___/  t0maslb@github
 
 let mapleader=" "
 
 call plug#begin('~/.vim/plugged')
     Plug 'jreybert/vimagit'
-    Plug 'fatih/vim-go'
     Plug 'sheerun/vim-polyglot'
-    Plug 'pangloss/vim-javascript'
-    " ide-ing
-    Plug 'davidhalter/jedi-vim'
-    Plug 'roxma/nvim-yarp'
     Plug 'preservim/nerdtree'
-    "Plug 'itchyny/lightline.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'junegunn/goyo.vim'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'voldikss/vim-floaterm'
@@ -25,9 +20,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-multiple-cursors'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'jceb/vim-orgmode'
+    Plug 'vimwiki/vimwiki'
     " colorschemes
     Plug 'chriskempson/base16-vim'
+    Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 
@@ -42,11 +38,8 @@ hi Normal guibg=NONE ctermbg=NONE
 
 
 "--- MISC ---
-set nocompatible
-filetype plugin on
 filetype plugin indent on
-set mouse=a
-set clipboard+=unnamedplus
+"set mouse=a
 set encoding=utf-8
 set number relativenumber
 set nohls
@@ -132,12 +125,12 @@ nnoremap S :%s//gI<Left><Left><Left>
 
 " --- CODE GEN  ---
 " Guide navigation
-noremap <leader>n <Esc>/<++><Enter>"_c4l
-inoremap <A-TAB>n <Esc>/<++><Enter>"_c4l
-vnoremap <leader>n <Esc>/<++><Enter>"_c4l
+noremap <leader>m <Esc>/<++><Enter>"_c4l
+inoremap <A-TAB>m <Esc>/<++><Enter>"_c4l
+vnoremap <leader>m <Esc>/<++><Enter>"_c4l
 
 " General insert commands
-inoremap ;m <++>
+inoremap <A-TAB>; <++>
 
 " shell
 map <leader>b i#!/bin/sh<CR><CR>

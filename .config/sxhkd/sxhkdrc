@@ -2,7 +2,7 @@
 # wm independent hotkeys
 #
 
-TERM = alacritty
+TERM=alacritty
 
 # tabbed terminal emulator
 super + Return
@@ -10,7 +10,7 @@ super + Return
 
 # terminal emulator
 super + shift + Return
-	$TERM
+	alacritty
 
 # program launcher
 super+@space
@@ -19,6 +19,10 @@ super+@space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# lf
+super + ;
+    $TERM -e lf --config ~/.config/lf/lfrc
 
 # brave
 super + w
@@ -34,23 +38,31 @@ super + e
 
 # moc (music player)
 super + m
-	$TERM -e mocp
+	alacritty -e mocp
 
 # gimp
 super + g
 	gimp
+
+# change scheme
+super + n
+    /home/tlb/.local/bin/color/toggle-term-theme
 
 # lockscreen
 super + shift + x
 	betterlockscreen -l dimblur -t "hackers gtfo"
 
 # confirm shutdown
-super + alt + shift + x
+super + alt + shift + z
 	prompt "Confirm shutdown?" "shutdown -h now"
 
 # confirm reboot
-super + alt + shift + c
+super + alt + shift + x
 	prompt "Confirm reboot?" "reboot"
+
+# confirm reboot
+super + alt + shift + c
+	prompt "Confirm suspend?" "systemctl suspend"
 
 # emoji picker
 super + u

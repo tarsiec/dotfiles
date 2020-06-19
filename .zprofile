@@ -2,11 +2,12 @@
 #export ZSH="$HOME/.oh-my-zsh"
 
 ### DEFAULT SOFTWARE ###
-export EDITOR="nvim"
 export TERM="alacritty"
+export EDITOR="nvim"
 export VISUAL="nvim"
 export READER="zathura"
 export BROWSER="brave"
+export PAGER="less"
 
 ### scripts
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
@@ -56,6 +57,47 @@ alias mv="mv -i"
 alias m="mocp"
 alias screenshot="scrot"
 alias c="calcurse"
+alias gc="cd ~/.config"
+alias gcb="cd ~/.config/bspwm"
+alias gcn="cd ~/.config/nvim"
+alias gca="cd ~/.config/alacritty"
+alias gcp="cd ~/.config/polybar"
+alias gcs="cd ~/.config/sxhkd"
+alias gcl="cd ~/.config/lf"
+alias gcd="cd ~/.config/dunst"
+alias gcz="cd ~/.config/zathura"
+
+alias gtf="cd ~/.local/trash/files"
+
+alias gv="cd ~/vids"
+alias gvy="cd ~/vids/yt"
+
+alias gp="cd ~/pics"
+alias gpw="cd ~/pics/wallpapers"
+alias gps="cd ~/pics/screenshots"
+
+
+alias gd="cd ~/docs"
+alias gdi="cd ~/docs/instituto"
+alias gdr="cd ~/docs/reads"
+
+alias gb="cd ~/.local/bin/"
+alias gbd="cd ~/.local/bin/dwmbar"
+alias gbp="cd ~/.local/bin/polybar"
+alias gbb="cd ~/.local/bin/bspwm"
+alias gbt="cd ~/.local/bin/transmission"
+
+alias gr="cd ~/.local/share/repos"
+alias grd="cd ~/.local/share/repos/dotfiles"
+alias gpm="cd ~/.local/share/pkg/dmenu"
+alias gpw="cd ~/.local/share/pkg/dwm"
+alias gpt="cd ~/.local/share/pkg/tabbed"
+alias gps="cd ~/.local/share/pkg/st"
+
+alias gc="cd ~/.config"
+alias gE="cd /etc"
+alias gU="cd /usr"
+alias gUs="cd /usr/share"
 
 export LF_ICONS="di=📁:\
 fi=📃:\
