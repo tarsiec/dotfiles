@@ -6,11 +6,11 @@ TERM=alacritty
 
 # tabbed terminal emulator
 super + Return
-    tabbed alacritty --embed
+	alacritty
 
 # terminal emulator
 super + shift + Return
-	alacritty
+    tabbed alacritty --embed
 
 # program launcher
 super+@space
@@ -54,15 +54,15 @@ super + shift + x
 
 # confirm shutdown
 super + alt + shift + z
-	prompt "Confirm shutdown?" "shutdown -h now"
+	/home/tlb/.local/bin/luke_bin/prompt "Confirm shutdown?" "shutdown -h now"
 
 # confirm reboot
 super + alt + shift + x
-	prompt "Confirm reboot?" "reboot"
+    /home/tlb/.local/bin/luke_bin/prompt "Confirm reboot?" "reboot"
 
 # confirm reboot
 super + alt + shift + c
-	prompt "Confirm suspend?" "systemctl suspend"
+    /home/tlb/.local/bin/luke_bin/prompt "Confirm suspend?" "systemctl suspend"
 
 # emoji picker
 super + u
@@ -74,12 +74,13 @@ super + r
 
 # audio control via amixer
 XF86Audio{Raise,Lower}Volume
-	amixer set Master 5%{+,-}
+    pulsemixer --change-volume {+,-}5
+
+super + XF86Audio{Raise,Lower}Volume
+    pulsemixer --change-volume {+,-}25
 
 XF86AudioMute
-	amixer set Master toggle
-
-
+	pulsemixer --set-volume 0
 
 #
 # bspwm hotkeys

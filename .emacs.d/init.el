@@ -13,13 +13,48 @@
 (setq tab-width 4)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
+(electric-pair-mode)
 
 ;; initial buffer in org mode
 (setq initial-major-mode 'org-mode)
 
+;; RESIZING WINDOWS
+;; SETTING UP PACKAGES
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+
+
+;; CLEANING UP DEFAULT CONFIG
+(setq inhibit-startup-screen t)
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(setq tab-width 4)
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
+(electric-pair-mode)
+
+;; initial buffer in org mode
+(setq initial-major-mode 'org-mode)
+
+;; activate yasnippet
+(require 'yasnippet)
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(yas-global-mode 1)
+
+;; RESIZING WINDOWs
+(global-set-key (kbd "S-C-h") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-j") 'shrink-window)
+(global-set-key (kbd "S-C-k") 'enlarge-window)
+
+(global-set-key (kbd "S-C-SPC") 'ace-window)
+
 ;; HELPER FUNC(S)
 (defun enable-minor-mode (my-pair)
-  "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
   (if (buffer-file-name)
       (if (string-match (car my-pair) buffer-file-name)
       (funcall (cdr my-pair)))))
@@ -34,19 +69,9 @@
 (global-set-key (kbd "C-c /") 'company-files)
 
 ;; SETTING UP TERMINAL (AND MULTITERM)
-(global-set-key (kbd "C-c t") 'multi-term)
-;(setq multi-term-program-switches "--login")
-(setq system-uses-terminfo nil)
-
-
-(add-hook 'term-mode-hook
-          (lambda ()
-            (goto-address-mode)
-            (define-key term-raw-map (kbd "C-y") 'hrs/term-paste)
-            (define-key term-raw-map (kbd "<mouse-2>") 'hrs/term-paste)
-            (define-key term-raw-map (kbd "M-o") 'other-window)
-            (setq yas-dont-activate t)))
-
+(global-set-key (kbd "C-c t") 'vterm)
+(add-to-list 'load-path "~/.emacs.d/elpa/vterm-20200613.1457")
+(require 'vterm)
 
 ;; PATH AND GOPATH
 ;; Snag the user's PATH and GOPATH
@@ -62,20 +87,9 @@
       calendar-location-name "Vigo, GA")
 
 ;; APPEARANCE
-(set-default-font "Fira Code Retina 12")
+(set-default-font "JetBrains Mono 12")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (base16-tomorrow-night)))
- '(custom-safe-themes
-   (quote
-    ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
- '(package-selected-packages
-   (quote
-    (fira-code-mode helm-go-package magithub magit-todos evil-magit magit helm-fuzzier helm-emmet ac-helm helm ac-emmet web-beautify web-mode auto-rename-tag ac-html prettier-js sane-term eterm-256color skewer-mode company-web flymake-jslint js2-mode yasnippet multi-term flycheck-rust flycheck racer company-racer company-go company flymake-go flymake go-rename go-guru go-autocomplete go-playground rust-playground cargo rust-auto-use evil which-key org-pdftools org-notebook org-msg org-caldav org-board org-alert ob-rust ob-go org-bullets go-mode smex))))
+
 (global-display-line-numbers-mode)
 
 ;; COMPLETION (HELM!)
@@ -87,6 +101,15 @@
 
 (require 'helm-fuzzier)
 (helm-fuzzier-mode 1)
+
+;; PROJECTILE AND NEOTREE
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+
+(add-to-list 'load-path ".emacs.d/elpa/neotree-20200324.1946")
+('require neotree)
+(global-set-key (kbd "C-c n") 'neotree-toggle)
+
 
 ;; LANGS
 ;; HASKELL MODE
@@ -121,23 +144,23 @@
 (setq org-alert-notification-title "ORG Agenda")
 
 ;; GO MODE
-(autoload 'helm-go-package "helm-go-package") ;; Not necessary if using ELPA package
+(autoload 'helm-go-package "helm-go-package")
 (eval-after-load 'go-mode
   '(substitute-key-definition 'go-import-add 'helm-go-package go-mode-map))
 
 (require 'go-autocomplete)
 (require 'go-guru)
 (add-to-list 'load-path "/home/tlb/code/projects/go/src/github.com/dougm/goflymake")
-
 (require 'go-flymake)
 (add-hook 'go-mode-hook (lambda ()
 			  ;; godef-describe -> C-c C-d
 			  ;; godef-jump     -> C-c C-j [C-x <LEFT>] <-back to prev buffer
-			  (local-set-key (kbd "C-c C-c") 'go-remove-unused-imports)
+			  (local-set-key (kbd "C-c C-e") 'go-remove-unused-imports)
 			  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
 			  (local-set-key (kbd "C-c C-g") 'go-goto-imports)
 			  (local-set-key (kbd "C-c C-f") 'go-fmt)
 			  (local-set-key (kbd "C-c C-k") 'godoc)))
+
 (add-hook 'go-mode-hook 'company-mode)
 (add-hook 'go-mode-hook (lambda ()
   (set (make-local-variable 'company-backends) '(company-go))
@@ -225,12 +248,6 @@
 
 ;; SETTING UP PDF-TOOLS
 (pdf-loader-install)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;;  WHICH KEY (awesome)
 (which-key-mode t)
@@ -243,3 +260,28 @@
       evil-want-keybinding nil)
 
 (evil-mode 1)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (base16-tomorrow-night)))
+ '(custom-safe-themes
+   (quote
+    ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
+ '(package-selected-packages
+   (quote
+    (neotree vterm helm-hoogle org-projectile helm-projectile go-projectile ace-window which-key web-mode web-beautify smex skewer-mode sane-term rust-playground rust-auto-use racer prettier-js org-pdftools org-notebook org-msg org-caldav org-bullets org-board org-alert ob-rust ob-go multi-term magithub magit-todos helm-go-package helm-fuzzier helm-emmet haskell-snippets haskell-mode go-snippets go-rename go-playground go-guru go-eldoc go-autocomplete flymake-jslint flymake-go flymake flycheck-rust fira-code-mode evil-magit eterm-256color company-web company-racer company-go color-theme-sanityinc-tomorrow cargo base16-theme auto-rename-tag atom-dark-theme airline-themes ac-html ac-emmet))))
+
+;; activate yasnippet
+(require 'yasnippet)
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(yas-global-mode 1)
+

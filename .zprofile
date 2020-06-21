@@ -57,6 +57,7 @@ alias mv="mv -i"
 alias m="mocp"
 alias screenshot="scrot"
 alias c="calcurse"
+
 alias gc="cd ~/.config"
 alias gcb="cd ~/.config/bspwm"
 alias gcn="cd ~/.config/nvim"
@@ -75,7 +76,6 @@ alias gvy="cd ~/vids/yt"
 alias gp="cd ~/pics"
 alias gpw="cd ~/pics/wallpapers"
 alias gps="cd ~/pics/screenshots"
-
 
 alias gd="cd ~/docs"
 alias gdi="cd ~/docs/instituto"

@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'vimwiki/vimwiki'
+    Plug 'rust-lang/rust.vim'
     " colorschemes
     Plug 'chriskempson/base16-vim'
     Plug 'tomasiser/vim-code-dark'
