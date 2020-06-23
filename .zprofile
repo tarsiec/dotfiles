@@ -40,6 +40,7 @@ source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-s
 # oh my zsh
 source $ZSH/oh-my-zsh.sh
 
+alias python3="python"
 alias getvid="youtube-dl --restrict-filenames -f 22"
 alias getaudio="youtube-dl --restrict-filenames -x --audio-format mp3"
 alias dmi="doas make install"
@@ -56,7 +57,7 @@ alias -g Z="| fzf"
 alias mv="mv -i"
 alias m="mocp"
 alias screenshot="scrot"
-alias c="calcurse"
+alias newsboat="newsboat -C $HOME/.config/newsboat/config -u $HOME/.config/newsboat/urls -c $HOME/.config/newsboat/cache.db"
 
 alias gc="cd ~/.config"
 alias gcb="cd ~/.config/bspwm"

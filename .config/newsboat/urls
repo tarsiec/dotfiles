@@ -1,0 +1,55 @@
+# Blogs and personal sites
+"--- Blogs and personal sites ---"
+http://lukesmith.xyz/rss.xml "~Luke Smith (Blog)"
+https://waitbutwhy.com/feed "~Wait But Why (Blog)"
+
+# Programming
+"--- Programming ---"
+http://blog.cleancoder.com/atom.xml "~The Clean Code Blog"
+https://feeds.feedburner.com/codinghorror "~Coding Horror (Blog)"
+https://blog.golang.org/feed.atom "~Golang (Blog)"
+https://blog.rust-lang.org/feed.xml "~Rust (Blog)"
+
+# Software updates
+"--- Software updates ---"
+https://www.archlinux.org/feeds/news/ "~Arch Linux (Feed)"
+https://newsboat.org/news.atom "~NewsBoat (Feed)"
+https://github.com/starship/starship/commits/master.atom "~Commits to starship.rs (GitHub)"
+
+# Tech news
+"--- Tech News ---"
+https://feeds.feedburner.com/TechCrunch/ "~TechCrunch (News)"
+https://hnrss.org/frontpage "~HackerNews (News)"
+https://www.wired.com/feed/rss "~Wired.com (News)"
+https://feeds.feedburner.com/arstechnica/index/ "~Ars Technica (News)"
+
+# Fun
+"--- Fun ---"
+https://xkcd.com/rss.xml "~xkcd.com (Fun)"
+
+# Reddit Feed
+"--- Reddit Feed ---"
+https://www.reddit.com/r/programming.rss "~r/Programming"
+https://www.reddit.com/r/ProgrammingLanguages.rss "~r/ProgrammingLanguages"
+https://www.reddit.com/r/technology.rss "~r/Technology"
+https://www.reddit.com/r/science.rss "~r/Science"
+https://www.reddit.com/r/apple.rss "~r/Apple"
+https://www.reddit.com/r/privacy.rss "~r/Privacy"
+https://www.reddit.com/r/vim.rss "~r/Vim"
+
+# YouTube Feed
+"--- YouTube Feed ---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClcE-kVhqyiHCcjYwcpfj9w "~LiveOverflow (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q "~Jreg (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "~MKBHD (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXIN3HIH0eon5hVYYpnoNuQ "~azureScapegoat (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvjgXvBlbQiydffZU7m1_aw "~The Coding Train (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie Robertson (YouTube)"
+
+
+# Podcasts
+"--- Podcasts ---"
+https://notrelated.libsyn.com/rss "~Not Related! (Podcast)"
+http://philosophizethis.org/feed/ "~Philosophize This! (Podcast)"
+https://feeds.simplecast.com/dLRotFGk "~Developer Tea (Podcast)"

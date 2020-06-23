@@ -12,9 +12,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'junegunn/goyo.vim'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+    Plug 'sirver/ultisnips'
     Plug 'voldikss/vim-floaterm'
     Plug 'airblade/vim-gitgutter'
     Plug 'terryma/vim-multiple-cursors'
@@ -22,9 +22,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'vimwiki/vimwiki'
     Plug 'rust-lang/rust.vim'
+    Plug 'lervag/vimtex'
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    Plug 'jiangmiao/auto-pairs'
     " colorschemes
     Plug 'chriskempson/base16-vim'
     Plug 'tomasiser/vim-code-dark'
+    Plug 'arzg/vim-colors-xcode'
 call plug#end()
 
 
@@ -168,3 +172,23 @@ let g:airline_theme='base16_tomorrow'
 
 " hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
+
+" ultisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" --- LATEX ---
+" Vim Latex Live Preview
+let g:livepreview_previewer = 'zathura'
+
+noremap <leader>p :LLPStartPreview<CR>
+inoremap <A-TAB>p <ESC>:LLPStartPreview<CR>i
+vnoremap <A-TAB>p <ESC>:LLPStartPreview<CR>i
+
+" vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'

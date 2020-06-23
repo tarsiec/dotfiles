@@ -72,7 +72,7 @@ font-1 = Material Design Icons:pixelsize=13;3
 font-2 = Iosevka Nerd Font:style=Bold:pixelsize=12;3
 
 modules-left = bspwm
-modules-center = spotify
+;modules-center = spotify
 modules-right = memory cpu wlan eth pulseaudio battery0 battery1 date
 
 tray-position = right

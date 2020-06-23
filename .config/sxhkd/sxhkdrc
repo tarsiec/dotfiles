@@ -54,15 +54,15 @@ super + shift + x
 
 # confirm shutdown
 super + alt + shift + z
-	/home/tlb/.local/bin/luke_bin/prompt "Confirm shutdown?" "shutdown -h now"
+	prompt "Confirm shutdown?" "shutdown -h now"
 
 # confirm reboot
 super + alt + shift + x
-    /home/tlb/.local/bin/luke_bin/prompt "Confirm reboot?" "reboot"
+    prompt "Confirm reboot?" "reboot"
 
 # confirm reboot
 super + alt + shift + c
-    /home/tlb/.local/bin/luke_bin/prompt "Confirm suspend?" "systemctl suspend"
+    prompt "Confirm suspend?" "systemctl suspend"
 
 # emoji picker
 super + u
