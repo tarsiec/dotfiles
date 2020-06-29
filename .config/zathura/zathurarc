@@ -32,4 +32,4 @@ set recolor-lightcolor          "#1d1f21"
 set recolor-darkcolor           "#e0e0e0"
 
 set recolor                     "true"
-set recolor-keephue             "true"
+set recolor-keephue             "false"
