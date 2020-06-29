@@ -1,3 +1,6 @@
+#!/bin/zsh
+
+
 ### ohmyzsh
 #export ZSH="$HOME/.oh-my-zsh"
 
@@ -6,7 +9,7 @@ export TERM="alacritty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export READER="zathura"
-export BROWSER="brave"
+export BROWSER="firefox"
 export PAGER="less"
 
 ### scripts
@@ -31,14 +34,19 @@ export PATH=$PATH:$GOBIN
 ### SOFTWARE ###
 # starship.rs
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+eval "$(starship init zsh)"
 
 ### "PLUGINS" ###
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-#source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # oh my zsh
 source $ZSH/oh-my-zsh.sh
+
+# set up vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
 alias python3="python"
 alias getvid="youtube-dl --restrict-filenames -f 22"
@@ -161,3 +169,5 @@ ex=🎯:\
 *.part=💔:\
 *.torrent=🔽:\
 "
+
+

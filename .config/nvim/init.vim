@@ -8,27 +8,32 @@ let mapleader=" "
 
 call plug#begin('~/.vim/plugged')
     Plug 'jreybert/vimagit'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'preservim/nerdtree'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'junegunn/goyo.vim'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'sirver/ultisnips'
-    Plug 'voldikss/vim-floaterm'
     Plug 'airblade/vim-gitgutter'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'vimwiki/vimwiki'
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    " langs
+    Plug 'sheerun/vim-polyglot'
     Plug 'rust-lang/rust.vim'
     Plug 'lervag/vimtex'
-    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    Plug 'LaTeX-Box-Team/LaTeX-Box'
+    " IDEing
+    Plug 'preservim/nerdtree'
+    Plug 'ctrlpvim/ctrlp.vim'
+"    Plug 'ycm-core/YouCompleteMe'
+    Plug 'vim-crystal/vim-crystal'
+    Plug 'vimlab/split-term.vim'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'voldikss/vim-floaterm'
     " colorschemes
     Plug 'chriskempson/base16-vim'
-    Plug 'tomasiser/vim-code-dark'
-    Plug 'arzg/vim-colors-xcode'
+    Plug 'dracula/vim'
 call plug#end()
 
 
@@ -102,7 +107,7 @@ map <leader>c :w! \| !compiler <c-r>%<CR><CR>
 map <leader>p :!output <c-r>%<CR><CR>
 
 " Float Term
-map <leader>t :FloatermNew <CR>
+map <leader>tf :FloatermNew <CR>
 
 " enable and disable auto comment
 map <leader>c :setlocal formatoptions-=cro<CR>
@@ -127,8 +132,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " shortcut to replace all insatnces to S
 nnoremap S :%s//gI<Left><Left><Left>
 
-
-" --- CODE GEN  ---
+"--- CODE GEN  ---
 " Guide navigation
 noremap <leader>m <Esc>/<++><Enter>"_c4l
 inoremap <A-TAB>m <Esc>/<++><Enter>"_c4l
@@ -192,3 +196,14 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+" Split-Term
+map <leader>ts :10Term<CR>
+map <leader>tv :VTerm<CR>
+map <leader>tt :TTerm<CR>
+

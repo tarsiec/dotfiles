@@ -1,0 +1,56 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/tlb/code/tutorials/haskell/haskellrank/" . "solveMeFirst/")
+ ("/home/tlb/code/tutorials/haskell/learnyouahaskell/" . "starting_out/")
+ ("/home/tlb/code/tutorials/haskell/" . "learnyouahaskell/")
+ ("/home/tlb/code/tutorials/" . "haskell/")
+ ("/home/tlb/code/" . "tutorials/")
+ ("/home/tlb/.emacs.d/" . "auto-save-list/")
+ ("/home/tlb/" . "code/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/tlb/code/tutorials/haskell/learnyouahaskell/starting_out/"
+ "/home/tlb/code/tutorials/haskell/haskellrank/solveMeFirst/"
+ "/home/tlb/.emacs.d/"
+ "/home/tlb/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "Main.hs"
+ "init.el"
+ "org.org"
+ "ido.last"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/tlb/code/tutorials/haskell/learnyouahaskell/starting_out/" (24313 15236 453221 335000) "../" "Main.hs~" "Main.hs" "./" ".#Main.hs")
+
+ ("/home/tlb/" (24313 12159 273237 210000) "../" ".dropbox/" ".irssi/" ".Xauthority" ".pki/" ".p10k.zsh" "music/" ".xmodmap" ".npmrc" "code/" "pics/" ".ghc/" ".gnupg/" ".mozilla/" ".emacs.d.orig/" ".cache/" ".Xresources" ".pkg-cache/" "vids/" ".moc/" ".emacs.d/" ".nvm/" ".zcompdump-arch-5.8" ".gtkrc-2.0" ".gem/" ".profile" ".zshrc" ".stack/" ".viminfo" ".cabal/" ".config/" ".icons/" ".npm/" ".hoogle/" ".oh-my-zsh/" ".vim/" ".zsh_history" ".xinitrc" "docs/" ".local/" "./" ".gitconfig" ".vscode-insiders/")
+
+ ("/home/tlb/code/tutorials/haskell/haskellrank/solveMeFirst/" (24313 10822 736577 299000) "../" "Main.hs" "./")
+
+ ("/home/tlb/code/tutorials/haskell/haskellrank/" (24313 10816 956577 323000) "../" "solveMeFirst/" "./")
+
+ ("/home/tlb/code/tutorials/haskell/" (24313 10811 9910 689000) "../" "haskellrank/" "learnyouahaskell/" "./")
+
+ ("/home/tlb/.emacs.d/" (24313 10763 849910 916000) "../" "plugins/" "init.el" "elpa/" "ido.last" "ido.last~" "snippets/" "auto-save-list/" "init.el.orig" "init.el~" ".mc-lists.el" "./")
+
+ ("/home/tlb/.emacs.d/auto-save-list/" (24312 52832 303375 141000) "../" ".saves-198342-arch~" "./")
+
+ ("/home/" (24304 37364 262834 500000) "../" "tlb/" "lost+found/" "./")
+
+ ("/home/tlb/code/tutorials/haskell/learnyouahaskell/" (24311 51682 763373 396000) "../" "starting_out/" "./")
+
+ ("/home/tlb/code/tutorials/" (24311 51682 763373 396000) "rust/" "../" "crystal/" "haskell/" "tor/" "python/" "./")
+
+ ("/home/tlb/code/" (24306 40784 669965 972000) "../" "projects/" "resources/" "tutorials/" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,32 +1,32 @@
 [colors]
-background      = ${xrdb:color0:#1d1f21}
-background-alt  = #282a2e
+background      = ${xrdb:background:#1d1f21}
+background-alt  = #282c34
 foreground      = ${xrdb:color7:#c5c8c6}
 foreground-alt  = ${xrdb:color15:#ffffff}
 primary         = ${xrdb:color3:#f0c674}
 secondary       = ${xrdb:color2:#b5bd68}
 alert           = ${xrdb:color1:#cc6666}
 
-black           = #1f1d21
-red             = #cc6666
-green           = #b5bd68
-yellow          = #f0c674
-blue            = #81a2be
-purple          = #b294bb
-cyan            = #8abeb7
-white           = #c5c8c6
+black           = ${xrdb:color0:#1f1d21}
+red             = ${xrdb:color1:#cc6666}
+green           = ${xrdb:color2:#b5bd68}
+yellow          = ${xrdb:color3:#f0c674}
+blue            = ${xrdb:color4:#81a2be}
+purple          = ${xrdb:color5:#b294bb}
+cyan            = ${xrdb:color6:#8abeb7}
+white           = ${xrdb:color7:#c5c8c6}
 
 
 [defaults]
-format-prefix-foreground    = ${colors.foreground}
-format-background           = ${colors.background-alt}
-format-foreground           = ${colors.foreground}
+;format-prefix-foreground    = ${colors.foreground}
+;format-background           = ${colors.background-alt}
+;format-foreground           = ${colors.foreground}
 ;format-underline           = ${colors.primary}
-format-volume-underline     = ${colors.blue}
-format-charging-underline   = ${colors.yellow}
-format-discharging-underline= ${colors.yellow}
-format-full-underline       = ${colors.yellow}
-format-connected-underline  = ${colors.purple}
+;format-volume-underline     = ${colors.blue}
+;format-charging-underline   = ${colors.yellow}
+;format-discharging-underline= ${colors.yellow}
+;format-full-underline       = ${colors.yellow}
+;format-connected-underline  = ${colors.purple}
 format-padding              = 2
 
 
@@ -43,13 +43,13 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-bottom          = false
+bottom          = true
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 30
+height = 26
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0.0
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -59,7 +59,7 @@ line-size = 3
 line-color = #f00
 
 border-size = 0
-border-color = #00000000
+border-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
@@ -68,7 +68,7 @@ module-margin-left = 0
 module-margin-right = 1
 
 font-0 = Iosevka Nerd Font:pixelsize=12;3
-font-1 = Material Design Icons:pixelsize=13;3
+font-1 = Material Design Icons:pixelsize=12;2
 font-2 = Iosevka Nerd Font:style=Bold:pixelsize=12;3
 
 modules-left = bspwm
@@ -176,13 +176,19 @@ include-file = ~/.config/polybar/alsa.ini
 
 [module/battery0]
 inherit = defaults
-include-file = ~/.config/polybar/battery.ini
+include-file = ~/.config/polybar/batteryScript.ini
 battery = BAT0
 
 [module/battery1]
 inherit = defaults
-include-file = ~/.config/polybar/battery.ini
+type = custom/script
+interval = 10
+format = <label>
+exec = "battery | sed -n 2p"
+format-foreground = ${colors.background}
+format-background = ${colors.yellow}
 battery = BAT1
+
 
 
 [module/temperature]

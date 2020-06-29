@@ -6,11 +6,11 @@ TERM=alacritty
 
 # tabbed terminal emulator
 super + Return
-	alacritty
+    tabbed alacritty --embed
 
 # terminal emulator
 super + shift + Return
-    tabbed alacritty --embed
+	alacritty
 
 # program launcher
 super+@space
@@ -21,16 +21,20 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # lf
-super + ;
-    $TERM -e lf --config ~/.config/lf/lfrc
+super + y
+    alacritty -e lf --config ~/.config/lf/lfrc
 
 # brave
 super + w
-	brave
+	firefox
 
 # calcurse
 super + c
-	$TERM -e calcurse
+	alacritty -e calcurse
+
+# irssi
+super + i
+    alacritty -e irssi
 
 # emacs
 super + e
@@ -46,7 +50,7 @@ super + g
 
 # change scheme
 super + n
-    /home/tlb/.local/bin/color/toggle-term-theme
+    alacritty -e newsboat
 
 # lockscreen
 super + shift + x
@@ -70,7 +74,7 @@ super + u
 
 # ranger
 super + r
-	$TERM -e ranger
+	alacritty -e ranger
 
 # audio control via amixer
 XF86Audio{Raise,Lower}Volume

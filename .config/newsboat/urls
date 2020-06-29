@@ -2,6 +2,7 @@
 "--- Blogs and personal sites ---"
 http://lukesmith.xyz/rss.xml "~Luke Smith (Blog)"
 https://waitbutwhy.com/feed "~Wait But Why (Blog)"
+https://blog.ycombinator.com/feed/ "~YCombinator Blog"
 
 # Programming
 "--- Programming ---"
@@ -14,12 +15,11 @@ https://blog.rust-lang.org/feed.xml "~Rust (Blog)"
 "--- Software updates ---"
 https://www.archlinux.org/feeds/news/ "~Arch Linux (Feed)"
 https://newsboat.org/news.atom "~NewsBoat (Feed)"
-https://github.com/starship/starship/commits/master.atom "~Commits to starship.rs (GitHub)"
 
 # Tech news
 "--- Tech News ---"
 https://feeds.feedburner.com/TechCrunch/ "~TechCrunch (News)"
-https://hnrss.org/frontpage "~HackerNews (News)"
+https://news.ycombinator.com/rss "~HackerNews (News)"
 https://www.wired.com/feed/rss "~Wired.com (News)"
 https://feeds.feedburner.com/arstechnica/index/ "~Ars Technica (News)"
 
@@ -36,6 +36,11 @@ https://www.reddit.com/r/science.rss "~r/Science"
 https://www.reddit.com/r/apple.rss "~r/Apple"
 https://www.reddit.com/r/privacy.rss "~r/Privacy"
 https://www.reddit.com/r/vim.rss "~r/Vim"
+
+# GitHub Feed
+"--- GitHub Feed ---"
+https://github.com/t0maslb.private.atom?token=ANINSMCAEDFU44JB4LIMG2N47XQMQ "~GitHub News Feed"
+https://github.com/starship/starship/commits/master.atom "~Commits to starship.rs (GitHub)"
 
 # YouTube Feed
 "--- YouTube Feed ---"
