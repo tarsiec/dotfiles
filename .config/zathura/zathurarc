@@ -1,7 +1,8 @@
 # Base16 Tomorrow Night
 # Author: Chris Kempson (http://chriskempson.com)
 
-set default-bg                  "#1d1f21"
+set default-bg                  "#282a2e"
+#set default-bg                  "#1d1f21"
 set default-fg                  "#282a2e"
 
 set statusbar-fg                "#b4b7b4"
