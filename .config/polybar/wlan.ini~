@@ -2,16 +2,15 @@ type = internal/network
 interface = wlp58s0
 interval = 3.0
 
-label-connected-foreground      = ${colors.purple}
+label-connected-foreground      = ${colors.background}
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground     = ${colors.purple}
-format-connected-background     = ${colors.background-alt}
-format-connected-underline      = ${colors.background-alt}
+format-connected-foreground     = ${colors.background}
+format-connected-background     = ${colors.purple}
+format-connected-underline      = ${colors.purple}
 format-connected-padding = 2
 ;label-connected = "%ifname%  %upspeed% 󰯎%downspeed%"
 label-connected = "%essid%  󰧇 %upspeed% 󰦿 %downspeed%"
-label-connected-font = 3
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -24,5 +23,5 @@ ramp-signal-1 = 󰤟
 ramp-signal-2 = 󰤢
 ramp-signal-3 = 󰤥
 ramp-signal-4 = 󰤨
-ramp-signal-foreground = ${colors.purple}
+ramp-signal-foreground = ${colors.background}
 

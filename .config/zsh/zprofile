@@ -6,13 +6,14 @@
 
 ### DEFAULT SOFTWARE ###
 export TERM="alacritty"
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="emacs"
+export VISUAL="emacs"
 export READER="zathura"
 export BROWSER="firefox"
 export PAGER="less"
 
 ### scripts
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
 export ZSH="/home/tlb/.oh-my-zsh"
@@ -21,20 +22,23 @@ export CODE_DIR=$HOME/code
 export CODE_RSC=$CODE_DIR/resources
 export CODE_PRJ=$CODE_DIR/projects
 # rust
-export RUSTUP_HOME=$CODE_RSC/rust/rustup
-#export RUST_SRC=$CODE_PRJ/rust
-export CARGO_HOME=$CODE_RSC/rust/cargo
+export RUSTUP_HOME=$HOME/.rustup
+export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+export CARGO_HOME=$HOME/.cargo
 export PATH=$PATH:$CARGO_HOME/bin
-export PATH="/home/tlb/code/resources/rust/cargo/bin:$PATH"
+source $HOME/.cargo/env
 # go
 export GOPATH=$CODE_PRJ/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
 ### SOFTWARE ###
 # starship.rs
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-eval "$(starship init zsh)"
+# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+# eval "$(starship init zsh)"
+# source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### "PLUGINS" ###
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -43,10 +47,6 @@ source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zs
 
 # oh my zsh
 source $ZSH/oh-my-zsh.sh
-
-# set up vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
 alias python3="python"
 alias getvid="youtube-dl --restrict-filenames -f 22"

@@ -9,9 +9,9 @@ time-alt = %H:%M:%S
 
 format-prefix = 󰥔
 
-format-foreground = ${colors.blue}
-format-background = ${colors.background-alt}
-format-underline  = ${colors.background-alt}
+format-foreground = ${colors.background}
+format-background = ${colors.blue}
+format-underline = ${colors.blue}
 
 label = %date% %time%
 

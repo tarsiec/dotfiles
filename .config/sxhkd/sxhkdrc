@@ -6,11 +6,11 @@ TERM=alacritty
 
 # tabbed terminal emulator
 super + Return
-    tabbed alacritty --embed
+	alacritty
 
 # terminal emulator
 super + shift + Return
-	alacritty
+    tabbed alacritty --embed
 
 # program launcher
 super+@space

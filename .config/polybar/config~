@@ -45,7 +45,7 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-bottom          = false
+bottom          = true
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 26

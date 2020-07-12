@@ -38,7 +38,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = ${self.label-focused}
-label-empty-foreground = #93a1a1
+label-empty-foreground = ${colors.foreground}
 label-empty-background = ${colors.background}
 label-empty-padding = 2
 

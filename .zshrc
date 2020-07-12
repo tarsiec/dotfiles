@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
 #              __
 #  ____  _____/ /_  __________
 # /_  / / ___/ __ \/ ___/ ___/
@@ -13,10 +6,15 @@
 
 source $HOME/.config/zsh/zprofile
 
-### THEME ###
-#eval "$(starship init zsh)"
-#source $HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme
-pfetch
+###
+PROMPT="%(?.%B%F{green}%1~%f%b.%B%F{red}%1~ (%?%)%f%b) λ "
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT="%U\$vcs_info_msg_0_%u"
+zstyle ':vcs_info:git:*' formats '%F{blue}(%b)%r%f'
+zstyle ':vcs_info:*' enable git
+
+###

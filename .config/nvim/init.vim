@@ -32,18 +32,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'voldikss/vim-floaterm'
     " colorschemes
-    Plug 'chriskempson/base16-vim'
-    Plug 'dracula/vim'
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
 "--- APPEARANCE ---
 set t_Co=256
 set termguicolors
-let base16colorspace=256
 set background=dark
 syntax enable
-colorscheme base16-tomorrow-night
+colorscheme solarized8_flat
 hi Normal guibg=NONE ctermbg=NONE
 
 
@@ -167,7 +166,7 @@ autocmd FileType markdown inoremap <A-TAB>f +@fig:
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='default'
 let g:airline_powerline_fonts=1
-let g:airline_theme='base16_tomorrow'
+let g:airline_theme='solarized'
 
 " lightline
 "let g:lightline = {

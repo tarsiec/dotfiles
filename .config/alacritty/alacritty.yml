@@ -24,22 +24,22 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono
     style: Regular
 
   bold:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono
     style: Bold
 
   italic:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono
     style: Italic
 
   bold_italic:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono
     style: Bold Italic
 
-  size: 8.0
+  size: 7.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -57,48 +57,48 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Base16 Tomorrow Night 256 - alacritty color config
-# Chris Kempson (http://chriskempson.com)
+# Base16 Solarized Dark 256 - alacritty color config
+# Ethan Schoonover (modified by aramisgithub)
 colors:
   # Default colors
   primary:
-    background: '0x1d1f21'
-    foreground: '0xc5c8c6'
+    background: '0x002b36'
+    foreground: '0x93a1a1'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1d1f21'
-    cursor: '0xc5c8c6'
+    text: '0x002b36'
+    cursor: '0x93a1a1'
 
   # Normal colors
   normal:
-    black:   '0x1d1f21'
-    red:     '0xcc6666'
-    green:   '0xb5bd68'
-    yellow:  '0xf0c674'
-    blue:    '0x81a2be'
-    magenta: '0xb294bb'
-    cyan:    '0x8abeb7'
-    white:   '0xc5c8c6'
+    black:   '0x002b36'
+    red:     '0xdc322f'
+    green:   '0x859900'
+    yellow:  '0xb58900'
+    blue:    '0x268bd2'
+    magenta: '0x6c71c4'
+    cyan:    '0x2aa198'
+    white:   '0x93a1a1'
 
   # Bright colors
   bright:
-    black:   '0x969896'
-    red:     '0xcc6666'
-    green:   '0xb5bd68'
-    yellow:  '0xf0c674'
-    blue:    '0x81a2be'
-    magenta: '0xb294bb'
-    cyan:    '0x8abeb7'
-    white:   '0xffffff'
+    black:   '0x657b83'
+    red:     '0xdc322f'
+    green:   '0x859900'
+    yellow:  '0xb58900'
+    blue:    '0x268bd2'
+    magenta: '0x6c71c4'
+    cyan:    '0x2aa198'
+    white:   '0xfdf6e3'
 
   indexed_colors:
-    - { index: 16, color: '0xde935f' }
-    - { index: 17, color: '0xa3685a' }
-    - { index: 18, color: '0x282a2e' }
-    - { index: 19, color: '0x373b41' }
-    - { index: 20, color: '0xb4b7b4' }
-    - { index: 21, color: '0xe0e0e0' }
+    - { index: 16, color: '0xcb4b16' }
+    - { index: 17, color: '0xd33682' }
+    - { index: 18, color: '0x073642' }
+    - { index: 19, color: '0x586e75' }
+    - { index: 20, color: '0x839496' }
+    - { index: 21, color: '0xeee8d5' }
 
 # Visual Bell
 #
@@ -121,7 +121,7 @@ colors:
 #  color: '#ffffff'
 
 # Background opacity
-background_opacity: 0.95
+background_opacity: 0.90
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
