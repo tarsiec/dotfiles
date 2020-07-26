@@ -36,14 +36,16 @@ export PATH=$PATH:$GOBIN
 
 ### SOFTWARE ###
 # starship.rs
-# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-# eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+#eval "$(starship init zsh)"
 # source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### "PLUGINS" ###
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+eval "$(gh completion -s zsh)"
 
 # oh my zsh
 source $ZSH/oh-my-zsh.sh

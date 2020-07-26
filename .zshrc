@@ -16,5 +16,4 @@ setopt prompt_subst
 RPROMPT="%U\$vcs_info_msg_0_%u"
 zstyle ':vcs_info:git:*' formats '%F{blue}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
-
 ###

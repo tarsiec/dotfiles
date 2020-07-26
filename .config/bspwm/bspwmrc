@@ -1,5 +1,6 @@
 #! /bin/sh
 
+xrdb .Xresources &
 setxkbmap gb &
 picom --config ~/.config/picom/picom.conf &
 xwallpaper --zoom ~/.config/wall.jpg &
@@ -7,14 +8,15 @@ sxhkd /home/tlb/.config/sxhkd/sxhkdrc &
 dropbox &
 dunst ~/.config/dunst/dunstrc &
 launchbar &
-xmodmap ~/.xmodmap &
-xrdb .Xresources &
+setxkbmap -option caps:ctrl_modifier gb
+nm-applet &
+xclickroot -r xmenu.sh
 
 #bspc monitor -d 1 2 3 4 5 6 7 8 9
 bspc monitor -d misc dev web irc git sys doc pic media
 
 bspc config focused_border_color "#b58900"
-bspc config normal_border_color  "#073642"
+bspc config normal_border_color  "#002b36"
 bspc config border_width         1
 bspc config window_gap           0
 

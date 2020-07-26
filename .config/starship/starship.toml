@@ -13,4 +13,4 @@ error_symbol = "ε"
 vicmd_symbol = "Λ"
 
 [username]
-show_always = true
+show_always = false

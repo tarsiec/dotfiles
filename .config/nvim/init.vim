@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'voldikss/vim-floaterm'
     " colorschemes
     Plug 'lifepillar/vim-solarized8'
+    Plug 'altercation/vim-colors-solarized'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
@@ -53,13 +54,13 @@ set encoding=utf-8
 set number relativenumber
 set nohls
 " Tab settings
-set expandtab
+" set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 " lines
-set cursorline
-set cursorcolumn
+"set cursorline
+"set cursorcolumn
 " ignore cases when searching except when used
 set ignorecase
 set smartcase
