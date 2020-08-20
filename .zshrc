@@ -4,7 +4,6 @@
 #  / /_(__  ) / / / /  / /__
 # /___/____/_/ /_/_/   \___/	t0maslb@github
 
-source $HOME/.config/zsh/zprofile
 
 ###
 PROMPT="%(?.%B%F{green}%1~%f%b.%B%F{red}%1~ (%?%)%f%b) λ "
@@ -17,3 +16,5 @@ RPROMPT="%U\$vcs_info_msg_0_%u"
 zstyle ':vcs_info:git:*' formats '%F{blue}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 ###
+
+source $HOME/.config/zsh/zprofile

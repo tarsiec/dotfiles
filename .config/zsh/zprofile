@@ -31,13 +31,16 @@ source $HOME/.cargo/env
 export GOPATH=$CODE_PRJ/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+#ruby
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
+source "$HOME/.rvm/scripts/rvm"
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 ### SOFTWARE ###
 # starship.rs
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 # source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### "PLUGINS" ###
@@ -49,6 +52,11 @@ eval "$(gh completion -s zsh)"
 
 # oh my zsh
 source $ZSH/oh-my-zsh.sh
+
+plugins=(
+	git
+	golang
+)
 
 alias python3="python"
 alias getvid="youtube-dl --restrict-filenames -f 22"
@@ -68,108 +76,3 @@ alias mv="mv -i"
 alias m="mocp"
 alias screenshot="scrot"
 alias newsboat="newsboat -C $HOME/.config/newsboat/config -u $HOME/.config/newsboat/urls -c $HOME/.config/newsboat/cache.db"
-
-alias gc="cd ~/.config"
-alias gcb="cd ~/.config/bspwm"
-alias gcn="cd ~/.config/nvim"
-alias gca="cd ~/.config/alacritty"
-alias gcp="cd ~/.config/polybar"
-alias gcs="cd ~/.config/sxhkd"
-alias gcl="cd ~/.config/lf"
-alias gcd="cd ~/.config/dunst"
-alias gcz="cd ~/.config/zathura"
-
-alias gtf="cd ~/.local/trash/files"
-
-alias gv="cd ~/vids"
-alias gvy="cd ~/vids/yt"
-
-alias gp="cd ~/pics"
-alias gpw="cd ~/pics/wallpapers"
-alias gps="cd ~/pics/screenshots"
-
-alias gd="cd ~/docs"
-alias gdi="cd ~/docs/instituto"
-alias gdr="cd ~/docs/reads"
-
-alias gb="cd ~/.local/bin/"
-alias gbd="cd ~/.local/bin/dwmbar"
-alias gbp="cd ~/.local/bin/polybar"
-alias gbb="cd ~/.local/bin/bspwm"
-alias gbt="cd ~/.local/bin/transmission"
-
-alias gr="cd ~/.local/share/repos"
-alias grd="cd ~/.local/share/repos/dotfiles"
-alias gpm="cd ~/.local/share/pkg/dmenu"
-alias gpw="cd ~/.local/share/pkg/dwm"
-alias gpt="cd ~/.local/share/pkg/tabbed"
-alias gps="cd ~/.local/share/pkg/st"
-
-alias gc="cd ~/.config"
-alias gE="cd /etc"
-alias gU="cd /usr"
-alias gUs="cd /usr/share"
-
-export LF_ICONS="di=📁:\
-fi=📃:\
-tw=🤝:\
-ow=📂:\
-ln=⛓:\
-or=❌:\
-ex=🎯:\
-*.txt=✍:\
-*.mom=✍:\
-*.me=✍:\
-*.ms=✍:\
-*.png=🖼:\
-*.ico=🖼:\
-*.jpg=📸:\
-*.jpeg=📸:\
-*.gif=🖼:\
-*.svg=🗺:\
-*.xcf=🖌:\
-*.html=🌎:\
-*.xml=📰:\
-*.gpg=🔒:\
-*.css=🎨:\
-*.pdf=📚:\
-*.djvu=📚:\
-*.epub=📚:\
-*.csv=📓:\
-*.xlsx=📓:\
-*.tex=📜:\
-*.md=📘:\
-*.r=📊:\
-*.R=📊:\
-*.rmd=📊:\
-*.Rmd=📊:\
-*.mp3=🎵:\
-*.opus=🎵:\
-*.ogg=🎵:\
-*.m4a=🎵:\
-*.flac=🎼:\
-*.mkv=🎥:\
-*.mp4=🎥:\
-*.webm=🎥:\
-*.mpeg=🎥:\
-*.avi=🎥:\
-*.zip=📦:\
-*.rar=📦:\
-*.7z=📦:\
-*.tar.gz=📦:\
-*.z64=🎮:\
-*.v64=🎮:\
-*.n64=🎮:\
-*.1=ℹ:\
-*.nfo=ℹ:\
-*.info=ℹ:\
-*.log=📙:\
-*.iso=📀:\
-*.img=📀:\
-*.bib=🎓:\
-*.ged=👪:\
-*.part=💔:\
-*.torrent=🔽:\
-"
-
-

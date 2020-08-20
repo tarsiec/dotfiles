@@ -2,8 +2,6 @@
 # wm independent hotkeys
 #
 
-TERM=alacritty
-
 # tabbed terminal emulator
 super + Return
 	alacritty
@@ -11,6 +9,10 @@ super + Return
 # terminal emulator
 super + shift + Return
     tabbed alacritty --embed
+
+# switch keymaps
+super + alt + m
+	keyprompt
 
 # program launcher
 super+@space
@@ -52,9 +54,13 @@ super + g
 super + n
     alacritty -e newsboat
 
+# thunar
+super + shift + i
+	thunar
+
 # lockscreen
 super + shift + x
-	betterlockscreen -l dimblur -t "hackers gtfo"
+	betterlockscreen -l blur -t "hackers gtfo"
 
 # confirm shutdown
 super + alt + shift + z
@@ -68,13 +74,17 @@ super + alt + shift + x
 super + alt + shift + c
     prompt "Confirm suspend?" "systemctl suspend"
 
-# emoji picker
-super + u
-	dmenuunicode
+# flameshot
+super + s
+	flameshot gui
 
 # ranger
 super + r
 	alacritty -e ranger
+
+# open agenda
+super + a
+	emacs "~/docs/org/agenda.org"
 
 # audio control via amixer
 XF86Audio{Raise,Lower}Volume

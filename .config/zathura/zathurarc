@@ -34,3 +34,4 @@ set recolor-darkcolor           "#e0e0e0"
 
 set recolor                     "true"
 set recolor-keephue             "false"
+set font                        "CaskaydiaCove Nerd Font 10"
