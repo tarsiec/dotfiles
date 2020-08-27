@@ -94,7 +94,15 @@ super + XF86Audio{Raise,Lower}Volume
     pulsemixer --change-volume {+,-}25
 
 XF86AudioMute
-	pulsemixer --set-volume 0
+	pulsemixer --toggle-mute
+
+XF86MonBrightnessDown
+	light -U 10
+
+
+XF86MonBrightnessUp
+	light -A 10
+
 
 #
 # bspwm hotkeys
