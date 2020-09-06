@@ -34,6 +34,10 @@ export PATH=$PATH:$GOBIN
 #ruby
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 source "$HOME/.rvm/scripts/rvm"
+# nim
+export PATH=$PATH:$HOME/.nimble/bin
+# python
+export PATH=$PATH:$HOME/.local/share/python/python-language-server/output/bin/Release
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
@@ -53,10 +57,13 @@ eval "$(gh completion -s zsh)"
 # oh my zsh
 source $ZSH/oh-my-zsh.sh
 
+
 plugins=(
 	git
 	golang
 )
+
+# ZSH_THEME="alien-minimal/alien-minimal"
 
 alias python3="python"
 alias getvid="youtube-dl --restrict-filenames -f 22"
