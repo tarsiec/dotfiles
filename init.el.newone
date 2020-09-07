@@ -1,0 +1,226 @@
+;;; EMACS CONFIGURATION ;;;
+;; PACKAGES
+; enable packages
+(require 'package)
+
+; add melpa to package sources
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
+
+; and use them
+(package-initialize)
+
+
+;; PERSONAL INFORMATION
+(setq user-full-name "Tomas L. Brea"
+      user-mail-address "tomaslb@tutanota.com")
+
+ 
+;; APPEARANCE
+; disable splash screen
+(setq inhibit-startup-screen t)
+
+; remove crap from the UI
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+
+; configure font
+(set-default-font "Iosevka Nerd Font 13")
+
+; configure theme
+(use-package base16-theme)
+(use-package modus-operandi-theme)
+(use-package zenburn-theme)
+;; (load-theme 'zenburn)
+
+; line numbers
+(line-number-mode t)
+(setq frame-title-format '(( :eval (projectile-project-name))))
+
+; use custom symbols
+(global-prettify-symbols-mode t)
+
+
+;; AUTOCOMPLETION ENGINES
+; ivy
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+
+
+;; USING USE-PACKAGE
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+
+
+;; ADD UTILITY FUNCTIONS
+(add-to-list 'load-path "~/.emacs.d/resources")
+
+
+;; SMALL QUALITY OF LIFE CHANGES
+; disable visual bell
+(setq ring-bell-function 'ignore)
+
+; scroll one line at a time
+(setq scroll-conservatively 100)
+
+; highlight current line
+(global-hl-line-mode 0)
+
+
+;; VERSION CONTROL & PROJECTILE
+(use-package projectile
+  :bind
+  ("C-c C-s" . projectile-ag)
+
+  :config
+  (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+
+  (setq projectile-completion-system 'ivy
+	projectile-switch-project-action 'projectile-dired))
+
+
+(use-package diff-hl
+  :config
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+
+(use-package ag)
+
+(use-package magit
+  :bind
+  ("C-x C-g" . magit-status)
+
+  :config
+  (use-package with-editor)
+
+  (setq magit-push-always-verify nil
+	magit-commit-summary-max-length 50))
+
+(use-package ghub)
+(use-package forge)
+
+(use-package git-timemachine)
+
+
+;; SYNTAX CHECKING & AUTOCOMPLETION
+; company
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "C-SPC") 'company-complete-common)
+
+; dumb-jump (jump to definition)
+(use-package dumb-jump
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  (global-set-key (kbd "M-.") 'xref-find-definitions)
+  (setq dumb-jump-selector 'ivy))
+
+; flycheck (syntax checking)
+(use-package let-alist)
+(use-package flycheck
+  :init (global-flycheck-mode))
+
+
+;; UNDO SUSTEM
+(use-package undo-tree)
+
+
+;; PROGRAMMING EVIRONMENTS
+; tabs
+(setq-default tab-width 4)
+; separate CamelCase symbols
+(use-package subword
+  :config (global-subword-mode 1))
+; auto scroll to the end of compilation output
+(setq compilation-scroll-output t)
+; simple LSP client
+(use-package eglot)
+
+;; HASKELL ;;
+(use-package haskell-mode)
+(add-hook 'haskell-mode-hook
+		  (lambda ()
+			(haskell-doc-mode)
+			(turn-on-haskell-indent)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(awesome-tray-mode-line-active-color "#0030a6")
+ '(awesome-tray-mode-line-inactive-color "#e0e0e0")
+ '(custom-enabled-themes (quote (zenburn)))
+ '(custom-safe-themes
+   (quote
+	("9ffe970317cdfd1a9038ee23f4f5fe0b28b99950281799e4397e1a1380123147" "5310a2d34612a68db8557433fe9fd3d2af1e6a3b284b4e77ce09858ccfd8c1b7" "3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
+ '(flymake-error-bitmap
+   (quote
+	(flymake-double-exclamation-mark modus-theme-fringe-red)))
+ '(flymake-note-bitmap (quote (exclamation-mark modus-theme-fringe-cyan)))
+ '(flymake-warning-bitmap (quote (exclamation-mark modus-theme-fringe-yellow)))
+ '(highlight-tail-colors (quote (("#aecf90" . 0) ("#c0efff" . 20))))
+ '(hl-todo-keyword-faces
+   (quote
+	(("HOLD" . "#70480f")
+	 ("TODO" . "#721045")
+	 ("NEXT" . "#5317ac")
+	 ("THEM" . "#8f0075")
+	 ("PROG" . "#00538b")
+	 ("OKAY" . "#30517f")
+	 ("DONT" . "#315b00")
+	 ("FAIL" . "#a60000")
+	 ("BUG" . "#a60000")
+	 ("DONE" . "#005e00")
+	 ("NOTE" . "#863927")
+	 ("KLUDGE" . "#813e00")
+	 ("HACK" . "#813e00")
+	 ("TEMP" . "#5f0000")
+	 ("FIXME" . "#a0132f")
+	 ("XXX+" . "#972500")
+	 ("REVIEW" . "#005a5f")
+	 ("DEPRECATED" . "#201f55"))))
+ '(ibuffer-deletion-face (quote modus-theme-mark-del))
+ '(ibuffer-filter-group-name-face (quote modus-theme-mark-symbol))
+ '(ibuffer-marked-face (quote modus-theme-mark-sel))
+ '(ibuffer-title-face (quote modus-theme-header))
+ '(package-selected-packages
+   (quote
+	(zenburn-theme haskell-mode eglot undo-tree projectile git-timemachine forge ghub magit flycheck dumb-jump company ag modus-operandi-theme auto-compile use-package base16-theme counsel swiper ivy)))
+ '(vc-annotate-background-mode nil)
+ '(xterm-color-names
+   ["#000000" "#a60000" "#005e00" "#813e00" "#0030a6" "#721045" "#00538b" "#f0f0f0"])
+ '(xterm-color-names-bright
+   ["#505050" "#972500" "#315b00" "#70480f" "#223fbf" "#8f0075" "#30517f" "#ffffff"]))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
