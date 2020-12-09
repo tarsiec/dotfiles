@@ -86,7 +86,8 @@
 
     ### Text ###
 
-    font = SF Pro Text 10
+    font = Iosevka Nerd Font 12
+
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -180,10 +181,10 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/local/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/brave -new-tab
+    browser = /usr/bin/firefox -new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -277,14 +278,15 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282a2e"
     foreground = "#c5c8c6"
+    frame_color = "#f0c674"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#1d1f21"
-    foreground = "#c5c8c6"
-    frame_color = "#b5bd68"
+    background = "#282a2e"
+    foreground = "#f0c674"
+    frame_color = "#f0c674"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon

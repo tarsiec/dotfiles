@@ -20,7 +20,8 @@
        ;;
        :completion
        (company +childframe)           ; the ultimate code completion backend
-       ;;helm              ; the *other* search engine for love and life
+       ;(helm +fuzzy              ; the *other* search engine for love and life
+       ;      +childframe)
        ;;ido               ; the other *other* search engine...
        (ivy +fuzzy              ; a search engine for love and life
             +icons)
@@ -30,7 +31,7 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       fill-column       ; a `fill-column' indicator
+       ; fill-column       ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides     ; highlighted indent columns
@@ -94,7 +95,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       lsp
+       (lsp +peek)
        ;;macos             ; MacOS-specific commands
        (magit +forge)      ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
@@ -130,7 +131,8 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        (go +lsp)           ; the hipster dialect
-       (haskell +lsp)      ; a language that's lazier than I am
+       (haskell +lsp      ; a language that's lazier than I am
+                +ghcie)
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;json              ; At least it ain't XML
@@ -138,7 +140,10 @@
        (javascript +lsp)   ; all(hope(abandon(ye(who(enter(here))))))
        ;; julia        ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       latex             ; writing papers in Emacs has never been so fun
+       (latex +latexmk             ; writing papers in Emacs has never been so fun
+              +lsp
+              +cdlatex
+              +fold)
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
@@ -148,14 +153,21 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +roam               ; organize your plain life in plain text
+           +dragndrop
             +noter
             +pretty
+           +pandoc
+           +brain
+           +pomodoro
             +gnuplot
             +present)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       (python +lsp)       ; beautiful is better than ugly
+       (python +lsp       ; beautiful is better than ugly
+               +pyenv
+               +conda
+               +pyright)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6

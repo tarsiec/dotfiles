@@ -3,6 +3,7 @@
 http://lukesmith.xyz/rss.xml "~Luke Smith (Blog)"
 https://waitbutwhy.com/feed "~Wait But Why (Blog)"
 https://blog.ycombinator.com/feed/ "~YCombinator Blog"
+https://github.blog/feed/ "~GitHub Blog"
 
 # Programming
 "--- Programming ---"
@@ -36,6 +37,9 @@ https://www.reddit.com/r/science.rss "~r/Science"
 https://www.reddit.com/r/apple.rss "~r/Apple"
 https://www.reddit.com/r/privacy.rss "~r/Privacy"
 https://www.reddit.com/r/vim.rss "~r/Vim"
+https://www.reddit.com/r/emacs.rss "~r/Vim"
+https://www.reddit.com/r/ios.rss "~r/Vim"
+https://www.reddit.com/r/golang.rss "~r/Golang"
 
 # GitHub Feed
 "--- GitHub Feed ---"
@@ -44,17 +48,16 @@ https://github.com/starship/starship/commits/master.atom "~Commits to starship.r
 
 # YouTube Feed
 "--- YouTube Feed ---"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UClcE-kVhqyiHCcjYwcpfj9w "~LiveOverflow (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q "~Jreg (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "~MKBHD (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCXIN3HIH0eon5hVYYpnoNuQ "~azureScapegoat (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCvjgXvBlbQiydffZU7m1_aw "~The Coding Train (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie Robertson (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
 
 
 # Podcasts
 "--- Podcasts ---"
 https://notrelated.libsyn.com/rss "~Not Related! (Podcast)"
-http://philosophizethis.org/feed/ "~Philosophize This! (Podcast)"
+https://www.philosophizethis.org/podcast?format=rss "~Philosophize This! (Podcast)"
 https://feeds.simplecast.com/dLRotFGk "~Developer Tea (Podcast)"
+https://feeds.feedburner.com/WaveformWithMkbhd?format=xml "~Waveform: The MKBHD Podcast"

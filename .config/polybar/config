@@ -40,7 +40,7 @@ screenchange-reload = true
 
 [global/wm]
 margin-top = 0
-margin-bottom = -6
+margin-bottom = -7
 
 [bar/main]
 bottom          = false
@@ -49,17 +49,17 @@ width = 100%
 height = 26
 offset-x = 0%
 offset-y = 0%
-radius = 3
+radius = 0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.background}
 
-border-size = 6
-border-color = #${colors.background}
+border-size = 7
+border-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
@@ -68,12 +68,12 @@ module-margin-left = 1
 module-margin-right = 0
 
 font-0 = Iosevka Nerd Font:pixelsize=12;3
-font-1 = Material Design Icons Desktop:pixelsize=13;4
+font-1 = Material Design Icons Desktop:pixelsize=13;2
 font-2 = Iosevka Nerd Font:style=Bold:pixelsize=12;3
 
-modules-left = cpu memory wlan eth
+modules-left = cpu memory wlan eth pulseaudio backlight keymap
 modules-center = bspwm
-modules-right = backlight pulseaudio battery0 battery1 date
+modules-right = spotify battery0 battery1 date
 
 tray-position = right
 tray-padding = 2
@@ -100,6 +100,10 @@ format-padding-right = 2
 [module/spotify]
 inherit = defaults
 include-file = ~/.config/polybar/spotify.ini
+
+[module/keymap]
+inherit = defaults
+include-file = ~/.config/polybar/keymap.ini
 
 [module/weather]
 inherit = defaults
@@ -146,9 +150,7 @@ content = "|"
 
 [module/backlight]
 inherit = defaults
-type = internal/backlight
-card = intel_backlight
-enable-scroll = true
+include-file = ~/.config/polybar/backlight.ini
 
 [module/cpu]
 inherit = defaults

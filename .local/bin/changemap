@@ -1,0 +1,6 @@
+#!/bin/bash
+
+case "$(cat /home/tlb/.local/bin/currentkeymap)" in
+    "ES") kgb ; echo "GB" > /home/tlb/.local/bin/currentkeymap ;;
+    "GB") kes ; echo "ES" > /home/tlb/.local/bin/currentkeymap ;;
+esac
