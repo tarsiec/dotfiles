@@ -20,10 +20,10 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 
-(setq lsp-gopls-codelens nil)
+(setq lsp-gopls-codelens t)
 
 (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 16)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 18)
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 20)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 16))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and

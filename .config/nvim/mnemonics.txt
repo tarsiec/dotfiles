@@ -1,0 +1,19 @@
+==MNEMONICS FOR MY VIMRC==
+
+-> LEADER: <SPC>	- for global maps
+-> MAPLEADER: \		- for buffer specific maps
+
+----------
+
+[LEADER BINDS]
+
+-> [E]: Edit
+	- ev: edit vimrc as a split window
+
+-> [I]: Insert
+	- i": insert quotes around word
+
+
+----------
+
+[MAPLEADER BINDS]
