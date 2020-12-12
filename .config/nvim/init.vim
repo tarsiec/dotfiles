@@ -17,18 +17,24 @@ colorscheme base16-tomorrow-night
 set nu rnu
 
 
+
 "TODO CHANGE NAME OF THIS SECTION
 """" MOTION & SHORTCUTS 
 
-""" =[BUFFER AGNOSTIC]=
 """ REMAPS
 "" TODO Reconsider these
 "" Go back to normal mode easily
 inoremap jk <esc>
 
 "" TODO Remember this is maybe temporary
-"" Force myself to not use esc
+"" Force myself to not have bad habits in Vim
+" - no esc
 inoremap <esc> <nop>
+" - no arrow keys
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
 
 "" Move absolute position of lines:
 " - up
@@ -53,12 +59,13 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 "" Source the vimrc file wherever I am
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"" TODO Remove these
+"" TODO Remove these maybe
 "" Go to [x] of the line
 " - beginning
 nnoremap H 0
 " - end
 nnoremap L $
+
 
 """ ABBREVIATIONS
 "" Abbreviate *noremap <leader>
@@ -76,11 +83,19 @@ iabbrev @website@ https://gsae.es
 iabbrev @gh@ https://github.com/tarsiec
 
 
+""" AUTOCOMMANDS
+
+
+
 """" FILES, PROJECTS & VERSION MANAGEMENT
+
 
 
 """" SYNTAX HILIGHTING
 
 
+
 """" LANGUAGE SERVER
+
+
 

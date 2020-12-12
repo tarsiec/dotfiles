@@ -13,7 +13,6 @@
 -> [I]: Insert
 	- i": insert quotes around word
 
-
 ----------
 
 [MAPLEADER BINDS]
