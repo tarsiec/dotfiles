@@ -16,3 +16,5 @@
 ----------
 
 [MAPLEADER BINDS]
+
+-> [C]: Comment

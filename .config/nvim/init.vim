@@ -11,6 +11,15 @@ let mapleader = " "
 " for buffer specific mappings
 let maplocalleader = "\\"
 
+
+
+""" BASIC FUNCTIONALITY TWEAKS
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+
+
 """" APPEARANCE
 set termguicolors
 colorscheme base16-tomorrow-night
@@ -21,7 +30,7 @@ set nu rnu
 "TODO CHANGE NAME OF THIS SECTION
 """" MOTION & SHORTCUTS 
 
-""" REMAPS
+""" MAPPINGS
 "" TODO Reconsider these
 "" Go back to normal mode easily
 inoremap jk <esc>
@@ -31,10 +40,18 @@ inoremap jk <esc>
 " - no esc
 inoremap <esc> <nop>
 " - no arrow keys
-noremap <left> <nop>
-noremap <right> <nop>
-noremap <up> <nop>
-noremap <down> <nop>
+nnoremap <left> <nop>
+inoremap <left> <nop>
+vnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <right> <nop>
+vnoremap <right> <nop>
+nnoremap <up> <nop>
+inoremap <up> <nop>
+vnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <down> <nop>
+vnoremap <down> <nop>
 
 "" Move absolute position of lines:
 " - up
@@ -62,19 +79,29 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "" TODO Remove these maybe
 "" Go to [x] of the line
 " - beginning
-nnoremap H 0
+" nnoremap H 0
 " - end
-nnoremap L $
+" nnoremap L $
 
+"" Operator-pending mappings
+" - inside next/prev parens
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+" - inside next/prev angle brackets
+onoremap in< :<c-u>normal! f<vi<<cr>
+onoremap il< :<c-u>normal! F>vi<<cr>
+" - inside next/prev curly brackets
+onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
 
 """ ABBREVIATIONS
 "" Abbreviate *noremap <leader>
-iabbrev nnr nnoremap 
-iabbrev inr inoremap 
+iabbrev nnr nnoremap
+iabbrev inr inoremap
 iabbrev vnr vnoremap 
 
 "" Abbreviate the abbreviation input
-iabbrev ibv iabbrev 
+iabbrev ibv iabbrev
 
 "" Some personal ones
 iabbrev @name@ Tomás López Brea
@@ -82,8 +109,48 @@ iabbrev @email@ tomaslb@tutanota.com
 iabbrev @website@ https://gsae.es
 iabbrev @gh@ https://github.com/tarsiec
 
+"" TODO Remove these
+"" Add quick if's
+augroup add_if
+	autocmd!
+	" - in python
+	autocmd FileType python		:iabbrev <buffer> iff if:<left>
+	" - in javascript
+	autocmd FileType javascript	:iabbrev <buffer> iff if ()<left>
+augroup END
+
+"I" Add return statements
+augroup add_return
+	autocmd!
+	autocmd FileType python		iabbrev rtn return
+	autocmd FileType javascript 	iabbrev rtn return
+	autocmd FileType golang		iabbrev rtn return
+augroup END
+
+augroup enter_function
+	autocmd!
+	" - in python
+	autocmd FileType python		:iabbrev <buffer> fnc def ():<left><left><left>
+	autocmd FileType python		:iabbrev <buffer> def nope
+	" - in javascript
+	autocmd FileType javascript	:iabbrev <buffer> fnc function(){}<left><left><left><left>
+augroup END
 
 """ AUTOCOMMANDS
+"" Add comments to the line
+augroup comment_line
+	autocmd!
+	" - in python
+	autocmd FileType python		nnoremap <buffer> <localleader>c I#<esc>
+	" - in // langs
+	autocmd FileType javascript	nnoremap <buffer> <localleader>c I//<esc>
+	autocmd FileType golang		nnoremap <buffer> <localleader>c I//<esc>
+augroup END
+
+augroup filetype_html
+	autocmd!
+	autocmd FileType html		nnoremap <buffer> <localleader>f Vatzf
+augroup END
 
 
 

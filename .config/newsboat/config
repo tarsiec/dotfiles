@@ -31,6 +31,11 @@ macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
 macro p set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
 macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
 
+# COLOR
+color info black yellow bold
+color listfocus black blue
+color listfocus_unread black blue bold
+
 # HILIGHT
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
