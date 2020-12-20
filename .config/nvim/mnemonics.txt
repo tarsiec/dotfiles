@@ -13,8 +13,26 @@
 -> [I]: Insert
 	- i": insert quotes around word
 
+-> [O]: Open
+    - of: open filesystem (in nerdtree)
+    - op: open CtrlP
+    - ob: open CtrlP on buffer mode
+
+-> [F]: Focus
+    - ff: focus on filesystem (nerdtree)
+
+-> [S]: Search
+    - sf: search filesystem (nerdtree)
+    - sp: search ctrl-p
+
 ----------
 
 [MAPLEADER BINDS]
 
 -> [C]: Comment
+
+----------
+
+[INSERT-MODE MODIFICATIONS]
+
+<C-P>: open CtrlP

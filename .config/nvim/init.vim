@@ -2,8 +2,24 @@
 
 call plug#begin("~/.config/nvim/plugins")
 
+"" Motion
+Plug 'jiangmiao/auto-pairs'
+
+
+"" Filesys
+" NERDTree
+Plug 'preservim/nerdtree'
+
+" Ctrl-P
+Plug 'ctrlpvim/ctrlp.vim'
+
+"" Aesthetical
 " Base16 for vim
 Plug 'chriskempson/base16-vim'
+
+" Devicons
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 " for global plugins
@@ -14,9 +30,17 @@ let maplocalleader = "\\"
 
 
 """ BASIC FUNCTIONALITY TWEAKS
+"" Tabs
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+"" Search
+set nohlsearch
+
+"" Indent
+set autoindent
+set smartindent
 
 
 
@@ -34,6 +58,7 @@ set nu rnu
 "" TODO Reconsider these
 "" Go back to normal mode easily
 inoremap jk <esc>
+
 
 "" TODO Remember this is maybe temporary
 "" Force myself to not have bad habits in Vim
@@ -93,6 +118,10 @@ onoremap il< :<c-u>normal! F>vi<<cr>
 " - inside next/prev curly brackets
 onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
+" - inside next/prev parens
+onoremap in" :<c-u>normal! f"vi"<cr>
+onoremap il" :<c-u>normal! F"vi"<cr>
+
 
 """ ABBREVIATIONS
 "" Abbreviate *noremap <leader>
@@ -155,7 +184,17 @@ augroup END
 
 
 """" FILES, PROJECTS & VERSION MANAGEMENT
+"" NERDTree config
+" remaps
+nnoremap <leader>of :NERDTreeToggle<cr>
+nnoremap <leader>ff :NERDTreeFocus<cr>
+nnoremap <leader>sf :NERDTreeFind<cr>
 
+"" CtrlP config
+" remaps
+nnoremap <leader>op :CtrlP<cr>
+nnoremap <leader>ob :CtrlPBuffer<cr>
+inoremap <c-p> <esc>:CtrlP<cr>
 
 
 """" SYNTAX HILIGHTING
