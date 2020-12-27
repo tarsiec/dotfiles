@@ -33,7 +33,7 @@ macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
 
 # COLOR
 color info black yellow bold
-color listfocus black blue
+color listfocus black blue bold
 color listfocus_unread black blue bold
 
 # HILIGHT

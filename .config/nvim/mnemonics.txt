@@ -7,6 +7,12 @@
 
 [LEADER BINDS]
 
+-> [A]: Action
+    - ak: default action for previous item (coc)
+    - aj: default action for next item (coc)
+    -- TODO reconsider this
+    - ap: resume latest coc list (coc)
+
 -> [E]: Edit
 	- ev: edit vimrc as a split window
 
@@ -18,12 +24,31 @@
     - op: open CtrlP
     - ob: open CtrlP on buffer mode
 
+-- TODO under consideration
+-> [C]: Configure
+    - ce: manage extensions (coc)
+
 -> [F]: Focus
     - ff: focus on filesystem (nerdtree)
 
--> [S]: Search
+-> [S]: Search / Show
     - sf: search filesystem (nerdtree)
     - sp: search ctrl-p
+    - sd: show diagnostics (coc)
+    - sc: show commands (coc)
+    - ss: search workspace symbols (coc)
+    - so: show symbol of current document
+
+-> [G]: Go (to)
+    - gd: go to definition (coc)
+    - gr: find references (coc)
+    - gh: get hover info (coc)
+    - gy: go to type definition (coc)
+    - gi: go to implementation (coc)
+    - gs: symbol search (coc)
+
+-> [R]: Rename
+    - rn: rename symbol (coc)
 
 ----------
 

@@ -24,22 +24,22 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Italic
 
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Bold Italic
 
-  size: 7.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -57,7 +57,7 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-    # Base16 Tomorrow Night 256 - alacritty color config
+# Base16 Tomorrow Night 256 - alacritty color config
 # Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
