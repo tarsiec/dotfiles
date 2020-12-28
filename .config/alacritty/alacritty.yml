@@ -24,22 +24,22 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font
+    family: Cascadia Code
     style: Regular
 
   bold:
-    family: Iosevka Nerd Font
+    family: Cascadia Code
     style: Bold
 
   italic:
-    family: Iosevka Nerd Font
+    family: Cascadia Code
     style: Italic
 
   bold_italic:
-    family: Iosevka Nerd Font
+    family: Cascadia Code
     style: Bold Italic
 
-  size: 8.0
+  size: 7.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

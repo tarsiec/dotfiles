@@ -1,43 +1,51 @@
 " NEOVIM CONFIGURATION: THIS TIME WITH STRUCTURE EDITION
 
 call plug#begin("~/.config/nvim/plugins")
+    "" LINTING & COMPLETION
+	Plug 'autozimu/LanguageClient-neovim', {
+				\ 'branch': 'next',
+				\ 'do': 'bash install.sh' 
+				\ }
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'godlygeek/tabular'
+	" Plug 'sirver/ultisnips'
+	" Plug 'honza/vim-snippets'
+	Plug 'scrooloose/nerdcommenter'
+    
+	"" LANGS
+	Plug 'lervag/vimtex'
+	Plug 'fatih/vim-go'
+	Plug 'plasticboy/vim-markdown'
+	Plug 'jackguo380/vim-lsp-cxx-highlight'
+    
+	"" MOTION & SIMPLE TWEAKS
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'mattn/emmet-vim'
+	Plug 'mg979/vim-visual-multi'
+	Plug 'tpope/vim-surround'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'haya14busa/incsearch.vim'
+	Plug 'haya14busa/incsearch-easymotion.vim'
 
-"" SYNTAX HIGHLIGHTING & COMPLETION
-" Syntax
-Plug 'dense-analysis/ale'
-" Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	"" IDE-like
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 
-" Snippets
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+    
+    "" FILESYSTEM
+    Plug 'preservim/nerdtree' 
+    Plug 'ctrlpvim/ctrlp.vim' 
+    Plug 'tpope/vim-fugitive' 
+    Plug 'airblade/vim-gitgutter'
+	Plug 'ggreer/the_silver_searcher'
 
-"" LANGS
-" LaTeX
-Plug 'lervag/vimtex'
-
-" MOTION
-Plug 'jiangmiao/auto-pairs'
-
-"" FILESYSTEM
-" NERDTree
-Plug 'preservim/nerdtree'
-" Ctrl-P
-Plug 'ctrlpvim/ctrlp.vim'
-
-"" GIT
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-"" AESTHETICAL
-" Base16 for vim
-Plug 'chriskempson/base16-vim'
-Plug 'arcticicestudio/nord-vim'
-" Devicons
-Plug 'ryanoasis/vim-devicons'
-" Lightline
-Plug 'itchyny/lightline.vim'
-Plug 'mike-hearn/base16-vim-lightline'
+    "" AESTHETICAL
+    Plug 'chriskempson/base16-vim'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mike-hearn/base16-vim-lightline'
 call plug#end()
 
 " for global plugins
@@ -45,11 +53,12 @@ let mapleader = " "
 " for buffer specific mappings
 let maplocalleader = "\\"
 
+set signcolumn=auto
+
 """ BASIC FUNCTIONALITY TWEAKS
 "" Tabs
 set tabstop=4
 set shiftwidth=4
-set expandtab
 
 "" Search
 set nohlsearch
@@ -58,18 +67,21 @@ set nohlsearch
 set autoindent
 set smartindent
 
+"" Point and click
+set mouse=nv
+
 
 
 """" APPEARANCE
 filetype plugin indent on
 set termguicolors
-set background=dark
-set t_Co=256
 colorscheme base16-tomorrow-night
 set nu rnu
+set cursorline
 
-set laststatus=2
 set noshowmode
+set noshowcmd
+set noruler
 
 let g:lightline = {
             \ 'colorscheme': 'base16_tomorrow_night'
@@ -84,120 +96,117 @@ let g:lightline = {
 "" Go back to normal mode easily
 inoremap jk <esc>
 
-"" Disable some shortcuts
-"iunnoremap <c-j>
-"iunnoremap <c-k>
-"iunnoremap <c-o>
-"iunnoremap <c-p>
-
-
 "" TODO Remember this is maybe temporary
 "" Force myself to not have bad habits in Vim
 " - no esc
-inoremap <esc> <nop>
+inoremap    <esc>   <nop>
 " - no arrow keys
-nnoremap <left> <nop>
-inoremap <left> <nop>
-vnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <right> <nop>
-vnoremap <right> <nop>
-nnoremap <up> <nop>
-inoremap <up> <nop>
-vnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <down> <nop>
-vnoremap <down> <nop>
+noremap   <left>    <nop>
+noremap   <right>   <nop>
+noremap   <up>      <nop>
+noremap   <down>    <nop>
 
-"" Move absolute position of lines:
+"" move absolute position of lines:
 " - up
 nnoremap - ddp
 " - down
 nnoremap _ ddkkp
 
-"" Turn a word to uppercase:
+"" turn a word to uppercase:
 " - in normal mode
-nnoremap <c-u> viwU<esc>e
+nnoremap <c-u> viwu<esc>e
 " - in insert mode
-inoremap <c-u> <esc>viwU<esc>eli
+inoremap <c-u> <esc>viwu<esc>eli
 
-"" Surround words:
+"" surround words:
 " - in quotes
-nnoremap <leader>i" viw<esc>a"<esc>bi"<esc>lel 
+nnoremap <leader>i" viw<esc>a"<esc>bi"<esc>lel
 vnoremap <leader>i" <esc>`<i"<esc>`>la"<esc>l
 
-"" Edit vimrc as split
+"" edit vimrc as split
 nnoremap <leader>ev :split $MYVIMRC<cr>
 
-"" Source the vimrc file wherever I am
+"" source the vimrc file wherever i am
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"" TODO Remove these maybe
-"" Go to [x] of the line
+"" todo remove these maybe
+"" go to [x] of the line
 " - beginning
-" nnoremap H 0
+" nnoremap h 0
 " - end
-" nnoremap L $
+" nnoremap l $
 
-"" Operator-pending mappings
+"" operator-pending mappings
 " - inside next/prev parens
 onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap il( :<c-u>normal! f)vi(<cr>
 " - inside next/prev angle brackets
 onoremap in< :<c-u>normal! f<vi<<cr>
-onoremap il< :<c-u>normal! F>vi<<cr>
+onoremap il< :<c-u>normal! f>vi<<cr>
 " - inside next/prev curly brackets
 onoremap in{ :<c-u>normal! f{vi{<cr>
-onoremap il{ :<c-u>normal! F}vi{<cr>
+onoremap il{ :<c-u>normal! f}vi{<cr>
 " - inside next/prev parens
 onoremap in" :<c-u>normal! f"vi"<cr>
-onoremap il" :<c-u>normal! F"vi"<cr>
+onoremap il" :<c-u>normal! f"vi"<cr>
+
+"" nerd commenter 
+" create default mappings
+let g:nerdcreatedefaultmappings=1
+" add spaces after comment delimiters by default
+let g:nerdspacedelims=1
+
+" Incsearch-Easymotion
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
 
 
-""" ABBREVIATIONS
-"" Abbreviate *noremap <leader>
+
+""" abbreviations
+"" abbreviate *noremap <leader>
 iabbrev nnr nnoremap
 iabbrev inr inoremap
 iabbrev vnr vnoremap 
 
-"" Abbreviate the abbreviation input
+"" abbreviate the abbreviation input
 iabbrev ibv iabbrev
 
-"" Some personal ones
-iabbrev @name@ Tomás López Brea
+"" some personal ones
+iabbrev @name@ tomás lópez brea
 iabbrev @email@ tomaslb@tutanota.com
-iabbrev @website@ https://gsae.es
+iabbrev @website@ https://tarsiec.com
 iabbrev @gh@ https://github.com/tarsiec
 
-"" TODO Remove these
-"" Add quick if's
+"" todo remove these
+"" add quick if's
 augroup add_if
 	autocmd!
 	" - in python
-	autocmd FileType python		:iabbrev <buffer> iff if:<left>
+	autocmd filetype python		:iabbrev <buffer> iff if:<left>
 	" - in javascript
-	autocmd FileType javascript	:iabbrev <buffer> iff if ()<left>
-augroup END
+	autocmd filetype javascript	:iabbrev <buffer> iff if ()<left>
+augroup end
 
-"I" Add return statements
+"i" add return statements
 augroup add_return
 	autocmd!
-	autocmd FileType python		iabbrev rtn return
-	autocmd FileType javascript 	iabbrev rtn return
-	autocmd FileType golang		iabbrev rtn return
-augroup END
+	autocmd filetype python		iabbrev rtn return
+	autocmd filetype javascript 	iabbrev rtn return
+	autocmd filetype golang		iabbrev rtn return
+augroup end
 
 augroup enter_function
 	autocmd!
 	" - in python
-	autocmd FileType python		:iabbrev <buffer> fnc def ():<left><left><left>
-	autocmd FileType python		:iabbrev <buffer> def nope
+	autocmd filetype python		:iabbrev <buffer> fnc def ():<left><left><left>
+	autocmd filetype python		:iabbrev <buffer> def nope
 	" - in javascript
-	autocmd FileType javascript	:iabbrev <buffer> fnc function(){}<left><left><left><left>
-augroup END
+	autocmd filetype javascript	:iabbrev <buffer> fnc function(){}<left><left><left><left>
+augroup end
 
-""" AUTOCOMMANDS
-"" Add comments to the line
+""" autocommands
+"" add comments to the line
 augroup comment_line
 	autocmd!
 	" - in python
@@ -215,6 +224,12 @@ augroup END
 
 
 """" FILES, PROJECTS & VERSION MANAGEMENT
+"" Git stuff
+nnoremap <leader>gf :GFiles<cr>
+nnoremap <leader>gs :GFiles?<cr>
+nnoremap <leader>gc :Commits<cr>
+nnoremap <leader>gc :BCommits<cr>
+
 "" NERDTree config
 " remaps
 nnoremap <leader>of :NERDTreeToggle<cr>
@@ -227,181 +242,45 @@ nnoremap <leader>op :CtrlP<cr>
 nnoremap <leader>ob :CtrlPBuffer<cr>
 inoremap <c-p> <esc>:CtrlP<cr>
 
+"" FZF
+nnoremap <leader>zf :Files<cr>
+nnoremap <leader>zc :Colors<cr>
+nnoremap <leader>zb :Buffers<cr>
+nnoremap <leader>zr :Rg 
+nnoremap <leader>zla :Lines<cr>
+nnoremap <leader>zlc :Lines<cr>
+nnoremap <leader>zta :Tags<cr>
+nnoremap <leader>ztc :BTags<cr>
+nnoremap <leader>zm :Marks<cr>
+nnoremap <leader>zw :Windows<cr>
+nnoremap <leader>zo :Locate 
+nnoremap <leader>zp :History<cr>
+nnoremap <leader>z/ :History/<cr>
+nnoremap <leader>zn :Snippets<cr>
+nnoremap <leader>zhc :Commands<cr>
+nnoremap <leader>zhc :Maps<cr>
+nnoremap <leader>zht :Helptags<cr>
+nnoremap <leader>zt :Filetypes<cr>
 
-"""" SYNTAX HILIGHTING & COMPLETION
-"" ALE
-"nnoremap <leader>gd :ALEGoToDefinition<cr>
-"nnoremap <leader>gr :ALEFindReferences<cr>
-"nnoremap <leader>gh :ALEHover<cr>
-"nnoremap <leader>gs :ALESymbolSearch<cr>
 
-"" COC.NVIM
+"""" LANGUAGE SERVER
 set hidden
-set nobackup
-set nowritebackup
-" more space for messages
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set signcolumn=auto
 
-" extensions
-let g:coc_global_extensions = [
-            \ 'coc-snippets',
-            \ 'coc-lists',
-            \ 'coc-ccls',
-            \ 'coc-rls',
-            \ 'coc-go',
-            \ 'coc-git',
-            \ 'coc-vimtex',
-            \ 'coc-tabnine',
-            \ 'coc-json',
-            \ 'coc-prettier',
-            \ 'coc-html',
-            \ 'coc-css',
-            \ 'coc-emmet',
-            \ 'coc-highlight'
-            \ ]
-
-" <c-space> for completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+let g:LanguageClient_serverCommands={
+			\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+			\ 'c': ['clangd'],
+			\ 'go': ['gopls']
+			\ }
 
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
 
 
-" [g and ]g to navigate diagnostic
-nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+let g:deoplete#enable_at_startup=1
 
-" GoTo code navigation.
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-" Symbol renaming.
-nnoremap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xnoremap <leader>f  <Plug>(coc-format-selected)
-nnoremap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xnoremap <leader>a  <Plug>(coc-codeaction-selected)
-nnoremap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nnoremap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nnoremap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xnoremap if <Plug>(coc-funcobj-i)
-onoremap if <Plug>(coc-funcobj-i)
-xnoremap af <Plug>(coc-funcobj-a)
-onoremap af <Plug>(coc-funcobj-a)
-xnoremap ic <Plug>(coc-classobj-i)
-onoremap ic <Plug>(coc-classobj-i)
-xnoremap ac <Plug>(coc-classobj-a)
-onoremap ac <Plug>(coc-classobj-a)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nnoremap <silent> <C-s> <Plug>(coc-range-select)
-xnoremap <silent> <C-s> <Plug>(coc-range-select)
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nnoremap <silent> <C-s> <Plug>(coc-range-select)
-xnoremap <silent> <C-s> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>sd  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>sc  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>so  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>ss  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>aj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>ak  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>ap  :<C-u>CocListResume<CR>
-
-" coc highlight
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-"" UltiSnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltisnipsSnippetDirectories=["UltiSnips", "plugins/vim-snippets/UltiSnips"]
 
 """" LANGUAGE SERVER
 "" Vimtex
@@ -411,5 +290,3 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
-
