@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    geometry = "250x200-30+40"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -78,8 +78,8 @@
     sort = yes
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
-    # for longer than idle_threshold seconds.
     # Set to 0 to disable.
+    # for longer than idle_threshold seconds.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
     idle_threshold = 0
@@ -127,11 +127,12 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<i>%a</i>\n<b>%s</b>\n%b %p"
+    # format = "<i>%a</i>\n<b>%s</b>\n%b %p"
+    format = "<b>%s</b>\n%b %p"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -277,17 +278,17 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282a2e"
-    foreground = "#c5c8c6"
+    foreground = "#f0c674"
     frame_color = "#f0c674"
-    timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
+    timeout = 3
     #icon = /path/to/icon
 
 [urgency_normal]
     background = "#282a2e"
     foreground = "#f0c674"
     frame_color = "#f0c674"
-    timeout = 10
+    timeout = 7
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 

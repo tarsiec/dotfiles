@@ -64,7 +64,7 @@ border-color = ${colors.background}
 padding-left = 0
 padding-right = 0
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 0
 
 font-0 = Cascadia Code:pixelsize=11;3
@@ -72,7 +72,7 @@ font-1 = Material Design Icons Desktop:pixelsize=13;3
 font-2 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;3
 
 modules-left = bspwm
-modules-center = spotify
+modules-center = spotify mocp
 modules-right = wlan eth pulseaudio backlight battery0 battery1 date
 
 tray-position = right
@@ -198,5 +198,10 @@ include-file = ~/.config/polybar/temperature.ini
 [module/powermenu]
 inherit = defaults
 include-file = ~/.config/polybar/powermenu.ini
+
+[module/mocp]
+inherit = defaults
+include-file = ~/.config/polybar/mocp.ini
+
 
 ; vim:ft=dosini

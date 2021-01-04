@@ -10,53 +10,77 @@ super + Return
 super + shift + Return
     tabbed alacritty --embed
 
-# switch keymaps
-super + alt + m
-	keyprompt
-
 # program launcher
 super+@space
 	dmenu_run
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-# lf
-super + y
-    alacritty -e lf --config ~/.config/lf/lfrc
-
 # brave
 super + w
-	firefox
+	brave
 
-# calcurse
-super + c
-	alacritty -e calcurse
+# spotify (music player)
+super + t
+	spotify
 
-# irssi
-super + i
-    alacritty -e irssi
-
-# emacs
-super + e
-	emacs
-
-# moc (music player)
-super + m
+# mocp
+super + shift + t
 	alacritty -e mocp
 
 # gimp
 super + g
 	gimp
 
-# change scheme
+# newsboat
 super + n
     alacritty -e newsboat
 
-# thunar
-super + shift + i
-	thunar
+# email
+super + m
+	alacritty -e neomutt
+
+
+# screenshot
+super + s
+	selscrot
+
+#screenshotS
+super + shift + s ; {m,d,w,s}
+	{selscrot,maim pic-full-"$(date '+%y%m%d-%H%M-%S').png",maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-    %H%M-%S').png",maim -s pic-selected-"$(date '+%y%m%d-%H%M-%S').png"}
+
+# irssi
+super + i
+    alacritty -e irssi
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# change map
+super + o
+	changemap
+
+# dmenu scripts
+super + d ; {e,l,m,u,r,p}
+	dmenu{-edit-config,handler,mount,umount,record,pass}
+
+# music controls
+super + comma
+    spotifycli --prev
+
+super + period
+    spotifycli --next
+
+super + shift + comma
+	mocp --previous
+
+super + shift + period
+	mocp --next
+
+super + p
+    spotifycli --playpause
+
+super + shift + p
+	mocp --toggle-pause
 
 # lockscreen
 super + shift + x
@@ -74,17 +98,9 @@ super + alt + shift + x
 super + alt + shift + c
     prompt "Confirm suspend?" "systemctl suspend"
 
-# flameshot
-super + s
-	flameshot gui
-
-# ranger
-super + r
-	alacritty -e ranger
-
-# open agenda
-super + a
-	emacs "~/docs/org/agenda.org"
+# get passwords
+super + alt + p
+	passmenu-otp
 
 # audio control via amixer
 XF86Audio{Raise,Lower}Volume
@@ -93,16 +109,20 @@ XF86Audio{Raise,Lower}Volume
 super + XF86Audio{Raise,Lower}Volume
     pulsemixer --change-volume {+,-}25
 
+super + v ; {0-9}
+	pulsemixer --set-volume {0-9}0
+
 XF86AudioMute
 	pulsemixer --toggle-mute
 
 XF86MonBrightnessDown
-	light -U 10
-
+	sudo light -U 5
 
 XF86MonBrightnessUp
-	light -A 10
+	sudo light -A 5
 
+super + b ; {0-9}
+	sudo light -S {0-9}0
 
 #
 # bspwm hotkeys
@@ -147,10 +167,6 @@ super + ctrl + {m,x,y,z}
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
 super + {_,shift + }c

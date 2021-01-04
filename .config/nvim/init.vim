@@ -6,46 +6,90 @@ call plug#begin("~/.config/nvim/plugins")
 				\ 'branch': 'next',
 				\ 'do': 'bash install.sh' 
 				\ }
+	"Plug 'lifepillar/vim-mucomplete'
+	"Plug 'roxma/nvim-yarp'
+	"Plug 'scrooloose/nerdcommenter'
 	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
 	Plug 'godlygeek/tabular'
-	" Plug 'sirver/ultisnips'
-	" Plug 'honza/vim-snippets'
-	Plug 'scrooloose/nerdcommenter'
+	Plug 'honza/vim-snippets'
+	Plug 'sirver/ultisnips'
     
 	"" LANGS
-	Plug 'lervag/vimtex'
+	Plug 'cespare/vim-toml'
 	Plug 'fatih/vim-go'
-	Plug 'plasticboy/vim-markdown'
+	Plug 'libclang-vim/libclang-vim'
+	Plug 'fsharp/vim-fsharp', {
+      \ 'for': 'fsharp',
+      \ 'do':  'make fsautocomplete',
+      \}
 	Plug 'jackguo380/vim-lsp-cxx-highlight'
+	Plug 'kovetskiy/sxhkd-vim'
+	Plug 'lervag/vimtex'
+	Plug 'neovimhaskell/haskell-vim'
+	Plug 'plasticboy/vim-markdown'
+	Plug 'zah/nim.vim'
+
     
 	"" MOTION & SIMPLE TWEAKS
+	Plug 'adelarsq/vim-matchit'
+	Plug 'christoomey/vim-sort-motion'
+	Plug 'christoomey/vim-system-copy'
+	Plug 'christoomey/vim-titlecase'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'haya14busa/incsearch-easymotion.vim'
+	Plug 'haya14busa/incsearch.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'mattn/emmet-vim'
 	Plug 'mg979/vim-visual-multi'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
-	Plug 'easymotion/vim-easymotion'
-	Plug 'haya14busa/incsearch.vim'
-	Plug 'haya14busa/incsearch-easymotion.vim'
+	Plug 'vim-scripts/ReplaceWithRegister'
+	Plug 'wikitopian/hardmode'
 
-	"" IDE-like
+	"" CUSTOM OBJECTS
+	" indent
+	Plug 'michaeljsmith/vim-indent-object'
+	Plug 'kana/vim-textobj-user'
+	" inner line | l
+	Plug 'kana/vim-textobj-line'
+	" closest pair of quotes | q
+	Plug 'beloglazov/vim-textobj-quotes'
+	" until next puntcuation | u
+	Plug 'beloglazov/vim-textobj-punctuation'
+	" all doc e
+	Plug 'kana/vim-textobj-entire'
+	" between params in functions | ,
+	Plug 'sgur/vim-textobj-parameter'
+	" last pasted text | gb
+	Plug 'saaguero/vim-textobj-pastedtext'
+	" c/c++ text object | ;
+	Plug 'libclang-vim/vim-textobj-clang'
+	" between two defined chars | (a/i)f<char>
+	Plug 'thinca/vim-textobj-between'
+	" innermost brace | j
+	Plug 'Julian/vim-textobj-brace'
+	" matchit pairs | m
+	Plug 'adriaanzon/vim-textobj-matchit'
+	
+	" IDE-like
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-
     
     "" FILESYSTEM
-    Plug 'preservim/nerdtree' 
-    Plug 'ctrlpvim/ctrlp.vim' 
-    Plug 'tpope/vim-fugitive' 
-    Plug 'airblade/vim-gitgutter'
 	Plug 'ggreer/the_silver_searcher'
+	Plug 'jreybert/vimagit'
+    "Plug 'tpope/vim-fugitive' 
+    Plug 'airblade/vim-gitgutter'
+    Plug 'ctrlpvim/ctrlp.vim' 
+    Plug 'preservim/nerdtree' 
 
     "" AESTHETICAL
+	Plug 'dawikur/base16-vim-airline-themes'
+	Plug 'dunstontc/vim-vscode-theme'
+	Plug 'vim-airline/vim-airline'
     Plug 'chriskempson/base16-vim'
-    Plug 'arcticicestudio/nord-vim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'itchyny/lightline.vim'
-    Plug 'mike-hearn/base16-vim-lightline'
 call plug#end()
 
 " for global plugins
@@ -59,9 +103,12 @@ set signcolumn=auto
 "" Tabs
 set tabstop=4
 set shiftwidth=4
+set noexpandtab
 
 "" Search
 set nohlsearch
+set ignorecase
+set smartcase
 
 "" Indent
 set autoindent
@@ -70,23 +117,34 @@ set smartindent
 "" Point and click
 set mouse=nv
 
-
-
 """" APPEARANCE
 filetype plugin indent on
 set termguicolors
+set background=dark
 colorscheme base16-tomorrow-night
 set nu rnu
-set cursorline
+"set cursorline cursorcolumn
 
 set noshowmode
 set noshowcmd
 set noruler
 
-let g:lightline = {
-            \ 'colorscheme': 'base16_tomorrow_night'
-            \ }
 
+"let g:lightline = {
+            "\ 'colorscheme': 'base16_tomorrow_night'
+            "\ }
+
+let g:airline#extensions#tabline#enabled=0
+" powerline symbols
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+set encoding=utf-8
 
 "TODO CHANGE NAME OF THIS SECTION
 """" MOTION & SHORTCUTS 
@@ -96,16 +154,6 @@ let g:lightline = {
 "" Go back to normal mode easily
 inoremap jk <esc>
 
-"" TODO Remember this is maybe temporary
-"" Force myself to not have bad habits in Vim
-" - no esc
-inoremap    <esc>   <nop>
-" - no arrow keys
-noremap   <left>    <nop>
-noremap   <right>   <nop>
-noremap   <up>      <nop>
-noremap   <down>    <nop>
-
 "" move absolute position of lines:
 " - up
 nnoremap - ddp
@@ -113,8 +161,6 @@ nnoremap - ddp
 nnoremap _ ddkkp
 
 "" turn a word to uppercase:
-" - in normal mode
-nnoremap <c-u> viwu<esc>e
 " - in insert mode
 inoremap <c-u> <esc>viwu<esc>eli
 
@@ -150,16 +196,16 @@ onoremap il{ :<c-u>normal! f}vi{<cr>
 onoremap in" :<c-u>normal! f"vi"<cr>
 onoremap il" :<c-u>normal! f"vi"<cr>
 
-"" nerd commenter 
+"" nerdcommenter 
 " create default mappings
 let g:nerdcreatedefaultmappings=1
 " add spaces after comment delimiters by default
 let g:nerdspacedelims=1
 
 " Incsearch-Easymotion
-map z/ <Plug>(incsearch-easymotion-/)
-map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
+nnoremap z/ <Plug>(incsearch-easymotion-/)
+nnoremap z? <Plug>(incsearch-easymotion-?)
+nnoremap zg/ <Plug>(incsearch-easymotion-stay)
 
 
 
@@ -221,6 +267,9 @@ augroup filetype_html
 	autocmd FileType html		nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
+autocmd BufEnter :call HardMode()<cr>
+nnoremap <silent> <leader>sh :call ToggleHardMode()<cr>
+nnoremap <leader>se :call EasyMode()<cr>
 
 
 """" FILES, PROJECTS & VERSION MANAGEMENT
@@ -228,7 +277,9 @@ augroup END
 nnoremap <leader>gf :GFiles<cr>
 nnoremap <leader>gs :GFiles?<cr>
 nnoremap <leader>gc :Commits<cr>
-nnoremap <leader>gc :BCommits<cr>
+nnoremap <leader>gb :BCommits<cr>
+
+nnoremap <leader>gm :Magit<cr>
 
 "" NERDTree config
 " remaps
@@ -243,43 +294,69 @@ nnoremap <leader>ob :CtrlPBuffer<cr>
 inoremap <c-p> <esc>:CtrlP<cr>
 
 "" FZF
-nnoremap <leader>zf :Files<cr>
-nnoremap <leader>zc :Colors<cr>
-nnoremap <leader>zb :Buffers<cr>
-nnoremap <leader>zr :Rg 
-nnoremap <leader>zla :Lines<cr>
-nnoremap <leader>zlc :Lines<cr>
-nnoremap <leader>zta :Tags<cr>
-nnoremap <leader>ztc :BTags<cr>
-nnoremap <leader>zm :Marks<cr>
-nnoremap <leader>zw :Windows<cr>
-nnoremap <leader>zo :Locate 
-nnoremap <leader>zp :History<cr>
-nnoremap <leader>z/ :History/<cr>
-nnoremap <leader>zn :Snippets<cr>
-nnoremap <leader>zhc :Commands<cr>
-nnoremap <leader>zhc :Maps<cr>
-nnoremap <leader>zht :Helptags<cr>
-nnoremap <leader>zt :Filetypes<cr>
+  let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{**/node_modules/**,.git/*,**/*.pem}"'
+  let $FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+  "let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+
+
+
+nnoremap zf :Files<cr>
+nnoremap zc :Colors<cr>
+nnoremap zb :Buffers<cr>
+nnoremap zr :Rg 
+nnoremap zla :Lines<cr>
+nnoremap zlc :Lines<cr>
+nnoremap zta :Tags<cr>
+nnoremap ztc :BTags<cr>
+nnoremap zm :Marks<cr>
+nnoremap zw :Windows<cr>
+nnoremap zo :Locate 
+nnoremap zp :History<cr>
+nnoremap zi :History/<cr>
+nnoremap zn :Snippets<cr>
+nnoremap zhc :Commands<cr>
+nnoremap zhc :Maps<cr>
+nnoremap zht :Helptags<cr>
+nnoremap zt :Filetypes<cr>
 
 
 """" LANGUAGE SERVER
 set hidden
 
 let g:LanguageClient_serverCommands={
-			\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-			\ 'c': ['clangd'],
-			\ 'go': ['gopls']
+			\ 'sh': ['bash-language-server', 'start'],
+			\ 'c': ['clangd', '--fallback-style=webkit'],
+			\ 'cpp': ['clangd'],
+			\ 'css': ['css-languageserver', '--stdio'],
+			\ 'go': ['gopls'],
+			\ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
+			\ 'html': ['html-languageserver', '--stdio'],
+			\ 'nim': ['nimlsp'],
+			\ 'fsharp': ['dotnet', '.local/share/repos/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/FSharpLanguageServer.dll'],
+			\ 'python': ['pyls'],
+			\ 'rust': ['rls']
 			\ }
 
 
-nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>lu :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <leader>lc :call LanguageClient_contextMenu()<CR>
+
 nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <leader>gl :call LanguageClient#textDocument_codeLens()<CR>
 
-
+" Completion
 let g:deoplete#enable_at_startup=1
+call deoplete#custom#source('LanguageClient',
+			\ 'min_pattern_length',
+			\ 2)
+set completeopt+=menuone
+set completeopt+=noselect
+set shortmess+=c
+set belloff+=ctrlg
+set completeopt-=preview
 
 
 """" LANGUAGE SERVER

@@ -31,12 +31,21 @@
 
 -> [E]: Edit
 	- ev: edit vimrc as a split window
+	- ed: CocList diagnostics                                         (coc)
+	- ee: CocList extensions                                          (coc)
+	- ec: CocList commands                                            (coc)
+	- eo: CocList outline                                             (coc)
+	- es: CocList -I symbols                                          (coc)
+	- en: CocNext                                                     (coc)
+	- ep: CocPrev                                                     (coc)
+	- er: CocListResume                                               (coc)
 
 -> [F]: Focus / Format
 	- ff: focus on filesystem                                         (nerdtree)
     - fd: format document                                             (LanguageClient)
 
 -> [G]: Git
+	- gm: magit map                                                   (magit)
 	- gf: fzf files in this git project                               (fzf.vim)
 	- gs: fzf files and their status in this project                  (fzf.vim)
 	- gc: fzf commits in current git project                          (fzf.vim)
@@ -44,6 +53,14 @@
 
 -> [I]: Insert
 	- i": insert quotes around word
+
+-> [L]:
+	- ld: go to definition                                            (coc)
+	- lr: find references                                             (coc)
+	- lh: get hover info                                              (coc)
+	- ly: go to type definition                                       (coc)
+	- li: go to implementation                                        (coc)
+	- ls: symbol search                                               (coc)
 
 -> [O]: Open
     - of: open filesystem                                             (nerdtree)
@@ -89,15 +106,6 @@
 
 [NORMAL-MODE BINDS]
 
--> [g]:
-	- Anywhere:
-		> [GO TO]
-		* gd: go to definition                                        (coc)
-		* gr: find references                                         (coc)
-		* gh: get hover info                                          (coc)
-		* gy: go to type definition                                   (coc)
-		* gi: go to implementation                                    (coc)
-		* gs: symbol search                                           (coc)
 
 -> [z]:
 	- Anywhere:
