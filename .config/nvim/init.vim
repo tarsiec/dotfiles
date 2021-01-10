@@ -1,6 +1,7 @@
 " NEOVIM CONFIGURATION: THIS TIME WITH STRUCTURE EDITION
 
 call plug#begin("~/.config/nvim/plugins")
+	Plug 'tpope/vim-sensible'
     "" LINTING & COMPLETION
 	Plug 'autozimu/LanguageClient-neovim', {
 				\ 'branch': 'next',
@@ -28,6 +29,7 @@ call plug#begin("~/.config/nvim/plugins")
 	Plug 'neovimhaskell/haskell-vim'
 	Plug 'plasticboy/vim-markdown'
 	Plug 'zah/nim.vim'
+
 
     
 	"" MOTION & SIMPLE TWEAKS
@@ -79,9 +81,9 @@ call plug#begin("~/.config/nvim/plugins")
     "" FILESYSTEM
 	Plug 'ggreer/the_silver_searcher'
 	Plug 'jreybert/vimagit'
-    "Plug 'tpope/vim-fugitive' 
+    Plug 'tpope/vim-fugitive' 
     Plug 'airblade/vim-gitgutter'
-    Plug 'ctrlpvim/ctrlp.vim' 
+    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'preservim/nerdtree' 
 
     "" AESTHETICAL
@@ -98,6 +100,7 @@ let mapleader = " "
 let maplocalleader = "\\"
 
 set signcolumn=auto
+set nocompatible 
 
 """ BASIC FUNCTIONALITY TWEAKS
 "" Tabs
@@ -159,6 +162,9 @@ inoremap jk <esc>
 nnoremap - ddp
 " - down
 nnoremap _ ddkkp
+
+"" Copy below
+nnoremap yu yypk
 
 "" turn a word to uppercase:
 " - in insert mode
@@ -338,11 +344,11 @@ let g:LanguageClient_serverCommands={
 			\ }
 
 
-nnoremap <silent> <leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <leader>lu :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <leader>lc :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gu :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
 
 nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <silent> <leader>gl :call LanguageClient#textDocument_codeLens()<CR>

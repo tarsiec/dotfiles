@@ -18,12 +18,8 @@ super+@space
 super + w
 	brave
 
-# spotify (music player)
-super + t
-	spotify
-
 # mocp
-super + shift + t
+super + shift + m
 	alacritty -e mocp
 
 # gimp
@@ -60,8 +56,8 @@ super + o
 	changemap
 
 # dmenu scripts
-super + d ; {e,l,m,u,r,p}
-	dmenu{-edit-config,handler,mount,umount,record,pass}
+super + d ; {e,l,m,u,r,p,c}
+	dmenu{-edit-config,handler,mount,umount,record,pass,unicode}
 
 # music controls
 super + comma

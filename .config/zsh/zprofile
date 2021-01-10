@@ -5,18 +5,26 @@
 #export ZSH="$HOME/.oh-my-zsh"
 
 ### DEFAULT SOFTWARE ###
-export TERM="alacritty"
-export EDITOR="emacs"
-export VISUAL="emacs"
+export TERM="xterm-256color"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export READER="zathura"
-export BROWSER="firefox"
+export BROWSER="brave"
 export PAGER="less"
+export BAT_THEME="base16-256"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+
+source "$HOME/.local/share/lscolors.zsh"
 
 ### scripts
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
-export ZSH="/home/tlb/.oh-my-zsh"
+# DAT
+export PATH="$PATH:/home/tlb/.dat/releases/dat-14.0.2-linux-x64"
+
+export ZSH="$HOME/.oh-my-zsh"
 ### CODE & LANGS ###
 export CODE_DIR=$HOME/code
 export CODE_RSC=$CODE_DIR/resources
@@ -33,45 +41,75 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 #ruby
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
-source "$HOME/.rvm/scripts/rvm"
+#source "$HOME/.rvm/scripts/rvm"
 # nim
 export PATH=$PATH:$HOME/.nimble/bin
 # python
 export PATH=$PATH:$HOME/.local/share/python/python-language-server/output/bin/Release
 
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 ### SOFTWARE ###
 # starship.rs
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-eval "$(starship init zsh)"
-# source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
+# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+# eval "$(starship init zsh)"
+#source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
+
+### COMPLETION ###
+setopt AUTO_CD
+autoload -Uz compinit
+compinit -i -d "${ZSH_COMPDUMP}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+setopt COMPLETE_IN_WORD
+setopt ALWAYS_TO_END
+setopt MENU_COMPLETE
+setopt COMPLETE_ALIASES
+
+
+# partial completion suggestions
+zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suffix 
+
+
+### HISTORY ###
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=10000
+HISTSIZE=10000
+
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt INC_APPEND_HISTORY
+setopt HIST_REDUCE_BLANKS
+
+
+
+
+
 
 ### "PLUGINS" ###
+# TODO loop to these instead of sourcing them all manuallyj
+#source $HOME/.local/share/zsh/plugins/compleat/compleat.zsh
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source $HOME/.local/share/zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.zsh
+source $HOME/.local/share/zsh/plugins/vi-mode/vi-mode.zsh
+source $HOME/.local/share/zsh/plugins/git/git.zsh
+source $HOME/.local/share/zsh/plugins/colored-man-pages/colored-man-pages.zsh
+source $HOME/.local/share/zsh/plugins/zsh-histdb/sqlite-history.zsh
+autoload -Uz add-zsh-hook
 
-eval "$(gh completion -s zsh)"
-
-# oh my zsh
-source $ZSH/oh-my-zsh.sh
-
-
-plugins=(
-	git
-	golang
-)
-
-# ZSH_THEME="alien-minimal/alien-minimal"
 
 alias python3="python"
 alias getvid="youtube-dl --restrict-filenames -f 22"
 alias getaudio="youtube-dl --restrict-filenames -x --audio-format mp3"
-alias dmi="doas make install"
-alias dmci="doas make clean install"
-alias drc="sudo make install & pkill dwm"
-alias rcst="rm config.h & make & sudo make install"
+alias smi="sudo make install"
 alias ls="exa"
 alias l="exa -lag"
 alias lsize="exa -lags size"
@@ -80,6 +118,18 @@ alias v="vim"
 alias nv="nvim"
 alias -g Z="| fzf"
 alias mv="mv -i"
+alias mkdir="mkdir -p"
 alias m="mocp"
 alias screenshot="scrot"
 alias newsboat="newsboat -C $HOME/.config/newsboat/config -u $HOME/.config/newsboat/urls -c $HOME/.config/newsboat/cache.db"
+alias :q="exit"
+alias :wq="exit"
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+alias -g .......='../../../../../..'
+alias -g ........='../../../../../../..'
+
+bindkey -v
+bindkey "jk" vi-cmd-mode
