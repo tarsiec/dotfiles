@@ -3,9 +3,9 @@
 call plug#begin("~/.config/nvim/plugins")
 	Plug 'tpope/vim-sensible'
     "" LINTING & COMPLETION
-	Plug 'autozimu/LanguageClient-neovim', {
-				\ 'branch': 'next',
-				\ 'do': 'bash install.sh' 
+	" Plug 'autozimu/LanguageClient-neovim', {
+	" 			\ 'branch': 'next',
+	" 			\ 'do': 'bash install.sh' 
 				\ }
 	"Plug 'lifepillar/vim-mucomplete'
 	"Plug 'roxma/nvim-yarp'
@@ -330,15 +330,10 @@ nnoremap zt :Filetypes<cr>
 set hidden
 
 let g:LanguageClient_serverCommands={
-			\ 'sh': ['bash-language-server', 'start'],
 			\ 'c': ['clangd', '--fallback-style=webkit'],
 			\ 'cpp': ['clangd'],
-			\ 'css': ['css-languageserver', '--stdio'],
 			\ 'go': ['gopls'],
 			\ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
-			\ 'html': ['html-languageserver', '--stdio'],
-			\ 'nim': ['nimlsp'],
-			\ 'fsharp': ['dotnet', '.local/share/repos/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/FSharpLanguageServer.dll'],
 			\ 'python': ['pyls'],
 			\ 'rust': ['rls']
 			\ }
@@ -354,10 +349,10 @@ nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <silent> <leader>gl :call LanguageClient#textDocument_codeLens()<CR>
 
 " Completion
-let g:deoplete#enable_at_startup=1
-call deoplete#custom#source('LanguageClient',
-			\ 'min_pattern_length',
-			\ 2)
+" let g:deoplete#enable_at_startup=1
+" call deoplete#custom#source('LanguageClient',
+" 			\ 'min_pattern_length',
+" 			\ 2)
 set completeopt+=menuone
 set completeopt+=noselect
 set shortmess+=c

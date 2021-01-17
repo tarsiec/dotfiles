@@ -14,6 +14,9 @@ super + shift + Return
 super+@space
 	dmenu_run
 
+super + e
+	emacs
+
 # brave
 super + w
 	brave

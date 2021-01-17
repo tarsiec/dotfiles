@@ -20,19 +20,19 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: SFMono Nerd Font Mono
+    family: ypn envypn
     style: Regular
 
   bold:
-    family: SFMono Nerd Font Mono
+    family: ypn envypn
     style: Bold
 
   italic:
-    family: SFMono Nerd Font Mono
+    family: ypn envypn
     style: Italic
 
   bold_italic:
-    family: SFMono Nerd Font Mono
+    family: ypn envypn
     style: Bold Italic
 
   size: 7.5
