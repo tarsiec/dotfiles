@@ -21,6 +21,9 @@ super + e
 super + w
 	brave
 
+super + c
+	alacritty -e calcurse
+
 # mocp
 super + shift + m
 	alacritty -e mocp
@@ -38,6 +41,7 @@ super + m
 	alacritty -e neomutt
 
 
+
 # screenshot
 super + s
 	selscrot
@@ -45,6 +49,10 @@ super + s
 #screenshotS
 super + shift + s ; {m,d,w,s}
 	{selscrot,maim pic-full-"$(date '+%y%m%d-%H%M-%S').png",maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-    %H%M-%S').png",maim -s pic-selected-"$(date '+%y%m%d-%H%M-%S').png"}
+
+# scripts to help
+super + ctrl + b ; {m,s,p,t}
+	{mansplain,playit,passmenu-otp -i,notiftask}
 
 # irssi
 super + i
@@ -97,9 +105,6 @@ super + alt + shift + x
 super + alt + shift + c
     prompt "Confirm suspend?" "systemctl suspend"
 
-# get passwords
-super + alt + p
-	passmenu-otp
 
 # audio control via amixer
 XF86Audio{Raise,Lower}Volume

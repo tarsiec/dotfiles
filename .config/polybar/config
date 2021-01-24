@@ -67,13 +67,14 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = ypn envypn:pixelsize=11;2
-font-1 = siji:size=11:antialias=true;1
+font-0 = ypn envypn:pixelsize=8;2
+font-1 = siji:size=8:antialias=true;1
 font-2 = siji:size=14:antialias=true;1
 
-modules-left = bspwm
-modules-center = s spotify mocp r
-modules-right = s wlan d pulseaudio s backlight d battery0 vert battery1 s date
+modules-left = arch r f bspwm
+modules-center = spotify mocp
+; modules-center = s spotify mocp r
+modules-right = s d todos s wlan d pulseaudio s backlight d battery0 s d battery1 s date
 
 tray-position = right
 tray-padding = 2
@@ -183,18 +184,23 @@ include-file = ~/.config/polybar/alsa.ini
 [module/battery0]
 inherit = defaults
 exec = "battery | sed -n 1p"
+format-background = ${colors.background}
 include-file = ~/.config/polybar/batteryScript.ini
-
-[module/vert]
-type = custom/text
-content-foreground = ${colors.yellow}
-content = ""
 
 [module/battery1]
 inherit = defaults
 exec = "battery | sed -n 2p"
+format-background = ${colors.background}
 include-file = ~/.config/polybar/batteryScript.ini
 
+[module/todos]
+inherit = defaults
+type = custom/script
+interval = 120
+format = <label>
+exec = "todoamount"
+format-foreground = ${colors.yellow}
+format-background = ${colors.background}
 
 [module/temperature]
 inherit = defaults
@@ -228,5 +234,21 @@ type=custom/text
 content = ""
 content-foreground = ${colors.background-alt}
 content-background = ${colors.background}
+
+[module/f]
+type=custom/text
+
+content = ""
+content-foreground = ${colors.background}
+content-background = ${colors.background-alt}
+
+[module/arch]
+type=custom/text
+
+click-left = "dmenu"
+
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background-alt}
 
 ; vim:ft=dosini

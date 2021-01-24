@@ -3,9 +3,9 @@
 call plug#begin("~/.config/nvim/plugins")
 	Plug 'tpope/vim-sensible'
     "" LINTING & COMPLETION
-	" Plug 'autozimu/LanguageClient-neovim', {
-	" 			\ 'branch': 'next',
-	" 			\ 'do': 'bash install.sh' 
+	Plug 'autozimu/LanguageClient-neovim', {
+				\ 'branch': 'next',
+				\ 'do': 'bash install.sh' 
 				\ }
 	"Plug 'lifepillar/vim-mucomplete'
 	"Plug 'roxma/nvim-yarp'
@@ -16,19 +16,13 @@ call plug#begin("~/.config/nvim/plugins")
 	Plug 'sirver/ultisnips'
     
 	"" LANGS
-	Plug 'cespare/vim-toml'
 	Plug 'fatih/vim-go'
 	Plug 'libclang-vim/libclang-vim'
-	Plug 'fsharp/vim-fsharp', {
-      \ 'for': 'fsharp',
-      \ 'do':  'make fsautocomplete',
-      \}
 	Plug 'jackguo380/vim-lsp-cxx-highlight'
 	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'lervag/vimtex'
 	Plug 'neovimhaskell/haskell-vim'
 	Plug 'plasticboy/vim-markdown'
-	Plug 'zah/nim.vim'
 
 
     
@@ -163,6 +157,21 @@ nnoremap - ddp
 " - down
 nnoremap _ ddkkp
 
+"" Window
+" focus
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+" size
+nnoremap <M-l> :vertical resize +5<cr>
+nnoremap <M-h> :vertical resize -5<cr>
+nnoremap <M-j> :resize +5<cr>
+nnoremap <M-k> :resize -5<cr>
+
+"" Create a terminal
+nmap<leader>ot :sp<cr><c-j><M-k><M-k>:terminal<cr>
+
 "" Copy below
 nnoremap yu yypk
 
@@ -273,6 +282,36 @@ augroup filetype_html
 	autocmd FileType html		nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
+
+augroup filetype_go
+	autocmd FileType go :GoAutoTypeInfoToggle
+	autocmd FileType go nnoremap <leader>gr :GoRun<cr>
+	autocmd FileType go nnoremap <leader>gb :GoBuild<cr>
+	autocmd FileType go nnoremap <leader>ge :GoDescribe<cr>
+	autocmd FileType go nnoremap <leader>ge :GoDescribe<cr>
+	autocmd FileType go nnoremap <leader>go :GoDoc<cr>
+	autocmd FileType go nnoremap <leader>gob :GoDocBrowser<cr>
+	" change
+	autocmd FileType go nnoremap <leader>gn :GoRename<cr>
+	" goto
+	autocmd FileType go nnoremap <leader>gp :GoPointsTo<cr>
+	autocmd FileType go nnoremap <leader>gfr :GoReferrers<cr>
+	" calls
+	autocmd FileType go nnoremap <leader>gfc :GoCallers<cr>
+	autocmd FileType go nnoremap <leader>gfe :GoCallees<cr>
+	" tests
+	autocmd FileType go nnoremap <leader>gt :GoTest<cr>
+	autocmd FileType go nnoremap <leader>gtf :GoTestFunc<cr>
+	autocmd FileType go nnoremap <leader>gtc :GoTestCompile<cr>
+	" debug
+	autocmd FileType go nnoremap <leader>gds :GoDebugStart<cr>
+	autocmd FileType go nnoremap <leader>gdt :GoDebugTestFunc<cr>
+	autocmd FileType go nnoremap <leader>gdb :GoDebugBreakpoint<cr>
+	autocmd FileType go nnoremap <leader>gdc :GoDebugContinue<cr>
+	autocmd FileType go nnoremap <leader>gdq :GoDebugStop<cr>
+augroup END
+
+
 autocmd BufEnter :call HardMode()<cr>
 nnoremap <silent> <leader>sh :call ToggleHardMode()<cr>
 nnoremap <leader>se :call EasyMode()<cr>
@@ -345,19 +384,22 @@ nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> gu :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
 
-nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <leader>gl :call LanguageClient#textDocument_codeLens()<CR>
+" nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
+" nnoremap <silent> <leader>gl :call LanguageClient#textDocument_codeLens()<CR>
 
 " Completion
-" let g:deoplete#enable_at_startup=1
-" call deoplete#custom#source('LanguageClient',
-" 			\ 'min_pattern_length',
-" 			\ 2)
+let g:deoplete#enable_at_startup=1
+call deoplete#custom#source('LanguageClient',
+			\ 'min_pattern_length',
+			\ 2)
 set completeopt+=menuone
 set completeopt+=noselect
 set shortmess+=c
 set belloff+=ctrlg
 set completeopt-=preview
+
+" ultisnips
+let g:UltiSnipsForwardTrigger="<c-n>"
 
 
 """" LANGUAGE SERVER

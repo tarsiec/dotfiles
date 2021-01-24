@@ -117,8 +117,9 @@ alias lname="exa -lags name"
 alias v="vim"
 alias nv="nvim"
 alias -g Z="| fzf"
-alias mv="mv -i"
+alias mv="mv -i -v"
 alias mkdir="mkdir -p"
+alias cp="cp -v"
 alias grep="grep --color"
 alias m="mocp"
 alias screenshot="scrot"
@@ -132,5 +133,13 @@ alias -g ......='../../../../..'
 alias -g .......='../../../../../..'
 alias -g ........='../../../../../../..'
 
-bindkey -v
-bindkey "jk" vi-cmd-mode
+alias zathura="devour zathura"
+alias sxiv="devour sxiv"
+alias feh="devour feh"
+alias code="devour code"
+alias code-insiders="devour code-insiders"
+
+# bindkey -v
+# bindkey "jk" vi-cmd-mode
+
+set -o emacs

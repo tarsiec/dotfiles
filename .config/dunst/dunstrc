@@ -54,7 +54,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 4
 
     # Horizontal padding.
     horizontal_padding = 8
@@ -86,7 +86,7 @@
 
     ### Text ###
 
-    font = Iosevka Nerd Font 12
+    font = Iosevka Nerd Font 11
 
 
     # The spacing between lines.  If the height is smaller than the

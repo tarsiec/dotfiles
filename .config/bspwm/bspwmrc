@@ -19,8 +19,8 @@ bspc monitor -d misc dev web chat git sys doc pic media
 #bspc config focused_border_color "#1d1f21"
 #bspc config normal_border_color  "#282a2e"
 
-bspc config focused_border_color "#282a2e"
-bspc config normal_border_color  "#1d1f21"
+# bspc config focused_border_color "#282a2e"
+# bspc config normal_border_color  "#1d1f21"
 
 bspc config focused_border_color "#f0c674"
 bspc config normal_border_color  "#1d1f21"
