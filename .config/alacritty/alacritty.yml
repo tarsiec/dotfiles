@@ -20,22 +20,22 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: ypn envypn
-    style: Regular
+    family: terminus
+    style: Retina
 
   bold:
-    family: ypn envypn
+    family: terminus
     style: Bold
 
   italic:
-    family: ypn envypn
+    family: terminus
     style: Italic
 
   bold_italic:
-    family: ypn envypn
+    family: terminus
     style: Bold Italic
 
-  size: 7.5
+  size: 6.5
   tabspaces: 4
 
   # Offset is the extra space around each character. `offset.y` can be thought of

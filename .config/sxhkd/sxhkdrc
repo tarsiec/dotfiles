@@ -1,3 +1,5 @@
+super + alt + v
+	pkill x
 #
 # wm independent hotkeys
 #
@@ -11,8 +13,9 @@ super + shift + Return
     tabbed alacritty --embed
 
 # program launcher
-super+@space
-	dmenu_run
+super+@space; {@space,w,s,f,c,k,o}
+	rofi -show {drun,window,ssh,file-browser,calc,keys,combi}
+
 
 super + e
 	emacs
@@ -40,7 +43,9 @@ super + n
 super + m
 	alacritty -e neomutt
 
-
+# quick shot
+Print
+	scrot "$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png" & notify-send "Screenshot taken"
 
 # screenshot
 super + s
@@ -48,10 +53,10 @@ super + s
 
 #screenshotS
 super + shift + s ; {m,d,w,s}
-	{selscrot,maim pic-full-"$(date '+%y%m%d-%H%M-%S').png",maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-    %H%M-%S').png",maim -s pic-selected-"$(date '+%y%m%d-%H%M-%S').png"}
+	{selscrot,maim pic-full-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -i "$HOME/pics/screenshots/$(xdotool getactivewindow)" pic-window-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -s pic-selected-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"}
 
 # scripts to help
-super + ctrl + b ; {m,s,p,t}
+super + b ; {m,s,p,t}
 	{mansplain,playit,passmenu-otp -i,notiftask}
 
 # irssi
@@ -113,7 +118,7 @@ XF86Audio{Raise,Lower}Volume
 super + XF86Audio{Raise,Lower}Volume
     pulsemixer --change-volume {+,-}25
 
-super + v ; {0-9}
+super + ctrl + v ; {0-9}
 	pulsemixer --set-volume {0-9}0
 
 XF86AudioMute
@@ -125,7 +130,7 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	sudo light -A 5
 
-super + b ; {0-9}
+super + ctrl + b ; {0-9}
 	sudo light -S {0-9}0
 
 #

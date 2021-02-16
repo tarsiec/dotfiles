@@ -10,6 +10,7 @@ https://n-o-d-e.net/rss/rss.xml "~N-O-D-E.net"
 # Programming
 "--- Programming ---"
 http://blog.cleancoder.com/atom.xml "~The Clean Code Blog"
+https://blog.royalsloth.eu/feed "~Royal Sloth (Blog)"
 https://feeds.feedburner.com/codinghorror "~Coding Horror (Blog)"
 https://blog.golang.org/feed.atom "~Golang (Blog)"
 https://blog.rust-lang.org/feed.xml "~Rust (Blog)"

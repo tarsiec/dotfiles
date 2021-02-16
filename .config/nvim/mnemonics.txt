@@ -7,88 +7,68 @@
 
 [LEADER BINDS]
 
--> [A]: Action
-    - ak: default action for previous item                            (coc)
-    - aj: default action for next item                                (coc)
-    -- TODO reconsider this
-    - ap: resume latest coc list                                      (coc)
+-> [C]: Language specific utilities
+	-> [GOLANG]:
+		- cr :GoRun                                          (vim-go)
+		- cb :GoBuild                                        (vim-go)
+		- ce :GoDescribe                                     (vim-go)
+		- ce :GoDescribe                                     (vim-go)
+		- co :GoDoc                                          (vim-go)
+		- cob :GoDocBrowser                                  (vim-go)
+		- cn :GoRename                                       (vim-go)
+		- cp :GoPointsTo                                     (vim-go)
+		- cfr :GoReferrers                                   (vim-go)
+		- cfc :GoCallers                                     (vim-go)
+		- cfe :GoCallees                                     (vim-go)
+		- ct :GoTest                                         (vim-go)
+		- ctf :GoTestFunc                                    (vim-go)
+		- ctc :GoTestCompile                                 (vim-go)
+		- cds :GoDebugStart                                  (vim-go)
+		- cdt :GoDebugTestFunc                               (vim-go)
+		- cdb :GoDebugBreakpoint                             (vim-go)
+		- cdc :GoDebugContinue                               (vim-go)
+		- cdq :GoDebugStop                                   (vim-go)
 
-
--> [C]: Comment
-    - cc: insert comment                                              (NERDCommenter)
-    - cn: insert nested comment                                       (NERDCommenter)
-    - c<space>: toggle state of the selected lines                    (NERDCOmmenter)
-    - cm: comments given lines using one set of nested delimeters     (NERDCommenter)
-    - ci: toggles state of selected line(s) individually              (NERDCommenter)
-    - cs: comments selected lines with pretty block formatted layout  (NERDCommenter)
-    - cy: cc, except lines are yanked                                 (NERDCommenter)
-    - c$: comments from cursror to last line                          (NERDCommenter)
-    - cA: comments to the end of line and insert modes between them   (NERDCommenter)
-    - ca: switches to the alternative set of delimeters               (NERDCommenter)
-    - cl: align left                                                  (NERDCommenter)
-    - cb: align both                                                  (NERDCommenter)
-    - cu: uncomment selected lines                                    (NERDCommenter)
+	-> [LaTeX]:
 
 -> [E]: Edit
 	- ev: edit vimrc as a split window
-	- ed: CocList diagnostics                                         (coc)
-	- ee: CocList extensions                                          (coc)
-	- ec: CocList commands                                            (coc)
-	- eo: CocList outline                                             (coc)
-	- es: CocList -I symbols                                          (coc)
-	- en: CocNext                                                     (coc)
-	- ep: CocPrev                                                     (coc)
-	- er: CocListResume                                               (coc)
 
 -> [F]: Focus / Format
-	- ff: focus on filesystem                                         (nerdtree)
-    - fd: format document                                             (LanguageClient)
+	- ff: focus on filesystem                                (nerdtree)
+    - fd: format document                                    (LanguageClient)
 
 -> [G]: Git
-	- gm: magit map                                                   (magit)
-	- gf: fzf files in this git project                               (fzf.vim)
-	- gs: fzf files and their status in this project                  (fzf.vim)
-	- gc: fzf commits in current git project                          (fzf.vim)
-	- gb: fzf commits in this buffer in current git project           (fzf.vim)
+	- gm: magit map                                          (magit)
+	- gf: fzf files in this git project                      (fzf.vim)
+	- gs: fzf files and their status in this project         (fzf.vim)
+	- gc: fzf commits in current git project                 (fzf.vim)
+	- gb: fzf commits in this buffer in current git project  (fzf.vim)
 
 -> [I]: Insert
 	- i": insert quotes around word
 
--> [L]:
-	- ld: go to definition                                            (coc)
-	- lr: find references                                             (coc)
-	- lh: get hover info                                              (coc)
-	- ly: go to type definition                                       (coc)
-	- li: go to implementation                                        (coc)
-	- ls: symbol search                                               (coc)
-
 -> [O]: Open
-    - of: open filesystem                                             (nerdtree)
+    - of: open filesystem                                    (nerdtree)
     - op: open CtrlP
     - ob: open CtrlP on buffer mode
 
--> [R]: Rename
-    - rn: rename symbol                                               (coc)
-
 -> [S]: Search / Show
-    - sf: search filesystem                                           (nerdtree)
+    - sf: search filesystem                                  (nerdtree)
     - sp: search ctrl-p
-    - sd: show diagnostics                                            (coc)
-    - sc: show commands                                               (coc)
-    - ss: search workspace symbols                                    (coc)
-    - so: show symbol of current document
 
 -> [T]: Toggle
-	- ti: toggle indent guides                                        (vim-indent-guides)
+	- ti: toggle indent guides                               (vim-indent-guides)
+	- tw: toggle writing mode                                (goyo)
 
 -> [Z]: Fzf do
-	- zf: Display fzf's Files command                                 (fzf.vim)
-	- zc: Display fzf's Colors command                                (fzf.vim)
-	- zg: Display fzf's GFiles command                                (fzf.vim)
-	- zs: Display fzf's GFiles command                                (fzf.vim)
-	- zb: Display fzf's Buffers command                               (fzf.vim)
-	- zr: Display fzf's Rg command                                    (fzf.vim)
-	- zl: Display fzf's Lines command                                 (fzf.vim)
+	- zf: Display fzf's Files command                        (fzf.vim)
+	- zc: Display fzf's Colors command                       (fzf.vim)
+	- zg: Display fzf's GFiles command                       (fzf.vim)
+	- zs: Display fzf's GFiles command                       (fzf.vim)
+	- zb: Display fzf's Buffers command                      (fzf.vim)
+	- zr: Display fzf's Rg command                           (fzf.vim)
+	- zl: Display fzf's Lines command                        (fzf.vim)
 
 ----------
 
@@ -110,16 +90,16 @@
 -> [z]:
 	- Anywhere:
 		> [SEARCHING EASYMOTION]
-		* z/: incsearch with easymotion                               (incsearch-easymotion)
-		* z?: reverse incsearch with easymotion                       (incsearch-easymotion)
-		* zg/: incsearch while staying with easymotion                (incsearch-easymotion)
+		* z/: incsearch with easymotion                      (incsearch-easymotion)
+		* z?: reverse incsearch with easymotion              (incsearch-easymotion)
+		* zg/: incsearch while staying with easymotion       (incsearch-easymotion)
 	- In Markdown:
 		> [MARKDOWN FOLDS]
-		* zr: reduces fold level throughout the buffer                (vim-markdown)
-		* zR: opens all folds                                         (vim-markdown)
-		* zm: increases fold level throughout the buffer              (vim-markdown)
-		* zM: folds everything all the way                            (vim-markdown)
-		* za: open a fold your cursor is on                           (vim-markdown)
-		* zA: open a fold your cursor is on recursively               (vim-markdown)
-		* zc: close a fold your cursor is on                          (vim-markdown)
-		* zC: close a fold your cursor is on recursively              (vim-markdown)
+		* zr: reduces fold level throughout the buffer       (vim-markdown)
+		* zR: opens all folds                                (vim-markdown)
+		* zm: increases fold level throughout the buffer     (vim-markdown)
+		* zM: folds everything all the way                   (vim-markdown)
+		* za: open a fold your cursor is on                  (vim-markdown)
+		* zA: open a fold your cursor is on recursively      (vim-markdown)
+		* zc: close a fold your cursor is on                 (vim-markdown)
+		* zC: close a fold your cursor is on recursively     (vim-markdown)

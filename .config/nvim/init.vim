@@ -2,27 +2,30 @@
 
 call plug#begin("~/.config/nvim/plugins")
 	Plug 'tpope/vim-sensible'
+	Plug 'turbio/bracey.vim'
+
+
+
     "" LINTING & COMPLETION
-	Plug 'autozimu/LanguageClient-neovim', {
-				\ 'branch': 'next',
-				\ 'do': 'bash install.sh' 
-				\ }
-	"Plug 'lifepillar/vim-mucomplete'
-	"Plug 'roxma/nvim-yarp'
-	"Plug 'scrooloose/nerdcommenter'
-	Plug 'Shougo/deoplete.nvim'
 	Plug 'godlygeek/tabular'
 	Plug 'honza/vim-snippets'
 	Plug 'sirver/ultisnips'
+	Plug 'junegunn/goyo.vim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'liuchengxu/vim-which-key'
+
+	
     
 	"" LANGS
-	Plug 'fatih/vim-go'
-	Plug 'libclang-vim/libclang-vim'
-	Plug 'jackguo380/vim-lsp-cxx-highlight'
 	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'lervag/vimtex'
-	Plug 'neovimhaskell/haskell-vim'
 	Plug 'plasticboy/vim-markdown'
+	Plug 'tmhedberg/SimpylFold'
+
+
+	""" CTAGS
+	Plug 'universal-ctags/ctags'
+	Plug 'ludovicchabant/vim-gutentags'
 
 
     
@@ -42,6 +45,9 @@ call plug#begin("~/.config/nvim/plugins")
 	Plug 'tpope/vim-surround'
 	Plug 'vim-scripts/ReplaceWithRegister'
 	Plug 'wikitopian/hardmode'
+	Plug 'voldikss/vim-floaterm'
+
+
 
 	"" CUSTOM OBJECTS
 	" indent
@@ -62,7 +68,7 @@ call plug#begin("~/.config/nvim/plugins")
 	" c/c++ text object | ;
 	Plug 'libclang-vim/vim-textobj-clang'
 	" between two defined chars | (a/i)f<char>
-	Plug 'thinca/vim-textobj-between'
+	" Plug 'thinca/vim-textobj-between'
 	" innermost brace | j
 	Plug 'Julian/vim-textobj-brace'
 	" matchit pairs | m
@@ -72,6 +78,8 @@ call plug#begin("~/.config/nvim/plugins")
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
     
+
+
     "" FILESYSTEM
 	Plug 'ggreer/the_silver_searcher'
 	Plug 'jreybert/vimagit'
@@ -80,10 +88,26 @@ call plug#begin("~/.config/nvim/plugins")
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'preservim/nerdtree' 
 
+
+
     "" AESTHETICAL
-	Plug 'dawikur/base16-vim-airline-themes'
+	" Plug 'itchyny/lightline.vim'
+	Plug 'w0ng/vim-hybrid'
+	Plug 'daviesjamie/vim-base16-lightline'
+	Plug 'pineapplegiant/spaceduck'
 	Plug 'dunstontc/vim-vscode-theme'
-	Plug 'vim-airline/vim-airline'
+	Plug 'altercation/vim-colors-solarized'
+	Plug 'herrbischoff/cobalt2.vim'
+	Plug 'morhetz/gruvbox'
+	Plug 'tomasr/molokai'
+	Plug 'joshdick/onedark.vim'
+	Plug 'jnurmine/zenburn'
+	Plug 'dracula/vim'
+	Plug 'ayu-theme/ayu-vim'
+	Plug 'junegunn/seoul256.vim'
+	Plug 'nanotech/jellybeans.vim'
+	Plug 'arzg/vim-colors-xcode'
+	Plug 'arcticicestudio/nord-vim'
     Plug 'chriskempson/base16-vim'
     Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -95,6 +119,11 @@ let maplocalleader = "\\"
 
 set signcolumn=auto
 set nocompatible 
+set splitbelow
+set splitright
+set timeoutlen=500
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+set cursorline cursorcolumn
 
 """ BASIC FUNCTIONALITY TWEAKS
 "" Tabs
@@ -114,11 +143,21 @@ set smartindent
 "" Point and click
 set mouse=nv
 
+"" Code folding
+set foldmethod=indent
+set foldlevel=99
+
+nnoremap <c-i> za
+
 """" APPEARANCE
+set t_Co=256
 filetype plugin indent on
+syntax enable
 set termguicolors
 set background=dark
+" colorscheme hybrid
 colorscheme base16-tomorrow-night
+" colorscheme solarized
 set nu rnu
 "set cursorline cursorcolumn
 
@@ -126,20 +165,21 @@ set noshowmode
 set noshowcmd
 set noruler
 
+set laststatus=2
 
-"let g:lightline = {
-            "\ 'colorscheme': 'base16_tomorrow_night'
-            "\ }
 
-let g:airline#extensions#tabline#enabled=0
+" let g:base16lightline_hcontrast=1
+" let g:lightline = { 'colorscheme': 'base16' }
+
+" let g:airline#extensions#tabline#enabled=0
 " powerline symbols
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = ''
 
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
 
 set encoding=utf-8
 
@@ -170,7 +210,8 @@ nnoremap <M-j> :resize +5<cr>
 nnoremap <M-k> :resize -5<cr>
 
 "" Create a terminal
-nmap<leader>ot :sp<cr><c-j><M-k><M-k>:terminal<cr>
+nmap<leader>oT :sp<cr><c-j><M-k><M-k>:terminal<cr>
+nmap<leader>ot :FloatermToggle<cr>
 
 "" Copy below
 nnoremap yu yypk
@@ -204,6 +245,9 @@ onoremap il( :<c-u>normal! f)vi(<cr>
 " - inside next/prev angle brackets
 onoremap in< :<c-u>normal! f<vi<<cr>
 onoremap il< :<c-u>normal! f>vi<<cr>
+" - inside next/prev square brackets
+onoremap in[ :<c-u>normal! f[vi{<cr>
+onoremap il[ :<c-u>normal! f]vi{<cr>
 " - inside next/prev curly brackets
 onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! f}vi{<cr>
@@ -217,12 +261,14 @@ let g:nerdcreatedefaultmappings=1
 " add spaces after comment delimiters by default
 let g:nerdspacedelims=1
 
+"" Writing
+" toggle write mode
+nnoremap <leader>tw :Goyo<cr>
+
+
 " Incsearch-Easymotion
-nnoremap z/ <Plug>(incsearch-easymotion-/)
-nnoremap z? <Plug>(incsearch-easymotion-?)
-nnoremap zg/ <Plug>(incsearch-easymotion-stay)
-
-
+map <leader>e <Plug>(easymotion-prefix)
+" es, egE
 
 """ abbreviations
 "" abbreviate *noremap <leader>
@@ -260,8 +306,7 @@ augroup end
 augroup enter_function
 	autocmd!
 	" - in python
-	autocmd filetype python		:iabbrev <buffer> fnc def ():<left><left><left>
-	autocmd filetype python		:iabbrev <buffer> def nope
+	autocmd filetype python		:iabbrev <buffer> fnc def():<left><left><left>
 	" - in javascript
 	autocmd filetype javascript	:iabbrev <buffer> fnc function(){}<left><left><left><left>
 augroup end
@@ -280,41 +325,71 @@ augroup END
 augroup filetype_html
 	autocmd!
 	autocmd FileType html		nnoremap <buffer> <localleader>f Vatzf
+	autocmd FileType html		nnoremap <leader>tb :Bracey<cr>
 augroup END
 
-
-augroup filetype_go
-	autocmd FileType go :GoAutoTypeInfoToggle
-	autocmd FileType go nnoremap <leader>gr :GoRun<cr>
-	autocmd FileType go nnoremap <leader>gb :GoBuild<cr>
-	autocmd FileType go nnoremap <leader>ge :GoDescribe<cr>
-	autocmd FileType go nnoremap <leader>ge :GoDescribe<cr>
-	autocmd FileType go nnoremap <leader>go :GoDoc<cr>
-	autocmd FileType go nnoremap <leader>gob :GoDocBrowser<cr>
-	" change
-	autocmd FileType go nnoremap <leader>gn :GoRename<cr>
-	" goto
-	autocmd FileType go nnoremap <leader>gp :GoPointsTo<cr>
-	autocmd FileType go nnoremap <leader>gfr :GoReferrers<cr>
-	" calls
-	autocmd FileType go nnoremap <leader>gfc :GoCallers<cr>
-	autocmd FileType go nnoremap <leader>gfe :GoCallees<cr>
-	" tests
-	autocmd FileType go nnoremap <leader>gt :GoTest<cr>
-	autocmd FileType go nnoremap <leader>gtf :GoTestFunc<cr>
-	autocmd FileType go nnoremap <leader>gtc :GoTestCompile<cr>
-	" debug
-	autocmd FileType go nnoremap <leader>gds :GoDebugStart<cr>
-	autocmd FileType go nnoremap <leader>gdt :GoDebugTestFunc<cr>
-	autocmd FileType go nnoremap <leader>gdb :GoDebugBreakpoint<cr>
-	autocmd FileType go nnoremap <leader>gdc :GoDebugContinue<cr>
-	autocmd FileType go nnoremap <leader>gdq :GoDebugStop<cr>
+augroup filetype_c
+	autocmd!
+	autocmd FileType c		nnoremap <leader>cc :FloatermNew --autoclose=0 gcc % -o %< && ./%<<cr>
 augroup END
+
+" augroup filetype_python
+" 	autocmd FileType python
+" 		" change
+" 		\ let g:jedi#rename_command = "<leader>cr"
+" 		\ let g:SimpylFold_docstring_preview=1
+" 		\ let g:jedi#auto_initalization
+" 		" goto
+" 		\ let g:jedi#goto_command = "<leader>cg"
+" 		\ let g:jedi#goto_assignment_command = "<leader>cd"
+" 		" calls
+" 		" tests
+" 		" debug
+" augroup END
+
+" augroup filetype_go
+" 	autocmd FileType go :GoAutoTypeInfoToggle
+" 	autocmd FileType go nnoremap <leader>cr :GoRun<cr>
+" 	autocmd FileType go nnoremap <leader>cb :GoBuild<cr>
+" 	autocmd FileType go nnoremap <leader>ce :GoDescribe<cr>
+" 	autocmd FileType go nnoremap <leader>ce :GoDescribe<cr>
+" 	autocmd FileType go nnoremap <leader>co :GoDoc<cr>
+" 	autocmd FileType go nnoremap <leader>cob :GoDocBrowser<cr>
+" 	" change
+" 	autocmd FileType go nnoremap <leader>cn :GoRename<cr>
+" 	" goto
+" 	autocmd FileType go nnoremap <leader>cp :GoPointsTo<cr>
+" 	autocmd FileType go nnoremap <leader>cfr :GoReferrers<cr>
+" 	" calls
+" 	autocmd FileType go nnoremap <leader>cfc :GoCallers<cr>
+" 	autocmd FileType go nnoremap <leader>cfe :GoCallees<cr>
+" 	" tests
+" 	autocmd FileType go nnoremap <leader>ct :GoTest<cr>
+" 	autocmd FileType go nnoremap <leader>ctf :GoTestFunc<cr>
+" 	autocmd FileType go nnoremap <leader>ctc :GoTestCompile<cr>
+" 	" debug
+" 	autocmd FileType go nnoremap <leader>cds :GoDebugStart<cr>
+" 	autocmd FileType go nnoremap <leader>cdt :GoDebugTestFunc<cr>
+" 	autocmd FileType go nnoremap <leader>cdb :GoDebugBreakpoint<cr>
+" 	autocmd FileType go nnoremap <leader>cdc :GoDebugContinue<cr>
+" 	autocmd FileType go nnoremap <leader>cdq :GoDebugStop<cr>
+" augroup END
+
+
+" augroup filetype_tex
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cc :VimtexCompile<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>ct :VimtexTocToggle<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cT :VimtexTocOpen<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cq :VimtexStop<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cQ :VimtexStopAll<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cv :VimtexView<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cw :VimtexCountWords<cr>
+" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cl :VimtexCountLetters<cr>
+" augroup END
 
 
 autocmd BufEnter :call HardMode()<cr>
-nnoremap <silent> <leader>sh :call ToggleHardMode()<cr>
-nnoremap <leader>se :call EasyMode()<cr>
+nnoremap <silent> <leader>th :call ToggleHardMode()<cr>
 
 
 """" FILES, PROJECTS & VERSION MANAGEMENT
@@ -345,60 +420,208 @@ inoremap <c-p> <esc>:CtrlP<cr>
 
 
 
-nnoremap zf :Files<cr>
-nnoremap zc :Colors<cr>
-nnoremap zb :Buffers<cr>
-nnoremap zr :Rg 
-nnoremap zla :Lines<cr>
-nnoremap zlc :Lines<cr>
-nnoremap zta :Tags<cr>
-nnoremap ztc :BTags<cr>
-nnoremap zm :Marks<cr>
-nnoremap zw :Windows<cr>
-nnoremap zo :Locate 
-nnoremap zp :History<cr>
-nnoremap zi :History/<cr>
-nnoremap zn :Snippets<cr>
-nnoremap zhc :Commands<cr>
-nnoremap zhc :Maps<cr>
-nnoremap zht :Helptags<cr>
-nnoremap zt :Filetypes<cr>
+nnoremap <leader>zf :Files<cr>
+nnoremap <leader>zc :Colors<cr>
+nnoremap <leader>zb :Buffers<cr>
+nnoremap <leader>zr :Rg 
+nnoremap <leader>zs :Lines<cr>
+nnoremap <leader>zls :BLines<cr>
+nnoremap <leader>zt :Tags<cr>
+nnoremap <leader>zlt :BTags<cr>
+nnoremap <leader>zm :Marks<cr>
+nnoremap <leader>zw :Windows<cr>
+nnoremap <leader>zo :Locate 
+nnoremap <leader>zp :History<cr>
+nnoremap <leader>zi :History/<cr>
+nnoremap <leader>zn :Snippets<cr>
+snoremap <leader>zhc :Commands<cr>
+nnoremap <leader>zhc :Maps<cr>
+nnoremap <leader>zht :Helptags<cr>
+nnoremap <leader>zt :Filetypes<cr>
 
 
 """" LANGUAGE SERVER
 set hidden
-
-let g:LanguageClient_serverCommands={
-			\ 'c': ['clangd', '--fallback-style=webkit'],
-			\ 'cpp': ['clangd'],
-			\ 'go': ['gopls'],
-			\ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
-			\ 'python': ['pyls'],
-			\ 'rust': ['rls']
-			\ }
-
-
-nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> gu :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
-
-" nnoremap <silent> <leader>fd :call LanguageClient#textDocument_formatting()<CR>
-" nnoremap <silent> <leader>gl :call LanguageClient#textDocument_codeLens()<CR>
-
-" Completion
-let g:deoplete#enable_at_startup=1
-call deoplete#custom#source('LanguageClient',
-			\ 'min_pattern_length',
-			\ 2)
-set completeopt+=menuone
-set completeopt+=noselect
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
 set shortmess+=c
-set belloff+=ctrlg
-set completeopt-=preview
 
-" ultisnips
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cy <Plug>(coc-type-definition)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cu <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>cr <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>cF  <Plug>(coc-format-selected)
+nmap <leader>cF  <Plug>(coc-format-selected)
+nmap <leader>cf :Format<cr>
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
+
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>cac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>ch   <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <leader>le  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <leader>lc  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <leader>lo  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <leader>ls  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <leader>lj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <leader>lk  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <leader>lp  :<C-u>CocListResume<CR>
+
+" Set up prettier command
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Set up ClangFormat command
+command! -nargs=0 Prettier :
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+
+
+
+set statusline=
+set statusline+=%<\                       " cut at start
+set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
+set statusline+=%-40f\                    " path
+set statusline+=%=%1*%y%*%*\              " file type
+set statusline+=%10((%l,%c)%)\            " line and column
+set statusline+=%P                        " percentage of file
+
+
+let g:coc_global_extensions = [
+	\ 'coc-clangd',
+	\ 'coc-css',
+	\ 'coc-emmet',
+	\ 'coc-emoji',
+	\ 'coc-eslint',
+	\ 'coc-git',
+	\ 'coc-go',
+	\ 'coc-highlight',
+	\ 'coc-html',
+	\ 'coc-json',
+	\ 'coc-jedi',
+	\ 'coc-marketplace',
+	\ 'coc-prettier',
+	\ 'coc-rls',
+	\ 'coc-snippets',
+	\ 'coc-tslint-plugin',
+	\ 'coc-tsserver',
+	\ 'coc-vimtex'
+  	\ ]
+
+
+""" ALE
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '!'
+
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
+
+
+
+""" ULTISNIPS
 let g:UltiSnipsForwardTrigger="<c-n>"
 
 

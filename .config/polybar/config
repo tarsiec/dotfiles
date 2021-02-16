@@ -46,7 +46,7 @@ margin-bottom = 0
 bottom          = false
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 18
+height = 14
 offset-x = 0%
 offset-y = 0%
 radius = 0
@@ -67,14 +67,15 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = ypn envypn:pixelsize=8;2
+; font-0 = ypn envypn:pixelsize=8;1
+font-0 = terminus:pixelsize=8;1
 font-1 = siji:size=8:antialias=true;1
-font-2 = siji:size=14:antialias=true;1
+font-2 = siji:size=14:antialias=true;0
 
-modules-left = arch r f bspwm
+modules-left = bspwm
 modules-center = spotify mocp
 ; modules-center = s spotify mocp r
-modules-right = s d todos s wlan d pulseaudio s backlight d battery0 s d battery1 s date
+modules-right = s d todos s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2
@@ -245,10 +246,17 @@ content-background = ${colors.background-alt}
 [module/arch]
 type=custom/text
 
-click-left = "dmenu"
+click-left = "jgmenu --at-pointer"
 
 content = ""
 content-foreground = ${colors.foreground}
 content-background = ${colors.background-alt}
+
+[module/rt]
+type="custom/text"
+
+content=""
+content-background=${colors.background}
+content-foreground=${colors.yellow}
 
 ; vim:ft=dosini
