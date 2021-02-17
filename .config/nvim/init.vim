@@ -376,16 +376,16 @@ augroup END
 " augroup END
 
 
-" augroup filetype_tex
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cc :VimtexCompile<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>ct :VimtexTocToggle<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cT :VimtexTocOpen<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cq :VimtexStop<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cQ :VimtexStopAll<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cv :VimtexView<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cw :VimtexCountWords<cr>
-" 	autocmd BufRead,BufNew *.tex nnoremap <leader>cl :VimtexCountLetters<cr>
-" augroup END
+augroup filetype_tex
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cc :VimtexCompile<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>ct :VimtexTocToggle<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cT :VimtexTocOpen<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cq :VimtexStop<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cQ :VimtexStopAll<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cv :VimtexView<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cw :VimtexCountWords<cr>
+	autocmd BufRead,BufNew *.tex nnoremap <localleader>cl :VimtexCountLetters<cr>
+augroup END
 
 
 autocmd BufEnter :call HardMode()<cr>
