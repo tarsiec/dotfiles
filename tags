@@ -9,9 +9,22 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/a4f1d818/
+#se_icon	.local/share/startpage/style.css	/^#se_icon {$/;"	i
 $FZF_DEFAULT_COMMAND	.config/nvim/init.vim	/^  let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{**\/node_modules\//;"	v
 $FZF_DEFAULT_OPTS	.config/nvim/init.vim	/^  let $FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'$/;"	v
+*	.local/share/startpage/style.css	/^* {$/;"	s
 -	.config/nvim/init.vim	/^nnoremap - ddp$/;"	m
+.dev	.local/share/startpage/style.css	/^.entertainment, .social, .dev {$/;"	c
+.dev:hover	.local/share/startpage/style.css	/^.entertainment:hover, .social:hover, .dev:hover {$/;"	c
+.entertainment	.local/share/startpage/style.css	/^.entertainment, .social, .dev {$/;"	c
+.entertainment:hover	.local/share/startpage/style.css	/^.entertainment:hover, .social:hover, .dev:hover {$/;"	c
+.filter-white	.local/share/startpage/style.css	/^.filter-white {$/;"	c
+.go	.local/share/startpage/style.css	/^.go {$/;"	c
+.go:hover	.local/share/startpage/style.css	/^.go:hover {$/;"	c
+.se_btn	.local/share/startpage/style.css	/^.se_btn {$/;"	c
+.se_btn:hover	.local/share/startpage/style.css	/^.se_btn:hover {$/;"	c
+.social	.local/share/startpage/style.css	/^.entertainment, .social, .dev {$/;"	c
+.social:hover	.local/share/startpage/style.css	/^.entertainment:hover, .social:hover, .dev:hover {$/;"	c
 0	.config/polybar/alsa.ini	/^bar-volume-foreground-0 = #55aa55$/;"	k
 0	.config/polybar/backlight.ini	/^ramp-0 = $/;"	k
 0	.config/polybar/battery.ini	/^animation-charging-0 = 󰂆$/;"	k
@@ -359,6 +372,10 @@ $FZF_DEFAULT_OPTS	.config/nvim/init.vim	/^  let $FZF_DEFAULT_OPTS='--height 40% 
 <space>o	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>$/;"	m
 <space>p	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>$/;"	m
 <space>s	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>$/;"	m
+AnonymousFunction6c5f2e090100	.local/share/startpage/script.js	/^document.getElementById("se_button").addEventListener("click", function() {$/;"	f
+AnonymousFunction6c5f2e090200	.local/share/startpage/script.js	/^document.getElementById("go_btn").addEventListener("click", function(){$/;"	f
+AnonymousFunction6c5f2e090300	.local/share/startpage/script.js	/^setInterval( function() {$/;"	f
+Flat_copy	.local/share/startpage/icons/reddit.svg	/^<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" x/;"	i
 Fold	.config/nvim/init.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c
 Fold	.config/nvim_orig/init.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c
 Format	.config/nvim/init.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c
@@ -366,6 +383,7 @@ Format	.config/nvim_orig/init.vim	/^command! -nargs=0 Format :call CocAction('fo
 Important Note	.local/bin/cron/IMPORTANT_NOTE.md	/^# Important Note$/;"	c
 K	.config/nvim/init.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
 K	.config/nvim_orig/init.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+Layer_1	.local/share/startpage/icons/youtube.svg	/^<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-\/\/W3C\/\/DTD SVG 1.1\/\/EN'  'http:\/\/www.w3.or/;"	i
 My personal configuration files	README.md	/^# My personal configuration files$/;"	c
 OR	.config/nvim/init.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c
 OR	.config/nvim_orig/init.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c
@@ -381,6 +399,11 @@ S	.config/nvim_orig/init.vim	/^nnoremap S :%s\/\/gI<Left><Left><Left>$/;"	m
 _	.config/nvim/init.vim	/^nnoremap _ ddkkp$/;"	m
 __requires__	.local/bin/conda	/^__requires__ = 'conda==4.3.16'$/;"	v
 __requires__	.local/bin/grip	/^__requires__ = 'grip==4.5.2'$/;"	v
+a	.local/share/startpage/style.css	/^a {$/;"	s
+a:active	.local/share/startpage/style.css	/^a:visited, a:link, a:active {$/;"	s
+a:hover	.local/share/startpage/style.css	/^a:hover {$/;"	s
+a:link	.local/share/startpage/style.css	/^a:visited, a:link, a:active {$/;"	s
+a:visited	.local/share/startpage/style.css	/^a:visited, a:link, a:active {$/;"	s
 ac	.config/nvim/init.vim	/^omap ac <Plug>(coc-classobj-a)$/;"	m
 ac	.config/nvim/init.vim	/^xmap ac <Plug>(coc-classobj-a)$/;"	m
 ac	.config/nvim_orig/init.vim	/^omap ac <Plug>(coc-classobj-a)$/;"	m
@@ -550,8 +573,11 @@ background	.config/polybar_minimal/xkeyboard.ini	/^label-indicator-background = 
 bar_colors	.config/qtile/config.py	/^bar_colors = [$/;"	v
 bcfocused	.config/qtile/config.py	/^bcfocused='#ff5c57'$/;"	v
 bcnormal	.config/qtile/config.py	/^bcnormal='#282a36'$/;"	v
+body	.local/share/startpage/style.css	/^body {$/;"	s
 bring_front_click	.config/qtile/config.py	/^bring_front_click = False$/;"	v
 browser	.config/qtile/config.py	/^browser = "chromium"$/;"	v
+button	.local/share/startpage/style.css	/^button {$/;"	s
+button:hover	.local/share/startpage/style.css	/^button:hover {$/;"	s
 bwidth	.config/qtile/config.py	/^bwidth=3$/;"	v
 card	.config/polybar/backlight.ini	/^card = intel_backlight$/;"	k
 card	.config/polybar/polybar_blocks/backlight.ini	/^card = intel_backlight$/;"	k
@@ -562,6 +588,8 @@ charging	.config/polybar/battery.ini	/^format-charging = <animation-charging> <l
 charging	.config/polybar/polybar_blocks/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
 charging	.config/polybar_blocks/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
 charging	.config/polybar_minimal/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
+check_if_search_empty	.local/share/startpage/script.js	/^function check_if_search_empty() {$/;"	f
+chrome_url_overrides	.local/share/startpage/manifest.json	/^    "chrome_url_overrides": {$/;"	o
 cleanup	.local/bin/by_luke/vu	/^cleanup() {$/;"	f
 close	.config/polybar/polybar_blocks/powermenu.ini	/^label-close = 󰨙 cancel$/;"	k
 close	.config/polybar/powermenu.ini	/^label-close = 󰨙 cancel$/;"	k
@@ -580,13 +608,18 @@ connected	.config/polybar_blocks/wlan.ini	/^label-connected = "%ifname%"$/;"	k
 connected	.config/polybar_minimal/eth.ini	/^label-connected = %local_ip%$/;"	k
 connected	.config/polybar_minimal/wlan.ini	/^format-connected = <ramp-signal> <label-connected>$/;"	k
 connected	.config/polybar_minimal/wlan.ini	/^label-connected = "%ifname%"$/;"	k
+content_security_policy	.local/share/startpage/manifest.json	/^    "content_security_policy": "script-src 'self'; script-src 'unsafe-inline'; object-src 'self'/;"	s
 corners	.config/picom/picom.conf	/^detect-rounded-corners = true;$/;"	k
+curData	.local/share/startpage/script.js	/^  const curData = search_engines[(se+1) % search_engines.length];$/;"	C
 cursor_warp	.config/qtile/config.py	/^cursor_warp = False$/;"	v
+cycleSearchEngines	.local/share/startpage/script.js	/^const cycleSearchEngines = se => {$/;"	C
 damage	.config/picom/picom.conf	/^use-damage = true$/;"	k
 date	.config/polybar/date.ini	/^date = ""$/;"	k
 date	.config/polybar/polybar_blocks/date.ini	/^date =$/;"	k
 date	.config/polybar_blocks/date.ini	/^date =$/;"	k
 date	.config/polybar_minimal/date.ini	/^date =$/;"	k
+description	.local/share/startpage/manifest.json	/^    "description": "Custom new tab startpage",$/;"	s
+determineGreet	.local/share/startpage/script.js	/^const determineGreet = hours => document.getElementById("greeting").innerText = `Good ${hours < /;"	C
 dgroups_app_rules	.config/qtile/config.py	/^dgroups_app_rules = []  # type: List$/;"	v
 dgroups_key_binder	.config/qtile/config.py	/^dgroups_key_binder = None$/;"	v
 discharging	.config/polybar/battery.ini	/^format-discharging = <ramp-capacity> <label-discharging>$/;"	k
@@ -601,6 +634,7 @@ disconnected	.config/polybar_blocks/eth.ini	/^format-disconnected =$/;"	k
 disconnected	.config/polybar_blocks/wlan.ini	/^format-disconnected = 󰤭$/;"	k
 disconnected	.config/polybar_minimal/eth.ini	/^format-disconnected =$/;"	k
 disconnected	.config/polybar_minimal/wlan.ini	/^format-disconnected = 󰤭$/;"	k
+displayTime	.local/share/startpage/script.js	/^function displayTime(time)$/;"	f
 dumb-jump-hydra	.emacs.d/init.def.el	/^(defhydra dumb-jump-hydra (:color blue :columns 3)$/;"	u
 ellipsis	.config/polybar/mpd.ini	/^label-song-ellipsis = true$/;"	k
 ellipsis	.config/polybar/polybar_blocks/mpd.ini	/^label-song-ellipsis = true$/;"	k
@@ -664,6 +698,7 @@ extension_defaults	.config/qtile/config.py	/^extension_defaults = widget_default
 fading	.config/picom/picom.conf	/^fading = false$/;"	k
 filetype_c	.config/nvim/init.vim	/^augroup filetype_c$/;"	a
 filetype_html	.config/nvim/init.vim	/^augroup filetype_html$/;"	a
+filetype_tex	.config/nvim/init.vim	/^augroup filetype_tex$/;"	a
 fill	.config/polybar/alsa.ini	/^bar-volume-fill = ─$/;"	k
 fill	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-fill = ─$/;"	k
 fill	.config/polybar_blocks/alsa.ini	/^bar-volume-fill = ─$/;"	k
@@ -907,17 +942,21 @@ getmount	.local/bin/by_luke/dmenumount	/^getmount() { \\$/;"	f
 getmount	.local/bin/dmenu/dmenumount	/^getmount() { \\$/;"	f
 gi	.config/nvim/init.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
 gi	.config/nvim_orig/init.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+go_btn	.local/share/startpage/startpage.html	/^            <button type="button" class="se_btn" id="se_button"><img id="se_icon"src="icons\/ddg/;"	I
 gr	.config/nvim/init.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
 gr	.config/nvim_orig/init.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
 gradient	.config/polybar/alsa.ini	/^bar-volume-gradient = false$/;"	k
 gradient	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-gradient = false$/;"	k
 gradient	.config/polybar_blocks/alsa.ini	/^bar-volume-gradient = false$/;"	k
 gradient	.config/polybar_minimal/alsa.ini	/^bar-volume-gradient = false$/;"	k
+greeting	.local/share/startpage/startpage.html	/^        <h1 id="greeting"><\/h1>$/;"	I
 group_names	.config/qtile/config.py	/^    group_names = init_group_names()$/;"	v
 groups	.config/qtile/config.py	/^    groups = init_groups()$/;"	v
 gui_editor	.config/qtile/config.py	/^gui_editor = "code"$/;"	v
 gy	.config/nvim/init.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
 gy	.config/nvim_orig/init.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+h1	.local/share/startpage/style.css	/^h1 {$/;"	s
+h2	.local/share/startpage/style.css	/^h2 {$/;"	s
 ic	.config/nvim/init.vim	/^omap ic <Plug>(coc-classobj-i)$/;"	m
 ic	.config/nvim/init.vim	/^xmap ic <Plug>(coc-classobj-i)$/;"	m
 ic	.config/nvim_orig/init.vim	/^omap ic <Plug>(coc-classobj-i)$/;"	m
@@ -943,6 +982,8 @@ indicator	.config/polybar_blocks/alsa.ini	/^bar-volume-indicator = |$/;"	k
 indicator	.config/polybar_minimal/alsa.ini	/^bar-volume-indicator = |$/;"	k
 init_group_names	.config/qtile/config.py	/^def init_group_names():$/;"	f
 init_groups	.config/qtile/config.py	/^def init_groups():$/;"	f
+input	.local/share/startpage/style.css	/^input {$/;"	s
+input:focus::placeholder	.local/share/startpage/style.css	/^input:focus::placeholder {$/;"	s
 interface	.config/polybar/eth.ini	/^interface = enp0s31f6$/;"	k
 interface	.config/polybar/polybar_blocks/eth.ini	/^interface = enp0s31f6$/;"	k
 interface	.config/polybar/polybar_blocks/wlan.ini	/^interface = wlp58s0$/;"	k
@@ -1033,6 +1074,7 @@ left	.config/polybar_blocks/spotify.ini	/^click-left = spotifycli --playpause$/;
 left	.config/polybar_minimal/spotify.ini	/^click-left = spotifycli --playpause$/;"	k
 level	.config/picom/picom.conf	/^log-level = "warn";$/;"	k
 main	.config/qtile/config.py	/^main = None$/;"	v
+manifest_version	.local/share/startpage/manifest.json	/^    "manifest_version": 2,$/;"	n
 mapleader	.config/nvim/init.vim	/^let mapleader = " "$/;"	v
 mapleader	.config/nvim_orig/init.vim	/^let mapleader=" "$/;"	v
 mapleader	.vimrc	/^let mapleader=" "$/;"	v
@@ -1074,10 +1116,16 @@ muted	.config/polybar_minimal/alsa.ini	/^label-muted = sound muted$/;"	k
 muted	.config/polybar_minimal/pulseaudio.ini	/^label-muted = 󰖁$/;"	k
 mygroup	.config/nvim/init.vim	/^augroup mygroup$/;"	a
 mygroup	.config/nvim_orig/init.vim	/^augroup mygroup$/;"	a
+name	.local/share/startpage/manifest.json	/^    "name": "New Tab",$/;"	s
+newtab	.local/share/startpage/manifest.json	/^      "newtab": "startpage.html"$/;"	s	object:chrome_url_overrides
 next	.config/polybar/mpd.ini	/^icon-next = $/;"	k
 next	.config/polybar/polybar_blocks/mpd.ini	/^icon-next = $/;"	k
 next	.config/polybar_blocks/mpd.ini	/^icon-next = $/;"	k
 next	.config/polybar_minimal/mpd.ini	/^icon-next = $/;"	k
+ns0d143ce10101	.local/share/startpage/icons/ddg.svg	/^<svg fill="#000000" xmlns="http:\/\/www.w3.org\/2000\/svg" viewBox="0 0 24 24" width="24px" heig/;"	n	uri:http://www.w3.org/2000/svg
+ns1374c00e0101	.local/share/startpage/icons/reddit.svg	/^<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" x/;"	n	uri:http://www.w3.org/2000/svg
+ns45db91df0101	.local/share/startpage/icons/youtube.svg	/^<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-\/\/W3C\/\/DTD SVG 1.1\/\/EN'  'http:\/\/www.w3.or/;"	n	uri:http://www.w3.org/2000/svg
+nsd9accd1e0101	.local/share/startpage/icons/goog.svg	/^<?xml version="1.0"?><svg fill="#000000" xmlns="http:\/\/www.w3.org\/2000\/svg" viewBox="0 0 24 /;"	n	uri:http://www.w3.org/2000/svg
 occupied	.config/polybar/bspwm.ini	/^label-occupied = ${self.label-focused}$/;"	k
 occupied	.config/polybar/polybar_blocks/bspwm.ini	/^label-occupied = %icon%$/;"	k
 occupied	.config/polybar_blocks/bspwm.ini	/^label-occupied = %icon%$/;"	k
@@ -1096,6 +1144,7 @@ open	.config/polybar_minimal/powermenu.ini	/^label-open = 󰔡$/;"	k
 output	.local/bin/polybar/spotify_status.py	/^    output = args.custom_format$/;"	v
 output	.local/bin/polybar/spotify_status.py	/^output = fix_string(u'{play_pause} {artist}: {song}')$/;"	v
 override	.config/picom/picom.conf	/^inactive-opacity-override = false;$/;"	k
+p	.local/share/startpage/style.css	/^p {$/;"	s
 padding	.config/polybar/battery.ini	/^format-charging-padding = 2$/;"	k
 padding	.config/polybar/battery.ini	/^format-discharging-padding = 2$/;"	k
 padding	.config/polybar/battery.ini	/^format-full-padding = 2$/;"	k
@@ -1230,6 +1279,12 @@ scroll	.config/polybar/backlight.ini	/^enable-scroll = true$/;"	k
 scroll	.config/polybar/polybar_blocks/backlight.ini	/^enable-scroll = true$/;"	k
 scroll	.config/polybar_blocks/backlight.ini	/^enable-scroll = true$/;"	k
 scroll	.config/polybar_minimal/backlight.ini	/^enable-scroll = true$/;"	k
+se	.local/share/startpage/script.js	/^let se = 3;$/;"	v
+se_button	.local/share/startpage/startpage.html	/^            <button type="button" class="se_btn" id="se_button"><img id="se_icon"src="icons\/ddg/;"	I
+se_icon	.local/share/startpage/startpage.html	/^            <button type="button" class="se_btn" id="se_button"><img id="se_icon"src="icons\/ddg/;"	I
+search	.local/share/startpage/startpage.html	/^            <button type="button" class="se_btn" id="se_button"><img id="se_icon"src="icons\/ddg/;"	I
+search_eng_form	.local/share/startpage/startpage.html	/^            <form id="search_eng_form" method="get" action="https:\/\/www.duckduckgo.com\/">$/;"	I
+search_engines	.local/share/startpage/script.js	/^const search_engines = [{$/;"	C
 separator	.config/polybar/polybar_blocks/powermenu.ini	/^label-separator = |$/;"	k
 separator	.config/polybar/powermenu.ini	/^label-separator = |$/;"	k
 separator	.config/polybar_blocks/powermenu.ini	/^label-separator = |$/;"	k
@@ -1264,6 +1319,7 @@ time	.config/polybar/date.ini	/^time=%H:%M$/;"	k
 time	.config/polybar/polybar_blocks/date.ini	/^time = %H:%M$/;"	k
 time	.config/polybar_blocks/date.ini	/^time = %H:%M$/;"	k
 time	.config/polybar_minimal/date.ini	/^time = %H:%M$/;"	k
+time	.local/share/startpage/startpage.html	/^    <h2 id="time"><\/h2>$/;"	I
 transient	.config/picom/picom.conf	/^detect-transient = true$/;"	k
 truncate	.local/bin/polybar/spotify_status.py	/^def truncate(name, trunclen):$/;"	f
 trunclen	.local/bin/polybar/spotify_status.py	/^    trunclen = args.trunclen$/;"	v
@@ -1420,7 +1476,9 @@ urgent	.config/polybar/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
 urgent	.config/polybar/polybar_blocks/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
 urgent	.config/polybar_blocks/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
 urgent	.config/polybar_minimal/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
+username	.local/share/startpage/script.js	/^var username = "tarsiec";$/;"	v
 version	.config/fontconfig/fonts.conf	/^<?xml version="1.0"?>$/;"	k
+version	.local/share/startpage/manifest.json	/^    "version": "1.2",$/;"	s
 video	.local/bin/by_luke/dmenurecord	/^video() { ffmpeg \\$/;"	f
 video	.local/bin/dmenu/dmenurecord	/^video() { ffmpeg \\$/;"	f
 volume	.config/polybar/alsa.ini	/^format-volume = <label-volume> <bar-volume>$/;"	k
@@ -1460,6 +1518,8 @@ width	.config/polybar_minimal/alsa.ini	/^bar-volume-width = 10$/;"	k
 wintypes	.config/picom/picom.conf	/^wintypes:$/;"	k
 wmname	.config/qtile/config.py	/^wmname = "LG3D"$/;"	v
 x	.config/picom/picom.conf	/^shadow-offset-x = -7;$/;"	k
+xlink	.local/share/startpage/icons/reddit.svg	/^<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" x/;"	n	uri:http://www.w3.org/1999/xlink
+xlink	.local/share/startpage/icons/youtube.svg	/^<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-\/\/W3C\/\/DTD SVG 1.1\/\/EN'  'http:\/\/www.w3.or/;"	n	uri:http://www.w3.org/1999/xlink
 y	.config/picom/picom.conf	/^shadow-offset-y = -7;$/;"	k
 yu	.config/nvim/init.vim	/^nnoremap yu yypk$/;"	m
 zone	.config/polybar/polybar_blocks/temperature.ini	/^thermal-zone = 0$/;"	k
