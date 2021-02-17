@@ -1,0 +1,112 @@
+* {
+    font-family: 'Iosevka Nerd Font', monospace;
+}
+body {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    background-color: #1d1f21;
+    box-sizing: border-box;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+}
+h1 {
+    margin-top: 300px;
+    color: #f0c674;
+}
+h2 {
+    color: #f0c674;
+    font-size: 35px;
+    position: relative;
+    top: 150px;
+}
+a {
+    line-height: 1.9;
+}
+p {
+    color: #f0c674;
+    font-size: 35px;
+}
+a:visited, a:link, a:active {
+    color: #c5c8c6;
+    text-decoration: none;
+    font-size: 26px;
+    text-indent: 2px;
+
+}
+a:hover {
+    color: #f0c674;
+}
+.entertainment, .social, .dev {
+    display: inline-block;
+    background-color: #1d1f21;
+    margin-top:100px;
+    margin-bottom:10px;
+    margin-left:10px;
+    margin-right:10px;
+    padding-top:30px;
+    padding-bottom:70px;
+    padding-left:70px;
+    padding-right:70px;
+    border: 2px solid #1d1f21;
+    transition: border-radius 0.3s, background-color 0.3s;
+}
+.entertainment:hover, .social:hover, .dev:hover {
+    border: 2px solid #282a2e;
+    /* box-shadow: 0px 0px 8px 8px #282a2e; */
+    background-color: #282a2e;
+    border-radius: 10px;
+}
+input {
+    color: #f0c674;
+    background-color: #282a2e;
+    width: 700px;
+    text-align: center;
+    height: 50px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+input:focus::placeholder {
+    color: transparent;
+    text-align: center;
+}
+button {
+    background-color: #282a2e;
+    color: #ff0000;
+}
+button:hover {
+    background-color: #282a2e;
+    color: #1d1f21;
+}
+.go {
+    width: 50px;
+    height: 50px;
+    color: #f0c674;
+    border: none;
+    transition: background-color 0.3s, border-radius 0.3s;
+}
+.go:hover {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.se_btn {
+    width: 50px;
+    height: 50px;
+    color: #00ff00;
+    border: none;
+    vertical-align: middle;
+    transition: background-color 0.3s, border-radius 0.3s;
+}
+.se_btn:hover {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#se_icon {
+    width: 24px;
+    height: 24px;
+}
+.filter-white {
+    filter: invert(1);
+}
