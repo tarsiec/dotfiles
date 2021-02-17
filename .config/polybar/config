@@ -75,7 +75,7 @@ font-2 = siji:size=14:antialias=true;0
 modules-left = bspwm
 modules-center = spotify mocp
 ; modules-center = s spotify mocp r
-modules-right = s d todos s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+modules-right =  s d todos s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2

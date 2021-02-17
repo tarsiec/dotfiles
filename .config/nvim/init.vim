@@ -494,7 +494,7 @@ nmap <leader>cr <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>cF  <Plug>(coc-format-selected)
 nmap <leader>cF  <Plug>(coc-format-selected)
-nmap <leader>cf :Format<cr>
+nmap <leader>cf  :Format<cr>:%retab!<cr>
 
 augroup mygroup
   autocmd!

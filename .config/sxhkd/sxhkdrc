@@ -13,8 +13,11 @@ super + shift + Return
     tabbed alacritty --embed
 
 # program launcher
-super+@space; {@space,w,s,f,c,k,o}
-	rofi -show {drun,window,ssh,file-browser,calc,keys,combi}
+super+@space
+	dmenu_run
+
+# super+@space; {@space,w,s,f,c,k,o}
+	# rofi -show {drun,window,ssh,file-browser,calc,keys,combi}
 
 
 super + e

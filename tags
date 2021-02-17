@@ -1,0 +1,1468 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/tlb/.local/share/repos/dotfiles/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/a4f1d818/
+$FZF_DEFAULT_COMMAND	.config/nvim/init.vim	/^  let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{**\/node_modules\//;"	v
+$FZF_DEFAULT_OPTS	.config/nvim/init.vim	/^  let $FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'$/;"	v
+-	.config/nvim/init.vim	/^nnoremap - ddp$/;"	m
+0	.config/polybar/alsa.ini	/^bar-volume-foreground-0 = #55aa55$/;"	k
+0	.config/polybar/backlight.ini	/^ramp-0 = $/;"	k
+0	.config/polybar/battery.ini	/^animation-charging-0 = 󰂆$/;"	k
+0	.config/polybar/battery.ini	/^ramp-capacity-0 = 󰂎$/;"	k
+0	.config/polybar/bspwm.ini	/^ws-icon-0 = misc;$/;"	k
+0	.config/polybar/filesystem.ini	/^mount-0 = \/$/;"	k
+0	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-0 = #55aa55$/;"	k
+0	.config/polybar/polybar_blocks/backlight.ini	/^ramp-0 = 󰃜$/;"	k
+0	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-0 = 󰂆$/;"	k
+0	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-0 = 󰂎$/;"	k
+0	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-0 = misc;󰆧$/;"	k
+0	.config/polybar/polybar_blocks/filesystem.ini	/^mount-0 = \/$/;"	k
+0	.config/polybar/polybar_blocks/powermenu.ini	/^menu-0-0 = 󰦛 reboot$/;"	k
+0	.config/polybar/polybar_blocks/powermenu.ini	/^menu-1-0 = 󰨙 cancel$/;"	k
+0	.config/polybar/polybar_blocks/powermenu.ini	/^menu-2-0 = 󰤆 power off$/;"	k
+0	.config/polybar/polybar_blocks/pulseaudio.ini	/^ramp-volume-0 = 󰕿$/;"	k
+0	.config/polybar/polybar_blocks/temperature.ini	/^ramp-0 = 󰸂$/;"	k
+0	.config/polybar/polybar_blocks/wlan.ini	/^ramp-signal-0 = 󰤯$/;"	k
+0	.config/polybar/polybar_blocks/xkeyboard.ini	/^blacklist-0 = num lock$/;"	k
+0	.config/polybar/powermenu.ini	/^menu-0-0 = 󰦛 reboot$/;"	k
+0	.config/polybar/powermenu.ini	/^menu-1-0 = 󰨙 cancel$/;"	k
+0	.config/polybar/powermenu.ini	/^menu-2-0 = 󰤆 power off$/;"	k
+0	.config/polybar/pulseaudio.ini	/^ramp-volume-0 = $/;"	k
+0	.config/polybar/temperature.ini	/^ramp-0 = 󰸂$/;"	k
+0	.config/polybar/wlan.ini	/^ramp-signal-0 = $/;"	k
+0	.config/polybar/xkeyboard.ini	/^blacklist-0 = num lock$/;"	k
+0	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-0 = #55aa55$/;"	k
+0	.config/polybar_blocks/backlight.ini	/^ramp-0 = 󰃜$/;"	k
+0	.config/polybar_blocks/battery.ini	/^animation-charging-0 = 󰂆$/;"	k
+0	.config/polybar_blocks/battery.ini	/^ramp-capacity-0 = 󰂎$/;"	k
+0	.config/polybar_blocks/bspwm.ini	/^ws-icon-0 = misc;󰆧$/;"	k
+0	.config/polybar_blocks/filesystem.ini	/^mount-0 = \/$/;"	k
+0	.config/polybar_blocks/powermenu.ini	/^menu-0-0 = 󰦛 reboot$/;"	k
+0	.config/polybar_blocks/powermenu.ini	/^menu-1-0 = 󰨙 cancel$/;"	k
+0	.config/polybar_blocks/powermenu.ini	/^menu-2-0 = 󰤆 power off$/;"	k
+0	.config/polybar_blocks/pulseaudio.ini	/^ramp-volume-0 = 󰕿$/;"	k
+0	.config/polybar_blocks/temperature.ini	/^ramp-0 = 󰸂$/;"	k
+0	.config/polybar_blocks/wlan.ini	/^ramp-signal-0 = 󰤯$/;"	k
+0	.config/polybar_blocks/xkeyboard.ini	/^blacklist-0 = num lock$/;"	k
+0	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-0 = #55aa55$/;"	k
+0	.config/polybar_minimal/backlight.ini	/^ramp-0 = 󰃜$/;"	k
+0	.config/polybar_minimal/battery.ini	/^animation-charging-0 = 󰂆$/;"	k
+0	.config/polybar_minimal/battery.ini	/^ramp-capacity-0 = 󰂎$/;"	k
+0	.config/polybar_minimal/bspwm.ini	/^ws-icon-0 = misc;󰆧$/;"	k
+0	.config/polybar_minimal/filesystem.ini	/^mount-0 = \/$/;"	k
+0	.config/polybar_minimal/powermenu.ini	/^menu-0-0 = 󰦛 reboot$/;"	k
+0	.config/polybar_minimal/powermenu.ini	/^menu-1-0 = 󰨙 cancel$/;"	k
+0	.config/polybar_minimal/powermenu.ini	/^menu-2-0 = 󰤆 power off$/;"	k
+0	.config/polybar_minimal/pulseaudio.ini	/^ramp-volume-0 = 󰕿$/;"	k
+0	.config/polybar_minimal/temperature.ini	/^ramp-0 = 󰸂$/;"	k
+0	.config/polybar_minimal/wlan.ini	/^ramp-signal-0 = 󰤯$/;"	k
+0	.config/polybar_minimal/xkeyboard.ini	/^blacklist-0 = num lock$/;"	k
+1	.config/polybar/alsa.ini	/^bar-volume-foreground-1 = #55aa55$/;"	k
+1	.config/polybar/backlight.ini	/^ramp-1 = $/;"	k
+1	.config/polybar/battery.ini	/^animation-charging-1 = 󰂈$/;"	k
+1	.config/polybar/battery.ini	/^ramp-capacity-1 = 󰁻$/;"	k
+1	.config/polybar/bspwm.ini	/^ws-icon-1 = dev;$/;"	k
+1	.config/polybar/filesystem.ini	/^mount-1 = \/home$/;"	k
+1	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-1 = #55aa55$/;"	k
+1	.config/polybar/polybar_blocks/backlight.ini	/^ramp-1 = 󰃞$/;"	k
+1	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-1 = 󰂈$/;"	k
+1	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-1 = 󰁻$/;"	k
+1	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-1 = dev;󰘧$/;"	k
+1	.config/polybar/polybar_blocks/filesystem.ini	/^mount-1 = \/home$/;"	k
+1	.config/polybar/polybar_blocks/powermenu.ini	/^menu-0-1 = 󰤆 power off$/;"	k
+1	.config/polybar/polybar_blocks/powermenu.ini	/^menu-1-1 = 󰦛 reboot$/;"	k
+1	.config/polybar/polybar_blocks/powermenu.ini	/^menu-2-1 = 󰨙 cancel$/;"	k
+1	.config/polybar/polybar_blocks/pulseaudio.ini	/^ramp-volume-1 = 󰖀$/;"	k
+1	.config/polybar/polybar_blocks/temperature.ini	/^ramp-1 = 󰸄$/;"	k
+1	.config/polybar/polybar_blocks/wlan.ini	/^ramp-signal-1 = 󰤟$/;"	k
+1	.config/polybar/powermenu.ini	/^menu-0-1 = 󰤆 power off$/;"	k
+1	.config/polybar/powermenu.ini	/^menu-1-1 = 󰦛 reboot$/;"	k
+1	.config/polybar/powermenu.ini	/^menu-2-1 = 󰨙 cancel$/;"	k
+1	.config/polybar/pulseaudio.ini	/^ramp-volume-1 = $/;"	k
+1	.config/polybar/temperature.ini	/^ramp-1 = 󰸄$/;"	k
+1	.config/polybar/wlan.ini	/^ramp-signal-1 = $/;"	k
+1	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-1 = #55aa55$/;"	k
+1	.config/polybar_blocks/backlight.ini	/^ramp-1 = 󰃞$/;"	k
+1	.config/polybar_blocks/battery.ini	/^animation-charging-1 = 󰂈$/;"	k
+1	.config/polybar_blocks/battery.ini	/^ramp-capacity-1 = 󰁻$/;"	k
+1	.config/polybar_blocks/bspwm.ini	/^ws-icon-1 = dev;󰘧$/;"	k
+1	.config/polybar_blocks/filesystem.ini	/^mount-1 = \/home$/;"	k
+1	.config/polybar_blocks/powermenu.ini	/^menu-0-1 = 󰤆 power off$/;"	k
+1	.config/polybar_blocks/powermenu.ini	/^menu-1-1 = 󰦛 reboot$/;"	k
+1	.config/polybar_blocks/powermenu.ini	/^menu-2-1 = 󰨙 cancel$/;"	k
+1	.config/polybar_blocks/pulseaudio.ini	/^ramp-volume-1 = 󰖀$/;"	k
+1	.config/polybar_blocks/temperature.ini	/^ramp-1 = 󰸄$/;"	k
+1	.config/polybar_blocks/wlan.ini	/^ramp-signal-1 = 󰤟$/;"	k
+1	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-1 = #55aa55$/;"	k
+1	.config/polybar_minimal/backlight.ini	/^ramp-1 = 󰃞$/;"	k
+1	.config/polybar_minimal/battery.ini	/^animation-charging-1 = 󰂈$/;"	k
+1	.config/polybar_minimal/battery.ini	/^ramp-capacity-1 = 󰁻$/;"	k
+1	.config/polybar_minimal/bspwm.ini	/^ws-icon-1 = dev;󰘧$/;"	k
+1	.config/polybar_minimal/filesystem.ini	/^mount-1 = \/home$/;"	k
+1	.config/polybar_minimal/powermenu.ini	/^menu-0-1 = 󰤆 power off$/;"	k
+1	.config/polybar_minimal/powermenu.ini	/^menu-1-1 = 󰦛 reboot$/;"	k
+1	.config/polybar_minimal/powermenu.ini	/^menu-2-1 = 󰨙 cancel$/;"	k
+1	.config/polybar_minimal/pulseaudio.ini	/^ramp-volume-1 = 󰖀$/;"	k
+1	.config/polybar_minimal/temperature.ini	/^ramp-1 = 󰸄$/;"	k
+1	.config/polybar_minimal/wlan.ini	/^ramp-signal-1 = 󰤟$/;"	k
+2	.config/polybar/alsa.ini	/^bar-volume-foreground-2 = #55aa55$/;"	k
+2	.config/polybar/backlight.ini	/^ramp-2 = $/;"	k
+2	.config/polybar/battery.ini	/^animation-charging-2 = 󰂊$/;"	k
+2	.config/polybar/battery.ini	/^ramp-capacity-2 = 󰁽$/;"	k
+2	.config/polybar/bspwm.ini	/^ws-icon-2 = web;$/;"	k
+2	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-2 = #55aa55$/;"	k
+2	.config/polybar/polybar_blocks/backlight.ini	/^ramp-2 = 󰃟$/;"	k
+2	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-2 = 󰂊$/;"	k
+2	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-2 = 󰁽$/;"	k
+2	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-2 = web;󰆋$/;"	k
+2	.config/polybar/polybar_blocks/pulseaudio.ini	/^ramp-volume-2 = 󰕾$/;"	k
+2	.config/polybar/polybar_blocks/temperature.ini	/^ramp-2 = 󰸅$/;"	k
+2	.config/polybar/polybar_blocks/wlan.ini	/^ramp-signal-2 = 󰤢$/;"	k
+2	.config/polybar/pulseaudio.ini	/^ramp-volume-2 = $/;"	k
+2	.config/polybar/temperature.ini	/^ramp-2 = 󰸅$/;"	k
+2	.config/polybar/wlan.ini	/^ramp-signal-2 = $/;"	k
+2	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-2 = #55aa55$/;"	k
+2	.config/polybar_blocks/backlight.ini	/^ramp-2 = 󰃟$/;"	k
+2	.config/polybar_blocks/battery.ini	/^animation-charging-2 = 󰂊$/;"	k
+2	.config/polybar_blocks/battery.ini	/^ramp-capacity-2 = 󰁽$/;"	k
+2	.config/polybar_blocks/bspwm.ini	/^ws-icon-2 = web;󰆋$/;"	k
+2	.config/polybar_blocks/pulseaudio.ini	/^ramp-volume-2 = 󰕾$/;"	k
+2	.config/polybar_blocks/temperature.ini	/^ramp-2 = 󰸅$/;"	k
+2	.config/polybar_blocks/wlan.ini	/^ramp-signal-2 = 󰤢$/;"	k
+2	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-2 = #55aa55$/;"	k
+2	.config/polybar_minimal/backlight.ini	/^ramp-2 = 󰃟$/;"	k
+2	.config/polybar_minimal/battery.ini	/^animation-charging-2 = 󰂊$/;"	k
+2	.config/polybar_minimal/battery.ini	/^ramp-capacity-2 = 󰁽$/;"	k
+2	.config/polybar_minimal/bspwm.ini	/^ws-icon-2 = web;󰆋$/;"	k
+2	.config/polybar_minimal/pulseaudio.ini	/^ramp-volume-2 = 󰕾$/;"	k
+2	.config/polybar_minimal/temperature.ini	/^ramp-2 = 󰸅$/;"	k
+2	.config/polybar_minimal/wlan.ini	/^ramp-signal-2 = 󰤢$/;"	k
+3	.config/polybar/alsa.ini	/^bar-volume-foreground-3 = #55aa55$/;"	k
+3	.config/polybar/battery.ini	/^animation-charging-3 = 󰂅$/;"	k
+3	.config/polybar/battery.ini	/^ramp-capacity-3 = 󰁿$/;"	k
+3	.config/polybar/bspwm.ini	/^ws-icon-3 = chat;$/;"	k
+3	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-3 = #55aa55$/;"	k
+3	.config/polybar/polybar_blocks/backlight.ini	/^ramp-3 = 󰃠$/;"	k
+3	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-3 = 󰂅$/;"	k
+3	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-3 = 󰁿$/;"	k
+3	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-3 = chat;󱅥$/;"	k
+3	.config/polybar/polybar_blocks/temperature.ini	/^ramp-3 = 󰸃$/;"	k
+3	.config/polybar/polybar_blocks/wlan.ini	/^ramp-signal-3 = 󰤥$/;"	k
+3	.config/polybar/temperature.ini	/^ramp-3 = 󰸃$/;"	k
+3	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-3 = #55aa55$/;"	k
+3	.config/polybar_blocks/backlight.ini	/^ramp-3 = 󰃠$/;"	k
+3	.config/polybar_blocks/battery.ini	/^animation-charging-3 = 󰂅$/;"	k
+3	.config/polybar_blocks/battery.ini	/^ramp-capacity-3 = 󰁿$/;"	k
+3	.config/polybar_blocks/bspwm.ini	/^ws-icon-3 = chat;󱅥$/;"	k
+3	.config/polybar_blocks/temperature.ini	/^ramp-3 = 󰸃$/;"	k
+3	.config/polybar_blocks/wlan.ini	/^ramp-signal-3 = 󰤥$/;"	k
+3	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-3 = #55aa55$/;"	k
+3	.config/polybar_minimal/backlight.ini	/^ramp-3 = 󰃠$/;"	k
+3	.config/polybar_minimal/battery.ini	/^animation-charging-3 = 󰂅$/;"	k
+3	.config/polybar_minimal/battery.ini	/^ramp-capacity-3 = 󰁿$/;"	k
+3	.config/polybar_minimal/bspwm.ini	/^ws-icon-3 = chat;󱅥$/;"	k
+3	.config/polybar_minimal/temperature.ini	/^ramp-3 = 󰸃$/;"	k
+3	.config/polybar_minimal/wlan.ini	/^ramp-signal-3 = 󰤥$/;"	k
+4	.config/polybar/alsa.ini	/^bar-volume-foreground-4 = #55aa55$/;"	k
+4	.config/polybar/battery.ini	/^ramp-capacity-4 = 󰂁$/;"	k
+4	.config/polybar/bspwm.ini	/^ws-icon-4 = git;$/;"	k
+4	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-4 = #55aa55$/;"	k
+4	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-4 = 󰂁$/;"	k
+4	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-4 = git;󰘬$/;"	k
+4	.config/polybar/polybar_blocks/wlan.ini	/^ramp-signal-4 = 󰤨$/;"	k
+4	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-4 = #55aa55$/;"	k
+4	.config/polybar_blocks/battery.ini	/^ramp-capacity-4 = 󰂁$/;"	k
+4	.config/polybar_blocks/bspwm.ini	/^ws-icon-4 = git;󰘬$/;"	k
+4	.config/polybar_blocks/wlan.ini	/^ramp-signal-4 = 󰤨$/;"	k
+4	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-4 = #55aa55$/;"	k
+4	.config/polybar_minimal/battery.ini	/^ramp-capacity-4 = 󰂁$/;"	k
+4	.config/polybar_minimal/bspwm.ini	/^ws-icon-4 = git;󰘬$/;"	k
+4	.config/polybar_minimal/wlan.ini	/^ramp-signal-4 = 󰤨$/;"	k
+5	.config/polybar/alsa.ini	/^bar-volume-foreground-5 = #f5a70a$/;"	k
+5	.config/polybar/battery.ini	/^ramp-capacity-5 = 󰁹$/;"	k
+5	.config/polybar/bspwm.ini	/^ws-icon-5 = sys;$/;"	k
+5	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-5 = #f5a70a$/;"	k
+5	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-5 = 󰁹$/;"	k
+5	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-5 = sys;󰉋$/;"	k
+5	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-5 = #f5a70a$/;"	k
+5	.config/polybar_blocks/battery.ini	/^ramp-capacity-5 = 󰁹$/;"	k
+5	.config/polybar_blocks/bspwm.ini	/^ws-icon-5 = sys;󰉋$/;"	k
+5	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-5 = #f5a70a$/;"	k
+5	.config/polybar_minimal/battery.ini	/^ramp-capacity-5 = 󰁹$/;"	k
+5	.config/polybar_minimal/bspwm.ini	/^ws-icon-5 = sys;󰉋$/;"	k
+6	.config/polybar/alsa.ini	/^bar-volume-foreground-6 = #ff5555$/;"	k
+6	.config/polybar/bspwm.ini	/^ws-icon-6 = doc;$/;"	k
+6	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-foreground-6 = #ff5555$/;"	k
+6	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-6 = doc;󰯂$/;"	k
+6	.config/polybar_blocks/alsa.ini	/^bar-volume-foreground-6 = #ff5555$/;"	k
+6	.config/polybar_blocks/bspwm.ini	/^ws-icon-6 = doc;󰯂$/;"	k
+6	.config/polybar_minimal/alsa.ini	/^bar-volume-foreground-6 = #ff5555$/;"	k
+6	.config/polybar_minimal/bspwm.ini	/^ws-icon-6 = doc;󰯂$/;"	k
+7	.config/polybar/bspwm.ini	/^ws-icon-7 = pic;$/;"	k
+7	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-7 = pic;󰋩$/;"	k
+7	.config/polybar_blocks/bspwm.ini	/^ws-icon-7 = pic;󰋩$/;"	k
+7	.config/polybar_minimal/bspwm.ini	/^ws-icon-7 = pic;󰋩$/;"	k
+8	.config/polybar/bspwm.ini	/^ws-icon-8 = media;$/;"	k
+8	.config/polybar/polybar_blocks/bspwm.ini	/^ws-icon-8 = media;󰟴$/;"	k
+8	.config/polybar_blocks/bspwm.ini	/^ws-icon-8 = media;󰟴$/;"	k
+8	.config/polybar_minimal/bspwm.ini	/^ws-icon-8 = media;󰟴$/;"	k
+<A-TAB>;	.config/nvim_orig/init.vim	/^inoremap <A-TAB>; <++>$/;"	m
+<A-TAB>]	.config/nvim_orig/init.vim	/^inoremap <A-TAB>] <ESC>:NERDTreeToggle<CR>$/;"	m
+<A-TAB>]	.config/nvim_orig/init.vim	/^noremap <A-TAB>] :NERDTreeToggle<CR>$/;"	m
+<A-TAB>m	.config/nvim_orig/init.vim	/^inoremap <A-TAB>m <Esc>\/<++><Enter>"_c4l$/;"	m
+<A-TAB>p	.config/nvim_orig/init.vim	/^inoremap <A-TAB>p <ESC>:LLPStartPreview<CR>i$/;"	m
+<A-TAB>p	.config/nvim_orig/init.vim	/^vnoremap <A-TAB>p <ESC>:LLPStartPreview<CR>i$/;"	m
+<A-h>	.config/nvim_orig/init.vim	/^nnoremap <A-h> :tabp<CR>$/;"	m
+<A-l>	.config/nvim_orig/init.vim	/^nnoremap <A-l> :tabn<CR>$/;"	m
+<C-b>	.config/nvim/init.vim	/^  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(0)\\</;"	m
+<C-b>	.config/nvim/init.vim	/^  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\\<C-b>"$/;"	m
+<C-b>	.config/nvim/init.vim	/^  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\\<C-b>"$/;"	m
+<C-f>	.config/nvim/init.vim	/^  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(1)\\</;"	m
+<C-f>	.config/nvim/init.vim	/^  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\\<C-f>"$/;"	m
+<C-f>	.config/nvim/init.vim	/^  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\\<C-f>"$/;"	m
+<C-h>	.config/nvim_orig/init.vim	/^map <C-h> <C-w>h$/;"	m
+<C-h>	.vimrc	/^	map <C-h> <C-w>h$/;"	m
+<C-j>	.config/nvim_orig/init.vim	/^map <C-j> <C-w>j$/;"	m
+<C-j>	.vimrc	/^	map <C-j> <C-w>j$/;"	m
+<C-k>	.config/nvim_orig/init.vim	/^map <C-k> <C-w>k$/;"	m
+<C-k>	.vimrc	/^	map <C-k> <C-w>k$/;"	m
+<C-l>	.config/nvim_orig/init.vim	/^map <C-l> <C-w>l$/;"	m
+<C-l>	.vimrc	/^	map <C-l> <C-w>l$/;"	m
+<C-s>	.config/nvim/init.vim	/^nmap <silent> <C-s> <Plug>(coc-range-select)$/;"	m
+<C-s>	.config/nvim/init.vim	/^xmap <silent> <C-s> <Plug>(coc-range-select)$/;"	m
+<C-s>	.config/nvim_orig/init.vim	/^nmap <silent> <C-s> <Plug>(coc-range-select)$/;"	m
+<C-s>	.config/nvim_orig/init.vim	/^xmap <silent> <C-s> <Plug>(coc-range-select)$/;"	m
+<M-h>	.config/nvim/init.vim	/^nnoremap <M-h> :vertical resize -5<cr>$/;"	m
+<M-j>	.config/nvim/init.vim	/^nnoremap <M-j> :resize +5<cr>$/;"	m
+<M-k>	.config/nvim/init.vim	/^nnoremap <M-k> :resize -5<cr>$/;"	m
+<M-l>	.config/nvim/init.vim	/^nnoremap <M-l> :vertical resize +5<cr>$/;"	m
+<S-TAB>	.config/nvim_orig/init.vim	/^inoremap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<C-h>"$/;"	m
+<S-Tab>	.config/nvim_orig/init.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
+<SPACE>	.config/nvim_orig/init.vim	/^nnoremap <SPACE> <Nop>$/;"	m
+<TAB>	.config/nvim_orig/init.vim	/^inoremap <silent><expr> <TAB>$/;"	m
+<Tab>	.config/nvim_orig/init.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
+<c-@>	.config/nvim/init.vim	/^  inoremap <silent><expr> <c-@> coc#refresh()$/;"	m
+<c-@>	.config/nvim_orig/init.vim	/^  inoremap <silent><expr> <c-@> coc#refresh()$/;"	m
+<c-h>	.config/nvim/init.vim	/^nnoremap <c-h> <c-w>h$/;"	m
+<c-i>	.config/nvim/init.vim	/^nnoremap <c-i> za$/;"	m
+<c-j>	.config/nvim/init.vim	/^nnoremap <c-j> <c-w>j$/;"	m
+<c-k>	.config/nvim/init.vim	/^nnoremap <c-k> <c-w>k$/;"	m
+<c-l>	.config/nvim/init.vim	/^nnoremap <c-l> <c-w>l$/;"	m
+<c-p>	.config/nvim/init.vim	/^inoremap <c-p> <esc>:CtrlP<cr>$/;"	m
+<c-space>	.config/nvim/init.vim	/^  inoremap <silent><expr> <c-space> coc#refresh()$/;"	m
+<c-space>	.config/nvim_orig/init.vim	/^  inoremap <silent><expr> <c-space> coc#refresh()$/;"	m
+<c-u>	.config/nvim/init.vim	/^inoremap <c-u> <esc>viwu<esc>eli$/;"	m
+<cr>	.config/nvim/init.vim	/^inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()$/;"	m
+<cr>	.config/nvim_orig/init.vim	/^  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
+<cr>	.config/nvim_orig/init.vim	/^  inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
+<leader>	.config/nvim/init.vim	/^nnoremap <silent> <leader> :WhichKey '<Space>'<CR>$/;"	m
+<leader>C	.config/nvim_orig/init.vim	/^map <leader>C :setlocal formatoptions=cro<CR>$/;"	m
+<leader>a	.config/nvim_orig/init.vim	/^nmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>a	.config/nvim_orig/init.vim	/^xmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>ac	.config/nvim_orig/init.vim	/^nmap <leader>ac  <Plug>(coc-codeaction)$/;"	m
+<leader>b	.config/nvim_orig/init.vim	/^map <leader>b i#!\/bin\/sh<CR><CR>$/;"	m
+<leader>c	.config/nvim_orig/init.vim	/^map <leader>c :setlocal formatoptions-=cro<CR>$/;"	m
+<leader>c	.config/nvim_orig/init.vim	/^map <leader>c :w! \\| !compiler <c-r>%<CR><CR>$/;"	m
+<leader>c	.vimrc	/^	map <leader>c :w! \\| !compiler <c-r>%<CR><CR>$/;"	m
+<leader>cF	.config/nvim/init.vim	/^nmap <leader>cF  <Plug>(coc-format-selected)$/;"	m
+<leader>cF	.config/nvim/init.vim	/^xmap <leader>cF  <Plug>(coc-format-selected)$/;"	m
+<leader>ca	.config/nvim/init.vim	/^nmap <leader>ca  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>ca	.config/nvim/init.vim	/^xmap <leader>ca  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>cac	.config/nvim/init.vim	/^nmap <leader>cac  <Plug>(coc-codeaction)$/;"	m
+<leader>cd	.config/nvim/init.vim	/^nmap <silent> <leader>cd <Plug>(coc-definition)$/;"	m
+<leader>cf	.config/nvim/init.vim	/^nmap <leader>cf  :Format<cr>:%retab!<cr>$/;"	m
+<leader>ch	.config/nvim/init.vim	/^nmap <leader>ch   <Plug>(coc-fix-current)$/;"	m
+<leader>ci	.config/nvim/init.vim	/^nmap <silent> <leader>ci <Plug>(coc-implementation)$/;"	m
+<leader>cr	.config/nvim/init.vim	/^nmap <leader>cr <Plug>(coc-rename)$/;"	m
+<leader>cu	.config/nvim/init.vim	/^nmap <silent> <leader>cu <Plug>(coc-references)$/;"	m
+<leader>cy	.config/nvim/init.vim	/^nmap <silent> <leader>cy <Plug>(coc-type-definition)$/;"	m
+<leader>d	.config/nvim_orig/init.vim	/^map <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<CR>$/;"	m
+<leader>e	.config/nvim/init.vim	/^map <leader>e <Plug>(easymotion-prefix)$/;"	m
+<leader>ev	.config/nvim/init.vim	/^nnoremap <leader>ev :split $MYVIMRC<cr>$/;"	m
+<leader>f	.config/nvim_orig/init.vim	/^nmap <leader>f  <Plug>(coc-format-selected)$/;"	m
+<leader>f	.config/nvim_orig/init.vim	/^xmap <leader>f  <Plug>(coc-format-selected)$/;"	m
+<leader>f	.vimrc	/^	map <leader>f :Goyo \\| set linebreak<CR>$/;"	m
+<leader>ff	.config/nvim/init.vim	/^nnoremap <leader>ff :NERDTreeFocus<cr>$/;"	m
+<leader>g	.config/nvim_orig/init.vim	/^map <leader>g :Goyo \\| set linebreak<CR>$/;"	m
+<leader>gb	.config/nvim/init.vim	/^nnoremap <leader>gb :BCommits<cr>$/;"	m
+<leader>gc	.config/nvim/init.vim	/^nnoremap <leader>gc :Commits<cr>$/;"	m
+<leader>gf	.config/nvim/init.vim	/^nnoremap <leader>gf :GFiles<cr>$/;"	m
+<leader>gm	.config/nvim/init.vim	/^nnoremap <leader>gm :Magit<cr>$/;"	m
+<leader>gs	.config/nvim/init.vim	/^nnoremap <leader>gs :GFiles?<cr>$/;"	m
+<leader>i"	.config/nvim/init.vim	/^nnoremap <leader>i" viw<esc>a"<esc>bi"<esc>lel$/;"	m
+<leader>i"	.config/nvim/init.vim	/^vnoremap <leader>i" <esc>`<i"<esc>`>la"<esc>l$/;"	m
+<leader>la	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>$/;"	m
+<leader>lc	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>lc  :<C-u>CocList commands<cr>$/;"	m
+<leader>le	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>le  :<C-u>CocList extensions<cr>$/;"	m
+<leader>lj	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>lj  :<C-u>CocNext<CR>$/;"	m
+<leader>lk	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>lk  :<C-u>CocPrev<CR>$/;"	m
+<leader>lo	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>lo  :<C-u>CocList outline<cr>$/;"	m
+<leader>lp	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>lp  :<C-u>CocListResume<CR>$/;"	m
+<leader>ls	.config/nvim/init.vim	/^nnoremap <silent><nowait> <leader>ls  :<C-u>CocList -I symbols<cr>$/;"	m
+<leader>m	.config/nvim_orig/init.vim	/^noremap <leader>m <Esc>\/<++><Enter>"_c4l$/;"	m
+<leader>m	.config/nvim_orig/init.vim	/^vnoremap <leader>m <Esc>\/<++><Enter>"_c4l$/;"	m
+<leader>n	.config/nvim_orig/init.vim	/^map <leader>n :NERDTreeToggle<CR>$/;"	m
+<leader>n	.vimrc	/^	map <leader>n :NERDTreeToggle<CR>$/;"	m
+<leader>o	.vimrc	/^	map <leader>o :setlocal spell! spellang=en_en<CR>$/;"	m
+<leader>oT	.config/nvim/init.vim	/^nmap<leader>oT :sp<cr><c-j><M-k><M-k>:terminal<cr>$/;"	m
+<leader>ob	.config/nvim/init.vim	/^nnoremap <leader>ob :CtrlPBuffer<cr>$/;"	m
+<leader>of	.config/nvim/init.vim	/^nnoremap <leader>of :NERDTreeToggle<cr>$/;"	m
+<leader>on	.config/nvim_orig/init.vim	/^map <leader>on :setlocal spell! spelllang=en<CR>$/;"	m
+<leader>op	.config/nvim/init.vim	/^nnoremap <leader>op :CtrlP<cr>$/;"	m
+<leader>os	.config/nvim_orig/init.vim	/^map <leader>os :setlocal spell! spelllang=es<CR>$/;"	m
+<leader>ot	.config/nvim/init.vim	/^nmap<leader>ot :FloatermToggle<cr>$/;"	m
+<leader>p	.config/nvim_orig/init.vim	/^map <leader>p :!output <c-r>%<CR><CR>$/;"	m
+<leader>p	.config/nvim_orig/init.vim	/^noremap <leader>p :LLPStartPreview<CR>$/;"	m
+<leader>p	.vimrc	/^	map <leader>p :!output <c-r>%<CR><CR>$/;"	m
+<leader>qf	.config/nvim_orig/init.vim	/^nmap <leader>qf  <Plug>(coc-fix-current)$/;"	m
+<leader>rn	.config/nvim_orig/init.vim	/^nmap <leader>rn <Plug>(coc-rename)$/;"	m
+<leader>s	.config/nvim_orig/init.vim	/^map <leader>s :!clear && shellcheck %<CR>$/;"	m
+<leader>s	.vimrc	/^	map <leader>s :!clear && shellcheck %<CR>$/;"	m
+<leader>sf	.config/nvim/init.vim	/^nnoremap <leader>sf :NERDTreeFind<cr>$/;"	m
+<leader>sv	.config/nvim/init.vim	/^nnoremap <leader>sv :source $MYVIMRC<cr>$/;"	m
+<leader>tf	.config/nvim_orig/init.vim	/^map <leader>tf :FloatermNew <CR>$/;"	m
+<leader>th	.config/nvim/init.vim	/^nnoremap <silent> <leader>th :call ToggleHardMode()<cr>$/;"	m
+<leader>ts	.config/nvim_orig/init.vim	/^map <leader>ts :10Term<CR>$/;"	m
+<leader>tt	.config/nvim_orig/init.vim	/^map <leader>tt :TTerm<CR>$/;"	m
+<leader>tv	.config/nvim_orig/init.vim	/^map <leader>tv :VTerm<CR>$/;"	m
+<leader>tw	.config/nvim/init.vim	/^nnoremap <leader>tw :Goyo<cr>$/;"	m
+<leader>zb	.config/nvim/init.vim	/^nnoremap <leader>zb :Buffers<cr>$/;"	m
+<leader>zc	.config/nvim/init.vim	/^nnoremap <leader>zc :Colors<cr>$/;"	m
+<leader>zf	.config/nvim/init.vim	/^nnoremap <leader>zf :Files<cr>$/;"	m
+<leader>zhc	.config/nvim/init.vim	/^nnoremap <leader>zhc :Maps<cr>$/;"	m
+<leader>zhc	.config/nvim/init.vim	/^snoremap <leader>zhc :Commands<cr>$/;"	m
+<leader>zht	.config/nvim/init.vim	/^nnoremap <leader>zht :Helptags<cr>$/;"	m
+<leader>zi	.config/nvim/init.vim	/^nnoremap <leader>zi :History\/<cr>$/;"	m
+<leader>zls	.config/nvim/init.vim	/^nnoremap <leader>zls :BLines<cr>$/;"	m
+<leader>zlt	.config/nvim/init.vim	/^nnoremap <leader>zlt :BTags<cr>$/;"	m
+<leader>zm	.config/nvim/init.vim	/^nnoremap <leader>zm :Marks<cr>$/;"	m
+<leader>zn	.config/nvim/init.vim	/^nnoremap <leader>zn :Snippets<cr>$/;"	m
+<leader>zo	.config/nvim/init.vim	/^nnoremap <leader>zo :Locate $/;"	m
+<leader>zp	.config/nvim/init.vim	/^nnoremap <leader>zp :History<cr>$/;"	m
+<leader>zr	.config/nvim/init.vim	/^nnoremap <leader>zr :Rg $/;"	m
+<leader>zs	.config/nvim/init.vim	/^nnoremap <leader>zs :Lines<cr>$/;"	m
+<leader>zt	.config/nvim/init.vim	/^nnoremap <leader>zt :Filetypes<cr>$/;"	m
+<leader>zt	.config/nvim/init.vim	/^nnoremap <leader>zt :Tags<cr>$/;"	m
+<leader>zw	.config/nvim/init.vim	/^nnoremap <leader>zw :Windows<cr>$/;"	m
+<space>a	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>$/;"	m
+<space>c	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>$/;"	m
+<space>e	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>$/;"	m
+<space>j	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>$/;"	m
+<space>k	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>$/;"	m
+<space>o	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>$/;"	m
+<space>p	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>$/;"	m
+<space>s	.config/nvim_orig/init.vim	/^nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>$/;"	m
+Fold	.config/nvim/init.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c
+Fold	.config/nvim_orig/init.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c
+Format	.config/nvim/init.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c
+Format	.config/nvim_orig/init.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c
+Important Note	.local/bin/cron/IMPORTANT_NOTE.md	/^# Important Note$/;"	c
+K	.config/nvim/init.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+K	.config/nvim_orig/init.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+My personal configuration files	README.md	/^# My personal configuration files$/;"	c
+OR	.config/nvim/init.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c
+OR	.config/nvim_orig/init.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c
+Prettier	.config/nvim/init.vim	/^command! -nargs=0 Prettier :$/;"	c
+Prettier	.config/nvim/init.vim	/^command! -nargs=0 Prettier :CocCommand prettier.formatFile$/;"	c
+S	.config/nvim_orig/init.vim	/^nnoremap S :%s\/\/gI<Left><Left><Left>$/;"	m
+[c	.config/nvim/init.vim	/^nmap <silent> [c <Plug>(ale_previous_wrap)$/;"	m
+[g	.config/nvim/init.vim	/^nmap <silent> [g <Plug>(coc-diagnostic-prev)$/;"	m
+[g	.config/nvim_orig/init.vim	/^nmap <silent> [g <Plug>(coc-diagnostic-prev)$/;"	m
+]c	.config/nvim/init.vim	/^nmap <silent> ]c <Plug>(ale_next_wrap)$/;"	m
+]g	.config/nvim/init.vim	/^nmap <silent> ]g <Plug>(coc-diagnostic-next)$/;"	m
+]g	.config/nvim_orig/init.vim	/^nmap <silent> ]g <Plug>(coc-diagnostic-next)$/;"	m
+_	.config/nvim/init.vim	/^nnoremap _ ddkkp$/;"	m
+__requires__	.local/bin/conda	/^__requires__ = 'conda==4.3.16'$/;"	v
+__requires__	.local/bin/grip	/^__requires__ = 'grip==4.5.2'$/;"	v
+ac	.config/nvim/init.vim	/^omap ac <Plug>(coc-classobj-a)$/;"	m
+ac	.config/nvim/init.vim	/^xmap ac <Plug>(coc-classobj-a)$/;"	m
+ac	.config/nvim_orig/init.vim	/^omap ac <Plug>(coc-classobj-a)$/;"	m
+ac	.config/nvim_orig/init.vim	/^xmap ac <Plug>(coc-classobj-a)$/;"	m
+adapter	.config/polybar/battery.ini	/^adapter = AC$/;"	k
+adapter	.config/polybar/polybar_blocks/battery.ini	/^adapter = AC$/;"	k
+adapter	.config/polybar_blocks/battery.ini	/^adapter = AC$/;"	k
+adapter	.config/polybar_minimal/battery.ini	/^adapter = AC$/;"	k
+add_if	.config/nvim/init.vim	/^augroup add_if$/;"	a
+add_return	.config/nvim/init.vim	/^augroup add_return$/;"	a
+af	.config/nvim/init.vim	/^omap af <Plug>(coc-funcobj-a)$/;"	m
+af	.config/nvim/init.vim	/^xmap af <Plug>(coc-funcobj-a)$/;"	m
+af	.config/nvim_orig/init.vim	/^omap af <Plug>(coc-funcobj-a)$/;"	m
+af	.config/nvim_orig/init.vim	/^xmap af <Plug>(coc-funcobj-a)$/;"	m
+album	.local/bin/polybar/spotify_status.py	/^            album = label_with_font.format(font=font, label=album)$/;"	v
+album	.local/bin/polybar/spotify_status.py	/^    album = fix_string(metadata['xesam:album']) if metadata['xesam:album'] else ''$/;"	v
+alt	.config/polybar/date.ini	/^date-alt = " %Y-%m-%d "$/;"	k
+alt	.config/polybar/date.ini	/^time-alt=%H:%M:%S$/;"	k
+alt	.config/polybar/polybar_blocks/date.ini	/^date-alt = " %Y-%m-%d"$/;"	k
+alt	.config/polybar/polybar_blocks/date.ini	/^time-alt = %H:%M:%S$/;"	k
+alt	.config/polybar_blocks/date.ini	/^date-alt = " %Y-%m-%d"$/;"	k
+alt	.config/polybar_blocks/date.ini	/^time-alt = %H:%M:%S$/;"	k
+alt	.config/polybar_minimal/date.ini	/^date-alt = " %Y-%m-%d"$/;"	k
+alt	.config/polybar_minimal/date.ini	/^time-alt = %H:%M:%S$/;"	k
+app_launcher	.config/qtile/config.py	/^app_launcher = "dmenu_run -p '[Run]'"$/;"	v
+args	.local/bin/polybar/spotify_status.py	/^args = parser.parse_args()$/;"	v
+artist	.local/bin/polybar/spotify_status.py	/^            artist = label_with_font.format(font=font, label=artist)$/;"	v
+artist	.local/bin/polybar/spotify_status.py	/^    artist = fix_string(metadata['xesam:artist'][0]) if metadata['xesam:artist'] else ''$/;"	v
+askrecording	.local/bin/by_luke/dmenurecord	/^askrecording() { \\$/;"	f
+askrecording	.local/bin/dmenu/dmenurecord	/^askrecording() { \\$/;"	f
+asktoend	.local/bin/by_luke/dmenurecord	/^asktoend() { \\$/;"	f
+asktoend	.local/bin/dmenu/dmenurecord	/^asktoend() { \\$/;"	f
+asktype	.local/bin/by_luke/dmenumount	/^asktype() { \\$/;"	f
+asktype	.local/bin/by_luke/dmenuumount	/^asktype() { \\$/;"	f
+asktype	.local/bin/dmenu/dmenumount	/^asktype() { \\$/;"	f
+asktype	.local/bin/dmenu/dmenuumount	/^asktype() { \\$/;"	f
+at	.config/polybar/battery.ini	/^full-at = 98$/;"	k
+at	.config/polybar/polybar_blocks/battery.ini	/^full-at = 98$/;"	k
+at	.config/polybar_blocks/battery.ini	/^full-at = 98$/;"	k
+at	.config/polybar_minimal/battery.ini	/^full-at = 98$/;"	k
+audio	.local/bin/by_luke/dmenurecord	/^audio() { \\$/;"	f
+audio	.local/bin/dmenu/dmenurecord	/^audio() { \\$/;"	f
+auto_fullscreen	.config/qtile/config.py	/^auto_fullscreen = True$/;"	v
+backend	.config/picom/picom.conf	/^backend = "xrender";$/;"	k
+background	.config/polybar/backlight.ini	/^format-background           = ${colors.background-alt}$/;"	k
+background	.config/polybar/battery.ini	/^animation-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^animation-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^format-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^format-charging-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^format-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^format-full-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^label-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^label-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^label-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar/battery.ini	/^ramp-capacity-background = ${colors.foreground}$/;"	k
+background	.config/polybar/bspwm.ini	/^format-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/bspwm.ini	/^format-suffix-background = ${colors.background}$/;"	k
+background	.config/polybar/bspwm.ini	/^label-empty-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/bspwm.ini	/^label-focused-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/bspwm.ini	/^label-occupied-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/bspwm.ini	/^label-urgent-background = ${colors.alert}$/;"	k
+background	.config/polybar/cpu.ini	/^format-background           = ${colors.green}$/;"	k
+background	.config/polybar/date.ini	/^format-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/eth.ini	/^format-connected-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/filesystem.ini	/^label-mounted-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/keymap.ini	/^format-background = ${colors.blue}$/;"	k
+background	.config/polybar/memory.ini	/^format-background = ${colors.red}$/;"	k
+background	.config/polybar/mocp.ini	/^format-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/newsboat.ini	/^format-background = ${colors.background}$/;"	k
+background	.config/polybar/polybar_blocks/backlight.ini	/^format-background           = ${colors.yellow}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^animation-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^format-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^format-charging-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^format-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^format-full-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^label-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^label-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^label-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-background = ${colors.foreground}$/;"	k
+background	.config/polybar/polybar_blocks/batteryScript.ini	/^format-background = ${colors.yellow}$/;"	k
+background	.config/polybar/polybar_blocks/bspwm.ini	/^format-background = ${colors.background}$/;"	k
+background	.config/polybar/polybar_blocks/bspwm.ini	/^label-empty-background = ${colors.background}$/;"	k
+background	.config/polybar/polybar_blocks/bspwm.ini	/^label-focused-background = ${colors.primary}$/;"	k
+background	.config/polybar/polybar_blocks/bspwm.ini	/^label-occupied-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/polybar_blocks/bspwm.ini	/^label-urgent-background = ${colors.alert}$/;"	k
+background	.config/polybar/polybar_blocks/cpu.ini	/^format-background           = ${colors.green}$/;"	k
+background	.config/polybar/polybar_blocks/date.ini	/^format-background = ${colors.blue}$/;"	k
+background	.config/polybar/polybar_blocks/eth.ini	/^format-connected-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/polybar_blocks/filesystem.ini	/^label-mounted-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/polybar_blocks/keymap.ini	/^format-background = ${colors.blue}$/;"	k
+background	.config/polybar/polybar_blocks/memory.ini	/^format-background = ${colors.red}$/;"	k
+background	.config/polybar/polybar_blocks/pulseaudio.ini	/^format-volume-background = ${colors.cyan}$/;"	k
+background	.config/polybar/polybar_blocks/pulseaudio.ini	/^label-muted-background  = ${colors.background-alt}$/;"	k
+background	.config/polybar/polybar_blocks/spotify.ini	/^format-background = ${colors.green}$/;"	k
+background	.config/polybar/polybar_blocks/temperature.ini	/^label-warn-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/polybar_blocks/wlan.ini	/^format-connected-background     = ${colors.purple}$/;"	k
+background	.config/polybar/polybar_blocks/wlan.ini	/^format-disconnected-background     = ${colors.purple}$/;"	k
+background	.config/polybar/polybar_blocks/xkeyboard.ini	/^label-indicator-background = ${colors.secondary}$/;"	k
+background	.config/polybar/pulseaudio.ini	/^format-volume-background = ${colors.background}$/;"	k
+background	.config/polybar/pulseaudio.ini	/^label-muted-background  = ${colors.background}$/;"	k
+background	.config/polybar/spotify.ini	/^format-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/temperature.ini	/^label-warn-background = ${colors.background-alt}$/;"	k
+background	.config/polybar/wlan.ini	/^format-connected-background     = ${colors.background-alt}$/;"	k
+background	.config/polybar/wlan.ini	/^format-disconnected-background     = ${colors.backround}$/;"	k
+background	.config/polybar/xkeyboard.ini	/^label-indicator-background = ${colors.background}$/;"	k
+background	.config/polybar_blocks/backlight.ini	/^format-background           = ${colors.yellow}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^animation-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^animation-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^format-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^format-charging-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^format-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^format-full-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^label-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^label-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^label-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/battery.ini	/^ramp-capacity-background = ${colors.foreground}$/;"	k
+background	.config/polybar_blocks/batteryScript.ini	/^format-background = ${colors.yellow}$/;"	k
+background	.config/polybar_blocks/bspwm.ini	/^format-background = ${colors.background}$/;"	k
+background	.config/polybar_blocks/bspwm.ini	/^label-empty-background = ${colors.background}$/;"	k
+background	.config/polybar_blocks/bspwm.ini	/^label-focused-background = ${colors.primary}$/;"	k
+background	.config/polybar_blocks/bspwm.ini	/^label-occupied-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_blocks/bspwm.ini	/^label-urgent-background = ${colors.alert}$/;"	k
+background	.config/polybar_blocks/cpu.ini	/^format-background           = ${colors.green}$/;"	k
+background	.config/polybar_blocks/date.ini	/^format-background = ${colors.blue}$/;"	k
+background	.config/polybar_blocks/eth.ini	/^format-connected-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_blocks/filesystem.ini	/^label-mounted-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_blocks/keymap.ini	/^format-background = ${colors.blue}$/;"	k
+background	.config/polybar_blocks/memory.ini	/^format-background = ${colors.red}$/;"	k
+background	.config/polybar_blocks/pulseaudio.ini	/^format-volume-background = ${colors.cyan}$/;"	k
+background	.config/polybar_blocks/pulseaudio.ini	/^label-muted-background  = ${colors.background-alt}$/;"	k
+background	.config/polybar_blocks/spotify.ini	/^format-background = ${colors.green}$/;"	k
+background	.config/polybar_blocks/temperature.ini	/^label-warn-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_blocks/wlan.ini	/^format-connected-background     = ${colors.purple}$/;"	k
+background	.config/polybar_blocks/wlan.ini	/^format-disconnected-background     = ${colors.purple}$/;"	k
+background	.config/polybar_blocks/xkeyboard.ini	/^label-indicator-background = ${colors.secondary}$/;"	k
+background	.config/polybar_minimal/backlight.ini	/^format-background           = ${colors.background}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^animation-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^animation-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^format-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^format-charging-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^format-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^format-full-prefix-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^label-charging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^label-discharging-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^label-full-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/battery.ini	/^ramp-capacity-background = ${colors.foreground}$/;"	k
+background	.config/polybar_minimal/batteryScript.ini	/^format-background = ${colors.background}$/;"	k
+background	.config/polybar_minimal/bspwm.ini	/^format-background = ${colors.background}$/;"	k
+background	.config/polybar_minimal/bspwm.ini	/^label-empty-background = ${colors.background}$/;"	k
+background	.config/polybar_minimal/bspwm.ini	/^label-focused-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_minimal/bspwm.ini	/^label-occupied-background = ${colors.background}$/;"	k
+background	.config/polybar_minimal/bspwm.ini	/^label-urgent-background = ${colors.alert}$/;"	k
+background	.config/polybar_minimal/cpu.ini	/^format-background           = ${colors.green}$/;"	k
+background	.config/polybar_minimal/date.ini	/^format-background = ${colors.bacground}$/;"	k
+background	.config/polybar_minimal/eth.ini	/^format-connected-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_minimal/filesystem.ini	/^label-mounted-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_minimal/keymap.ini	/^format-background = ${colors.blue}$/;"	k
+background	.config/polybar_minimal/memory.ini	/^format-background = ${colors.red}$/;"	k
+background	.config/polybar_minimal/pulseaudio.ini	/^format-volume-background = ${colors.background}$/;"	k
+background	.config/polybar_minimal/pulseaudio.ini	/^label-muted-background  = ${colors.background}$/;"	k
+background	.config/polybar_minimal/spotify.ini	/^format-background = ${colors.background}$/;"	k
+background	.config/polybar_minimal/temperature.ini	/^label-warn-background = ${colors.background-alt}$/;"	k
+background	.config/polybar_minimal/wlan.ini	/^format-connected-background     = ${colors.background}$/;"	k
+background	.config/polybar_minimal/wlan.ini	/^format-disconnected-background     = ${colors.backround}$/;"	k
+background	.config/polybar_minimal/xkeyboard.ini	/^label-indicator-background = ${colors.secondary}$/;"	k
+bar_colors	.config/qtile/config.py	/^bar_colors = [$/;"	v
+bcfocused	.config/qtile/config.py	/^bcfocused='#ff5c57'$/;"	v
+bcnormal	.config/qtile/config.py	/^bcnormal='#282a36'$/;"	v
+bring_front_click	.config/qtile/config.py	/^bring_front_click = False$/;"	v
+browser	.config/qtile/config.py	/^browser = "chromium"$/;"	v
+bwidth	.config/qtile/config.py	/^bwidth=3$/;"	v
+card	.config/polybar/backlight.ini	/^card = intel_backlight$/;"	k
+card	.config/polybar/polybar_blocks/backlight.ini	/^card = intel_backlight$/;"	k
+card	.config/polybar_blocks/backlight.ini	/^card = intel_backlight$/;"	k
+card	.config/polybar_minimal/backlight.ini	/^card = intel_backlight$/;"	k
+cc-hydra-actions	.emacs.d/init.def.el	/^(defhydra cc-hydra-actions (:color blue)$/;"	u
+charging	.config/polybar/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
+charging	.config/polybar/polybar_blocks/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
+charging	.config/polybar_blocks/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
+charging	.config/polybar_minimal/battery.ini	/^format-charging = <animation-charging> <label-charging>$/;"	k
+cleanup	.local/bin/by_luke/vu	/^cleanup() {$/;"	f
+close	.config/polybar/polybar_blocks/powermenu.ini	/^label-close = 󰨙 cancel$/;"	k
+close	.config/polybar/powermenu.ini	/^label-close = 󰨙 cancel$/;"	k
+close	.config/polybar_blocks/powermenu.ini	/^label-close = 󰨙 cancel$/;"	k
+close	.config/polybar_minimal/powermenu.ini	/^label-close = 󰨙 cancel$/;"	k
+comment_line	.config/nvim/init.vim	/^augroup comment_line$/;"	a
+connected	.config/polybar/eth.ini	/^label-connected = %local_ip%$/;"	k
+connected	.config/polybar/polybar_blocks/eth.ini	/^label-connected = %local_ip%$/;"	k
+connected	.config/polybar/polybar_blocks/wlan.ini	/^format-connected = <ramp-signal> <label-connected>$/;"	k
+connected	.config/polybar/polybar_blocks/wlan.ini	/^label-connected = "%ifname%"$/;"	k
+connected	.config/polybar/wlan.ini	/^format-connected = <ramp-signal> <label-connected>$/;"	k
+connected	.config/polybar/wlan.ini	/^label-connected = "%ifname%"$/;"	k
+connected	.config/polybar_blocks/eth.ini	/^label-connected = %local_ip%$/;"	k
+connected	.config/polybar_blocks/wlan.ini	/^format-connected = <ramp-signal> <label-connected>$/;"	k
+connected	.config/polybar_blocks/wlan.ini	/^label-connected = "%ifname%"$/;"	k
+connected	.config/polybar_minimal/eth.ini	/^label-connected = %local_ip%$/;"	k
+connected	.config/polybar_minimal/wlan.ini	/^format-connected = <ramp-signal> <label-connected>$/;"	k
+connected	.config/polybar_minimal/wlan.ini	/^label-connected = "%ifname%"$/;"	k
+corners	.config/picom/picom.conf	/^detect-rounded-corners = true;$/;"	k
+cursor_warp	.config/qtile/config.py	/^cursor_warp = False$/;"	v
+damage	.config/picom/picom.conf	/^use-damage = true$/;"	k
+date	.config/polybar/date.ini	/^date = ""$/;"	k
+date	.config/polybar/polybar_blocks/date.ini	/^date =$/;"	k
+date	.config/polybar_blocks/date.ini	/^date =$/;"	k
+date	.config/polybar_minimal/date.ini	/^date =$/;"	k
+dgroups_app_rules	.config/qtile/config.py	/^dgroups_app_rules = []  # type: List$/;"	v
+dgroups_key_binder	.config/qtile/config.py	/^dgroups_key_binder = None$/;"	v
+discharging	.config/polybar/battery.ini	/^format-discharging = <ramp-capacity> <label-discharging>$/;"	k
+discharging	.config/polybar/polybar_blocks/battery.ini	/^format-discharging = <ramp-capacity> <label-discharging>$/;"	k
+discharging	.config/polybar_blocks/battery.ini	/^format-discharging = <ramp-capacity> <label-discharging>$/;"	k
+discharging	.config/polybar_minimal/battery.ini	/^format-discharging = <ramp-capacity> <label-discharging>$/;"	k
+disconnected	.config/polybar/eth.ini	/^format-disconnected =$/;"	k
+disconnected	.config/polybar/polybar_blocks/eth.ini	/^format-disconnected =$/;"	k
+disconnected	.config/polybar/polybar_blocks/wlan.ini	/^format-disconnected = 󰤭$/;"	k
+disconnected	.config/polybar/wlan.ini	/^format-disconnected = .$/;"	k
+disconnected	.config/polybar_blocks/eth.ini	/^format-disconnected =$/;"	k
+disconnected	.config/polybar_blocks/wlan.ini	/^format-disconnected = 󰤭$/;"	k
+disconnected	.config/polybar_minimal/eth.ini	/^format-disconnected =$/;"	k
+disconnected	.config/polybar_minimal/wlan.ini	/^format-disconnected = 󰤭$/;"	k
+dumb-jump-hydra	.emacs.d/init.def.el	/^(defhydra dumb-jump-hydra (:color blue :columns 3)$/;"	u
+ellipsis	.config/polybar/mpd.ini	/^label-song-ellipsis = true$/;"	k
+ellipsis	.config/polybar/polybar_blocks/mpd.ini	/^label-song-ellipsis = true$/;"	k
+ellipsis	.config/polybar_blocks/mpd.ini	/^label-song-ellipsis = true$/;"	k
+ellipsis	.config/polybar_minimal/mpd.ini	/^label-song-ellipsis = true$/;"	k
+empty	.config/polybar/alsa.ini	/^bar-volume-empty = ─$/;"	k
+empty	.config/polybar/bspwm.ini	/^label-empty = ${self.label-occupied}$/;"	k
+empty	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-empty = ─$/;"	k
+empty	.config/polybar/polybar_blocks/bspwm.ini	/^label-empty = ${self.label-occupied}$/;"	k
+empty	.config/polybar_blocks/alsa.ini	/^bar-volume-empty = ─$/;"	k
+empty	.config/polybar_blocks/bspwm.ini	/^label-empty = ${self.label-occupied}$/;"	k
+empty	.config/polybar_minimal/alsa.ini	/^bar-volume-empty = ─$/;"	k
+empty	.config/polybar_minimal/bspwm.ini	/^label-empty = ${self.label-occupied}$/;"	k
+enter_function	.config/nvim/init.vim	/^augroup enter_function$/;"	a
+eof	.local/bin/by_luke/unix	/^cat << 'eof'$/;"	h
+eof	.local/bin/term/unix	/^cat << 'eof'$/;"	h
+exclude	.config/picom/picom.conf	/^blur-background-exclude = [$/;"	k
+exclude	.config/picom/picom.conf	/^focus-exclude = [ "class_g = 'Cairo-clock'" ];$/;"	k
+exclude	.config/picom/picom.conf	/^shadow-exclude = [$/;"	k
+exec	.config/polybar/keymap.ini	/^exec = cat \/home\/tlb\/.local\/bin\/currentkeymap$/;"	k
+exec	.config/polybar/mocp.ini	/^exec = mocp-state.sh$/;"	k
+exec	.config/polybar/polybar_blocks/batteryScript.ini	/^exec = "battery"$/;"	k
+exec	.config/polybar/polybar_blocks/keymap.ini	/^exec = cat \/home\/tlb\/.local\/bin\/currentkeymap$/;"	k
+exec	.config/polybar/polybar_blocks/powermenu.ini	/^menu-0-0-exec = menu-open-1$/;"	k
+exec	.config/polybar/polybar_blocks/powermenu.ini	/^menu-0-1-exec = menu-open-2$/;"	k
+exec	.config/polybar/polybar_blocks/powermenu.ini	/^menu-1-0-exec = menu-open-0$/;"	k
+exec	.config/polybar/polybar_blocks/powermenu.ini	/^menu-1-1-exec = sudo reboot$/;"	k
+exec	.config/polybar/polybar_blocks/powermenu.ini	/^menu-2-0-exec = sudo poweroff$/;"	k
+exec	.config/polybar/polybar_blocks/powermenu.ini	/^menu-2-1-exec = menu-open-0$/;"	k
+exec	.config/polybar/polybar_blocks/spotify.ini	/^exec = python \/home\/tlb\/.local\/bin\/polybar\/spotify_status.py -p '󰝚 ,󰝛 ' -t 21 -f '{p/;"	k
+exec	.config/polybar/polybar_blocks/weather.ini	/^exec = ~\/.local\/bin\/polybar\/weather.sh$/;"	k
+exec	.config/polybar/powermenu.ini	/^menu-0-0-exec = menu-open-1$/;"	k
+exec	.config/polybar/powermenu.ini	/^menu-0-1-exec = menu-open-2$/;"	k
+exec	.config/polybar/powermenu.ini	/^menu-1-0-exec = menu-open-0$/;"	k
+exec	.config/polybar/powermenu.ini	/^menu-1-1-exec = sudo reboot$/;"	k
+exec	.config/polybar/powermenu.ini	/^menu-2-0-exec = sudo poweroff$/;"	k
+exec	.config/polybar/powermenu.ini	/^menu-2-1-exec = menu-open-0$/;"	k
+exec	.config/polybar/spotify.ini	/^exec = python \/home\/tlb\/.local\/bin\/spotify_status.py -t 70 -p ' ,  ' -f '{play_pause}/;"	k
+exec	.config/polybar/weather.ini	/^exec = ~\/.local\/bin\/polybar\/weather.sh$/;"	k
+exec	.config/polybar_blocks/batteryScript.ini	/^exec = "battery"$/;"	k
+exec	.config/polybar_blocks/keymap.ini	/^exec = cat \/home\/tlb\/.local\/bin\/currentkeymap$/;"	k
+exec	.config/polybar_blocks/powermenu.ini	/^menu-0-0-exec = menu-open-1$/;"	k
+exec	.config/polybar_blocks/powermenu.ini	/^menu-0-1-exec = menu-open-2$/;"	k
+exec	.config/polybar_blocks/powermenu.ini	/^menu-1-0-exec = menu-open-0$/;"	k
+exec	.config/polybar_blocks/powermenu.ini	/^menu-1-1-exec = sudo reboot$/;"	k
+exec	.config/polybar_blocks/powermenu.ini	/^menu-2-0-exec = sudo poweroff$/;"	k
+exec	.config/polybar_blocks/powermenu.ini	/^menu-2-1-exec = menu-open-0$/;"	k
+exec	.config/polybar_blocks/spotify.ini	/^exec = python \/home\/tlb\/.local\/bin\/polybar\/spotify_status.py -p '󰝚 ,󰝛 ' -t 21 -f '{p/;"	k
+exec	.config/polybar_blocks/weather.ini	/^exec = ~\/.local\/bin\/polybar\/weather.sh$/;"	k
+exec	.config/polybar_minimal/keymap.ini	/^exec = cat \/home\/tlb\/.local\/bin\/currentkeymap$/;"	k
+exec	.config/polybar_minimal/powermenu.ini	/^menu-0-0-exec = menu-open-1$/;"	k
+exec	.config/polybar_minimal/powermenu.ini	/^menu-0-1-exec = menu-open-2$/;"	k
+exec	.config/polybar_minimal/powermenu.ini	/^menu-1-0-exec = menu-open-0$/;"	k
+exec	.config/polybar_minimal/powermenu.ini	/^menu-1-1-exec = sudo reboot$/;"	k
+exec	.config/polybar_minimal/powermenu.ini	/^menu-2-0-exec = sudo poweroff$/;"	k
+exec	.config/polybar_minimal/powermenu.ini	/^menu-2-1-exec = menu-open-0$/;"	k
+exec	.config/polybar_minimal/spotify.ini	/^exec = python \/home\/tlb\/.local\/bin\/polybar\/spotify_status.py -p '󰝚 ,󰝛 ' -f '{play_pa/;"	k
+exec	.config/polybar_minimal/weather.ini	/^exec = ~\/.local\/bin\/polybar\/weather.sh$/;"	k
+execute-c-program	.emacs.d/init.def.el	/^(defun execute-c-program ()$/;"	f
+extension_defaults	.config/qtile/config.py	/^extension_defaults = widget_defaults.copy()$/;"	v
+fading	.config/picom/picom.conf	/^fading = false$/;"	k
+filetype_c	.config/nvim/init.vim	/^augroup filetype_c$/;"	a
+filetype_html	.config/nvim/init.vim	/^augroup filetype_html$/;"	a
+fill	.config/polybar/alsa.ini	/^bar-volume-fill = ─$/;"	k
+fill	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-fill = ─$/;"	k
+fill	.config/polybar_blocks/alsa.ini	/^bar-volume-fill = ─$/;"	k
+fill	.config/polybar_minimal/alsa.ini	/^bar-volume-fill = ─$/;"	k
+filter	.local/bin/statusbar/music	/^filter() {$/;"	f
+fix_string	.local/bin/polybar/spotify_status.py	/^def fix_string(string):$/;"	f
+floating_layout	.config/qtile/config.py	/^floating_layout = layout.Floating(float_rules=[$/;"	v
+focus_on_window_activation	.config/qtile/config.py	/^focus_on_window_activation = "smart"$/;"	v
+focused	.config/picom/picom.conf	/^mark-ovredir-focused = true;$/;"	k
+focused	.config/picom/picom.conf	/^mark-wmwin-focused = true;$/;"	k
+focused	.config/polybar/bspwm.ini	/^label-focused = %index% %icon%$/;"	k
+focused	.config/polybar/polybar_blocks/bspwm.ini	/^label-focused = %icon% %name%$/;"	k
+focused	.config/polybar_blocks/bspwm.ini	/^label-focused = %icon% %name%$/;"	k
+focused	.config/polybar_minimal/bspwm.ini	/^label-focused = %icon%$/;"	k
+follow_mouse_focus	.config/qtile/config.py	/^follow_mouse_focus = True$/;"	v
+font	.config/polybar/alsa.ini	/^bar-volume-empty-font = 2$/;"	k
+font	.config/polybar/alsa.ini	/^bar-volume-fill-font = 2$/;"	k
+font	.config/polybar/alsa.ini	/^bar-volume-indicator-font = 2$/;"	k
+font	.config/polybar/date.ini	/^format-font = 2$/;"	k
+font	.config/polybar/filesystem.ini	/^label-mounted-font       = 3$/;"	k
+font	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-empty-font = 2$/;"	k
+font	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-fill-font = 2$/;"	k
+font	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-indicator-font = 2$/;"	k
+font	.config/polybar/polybar_blocks/date.ini	/^format-font = 3$/;"	k
+font	.config/polybar/polybar_blocks/filesystem.ini	/^label-mounted-font       = 3$/;"	k
+font	.config/polybar_blocks/alsa.ini	/^bar-volume-empty-font = 2$/;"	k
+font	.config/polybar_blocks/alsa.ini	/^bar-volume-fill-font = 2$/;"	k
+font	.config/polybar_blocks/alsa.ini	/^bar-volume-indicator-font = 2$/;"	k
+font	.config/polybar_blocks/date.ini	/^format-font = 3$/;"	k
+font	.config/polybar_blocks/filesystem.ini	/^label-mounted-font       = 3$/;"	k
+font	.config/polybar_minimal/alsa.ini	/^bar-volume-empty-font = 2$/;"	k
+font	.config/polybar_minimal/alsa.ini	/^bar-volume-fill-font = 2$/;"	k
+font	.config/polybar_minimal/alsa.ini	/^bar-volume-indicator-font = 2$/;"	k
+font	.config/polybar_minimal/date.ini	/^format-font = 3$/;"	k
+font	.config/polybar_minimal/filesystem.ini	/^label-mounted-font       = 3$/;"	k
+font	.local/bin/polybar/spotify_status.py	/^font = args.font$/;"	v
+foreground	.config/polybar/alsa.ini	/^bar-volume-empty-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar/alsa.ini	/^format-muted-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar/alsa.ini	/^label-volume-foreground = ${root.foreground}$/;"	k
+foreground	.config/polybar/backlight.ini	/^format-foreground           = ${colors.green}$/;"	k
+foreground	.config/polybar/battery.ini	/^animation-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^animation-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^format-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^format-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^format-discharging-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^format-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^format-full-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^label-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^label-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^label-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/battery.ini	/^ramp-capacity-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/batteryScript.ini	/^format-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/bspwm.ini	/^format-suffix-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/bspwm.ini	/^label-empty-foreground = #373b41$/;"	k
+foreground	.config/polybar/bspwm.ini	/^label-focused-foreground = ${colors.primary}$/;"	k
+foreground	.config/polybar/bspwm.ini	/^label-occupied-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar/cpu.ini	/^format-foreground           = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/date.ini	/^format-foreground = ${colors.cyan}$/;"	k
+foreground	.config/polybar/filesystem.ini	/^label-mounted-foreground = ${colors.green}$/;"	k
+foreground	.config/polybar/filesystem.ini	/^label-unmounted-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar/keymap.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/memory.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/mocp.ini	/^format-foreground = ${colors.green}$/;"	k
+foreground	.config/polybar/newsboat.ini	/^format-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-empty-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/alsa.ini	/^format-muted-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/alsa.ini	/^label-volume-foreground = ${root.foreground}$/;"	k
+foreground	.config/polybar/polybar_blocks/backlight.ini	/^format-foreground           = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^animation-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^format-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^format-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^format-discharging-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^format-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^format-full-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^label-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^label-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^label-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/battery.ini	/^ramp-capacity-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar/polybar_blocks/batteryScript.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/bspwm.ini	/^label-empty-foreground = #c5c8c6$/;"	k
+foreground	.config/polybar/polybar_blocks/bspwm.ini	/^label-focused-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/bspwm.ini	/^label-occupied-foreground = ${colors.primary}$/;"	k
+foreground	.config/polybar/polybar_blocks/cpu.ini	/^format-foreground           = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/date.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/filesystem.ini	/^label-mounted-foreground = ${colors.green}$/;"	k
+foreground	.config/polybar/polybar_blocks/filesystem.ini	/^label-unmounted-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar/polybar_blocks/keymap.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/memory.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/powermenu.ini	/^label-close-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar/polybar_blocks/powermenu.ini	/^label-open-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar/polybar_blocks/powermenu.ini	/^label-separator-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/pulseaudio.ini	/^format-volume-foreground = ${colors.background}$/;"	k
+foreground	.config/polybar/polybar_blocks/pulseaudio.ini	/^label-muted-foreground = ${colors.cyan}$/;"	k
+foreground	.config/polybar/polybar_blocks/spotify.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/temperature.ini	/^label-warn-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar/polybar_blocks/wlan.ini	/^format-connected-foreground     = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/polybar_blocks/wlan.ini	/^format-disconnected-foreground     = ${colors.background-alt}$/;"	k
+foreground	.config/polybar/powermenu.ini	/^label-close-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar/powermenu.ini	/^label-open-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar/powermenu.ini	/^label-separator-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar/pulseaudio.ini	/^format-volume-foreground = ${colors.blue}$/;"	k
+foreground	.config/polybar/pulseaudio.ini	/^label-muted-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar/spotify.ini	/^format-foreground = ${colors.green}$/;"	k
+foreground	.config/polybar/temperature.ini	/^label-warn-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar/wlan.ini	/^format-connected-foreground     = ${colors.purple}$/;"	k
+foreground	.config/polybar/wlan.ini	/^format-disconnected-foreground     = ${colors.foreground}$/;"	k
+foreground	.config/polybar_blocks/alsa.ini	/^bar-volume-empty-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar_blocks/alsa.ini	/^format-muted-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar_blocks/alsa.ini	/^label-volume-foreground = ${root.foreground}$/;"	k
+foreground	.config/polybar_blocks/backlight.ini	/^format-foreground           = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^animation-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^animation-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^format-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^format-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^format-discharging-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^format-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^format-full-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^label-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^label-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^label-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/battery.ini	/^ramp-capacity-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_blocks/batteryScript.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/bspwm.ini	/^label-empty-foreground = #c5c8c6$/;"	k
+foreground	.config/polybar_blocks/bspwm.ini	/^label-focused-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/bspwm.ini	/^label-occupied-foreground = ${colors.primary}$/;"	k
+foreground	.config/polybar_blocks/cpu.ini	/^format-foreground           = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/date.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/filesystem.ini	/^label-mounted-foreground = ${colors.green}$/;"	k
+foreground	.config/polybar_blocks/filesystem.ini	/^label-unmounted-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar_blocks/keymap.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/memory.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/powermenu.ini	/^label-close-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar_blocks/powermenu.ini	/^label-open-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar_blocks/powermenu.ini	/^label-separator-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar_blocks/pulseaudio.ini	/^format-volume-foreground = ${colors.background}$/;"	k
+foreground	.config/polybar_blocks/pulseaudio.ini	/^label-muted-foreground = ${colors.cyan}$/;"	k
+foreground	.config/polybar_blocks/spotify.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/temperature.ini	/^label-warn-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar_blocks/wlan.ini	/^format-connected-foreground     = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_blocks/wlan.ini	/^format-disconnected-foreground     = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_minimal/alsa.ini	/^bar-volume-empty-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar_minimal/alsa.ini	/^format-muted-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar_minimal/alsa.ini	/^label-volume-foreground = ${root.foreground}$/;"	k
+foreground	.config/polybar_minimal/backlight.ini	/^format-foreground           = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^animation-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^animation-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^format-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^format-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^format-discharging-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^format-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^format-full-prefix-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^label-charging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^label-discharging-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^label-full-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/battery.ini	/^ramp-capacity-foreground = ${colors.yellow}$/;"	k
+foreground	.config/polybar_minimal/batteryScript.ini	/^format-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/bspwm.ini	/^label-empty-foreground = #c5c8c6$/;"	k
+foreground	.config/polybar_minimal/bspwm.ini	/^label-focused-foreground = ${colors.primary}$/;"	k
+foreground	.config/polybar_minimal/bspwm.ini	/^label-occupied-foreground = ${colors.primary}$/;"	k
+foreground	.config/polybar_minimal/cpu.ini	/^format-foreground           = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_minimal/date.ini	/^format-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/filesystem.ini	/^label-mounted-foreground = ${colors.green}$/;"	k
+foreground	.config/polybar_minimal/filesystem.ini	/^label-unmounted-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/keymap.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_minimal/memory.ini	/^format-foreground = ${colors.background-alt}$/;"	k
+foreground	.config/polybar_minimal/powermenu.ini	/^label-close-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar_minimal/powermenu.ini	/^label-open-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar_minimal/powermenu.ini	/^label-separator-foreground = ${colors.foreground-alt}$/;"	k
+foreground	.config/polybar_minimal/pulseaudio.ini	/^format-volume-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/pulseaudio.ini	/^label-muted-foreground = ${colors.red}$/;"	k
+foreground	.config/polybar_minimal/spotify.ini	/^format-foreground = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/temperature.ini	/^label-warn-foreground = ${colors.secondary}$/;"	k
+foreground	.config/polybar_minimal/wlan.ini	/^format-connected-foreground     = ${colors.foreground}$/;"	k
+foreground	.config/polybar_minimal/wlan.ini	/^format-disconnected-foreground     = ${colors.foreground}$/;"	k
+format	.config/polybar/backlight.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar/batteryScript.ini	/^format = <label>$/;"	k
+format	.config/polybar/bspwm.ini	/^format = <label-state> <label-mode>$/;"	k
+format	.config/polybar/keymap.ini	/^format = <label>$/;"	k
+format	.config/polybar/mocp.ini	/^format =  <label>$/;"	k
+format	.config/polybar/newsboat.ini	/^format = <label>$/;"	k
+format	.config/polybar/polybar_blocks/backlight.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar/polybar_blocks/batteryScript.ini	/^format = <label>$/;"	k
+format	.config/polybar/polybar_blocks/keymap.ini	/^format = <label>$/;"	k
+format	.config/polybar/polybar_blocks/spotify.ini	/^format = <label>$/;"	k
+format	.config/polybar/polybar_blocks/temperature.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar/spotify.ini	/^format = <label>$/;"	k
+format	.config/polybar/temperature.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar_blocks/backlight.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar_blocks/batteryScript.ini	/^format = <label>$/;"	k
+format	.config/polybar_blocks/keymap.ini	/^format = <label>$/;"	k
+format	.config/polybar_blocks/spotify.ini	/^format = <label>$/;"	k
+format	.config/polybar_blocks/temperature.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar_minimal/backlight.ini	/^format = <ramp> <label>$/;"	k
+format	.config/polybar_minimal/batteryScript.ini	/^format = <label>$/;"	k
+format	.config/polybar_minimal/keymap.ini	/^format = <label>$/;"	k
+format	.config/polybar_minimal/spotify.ini	/^format = <label>$/;"	k
+format	.config/polybar_minimal/temperature.ini	/^format = <ramp> <label>$/;"	k
+framerate	.config/polybar/battery.ini	/^animation-charging-framerate = 750$/;"	k
+framerate	.config/polybar/battery.ini	/^animation-discharging-framerate = 750$/;"	k
+framerate	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-framerate = 750$/;"	k
+framerate	.config/polybar/polybar_blocks/battery.ini	/^animation-discharging-framerate = 750$/;"	k
+framerate	.config/polybar_blocks/battery.ini	/^animation-charging-framerate = 750$/;"	k
+framerate	.config/polybar_blocks/battery.ini	/^animation-discharging-framerate = 750$/;"	k
+framerate	.config/polybar_minimal/battery.ini	/^animation-charging-framerate = 750$/;"	k
+framerate	.config/polybar_minimal/battery.ini	/^animation-discharging-framerate = 750$/;"	k
+g:Hexokinase_highlighters	.config/nvim_orig/init.vim	/^let g:Hexokinase_highlighters = ['backgroundfull']$/;"	v
+g:UltiSnipsExpandTrigger	.config/nvim_orig/init.vim	/^let g:UltiSnipsExpandTrigger = '<tab>'$/;"	v
+g:UltiSnipsForwardTrigger	.config/nvim/init.vim	/^let g:UltiSnipsForwardTrigger="<c-n>"$/;"	v
+g:UltiSnipsJumpBackwardTrigger	.config/nvim_orig/init.vim	/^let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'$/;"	v
+g:UltiSnipsJumpForwardTrigger	.config/nvim_orig/init.vim	/^let g:UltiSnipsJumpForwardTrigger = '<tab>'$/;"	v
+g:airline#extensions#tabline#enabled	.config/nvim_orig/init.vim	/^let g:airline#extensions#tabline#enabled=1$/;"	v
+g:airline#extensions#tabline#enabled	.vimrc	/^	let g:airline#extensions#tabline#enabled=1$/;"	v
+g:airline#extensions#tabline#formatter	.config/nvim_orig/init.vim	/^let g:airline#extensions#tabline#formatter='default'$/;"	v
+g:airline_powerline_fonts	.config/nvim_orig/init.vim	/^let g:airline_powerline_fonts=1$/;"	v
+g:airline_powerline_fonts	.vimrc	/^	let g:airline_powerline_fonts=1$/;"	v
+g:airline_theme	.config/nvim_orig/init.vim	/^let g:airline_theme='base16'$/;"	v
+g:airline_theme	.vimrc	/^	let g:airline_theme='material'$/;"	v
+g:ale_sign_error	.config/nvim/init.vim	/^let g:ale_sign_error = 'X'$/;"	v
+g:ale_sign_warning	.config/nvim/init.vim	/^let g:ale_sign_warning = '!'$/;"	v
+g:coc_global_extensions	.config/nvim/init.vim	/^let g:coc_global_extensions = [$/;"	v
+g:ctrlp_map	.config/nvim_orig/init.vim	/^let g:ctrlp_map = '<c-p>'$/;"	v
+g:livepreview_previewer	.config/nvim_orig/init.vim	/^let g:livepreview_previewer = 'zathura'$/;"	v
+g:material_style	.vimrc	/^		let g:material_style='oceanic'$/;"	v
+g:nerdcreatedefaultmappings	.config/nvim/init.vim	/^let g:nerdcreatedefaultmappings=1$/;"	v
+g:nerdspacedelims	.config/nvim/init.vim	/^let g:nerdspacedelims=1$/;"	v
+g:tex_conceal	.config/nvim/init.vim	/^let g:tex_conceal='abdmg'$/;"	v
+g:tex_conceal	.config/nvim_orig/init.vim	/^let g:tex_conceal='abdmg'$/;"	v
+g:tex_flavor	.config/nvim/init.vim	/^let g:tex_flavor='latex'$/;"	v
+g:tex_flavor	.config/nvim_orig/init.vim	/^let g:tex_flavor='latex'$/;"	v
+g:vimtex_quickfix_mode	.config/nvim/init.vim	/^let g:vimtex_quickfix_mode=0$/;"	v
+g:vimtex_quickfix_mode	.config/nvim_orig/init.vim	/^let g:vimtex_quickfix_mode=0$/;"	v
+g:vimtex_view_method	.config/nvim/init.vim	/^let g:vimtex_view_method='zathura'$/;"	v
+g:vimtex_view_method	.config/nvim_orig/init.vim	/^let g:vimtex_view_method='zathura'$/;"	v
+g:vimwiki_ext2syntax	.vimrc	/^	let g:vimwiki_ext2syntax={'.Rmd': 'markdown', '.rmd': 'markdown', '.md': 'markdown', '.markdown/;"	v
+g:ycm_autoclose_preview_window_after_completion	.config/nvim_orig/init.vim	/^let g:ycm_autoclose_preview_window_after_completion=1$/;"	v
+gd	.config/nvim/init.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gd	.config/nvim_orig/init.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+getforecast	.local/bin/statusbar/weather	/^getforecast() { ping -q -c 1 1.1.1.1 >\/dev\/null || exit 1$/;"	f
+getmount	.local/bin/by_luke/dmenumount	/^getmount() { \\$/;"	f
+getmount	.local/bin/dmenu/dmenumount	/^getmount() { \\$/;"	f
+gi	.config/nvim/init.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+gi	.config/nvim_orig/init.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+gr	.config/nvim/init.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
+gr	.config/nvim_orig/init.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
+gradient	.config/polybar/alsa.ini	/^bar-volume-gradient = false$/;"	k
+gradient	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-gradient = false$/;"	k
+gradient	.config/polybar_blocks/alsa.ini	/^bar-volume-gradient = false$/;"	k
+gradient	.config/polybar_minimal/alsa.ini	/^bar-volume-gradient = false$/;"	k
+group_names	.config/qtile/config.py	/^    group_names = init_group_names()$/;"	v
+groups	.config/qtile/config.py	/^    groups = init_groups()$/;"	v
+gui_editor	.config/qtile/config.py	/^gui_editor = "code"$/;"	v
+gy	.config/nvim/init.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+gy	.config/nvim_orig/init.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+ic	.config/nvim/init.vim	/^omap ic <Plug>(coc-classobj-i)$/;"	m
+ic	.config/nvim/init.vim	/^xmap ic <Plug>(coc-classobj-i)$/;"	m
+ic	.config/nvim_orig/init.vim	/^omap ic <Plug>(coc-classobj-i)$/;"	m
+ic	.config/nvim_orig/init.vim	/^xmap ic <Plug>(coc-classobj-i)$/;"	m
+if	.config/nvim/init.vim	/^omap if <Plug>(coc-funcobj-i)$/;"	m
+if	.config/nvim/init.vim	/^xmap if <Plug>(coc-funcobj-i)$/;"	m
+if	.config/nvim_orig/init.vim	/^omap if <Plug>(coc-funcobj-i)$/;"	m
+if	.config/nvim_orig/init.vim	/^xmap if <Plug>(coc-funcobj-i)$/;"	m
+il"	.config/nvim/init.vim	/^onoremap il" :<c-u>normal! f"vi"<cr>$/;"	m
+il(	.config/nvim/init.vim	/^onoremap il( :<c-u>normal! f)vi(<cr>$/;"	m
+il<	.config/nvim/init.vim	/^onoremap il< :<c-u>normal! f>vi<<cr>$/;"	m
+il[	.config/nvim/init.vim	/^onoremap il[ :<c-u>normal! f]vi{<cr>$/;"	m
+il{	.config/nvim/init.vim	/^onoremap il{ :<c-u>normal! f}vi{<cr>$/;"	m
+importlib_load_entry_point	.local/bin/conda	/^def importlib_load_entry_point(spec, group, name):$/;"	f
+importlib_load_entry_point	.local/bin/grip	/^def importlib_load_entry_point(spec, group, name):$/;"	f
+in"	.config/nvim/init.vim	/^onoremap in" :<c-u>normal! f"vi"<cr>$/;"	m
+in(	.config/nvim/init.vim	/^onoremap in( :<c-u>normal! f(vi(<cr>$/;"	m
+in<	.config/nvim/init.vim	/^onoremap in< :<c-u>normal! f<vi<<cr>$/;"	m
+in[	.config/nvim/init.vim	/^onoremap in[ :<c-u>normal! f[vi{<cr>$/;"	m
+indicator	.config/polybar/alsa.ini	/^bar-volume-indicator = |$/;"	k
+indicator	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-indicator = |$/;"	k
+indicator	.config/polybar_blocks/alsa.ini	/^bar-volume-indicator = |$/;"	k
+indicator	.config/polybar_minimal/alsa.ini	/^bar-volume-indicator = |$/;"	k
+init_group_names	.config/qtile/config.py	/^def init_group_names():$/;"	f
+init_groups	.config/qtile/config.py	/^def init_groups():$/;"	f
+interface	.config/polybar/eth.ini	/^interface = enp0s31f6$/;"	k
+interface	.config/polybar/polybar_blocks/eth.ini	/^interface = enp0s31f6$/;"	k
+interface	.config/polybar/polybar_blocks/wlan.ini	/^interface = wlp58s0$/;"	k
+interface	.config/polybar/wlan.ini	/^interface = wlp58s0$/;"	k
+interface	.config/polybar_blocks/eth.ini	/^interface = enp0s31f6$/;"	k
+interface	.config/polybar_blocks/wlan.ini	/^interface = wlp58s0$/;"	k
+interface	.config/polybar_minimal/eth.ini	/^interface = enp0s31f6$/;"	k
+interface	.config/polybar_minimal/wlan.ini	/^interface = wlp58s0$/;"	k
+interval	.config/polybar/batteryScript.ini	/^interval = 10$/;"	k
+interval	.config/polybar/cpu.ini	/^interval = 2$/;"	k
+interval	.config/polybar/date.ini	/^interval = 5$/;"	k
+interval	.config/polybar/eth.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar/filesystem.ini	/^interval = 25$/;"	k
+interval	.config/polybar/keymap.ini	/^interval = 1$/;"	k
+interval	.config/polybar/memory.ini	/^interval = 2$/;"	k
+interval	.config/polybar/mocp.ini	/^interval = 1$/;"	k
+interval	.config/polybar/newsboat.ini	/^interval = 10$/;"	k
+interval	.config/polybar/polybar_blocks/batteryScript.ini	/^interval = 10$/;"	k
+interval	.config/polybar/polybar_blocks/cpu.ini	/^interval = 2$/;"	k
+interval	.config/polybar/polybar_blocks/date.ini	/^interval = 5$/;"	k
+interval	.config/polybar/polybar_blocks/eth.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar/polybar_blocks/filesystem.ini	/^interval = 25$/;"	k
+interval	.config/polybar/polybar_blocks/keymap.ini	/^interval = 1$/;"	k
+interval	.config/polybar/polybar_blocks/memory.ini	/^interval = 2$/;"	k
+interval	.config/polybar/polybar_blocks/spotify.ini	/^interval = 1$/;"	k
+interval	.config/polybar/polybar_blocks/weather.ini	/^interval = 500$/;"	k
+interval	.config/polybar/polybar_blocks/wlan.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar/spotify.ini	/^interval = 1$/;"	k
+interval	.config/polybar/weather.ini	/^interval = 500$/;"	k
+interval	.config/polybar/wlan.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar_blocks/batteryScript.ini	/^interval = 10$/;"	k
+interval	.config/polybar_blocks/cpu.ini	/^interval = 2$/;"	k
+interval	.config/polybar_blocks/date.ini	/^interval = 5$/;"	k
+interval	.config/polybar_blocks/eth.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar_blocks/filesystem.ini	/^interval = 25$/;"	k
+interval	.config/polybar_blocks/keymap.ini	/^interval = 1$/;"	k
+interval	.config/polybar_blocks/memory.ini	/^interval = 2$/;"	k
+interval	.config/polybar_blocks/spotify.ini	/^interval = 1$/;"	k
+interval	.config/polybar_blocks/weather.ini	/^interval = 500$/;"	k
+interval	.config/polybar_blocks/wlan.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar_minimal/batteryScript.ini	/^interval = 10$/;"	k
+interval	.config/polybar_minimal/cpu.ini	/^interval = 2$/;"	k
+interval	.config/polybar_minimal/date.ini	/^interval = 5$/;"	k
+interval	.config/polybar_minimal/eth.ini	/^interval = 3.0$/;"	k
+interval	.config/polybar_minimal/filesystem.ini	/^interval = 25$/;"	k
+interval	.config/polybar_minimal/keymap.ini	/^interval = 1$/;"	k
+interval	.config/polybar_minimal/memory.ini	/^interval = 2$/;"	k
+interval	.config/polybar_minimal/spotify.ini	/^interval = 1$/;"	k
+interval	.config/polybar_minimal/weather.ini	/^interval = 500$/;"	k
+interval	.config/polybar_minimal/wlan.ini	/^interval = 3.0$/;"	k
+in{	.config/nvim/init.vim	/^onoremap in{ :<c-u>normal! f{vi{<cr>$/;"	m
+jk	.config/nvim/init.vim	/^inoremap jk <esc>$/;"	m
+kern	.config/picom/picom.conf	/^blur-kern = "3x3box";$/;"	k
+keys	.config/qtile/config.py	/^keys = [$/;"	v
+killrecording	.local/bin/by_luke/dmenurecord	/^killrecording() {$/;"	f
+killrecording	.local/bin/dmenu/dmenurecord	/^killrecording() {$/;"	f
+label	.config/polybar/backlight.ini	/^label = %percentage%%$/;"	k
+label	.config/polybar/cpu.ini	/^label = %percentage:2%%$/;"	k
+label	.config/polybar/date.ini	/^label = %date% %time%$/;"	k
+label	.config/polybar/memory.ini	/^label = %percentage_used%%$/;"	k
+label	.config/polybar/polybar_blocks/backlight.ini	/^label = %percentage%%$/;"	k
+label	.config/polybar/polybar_blocks/cpu.ini	/^label = %percentage:2%%$/;"	k
+label	.config/polybar/polybar_blocks/date.ini	/^label = %date% %time%$/;"	k
+label	.config/polybar/polybar_blocks/memory.ini	/^label = %percentage_used%%$/;"	k
+label	.config/polybar/polybar_blocks/temperature.ini	/^label = %temperature-c%$/;"	k
+label	.config/polybar/temperature.ini	/^label = %temperature-c%$/;"	k
+label	.config/polybar_blocks/backlight.ini	/^label = %percentage%%$/;"	k
+label	.config/polybar_blocks/cpu.ini	/^label = %percentage:2%%$/;"	k
+label	.config/polybar_blocks/date.ini	/^label = %date% %time%$/;"	k
+label	.config/polybar_blocks/memory.ini	/^label = %percentage_used%%$/;"	k
+label	.config/polybar_blocks/temperature.ini	/^label = %temperature-c%$/;"	k
+label	.config/polybar_minimal/backlight.ini	/^label = %percentage%%$/;"	k
+label	.config/polybar_minimal/cpu.ini	/^label = %percentage:2%%$/;"	k
+label	.config/polybar_minimal/date.ini	/^label = %date% %time%$/;"	k
+label	.config/polybar_minimal/memory.ini	/^label = %percentage_used%%$/;"	k
+label	.config/polybar_minimal/temperature.ini	/^label = %temperature-c%$/;"	k
+label_with_font	.local/bin/polybar/spotify_status.py	/^label_with_font = '%{{T{font}}}{label}%{{T-}}'$/;"	v
+layout	.config/polybar/polybar_blocks/xkeyboard.ini	/^label-layout = %layout%$/;"	k
+layout	.config/polybar/xkeyboard.ini	/^label-layout = %layout%$/;"	k
+layout	.config/polybar_blocks/xkeyboard.ini	/^label-layout = %layout%$/;"	k
+layout	.config/polybar_minimal/xkeyboard.ini	/^label-layout = %layout%$/;"	k
+layouts	.config/qtile/config.py	/^layouts = [$/;"	v
+leader	.config/picom/picom.conf	/^detect-client-leader = true$/;"	k
+left	.config/polybar/mocp.ini	/^click-left = mocp --toggle-pause$/;"	k
+left	.config/polybar/polybar_blocks/spotify.ini	/^click-left = spotifycli --playpause$/;"	k
+left	.config/polybar/spotify.ini	/^click-left = spotifycli --playpause$/;"	k
+left	.config/polybar_blocks/spotify.ini	/^click-left = spotifycli --playpause$/;"	k
+left	.config/polybar_minimal/spotify.ini	/^click-left = spotifycli --playpause$/;"	k
+level	.config/picom/picom.conf	/^log-level = "warn";$/;"	k
+main	.config/qtile/config.py	/^main = None$/;"	v
+mapleader	.config/nvim/init.vim	/^let mapleader = " "$/;"	v
+mapleader	.config/nvim_orig/init.vim	/^let mapleader=" "$/;"	v
+mapleader	.vimrc	/^let mapleader=" "$/;"	v
+maplocalleader	.config/nvim/init.vim	/^let maplocalleader = "\\\\"$/;"	v
+margin	.config/qtile/config.py	/^margin=25$/;"	v
+maxlen	.config/polybar/mpd.ini	/^label-song-maxlen = 25$/;"	k
+maxlen	.config/polybar/polybar_blocks/mpd.ini	/^label-song-maxlen = 25$/;"	k
+maxlen	.config/polybar_blocks/mpd.ini	/^label-song-maxlen = 25$/;"	k
+maxlen	.config/polybar_minimal/mpd.ini	/^label-song-maxlen = 25$/;"	k
+menu	.config/qtile/config.py	/^menu = "dmenu"$/;"	v
+metadata	.local/bin/polybar/spotify_status.py	/^    metadata = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')$/;"	v
+middle	.config/polybar/mocp.ini	/^click-middle = mocp --next$/;"	k
+middle	.config/polybar/polybar_blocks/spotify.ini	/^click-middle = spotifycli --prev$/;"	k
+middle	.config/polybar/spotify.ini	/^click-middle = spotifycli --prev$/;"	k
+middle	.config/polybar_blocks/spotify.ini	/^click-middle = spotifycli --prev$/;"	k
+middle	.config/polybar_minimal/spotify.ini	/^click-middle = spotifycli --prev$/;"	k
+mod	.config/qtile/config.py	/^mod = "mod4"$/;"	v
+mono_font	.config/qtile/config.py	/^mono_font='Roboto Mono for Powerline'$/;"	v
+morescreen	.local/bin/by_luke/displayselect	/^morescreen() { # If multi-monitor is selected and there are more than two screens.$/;"	f
+morescreen	.local/bin/display/displayselect	/^morescreen() { # If multi-monitor is selected and there are more than two screens.$/;"	f
+mountandroid	.local/bin/by_luke/dmenumount	/^mountandroid() { \\$/;"	f
+mountandroid	.local/bin/dmenu/dmenumount	/^mountandroid() { \\$/;"	f
+mounted	.config/polybar/filesystem.ini	/^label-mounted = %{F#ffffff}%mountpoint%%{F-}%{F#ffffff}:%percentage_used%%%{F-}$/;"	k
+mounted	.config/polybar/polybar_blocks/filesystem.ini	/^label-mounted = %{F#ffffff}%mountpoint%%{F-}%{F#ffffff}:%percentage_used%%%{F-}$/;"	k
+mounted	.config/polybar_blocks/filesystem.ini	/^label-mounted = %{F#ffffff}%mountpoint%%{F-}%{F#ffffff}:%percentage_used%%%{F-}$/;"	k
+mounted	.config/polybar_minimal/filesystem.ini	/^label-mounted = %{F#ffffff}%mountpoint%%{F-}%{F#ffffff}:%percentage_used%%%{F-}$/;"	k
+mountusb	.local/bin/by_luke/dmenumount	/^mountusb() { \\$/;"	f
+mountusb	.local/bin/dmenu/dmenumount	/^mountusb() { \\$/;"	f
+mouse	.config/qtile/config.py	/^mouse = [$/;"	v
+multimon	.local/bin/by_luke/displayselect	/^multimon() { # Multi-monitor handler.$/;"	f
+multimon	.local/bin/display/displayselect	/^multimon() { # Multi-monitor handler.$/;"	f
+muted	.config/polybar/alsa.ini	/^label-muted = sound muted$/;"	k
+muted	.config/polybar/polybar_blocks/alsa.ini	/^label-muted = sound muted$/;"	k
+muted	.config/polybar/polybar_blocks/pulseaudio.ini	/^label-muted = 󰖁$/;"	k
+muted	.config/polybar/pulseaudio.ini	/^label-muted = $/;"	k
+muted	.config/polybar_blocks/alsa.ini	/^label-muted = sound muted$/;"	k
+muted	.config/polybar_blocks/pulseaudio.ini	/^label-muted = 󰖁$/;"	k
+muted	.config/polybar_minimal/alsa.ini	/^label-muted = sound muted$/;"	k
+muted	.config/polybar_minimal/pulseaudio.ini	/^label-muted = 󰖁$/;"	k
+mygroup	.config/nvim/init.vim	/^augroup mygroup$/;"	a
+mygroup	.config/nvim_orig/init.vim	/^augroup mygroup$/;"	a
+next	.config/polybar/mpd.ini	/^icon-next = $/;"	k
+next	.config/polybar/polybar_blocks/mpd.ini	/^icon-next = $/;"	k
+next	.config/polybar_blocks/mpd.ini	/^icon-next = $/;"	k
+next	.config/polybar_minimal/mpd.ini	/^icon-next = $/;"	k
+occupied	.config/polybar/bspwm.ini	/^label-occupied = ${self.label-focused}$/;"	k
+occupied	.config/polybar/polybar_blocks/bspwm.ini	/^label-occupied = %icon%$/;"	k
+occupied	.config/polybar_blocks/bspwm.ini	/^label-occupied = %icon%$/;"	k
+occupied	.config/polybar_minimal/bspwm.ini	/^label-occupied = %icon%$/;"	k
+online	.config/polybar/mpd.ini	/^format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>$/;"	k
+online	.config/polybar/polybar_blocks/mpd.ini	/^format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>$/;"	k
+online	.config/polybar_blocks/mpd.ini	/^format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>$/;"	k
+online	.config/polybar_minimal/mpd.ini	/^format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>$/;"	k
+opacity	.config/picom/picom.conf	/^detect-client-opacity = true;$/;"	k
+opacity	.config/picom/picom.conf	/^frame-opacity = 1.0;$/;"	k
+opacity	.config/picom/picom.conf	/^inactive-opacity = 0.8;$/;"	k
+open	.config/polybar/polybar_blocks/powermenu.ini	/^label-open = 󰔡$/;"	k
+open	.config/polybar/powermenu.ini	/^label-open = 󰔡$/;"	k
+open	.config/polybar_blocks/powermenu.ini	/^label-open = 󰔡$/;"	k
+open	.config/polybar_minimal/powermenu.ini	/^label-open = 󰔡$/;"	k
+output	.local/bin/polybar/spotify_status.py	/^    output = args.custom_format$/;"	v
+output	.local/bin/polybar/spotify_status.py	/^output = fix_string(u'{play_pause} {artist}: {song}')$/;"	v
+override	.config/picom/picom.conf	/^inactive-opacity-override = false;$/;"	k
+padding	.config/polybar/battery.ini	/^format-charging-padding = 2$/;"	k
+padding	.config/polybar/battery.ini	/^format-discharging-padding = 2$/;"	k
+padding	.config/polybar/battery.ini	/^format-full-padding = 2$/;"	k
+padding	.config/polybar/battery.ini	/^label-charging-padding    = 0$/;"	k
+padding	.config/polybar/battery.ini	/^label-discharging-padding    = 0$/;"	k
+padding	.config/polybar/bspwm.ini	/^label-empty-padding = 2$/;"	k
+padding	.config/polybar/bspwm.ini	/^label-focused-padding = 2$/;"	k
+padding	.config/polybar/bspwm.ini	/^label-occupied-padding = 2$/;"	k
+padding	.config/polybar/bspwm.ini	/^label-urgent-padding = 2$/;"	k
+padding	.config/polybar/eth.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar/filesystem.ini	/^label-mounted-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/battery.ini	/^format-charging-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/battery.ini	/^format-discharging-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/battery.ini	/^format-full-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/battery.ini	/^label-charging-padding    = 0$/;"	k
+padding	.config/polybar/polybar_blocks/battery.ini	/^label-discharging-padding    = 0$/;"	k
+padding	.config/polybar/polybar_blocks/bspwm.ini	/^label-empty-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/bspwm.ini	/^label-focused-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/bspwm.ini	/^label-occupied-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/bspwm.ini	/^label-urgent-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/eth.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/filesystem.ini	/^label-mounted-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/pulseaudio.ini	/^format-volume-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/pulseaudio.ini	/^label-muted-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/wlan.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar/polybar_blocks/wlan.ini	/^format-disconnected-padding = 2$/;"	k
+padding	.config/polybar/pulseaudio.ini	/^format-volume-padding = 2$/;"	k
+padding	.config/polybar/pulseaudio.ini	/^label-muted-padding = 2$/;"	k
+padding	.config/polybar/wlan.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar/wlan.ini	/^format-disconnected-padding = 2$/;"	k
+padding	.config/polybar_blocks/battery.ini	/^format-charging-padding = 2$/;"	k
+padding	.config/polybar_blocks/battery.ini	/^format-discharging-padding = 2$/;"	k
+padding	.config/polybar_blocks/battery.ini	/^format-full-padding = 2$/;"	k
+padding	.config/polybar_blocks/battery.ini	/^label-charging-padding    = 0$/;"	k
+padding	.config/polybar_blocks/battery.ini	/^label-discharging-padding    = 0$/;"	k
+padding	.config/polybar_blocks/bspwm.ini	/^label-empty-padding = 2$/;"	k
+padding	.config/polybar_blocks/bspwm.ini	/^label-focused-padding = 2$/;"	k
+padding	.config/polybar_blocks/bspwm.ini	/^label-occupied-padding = 2$/;"	k
+padding	.config/polybar_blocks/bspwm.ini	/^label-urgent-padding = 2$/;"	k
+padding	.config/polybar_blocks/eth.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar_blocks/filesystem.ini	/^label-mounted-padding = 2$/;"	k
+padding	.config/polybar_blocks/pulseaudio.ini	/^format-volume-padding = 2$/;"	k
+padding	.config/polybar_blocks/pulseaudio.ini	/^label-muted-padding = 2$/;"	k
+padding	.config/polybar_blocks/wlan.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar_blocks/wlan.ini	/^format-disconnected-padding = 2$/;"	k
+padding	.config/polybar_minimal/battery.ini	/^format-charging-padding = 2$/;"	k
+padding	.config/polybar_minimal/battery.ini	/^format-discharging-padding = 2$/;"	k
+padding	.config/polybar_minimal/battery.ini	/^format-full-padding = 2$/;"	k
+padding	.config/polybar_minimal/battery.ini	/^label-charging-padding    = 0$/;"	k
+padding	.config/polybar_minimal/battery.ini	/^label-discharging-padding    = 0$/;"	k
+padding	.config/polybar_minimal/bspwm.ini	/^label-empty-padding = 2$/;"	k
+padding	.config/polybar_minimal/bspwm.ini	/^label-focused-padding = 2$/;"	k
+padding	.config/polybar_minimal/bspwm.ini	/^label-occupied-padding = 2$/;"	k
+padding	.config/polybar_minimal/bspwm.ini	/^label-urgent-padding = 2$/;"	k
+padding	.config/polybar_minimal/eth.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar_minimal/filesystem.ini	/^label-mounted-padding = 2$/;"	k
+padding	.config/polybar_minimal/pulseaudio.ini	/^format-volume-padding = 2$/;"	k
+padding	.config/polybar_minimal/pulseaudio.ini	/^label-muted-padding = 2$/;"	k
+padding	.config/polybar_minimal/wlan.ini	/^format-connected-padding = 2$/;"	k
+padding	.config/polybar_minimal/wlan.ini	/^format-disconnected-padding = 2$/;"	k
+parser	.local/bin/polybar/spotify_status.py	/^parser = argparse.ArgumentParser()$/;"	v
+pause	.config/polybar/mpd.ini	/^icon-pause = $/;"	k
+pause	.config/polybar/polybar_blocks/mpd.ini	/^icon-pause = $/;"	k
+pause	.config/polybar_blocks/mpd.ini	/^icon-pause = $/;"	k
+pause	.config/polybar_minimal/mpd.ini	/^icon-pause = $/;"	k
+play	.config/polybar/mpd.ini	/^icon-play = $/;"	k
+play	.config/polybar/polybar_blocks/mpd.ini	/^icon-play = $/;"	k
+play	.config/polybar_blocks/mpd.ini	/^icon-play = $/;"	k
+play	.config/polybar_minimal/mpd.ini	/^icon-play = $/;"	k
+play_pause	.local/bin/polybar/spotify_status.py	/^        play_pause = label_with_font.format(font=play_pause_font, label=play_pause)$/;"	v
+play_pause	.local/bin/polybar/spotify_status.py	/^        play_pause = play_pause[0]$/;"	v
+play_pause	.local/bin/polybar/spotify_status.py	/^        play_pause = play_pause[1]$/;"	v
+play_pause	.local/bin/polybar/spotify_status.py	/^    play_pause = args.play_pause$/;"	v
+play_pause	.local/bin/polybar/spotify_status.py	/^    play_pause = play_pause.split(',')$/;"	v
+play_pause	.local/bin/polybar/spotify_status.py	/^play_pause = fix_string(u'\\u25B6,\\u23F8') # first character is play, second is paused$/;"	v
+play_pause_font	.local/bin/polybar/spotify_status.py	/^play_pause_font = args.play_pause_font$/;"	v
+prefix	.config/polybar/alsa.ini	/^format-muted-prefix = "󰖁 "$/;"	k
+prefix	.config/polybar/battery.ini	/^format-full-prefix = "󰂄 "$/;"	k
+prefix	.config/polybar/cpu.ini	/^format-prefix = "󰍛 "$/;"	k
+prefix	.config/polybar/date.ini	/^format-prefix =$/;"	k
+prefix	.config/polybar/eth.ini	/^format-connected-prefix = "󰡁 "$/;"	k
+prefix	.config/polybar/keymap.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar/memory.ini	/^format-prefix = "󰉉 "$/;"	k
+prefix	.config/polybar/polybar_blocks/alsa.ini	/^format-muted-prefix = "󰖁 "$/;"	k
+prefix	.config/polybar/polybar_blocks/battery.ini	/^format-full-prefix = "󰂄 "$/;"	k
+prefix	.config/polybar/polybar_blocks/cpu.ini	/^format-prefix = "󰍛 "$/;"	k
+prefix	.config/polybar/polybar_blocks/date.ini	/^format-prefix = 󰥔$/;"	k
+prefix	.config/polybar/polybar_blocks/eth.ini	/^format-connected-prefix = "󰡁 "$/;"	k
+prefix	.config/polybar/polybar_blocks/keymap.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar/polybar_blocks/memory.ini	/^format-prefix = "󰉉 "$/;"	k
+prefix	.config/polybar/polybar_blocks/xkeyboard.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar/xkeyboard.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar_blocks/alsa.ini	/^format-muted-prefix = "󰖁 "$/;"	k
+prefix	.config/polybar_blocks/battery.ini	/^format-full-prefix = "󰂄 "$/;"	k
+prefix	.config/polybar_blocks/cpu.ini	/^format-prefix = "󰍛 "$/;"	k
+prefix	.config/polybar_blocks/date.ini	/^format-prefix = 󰥔$/;"	k
+prefix	.config/polybar_blocks/eth.ini	/^format-connected-prefix = "󰡁 "$/;"	k
+prefix	.config/polybar_blocks/keymap.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar_blocks/memory.ini	/^format-prefix = "󰉉 "$/;"	k
+prefix	.config/polybar_blocks/xkeyboard.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar_minimal/alsa.ini	/^format-muted-prefix = "󰖁 "$/;"	k
+prefix	.config/polybar_minimal/battery.ini	/^format-full-prefix = "󰂄 "$/;"	k
+prefix	.config/polybar_minimal/cpu.ini	/^format-prefix = "󰍛 "$/;"	k
+prefix	.config/polybar_minimal/date.ini	/^format-prefix = 󰥔$/;"	k
+prefix	.config/polybar_minimal/eth.ini	/^format-connected-prefix = "󰡁 "$/;"	k
+prefix	.config/polybar_minimal/keymap.ini	/^format-prefix = "󰌌 "$/;"	k
+prefix	.config/polybar_minimal/memory.ini	/^format-prefix = "󰉉 "$/;"	k
+prefix	.config/polybar_minimal/xkeyboard.ini	/^format-prefix = "󰌌 "$/;"	k
+prev	.config/polybar/mpd.ini	/^icon-prev = $/;"	k
+prev	.config/polybar/polybar_blocks/mpd.ini	/^icon-prev = $/;"	k
+prev	.config/polybar_blocks/mpd.ini	/^icon-prev = $/;"	k
+prev	.config/polybar_minimal/mpd.ini	/^icon-prev = $/;"	k
+quiet	.local/bin/polybar/spotify_status.py	/^quiet = args.quiet$/;"	v
+radius	.config/picom/picom.conf	/^shadow-radius = 7;$/;"	k
+rate	.config/picom/picom.conf	/^refresh-rate = 0$/;"	k
+right	.config/polybar/mocp.ini	/^click-right = mocp --previous$/;"	k
+right	.config/polybar/polybar_blocks/powermenu.ini	/^expand-right = true$/;"	k
+right	.config/polybar/polybar_blocks/spotify.ini	/^click-right = spotifycli --next$/;"	k
+right	.config/polybar/powermenu.ini	/^expand-right = true$/;"	k
+right	.config/polybar/spotify.ini	/^click-right = spotifycli --next$/;"	k
+right	.config/polybar_blocks/powermenu.ini	/^expand-right = true$/;"	k
+right	.config/polybar_blocks/spotify.ini	/^click-right = spotifycli --next$/;"	k
+right	.config/polybar_minimal/powermenu.ini	/^expand-right = true$/;"	k
+right	.config/polybar_minimal/spotify.ini	/^click-right = spotifycli --next$/;"	k
+s:check_back_space	.config/nvim_orig/init.vim	/^function! s:check_back_space() abort$/;"	f
+s:show_documentation	.config/nvim/init.vim	/^function! s:show_documentation()$/;"	f
+s:show_documentation	.config/nvim_orig/init.vim	/^function! s:show_documentation()$/;"	f
+screencast	.local/bin/by_luke/dmenurecord	/^screencast() { \\$/;"	f
+screencast	.local/bin/dmenu/dmenurecord	/^screencast() { \\$/;"	f
+screens	.config/qtile/config.py	/^screens = [$/;"	v
+scroll	.config/polybar/backlight.ini	/^enable-scroll = true$/;"	k
+scroll	.config/polybar/polybar_blocks/backlight.ini	/^enable-scroll = true$/;"	k
+scroll	.config/polybar_blocks/backlight.ini	/^enable-scroll = true$/;"	k
+scroll	.config/polybar_minimal/backlight.ini	/^enable-scroll = true$/;"	k
+separator	.config/polybar/polybar_blocks/powermenu.ini	/^label-separator = |$/;"	k
+separator	.config/polybar/powermenu.ini	/^label-separator = |$/;"	k
+separator	.config/polybar_blocks/powermenu.ini	/^label-separator = |$/;"	k
+separator	.config/polybar_minimal/powermenu.ini	/^label-separator = |$/;"	k
+shadow	.config/picom/picom.conf	/^shadow = false;$/;"	k
+showweather	.local/bin/statusbar/weather	/^showweather() { printf "%s" "$(sed '16q;d' "$HOME\/.local\/share\/weatherreport" | grep -wo "[0-/;"	f
+song	.local/bin/polybar/spotify_status.py	/^            song = label_with_font.format(font=font, label=song)$/;"	v
+song	.local/bin/polybar/spotify_status.py	/^    song = fix_string(metadata['xesam:title']) if metadata['xesam:title'] else ''$/;"	v
+spacing	.config/polybar/polybar_blocks/powermenu.ini	/^format-spacing = 1$/;"	k
+spacing	.config/polybar/powermenu.ini	/^format-spacing = 1$/;"	k
+spacing	.config/polybar_blocks/powermenu.ini	/^format-spacing = 1$/;"	k
+spacing	.config/polybar_minimal/powermenu.ini	/^format-spacing = 1$/;"	k
+spotify_bus	.local/bin/polybar/spotify_status.py	/^    spotify_bus = session_bus.get_object($/;"	v
+spotify_properties	.local/bin/polybar/spotify_status.py	/^    spotify_properties = dbus.Interface($/;"	v
+status	.local/bin/polybar/spotify_status.py	/^    status = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'PlaybackStatus')$/;"	v
+step	.config/picom/picom.conf	/^fade-in-step = 0.04;$/;"	k
+step	.config/picom/picom.conf	/^fade-out-step = 0.05;$/;"	k
+stop	.config/polybar/mpd.ini	/^icon-stop = $/;"	k
+stop	.config/polybar/polybar_blocks/mpd.ini	/^icon-stop = $/;"	k
+stop	.config/polybar_blocks/mpd.ini	/^icon-stop = $/;"	k
+stop	.config/polybar_minimal/mpd.ini	/^icon-stop = $/;"	k
+suffix	.config/polybar/bspwm.ini	/^format-suffix = $/;"	k
+temperature	.config/polybar/polybar_blocks/temperature.ini	/^warn-temperature = 60$/;"	k
+temperature	.config/polybar/temperature.ini	/^warn-temperature = 60$/;"	k
+temperature	.config/polybar_blocks/temperature.ini	/^warn-temperature = 60$/;"	k
+temperature	.config/polybar_minimal/temperature.ini	/^warn-temperature = 60$/;"	k
+term	.config/qtile/config.py	/^term = "kitty"$/;"	v
+term_editor	.config/qtile/config.py	/^term_editor = "nvim"$/;"	v
+textype	.local/bin/by_luke/compiler	/^textype() { \\$/;"	f
+textype	.local/bin/latex/compiler	/^textype() { \\$/;"	f
+time	.config/polybar/date.ini	/^time=%H:%M$/;"	k
+time	.config/polybar/polybar_blocks/date.ini	/^time = %H:%M$/;"	k
+time	.config/polybar_blocks/date.ini	/^time = %H:%M$/;"	k
+time	.config/polybar_minimal/date.ini	/^time = %H:%M$/;"	k
+transient	.config/picom/picom.conf	/^detect-transient = true$/;"	k
+truncate	.local/bin/polybar/spotify_status.py	/^def truncate(name, trunclen):$/;"	f
+trunclen	.local/bin/polybar/spotify_status.py	/^    trunclen = args.trunclen$/;"	v
+trunclen	.local/bin/polybar/spotify_status.py	/^trunclen = 35$/;"	v
+tui_calendar	.config/qtile/config.py	/^tui_calendar = "calcurses"$/;"	v
+twoscreen	.local/bin/by_luke/displayselect	/^twoscreen() { # If multi-monitor is selected and there are two screens.$/;"	f
+twoscreen	.local/bin/display/displayselect	/^twoscreen() { # If multi-monitor is selected and there are two screens.$/;"	f
+type	.config/polybar/alsa.ini	/^type = internal\/alsa$/;"	k
+type	.config/polybar/backlight.ini	/^type = internal\/backlight$/;"	k
+type	.config/polybar/battery.ini	/^type = internal\/battery$/;"	k
+type	.config/polybar/batteryScript.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/bspwm.ini	/^type = internal\/bspwm$/;"	k
+type	.config/polybar/cpu.ini	/^type = internal\/cpu$/;"	k
+type	.config/polybar/date.ini	/^type = internal\/date$/;"	k
+type	.config/polybar/eth.ini	/^type = internal\/network$/;"	k
+type	.config/polybar/filesystem.ini	/^type = internal\/fs$/;"	k
+type	.config/polybar/keymap.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/memory.ini	/^type = internal\/memory$/;"	k
+type	.config/polybar/mocp.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/mpd.ini	/^type = internal\/mpd$/;"	k
+type	.config/polybar/newsboat.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/polybar_blocks/alsa.ini	/^type = internal\/alsa$/;"	k
+type	.config/polybar/polybar_blocks/backlight.ini	/^type = internal\/backlight$/;"	k
+type	.config/polybar/polybar_blocks/battery.ini	/^type = internal\/battery$/;"	k
+type	.config/polybar/polybar_blocks/batteryScript.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/polybar_blocks/bspwm.ini	/^type = internal\/bspwm$/;"	k
+type	.config/polybar/polybar_blocks/cpu.ini	/^type = internal\/cpu$/;"	k
+type	.config/polybar/polybar_blocks/date.ini	/^type = internal\/date$/;"	k
+type	.config/polybar/polybar_blocks/eth.ini	/^type = internal\/network$/;"	k
+type	.config/polybar/polybar_blocks/filesystem.ini	/^type = internal\/fs$/;"	k
+type	.config/polybar/polybar_blocks/keymap.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/polybar_blocks/memory.ini	/^type = internal\/memory$/;"	k
+type	.config/polybar/polybar_blocks/mpd.ini	/^type = internal\/mpd$/;"	k
+type	.config/polybar/polybar_blocks/powermenu.ini	/^type = custom\/menu$/;"	k
+type	.config/polybar/polybar_blocks/pulseaudio.ini	/^type = internal\/pulseaudio$/;"	k
+type	.config/polybar/polybar_blocks/spotify.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/polybar_blocks/temperature.ini	/^type = internal\/temperature$/;"	k
+type	.config/polybar/polybar_blocks/weather.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/polybar_blocks/wlan.ini	/^type = internal\/network$/;"	k
+type	.config/polybar/polybar_blocks/xkeyboard.ini	/^type = internal\/xkeyboard$/;"	k
+type	.config/polybar/powermenu.ini	/^type = custom\/menu$/;"	k
+type	.config/polybar/pulseaudio.ini	/^type = internal\/pulseaudio$/;"	k
+type	.config/polybar/spotify.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/temperature.ini	/^type = internal\/temperature$/;"	k
+type	.config/polybar/weather.ini	/^type = custom\/script$/;"	k
+type	.config/polybar/wlan.ini	/^type = internal\/network$/;"	k
+type	.config/polybar/xkeyboard.ini	/^type = internal\/xkeyboard$/;"	k
+type	.config/polybar_blocks/alsa.ini	/^type = internal\/alsa$/;"	k
+type	.config/polybar_blocks/backlight.ini	/^type = internal\/backlight$/;"	k
+type	.config/polybar_blocks/battery.ini	/^type = internal\/battery$/;"	k
+type	.config/polybar_blocks/batteryScript.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_blocks/bspwm.ini	/^type = internal\/bspwm$/;"	k
+type	.config/polybar_blocks/cpu.ini	/^type = internal\/cpu$/;"	k
+type	.config/polybar_blocks/date.ini	/^type = internal\/date$/;"	k
+type	.config/polybar_blocks/eth.ini	/^type = internal\/network$/;"	k
+type	.config/polybar_blocks/filesystem.ini	/^type = internal\/fs$/;"	k
+type	.config/polybar_blocks/keymap.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_blocks/memory.ini	/^type = internal\/memory$/;"	k
+type	.config/polybar_blocks/mpd.ini	/^type = internal\/mpd$/;"	k
+type	.config/polybar_blocks/powermenu.ini	/^type = custom\/menu$/;"	k
+type	.config/polybar_blocks/pulseaudio.ini	/^type = internal\/pulseaudio$/;"	k
+type	.config/polybar_blocks/spotify.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_blocks/temperature.ini	/^type = internal\/temperature$/;"	k
+type	.config/polybar_blocks/weather.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_blocks/wlan.ini	/^type = internal\/network$/;"	k
+type	.config/polybar_blocks/xkeyboard.ini	/^type = internal\/xkeyboard$/;"	k
+type	.config/polybar_minimal/alsa.ini	/^type = internal\/alsa$/;"	k
+type	.config/polybar_minimal/backlight.ini	/^type = internal\/backlight$/;"	k
+type	.config/polybar_minimal/battery.ini	/^type = internal\/battery$/;"	k
+type	.config/polybar_minimal/batteryScript.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_minimal/bspwm.ini	/^type = internal\/bspwm$/;"	k
+type	.config/polybar_minimal/cpu.ini	/^type = internal\/cpu$/;"	k
+type	.config/polybar_minimal/date.ini	/^type = internal\/date$/;"	k
+type	.config/polybar_minimal/eth.ini	/^type = internal\/network$/;"	k
+type	.config/polybar_minimal/filesystem.ini	/^type = internal\/fs$/;"	k
+type	.config/polybar_minimal/keymap.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_minimal/memory.ini	/^type = internal\/memory$/;"	k
+type	.config/polybar_minimal/mpd.ini	/^type = internal\/mpd$/;"	k
+type	.config/polybar_minimal/powermenu.ini	/^type = custom\/menu$/;"	k
+type	.config/polybar_minimal/pulseaudio.ini	/^type = internal\/pulseaudio$/;"	k
+type	.config/polybar_minimal/spotify.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_minimal/temperature.ini	/^type = internal\/temperature$/;"	k
+type	.config/polybar_minimal/weather.ini	/^type = custom\/script$/;"	k
+type	.config/polybar_minimal/wlan.ini	/^type = internal\/network$/;"	k
+type	.config/polybar_minimal/xkeyboard.ini	/^type = internal\/xkeyboard$/;"	k
+underline	.config/polybar/battery.ini	/^animation-charging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar/battery.ini	/^animation-discharging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar/battery.ini	/^label-charging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar/battery.ini	/^label-discharging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar/battery.ini	/^label-full-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar/eth.ini	/^format-connected-underline = ${colors.green}$/;"	k
+underline	.config/polybar/memory.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar/polybar_blocks/battery.ini	/^animation-charging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar/polybar_blocks/battery.ini	/^animation-discharging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar/polybar_blocks/battery.ini	/^label-charging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar/polybar_blocks/battery.ini	/^label-discharging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar/polybar_blocks/battery.ini	/^label-full-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar/polybar_blocks/eth.ini	/^format-connected-underline = ${colors.green}$/;"	k
+underline	.config/polybar/polybar_blocks/memory.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar/polybar_blocks/temperature.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar/polybar_blocks/temperature.ini	/^format-warn-underline = ${self.format-underline}$/;"	k
+underline	.config/polybar/polybar_blocks/xkeyboard.ini	/^format-prefix-underline = ${colors.primary}$/;"	k
+underline	.config/polybar/polybar_blocks/xkeyboard.ini	/^format-suffix-underline = ${colors.primary}$/;"	k
+underline	.config/polybar/polybar_blocks/xkeyboard.ini	/^format-underline = ${colors.primary}$/;"	k
+underline	.config/polybar/polybar_blocks/xkeyboard.ini	/^label-indicator-underline = ${colors.primary}$/;"	k
+underline	.config/polybar/polybar_blocks/xkeyboard.ini	/^label-layout-underline = ${colors.primary}$/;"	k
+underline	.config/polybar/temperature.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar/temperature.ini	/^format-warn-underline = ${self.format-underline}$/;"	k
+underline	.config/polybar/xkeyboard.ini	/^format-prefix-underline = ${colors.background}$/;"	k
+underline	.config/polybar/xkeyboard.ini	/^format-suffix-underline = ${colors.background}$/;"	k
+underline	.config/polybar/xkeyboard.ini	/^format-underline = ${colors.underline}$/;"	k
+underline	.config/polybar/xkeyboard.ini	/^label-indicator-underline = ${colors.background}$/;"	k
+underline	.config/polybar/xkeyboard.ini	/^label-layout-underline = ${colors.background}$/;"	k
+underline	.config/polybar_blocks/battery.ini	/^animation-charging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar_blocks/battery.ini	/^animation-discharging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar_blocks/battery.ini	/^label-charging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar_blocks/battery.ini	/^label-discharging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar_blocks/battery.ini	/^label-full-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar_blocks/eth.ini	/^format-connected-underline = ${colors.green}$/;"	k
+underline	.config/polybar_blocks/memory.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar_blocks/temperature.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar_blocks/temperature.ini	/^format-warn-underline = ${self.format-underline}$/;"	k
+underline	.config/polybar_blocks/xkeyboard.ini	/^format-prefix-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_blocks/xkeyboard.ini	/^format-suffix-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_blocks/xkeyboard.ini	/^format-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_blocks/xkeyboard.ini	/^label-indicator-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_blocks/xkeyboard.ini	/^label-layout-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_minimal/battery.ini	/^animation-charging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar_minimal/battery.ini	/^animation-discharging-underline = ${colors.yellow}$/;"	k
+underline	.config/polybar_minimal/battery.ini	/^label-charging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar_minimal/battery.ini	/^label-discharging-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar_minimal/battery.ini	/^label-full-underline  = ${colors.yellow}$/;"	k
+underline	.config/polybar_minimal/bspwm.ini	/^label-focused-underline= ${colors.primary}$/;"	k
+underline	.config/polybar_minimal/eth.ini	/^format-connected-underline = ${colors.green}$/;"	k
+underline	.config/polybar_minimal/memory.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar_minimal/temperature.ini	/^format-underline = ${colors.red}$/;"	k
+underline	.config/polybar_minimal/temperature.ini	/^format-warn-underline = ${self.format-underline}$/;"	k
+underline	.config/polybar_minimal/xkeyboard.ini	/^format-prefix-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_minimal/xkeyboard.ini	/^format-suffix-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_minimal/xkeyboard.ini	/^format-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_minimal/xkeyboard.ini	/^label-indicator-underline = ${colors.primary}$/;"	k
+underline	.config/polybar_minimal/xkeyboard.ini	/^label-layout-underline = ${colors.primary}$/;"	k
+unmountandroid	.local/bin/by_luke/dmenuumount	/^unmountandroid() { \\$/;"	f
+unmountandroid	.local/bin/dmenu/dmenuumount	/^unmountandroid() { \\$/;"	f
+unmounted	.config/polybar/filesystem.ini	/^label-unmounted = %mountpoint% not mounted$/;"	k
+unmounted	.config/polybar/polybar_blocks/filesystem.ini	/^label-unmounted = %mountpoint% not mounted$/;"	k
+unmounted	.config/polybar_blocks/filesystem.ini	/^label-unmounted = %mountpoint% not mounted$/;"	k
+unmounted	.config/polybar_minimal/filesystem.ini	/^label-unmounted = %mountpoint% not mounted$/;"	k
+unmountusb	.local/bin/by_luke/dmenuumount	/^unmountusb() {$/;"	f
+unmountusb	.local/bin/dmenu/dmenuumount	/^unmountusb() {$/;"	f
+updateicon	.local/bin/by_luke/dmenurecord	/^updateicon() { \\$/;"	f
+updateicon	.local/bin/dmenu/dmenurecord	/^updateicon() { \\$/;"	f
+urgent	.config/polybar/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
+urgent	.config/polybar/polybar_blocks/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
+urgent	.config/polybar_blocks/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
+urgent	.config/polybar_minimal/bspwm.ini	/^label-urgent = ${self.label-focused}$/;"	k
+version	.config/fontconfig/fonts.conf	/^<?xml version="1.0"?>$/;"	k
+video	.local/bin/by_luke/dmenurecord	/^video() { ffmpeg \\$/;"	f
+video	.local/bin/dmenu/dmenurecord	/^video() { ffmpeg \\$/;"	f
+volume	.config/polybar/alsa.ini	/^format-volume = <label-volume> <bar-volume>$/;"	k
+volume	.config/polybar/alsa.ini	/^label-volume = VOL$/;"	k
+volume	.config/polybar/polybar_blocks/alsa.ini	/^format-volume = <label-volume> <bar-volume>$/;"	k
+volume	.config/polybar/polybar_blocks/alsa.ini	/^label-volume = VOL$/;"	k
+volume	.config/polybar/polybar_blocks/pulseaudio.ini	/^format-volume = <ramp-volume> <label-volume>$/;"	k
+volume	.config/polybar/polybar_blocks/pulseaudio.ini	/^label-volume = %percentage%%$/;"	k
+volume	.config/polybar/pulseaudio.ini	/^format-volume = <ramp-volume> <label-volume>$/;"	k
+volume	.config/polybar/pulseaudio.ini	/^label-volume = %percentage%%$/;"	k
+volume	.config/polybar_blocks/alsa.ini	/^format-volume = <label-volume> <bar-volume>$/;"	k
+volume	.config/polybar_blocks/alsa.ini	/^label-volume = VOL$/;"	k
+volume	.config/polybar_blocks/pulseaudio.ini	/^format-volume = <ramp-volume> <label-volume>$/;"	k
+volume	.config/polybar_blocks/pulseaudio.ini	/^label-volume = %percentage%%$/;"	k
+volume	.config/polybar_minimal/alsa.ini	/^format-volume = <label-volume> <bar-volume>$/;"	k
+volume	.config/polybar_minimal/alsa.ini	/^label-volume = VOL$/;"	k
+volume	.config/polybar_minimal/pulseaudio.ini	/^format-volume = <ramp-volume> <label-volume>$/;"	k
+volume	.config/polybar_minimal/pulseaudio.ini	/^label-volume = %percentage%%$/;"	k
+vsync	.config/picom/picom.conf	/^vsync = true$/;"	k
+warn	.config/polybar/polybar_blocks/temperature.ini	/^format-warn = <ramp> <label-warn>$/;"	k
+warn	.config/polybar/polybar_blocks/temperature.ini	/^label-warn = %temperature-c%$/;"	k
+warn	.config/polybar/temperature.ini	/^format-warn = <ramp> <label-warn>$/;"	k
+warn	.config/polybar/temperature.ini	/^label-warn = %temperature-c%$/;"	k
+warn	.config/polybar_blocks/temperature.ini	/^format-warn = <ramp> <label-warn>$/;"	k
+warn	.config/polybar_blocks/temperature.ini	/^label-warn = %temperature-c%$/;"	k
+warn	.config/polybar_minimal/temperature.ini	/^format-warn = <ramp> <label-warn>$/;"	k
+warn	.config/polybar_minimal/temperature.ini	/^label-warn = %temperature-c%$/;"	k
+webcam	.local/bin/by_luke/dmenurecord	/^webcam() { ffmpeg \\$/;"	f
+webcam	.local/bin/dmenu/dmenurecord	/^webcam() { ffmpeg \\$/;"	f
+webcamhidef	.local/bin/by_luke/dmenurecord	/^webcamhidef() { ffmpeg \\$/;"	f
+webcamhidef	.local/bin/dmenu/dmenurecord	/^webcamhidef() { ffmpeg \\$/;"	f
+widget_defaults	.config/qtile/config.py	/^widget_defaults = dict($/;"	v
+width	.config/polybar/alsa.ini	/^bar-volume-width = 10$/;"	k
+width	.config/polybar/polybar_blocks/alsa.ini	/^bar-volume-width = 10$/;"	k
+width	.config/polybar_blocks/alsa.ini	/^bar-volume-width = 10$/;"	k
+width	.config/polybar_minimal/alsa.ini	/^bar-volume-width = 10$/;"	k
+wintypes	.config/picom/picom.conf	/^wintypes:$/;"	k
+wmname	.config/qtile/config.py	/^wmname = "LG3D"$/;"	v
+x	.config/picom/picom.conf	/^shadow-offset-x = -7;$/;"	k
+y	.config/picom/picom.conf	/^shadow-offset-y = -7;$/;"	k
+yu	.config/nvim/init.vim	/^nnoremap yu yypk$/;"	m
+zone	.config/polybar/polybar_blocks/temperature.ini	/^thermal-zone = 0$/;"	k
+zone	.config/polybar/temperature.ini	/^thermal-zone = 0$/;"	k
+zone	.config/polybar_blocks/temperature.ini	/^thermal-zone = 0$/;"	k
+zone	.config/polybar_minimal/temperature.ini	/^thermal-zone = 0$/;"	k
