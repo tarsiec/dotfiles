@@ -21,6 +21,8 @@ call plug#begin("~/.config/nvim/plugins")
 	Plug 'lervag/vimtex'
 	Plug 'plasticboy/vim-markdown'
 	Plug 'tmhedberg/SimpylFold'
+	Plug 'neovimhaskell/haskell-vim'
+	Plug 'vimwiki/vimwiki'
 
 
 	""" CTAGS
@@ -91,8 +93,11 @@ call plug#begin("~/.config/nvim/plugins")
 
 
     "" AESTHETICAL
-	" Plug 'itchyny/lightline.vim'
+	Plug 'itchyny/lightline.vim'
+	Plug 'Lokaltog/vim-distinguished'
+	Plug 'embark-theme/vim'
 	Plug 'w0ng/vim-hybrid'
+	Plug 'embark-theme/vim'
 	Plug 'daviesjamie/vim-base16-lightline'
 	Plug 'pineapplegiant/spaceduck'
 	Plug 'dunstontc/vim-vscode-theme'
@@ -110,6 +115,7 @@ call plug#begin("~/.config/nvim/plugins")
 	Plug 'arcticicestudio/nord-vim'
     Plug 'chriskempson/base16-vim'
     Plug 'ryanoasis/vim-devicons'
+	Plug 'phanviet/vim-monokai-pro'
 call plug#end()
 
 " for global plugins
@@ -123,7 +129,7 @@ set splitbelow
 set splitright
 set timeoutlen=500
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-set cursorline cursorcolumn
+" set cursorline
 
 """ BASIC FUNCTIONALITY TWEAKS
 "" Tabs
@@ -141,7 +147,7 @@ set autoindent
 set smartindent
 
 "" Point and click
-set mouse=nv
+set mouse=nvi
 
 "" Code folding
 set foldmethod=indent
@@ -156,7 +162,13 @@ syntax enable
 set termguicolors
 set background=dark
 " colorscheme hybrid
-colorscheme base16-tomorrow-night
+colorscheme base16-seti
+highlight Normal ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight SignColumn ctermbg=NONE guibg=NONE
+highlight Column ctermbg=NONE guibg=NONE
+highlight CursorLine ctermbg=NONE guibg=NONE
+" colorscheme nord
 " colorscheme solarized
 set nu rnu
 "set cursorline cursorcolumn
@@ -169,7 +181,7 @@ set laststatus=2
 
 
 " let g:base16lightline_hcontrast=1
-" let g:lightline = { 'colorscheme': 'base16' }
+let g:lightline = { 'colorscheme': 'base16' }
 
 " let g:airline#extensions#tabline#enabled=0
 " powerline symbols
@@ -324,13 +336,18 @@ augroup END
 
 augroup filetype_html
 	autocmd!
-	autocmd FileType html		nnoremap <buffer> <localleader>f Vatzf
-	autocmd FileType html		nnoremap <leader>tb :Bracey<cr>
+	autocmd FileType html	nnoremap <buffer> <localleader>f Vatzf
+	autocmd FileType html	nnoremap <leader>tb :Bracey<cr>
 augroup END
 
 augroup filetype_c
 	autocmd!
-	autocmd FileType c		nnoremap <leader>cc :FloatermNew --autoclose=0 gcc % -o %< && ./%<<cr>
+	autocmd FileType c		nnoremap <silent> <leader>cc :FloatermNew --autoclose=0 gcc % -o %< && ./%<<cr>
+augroup END
+
+augroup filetype_rust
+	autocmd!
+	autocmd FileType rust	nnoremap <silent> <leader>cc :FloatermNew --autoclose=0 cargo run<cr>
 augroup END
 
 " augroup filetype_python
@@ -347,7 +364,8 @@ augroup END
 " 		" debug
 " augroup END
 
-" augroup filetype_go
+augroup filetype_go
+	autocmd FileType go		nnoremap <silent> <leader>cc :FloatermNew --autoclose=0 go run %<cr>
 " 	autocmd FileType go :GoAutoTypeInfoToggle
 " 	autocmd FileType go nnoremap <leader>cr :GoRun<cr>
 " 	autocmd FileType go nnoremap <leader>cb :GoBuild<cr>
@@ -373,7 +391,7 @@ augroup END
 " 	autocmd FileType go nnoremap <leader>cdb :GoDebugBreakpoint<cr>
 " 	autocmd FileType go nnoremap <leader>cdc :GoDebugContinue<cr>
 " 	autocmd FileType go nnoremap <leader>cdq :GoDebugStop<cr>
-" augroup END
+augroup END
 
 
 augroup filetype_tex
@@ -495,6 +513,9 @@ nmap <leader>cr <Plug>(coc-rename)
 xmap <leader>cF  <Plug>(coc-format-selected)
 nmap <leader>cF  <Plug>(coc-format-selected)
 nmap <leader>cf  :Format<cr>:%retab!<cr>
+autocmd FileType haskell
+			\ unmap <leader>cf
+			\ nmap <leader>cf  :Format<cr>:%retab!<cr>
 
 augroup mygroup
   autocmd!

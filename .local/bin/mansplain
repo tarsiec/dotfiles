@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -z $1 ]
+  then
+	apropos . | dmenu -l 30 | awk '{print $1}' | xargs -r man -Tpdf | zathura -
+  else
+	man -Tpdf $1 | zathura -
+fi

@@ -6,8 +6,11 @@ https://blog.ycombinator.com/feed/ "~YCombinator Blog"
 http://feeds.feedburner.com/aaronsw/UIry "Paul"
 https://github.blog/feed/ "~GitHub Blog"
 https://n-o-d-e.net/rss/rss.xml "~N-O-D-E.net"
+https://wouterdeschuyter.be/feed.xml "~Wouter De Schuyter"
+https://www.2600.com/rss.xml "~2600"
 
 # Programming
+" "
 "--- Programming ---"
 http://blog.cleancoder.com/atom.xml "~The Clean Code Blog"
 https://blog.royalsloth.eu/feed "~Royal Sloth (Blog)"
@@ -16,11 +19,14 @@ https://blog.golang.org/feed.atom "~Golang (Blog)"
 https://blog.rust-lang.org/feed.xml "~Rust (Blog)"
 
 # Software updates
+" "
 "--- Software updates ---"
+https://www.getmonero.org/feed.xml "~Monero (Feed)"
 https://www.archlinux.org/feeds/news/ "~Arch Linux (Feed)"
 https://newsboat.org/news.atom "~NewsBoat (Feed)"
 
 # Tech news
+" "
 "--- Tech News ---"
 https://feeds.feedburner.com/TechCrunch/ "~TechCrunch (News)"
 https://news.ycombinator.com/rss "~HackerNews (News)"
@@ -28,10 +34,12 @@ https://www.wired.com/feed/rss "~Wired.com (News)"
 https://feeds.feedburner.com/arstechnica/index/ "~Ars Technica (News)"
 
 # Fun
+" "
 "--- Fun ---"
 https://xkcd.com/rss.xml "~xkcd.com (Fun)"
 
 # Reddit Feed
+" "
 "--- Reddit Feed ---"
 https://www.reddit.com/r/programming.rss "~r/Programming"
 https://www.reddit.com/r/ProgrammingLanguages.rss "~r/ProgrammingLanguages"
@@ -45,11 +53,13 @@ https://www.reddit.com/r/ios.rss "~r/iOS"
 https://www.reddit.com/r/golang.rss "~r/Golang"
 
 # GitHub Feed
+" "
 "--- GitHub Feed ---"
 https://github.com/t0maslb.private.atom?token=ANINSMCAEDFU44JB4LIMG2N47XQMQ "~GitHub News Feed"
 https://github.com/starship/starship/commits/master.atom "~Commits to starship.rs (GitHub)"
 
 # YouTube Feed
+" "
 "--- YouTube Feed ---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UClcE-kVhqyiHCcjYwcpfj9w "~LiveOverflow (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "~MKBHD (YouTube)"
@@ -59,8 +69,10 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~L
 
 
 # Podcasts
+" "
 "--- Podcasts ---"
 https://notrelated.libsyn.com/rss "~Not Related! (Podcast)"
 https://www.philosophizethis.org/podcast?format=rss "~Philosophize This! (Podcast)"
 https://feeds.simplecast.com/dLRotFGk "~Developer Tea (Podcast)"
 https://feeds.feedburner.com/WaveformWithMkbhd?format=xml "~Waveform: The MKBHD Podcast"
+http://feeds.feedburner.com/cryptomises "~Crypto-Mises Podcast"

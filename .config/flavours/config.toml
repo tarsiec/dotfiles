@@ -1,0 +1,99 @@
+[[item]]
+file = '~/.config/alacritty/alacritty.yml'
+template = 'alacritty'
+subtemplate = 'default'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/zathura/zathurarc'
+template = 'zathura'
+subtemplate = 'default'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.Xresources'
+template = 'xresources'
+subtemplate = 'default'
+rewrite = false
+start = '! Start flavours'
+end = '! End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/gtk-themes/FlatColor/colors2'
+template = 'gtk2'
+subtemplate = 'schemes'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/kitty/kitty.conf'
+template = 'kitty'
+subtemplate = 'default'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/nvim/plugins/base16-vim/colors/base16-seti.vim'
+template = 'vim'
+subtemplate = 'default'
+rewrite = false
+start = '" Start flavours'
+end = '" End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/rofi/config.rasi'
+template = 'rofi'
+subtemplate = 'default'
+rewrite = false
+start = '/* Start flavours */'
+end = '/* End flavours */'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/dunst/dunstrc'
+template = 'dunst'
+subtemplate = 'default'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.config/bspwm/bspwmlooks'
+template = 'bspwm'
+subtemplate = 'default'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = 'bspwmlooks'
+light = true
+
+[[item]]
+file = '~/.local/share/repos/startpages/startpage_1/src/style.css'
+template = 'startpage'
+subtemplate = 'default'
+rewrite = false
+start = '/* Start flavours */'
+end = '/* End flavours */'
+hook = ''
+light = true

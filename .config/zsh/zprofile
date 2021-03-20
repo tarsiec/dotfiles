@@ -46,8 +46,8 @@ export PATH=$PATH:$HOME/.local/share/python/python-language-server/output/bin/Re
 
 ### SOFTWARE ###
 # starship.rs
-# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-# eval "$(starship init zsh)"
+ # export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+ # eval "$(starship init zsh)"
 # source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### COMPLETION ###

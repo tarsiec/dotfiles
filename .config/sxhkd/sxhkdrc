@@ -19,6 +19,10 @@ super+@space
 # super+@space; {@space,w,s,f,c,k,o}
 	# rofi -show {drun,window,ssh,file-browser,calc,keys,combi}
 
+# file browser
+super + r
+	alacritty -e ranger
+
 
 super + e
 	emacs
@@ -32,7 +36,7 @@ super + c
 
 # mocp
 super + shift + m
-	alacritty -e mocp
+	alacritty -e neomutt
 
 # gimp
 super + g
@@ -44,7 +48,7 @@ super + n
 
 # email
 super + m
-	alacritty -e neomutt
+	alacritty -e ncmpcpp
 
 # quick shot
 Print
@@ -75,27 +79,34 @@ super + o
 	changemap
 
 # dmenu scripts
-super + d ; {e,l,m,u,r,p,c}
-	dmenu{-edit-config,handler,mount,umount,record,pass,unicode}
+# super + d ; {e,l,m,u,r,c,y,h}
+super + d ; {e,l,r,c,y,m}
+	dmenu{-edit-config,handler,record,unicode,yt,ytmus}
+
+super + d ; p
+	passmenu-otp
+
+super + z
+	dmenutheme
 
 # music controls
 super + comma
-    spotifycli --prev
+	mpc prev
 
 super + period
-    spotifycli --next
+	mpc next
 
 super + shift + comma
-	mocp --previous
+    spotifycli --prev
 
 super + shift + period
-	mocp --next
+    spotifycli --next
 
 super + p
-    spotifycli --playpause
+	mpc toggle
 
 super + shift + p
-	mocp --toggle-pause
+    spotifycli --playpause
 
 # lockscreen
 super + shift + x
@@ -149,7 +160,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-super + shift + m
+super + shift + o
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node

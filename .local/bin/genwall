@@ -1,0 +1,26 @@
+#!/bin/bash
+
+filename=$1
+ext="${filename##*.}"
+echo $ext
+
+if [[ "$ext" == "jpg" ]]
+then
+	cp "$1" "$HOME/.config/wall.jpg"
+	xwallpaper --zoom "$HOME/.config/wall.jpg"
+	flavours generate dark "$HOME/.config/wall.jpg"
+	if [[ `ls "$HOME/.config" | grep wall.png` == "wall.png" ]];then
+		rm "$HOME/.config/wall.png"
+	fi
+elif [[ "$ext" == "png" ]]
+then
+	cp "$1" "$HOME/.config/wall.png"
+	xwallpaper --zoom "$HOME/.config/wall.png"
+	flavours generate dark "$HOME/.config/wall.png"
+	if [[ `ls "$HOME/.config" | grep wall.jpg` == "wall.jpg" ]];then
+		rm "$HOME/.config/wall.png"
+	fi
+fi
+flavours apply generated
+xrdb "$HOME/.Xresources" &
+launch_polybar >/dev/null 2>&1 &

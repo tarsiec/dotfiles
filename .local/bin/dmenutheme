@@ -1,0 +1,18 @@
+#!/bin/bash
+
+selected=`cat ~/.local/share/schemes | dmenu`
+flavours apply $selected
+
+flavour=`grep "\#define base00 " "$HOME/.Xresources" | sed 's/.*#//'`
+flavour="#"$flavour
+echo $flavour
+if [[ `ls "$HOME/.config" | grep wall.jpg` == "wall.jpg" ]];then
+	echo `ls "$HOME/.config" | grep wall.jpg` 
+	rm "$HOME/.config/wall.jpg"
+fi
+xrdb "$HOME/.Xresources"
+touch "~.config/wall.png"
+convert -size 1920x1080 xc:$flavour "$HOME/.config/wall.png"
+xwallpaper --zoom "$HOME/.config/wall.png"
+polybar -r main
+

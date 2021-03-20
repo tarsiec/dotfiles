@@ -1,6 +1,15 @@
 #!/bin/bash
 
 case "$(cat /home/tlb/.local/bin/currentkeymap)" in
-    "ES") kgb ; echo "GB" > /home/tlb/.local/bin/currentkeymap ;;
-    "GB") kes ; echo "ES" > /home/tlb/.local/bin/currentkeymap ;;
+	"ES")
+		kgb &
+		notify-send -u low "Keymap switched to GB" &
+		echo "GB" > /home/tlb/.local/bin/currentkeymap
+		;;
+	"GB")
+		kes &
+		notify-send -u low "Keymap switched to ES"
+		echo "ES" > /home/tlb/.local/bin/currentkeymap
+		;;
 esac
+

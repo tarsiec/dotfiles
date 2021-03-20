@@ -1,6 +1,7 @@
 [colors]
 background      = ${xrdb:background:#1d1f21}
-background-alt  = #282a2e
+background-alt  = ${xrdb:color10:#282a2e}
+background-dim	= ${xrdb:color11:#373b41}
 foreground      = ${xrdb:color7:#c5c8c6}
 foreground-alt  = ${xrdb:color15:#ffffff}
 primary         = ${xrdb:color3:#f0c674}
@@ -76,6 +77,7 @@ modules-left = bspwm
 modules-center = spotify mocp
 ; modules-center = s spotify mocp r
 modules-right =  s d todos s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+; modules-right =  s filesystem1 ct filesystem2 d todos s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2
@@ -117,9 +119,13 @@ format-underline = ${colors.secondary}
 inherit = defaults
 include-file = ~/.config/polybar/xkeyboard.ini
 
-[module/filesystem]
+[module/filesystem1]
 inherit = defaults
-include-file = ~/.config/polybar/filesystem.ini
+include-file = ~/.config/polybar/filesystem1.ini
+
+[module/filesystem2]
+inherit = defaults
+include-file = ~/.config/polybar/filesystem2.ini
 
 [module/bspwm]
 include-file = ~/.config/polybar/bspwm.ini
@@ -251,6 +257,13 @@ click-left = "jgmenu --at-pointer"
 content = ""
 content-foreground = ${colors.foreground}
 content-background = ${colors.background-alt}
+
+[module/ct]
+type="custom/text"
+
+content=""
+content-background=${colors.background-alt}
+content-foreground=${colors.cyan}
 
 [module/rt]
 type="custom/text"
