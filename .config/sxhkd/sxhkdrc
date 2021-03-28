@@ -80,8 +80,8 @@ super + o
 
 # dmenu scripts
 # super + d ; {e,l,m,u,r,c,y,h}
-super + d ; {e,l,r,c,y,m}
-	dmenu{-edit-config,handler,record,unicode,yt,ytmus}
+super + d ; {e,l,r,c,y,m,a}
+	dmenu{-edit-config,handler,record,unicode,yt,ytmus,ask}
 
 super + d ; p
 	passmenu-otp

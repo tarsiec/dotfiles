@@ -2,7 +2,7 @@
 
 call plug#begin("~/.config/nvim/plugins")
 	Plug 'tpope/vim-sensible'
-	Plug 'turbio/bracey.vim'
+	" Plug 'jaxbot/browserlink.vim'
 
 
 
@@ -163,15 +163,15 @@ set termguicolors
 set background=dark
 " colorscheme hybrid
 colorscheme base16-seti
-highlight Normal ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight SignColumn ctermbg=NONE guibg=NONE
-highlight Column ctermbg=NONE guibg=NONE
-highlight CursorLine ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
+" highlight LineNr ctermbg=NONE guibg=NONE
+" highlight SignColumn ctermbg=NONE guibg=NONE
+" highlight Column ctermbg=NONE guibg=NONE
+" highlight CursorLine ctermbg=NONE guibg=NONE
 " colorscheme nord
 " colorscheme solarized
 set nu rnu
-"set cursorline cursorcolumn
+set cursorline
 
 set noshowmode
 set noshowcmd
@@ -267,6 +267,7 @@ onoremap il{ :<c-u>normal! f}vi{<cr>
 onoremap in" :<c-u>normal! f"vi"<cr>
 onoremap il" :<c-u>normal! f"vi"<cr>
 
+
 "" nerdcommenter 
 " create default mappings
 let g:nerdcreatedefaultmappings=1
@@ -336,8 +337,9 @@ augroup END
 
 augroup filetype_html
 	autocmd!
+	autocmd FileType html set tabstop=2
+ 	autocmd FileType html set shiftwidth=2
 	autocmd FileType html	nnoremap <buffer> <localleader>f Vatzf
-	autocmd FileType html	nnoremap <leader>tb :Bracey<cr>
 augroup END
 
 augroup filetype_c
@@ -654,3 +656,5 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+nnoremap <leader>p :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+

@@ -85,7 +85,7 @@ subtemplate = 'default'
 rewrite = false
 start = '# Start flavours'
 end = '# End flavours'
-hook = 'bspwmlooks'
+hook = ''
 light = true
 
 [[item]]

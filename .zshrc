@@ -6,7 +6,7 @@
 
 ###
 # PROMPT="%(?.%B%F{green}%1~%f%b.%B%F{red}%1~ (%?%)%f%b) λ "
-PROMPT="%B%F{yellow}%n%f%b@%M [%(?.%B%F{green}%2~%f%b.%B%F{red}%2~%f%b)]%(?..%F{red}%B(%?%)%f%b) "
+# PROMPT="%B%F{yellow}%n%f%b@%M [%(?.%B%F{green}%2~%f%b.%B%F{red}%2~%f%b)]%(?..%F{red}%B(%?%)%f%b) "
 # PROMPT="%n@%M [%(?.%B%F{green}%1~%f%b].%B%F{red}%1~ (%?%)%f%b) %% "
 # PROMPT="%F{yellow}%n%f@%M [%(?.%B%F{green}%1~%f%b].%B%F{red}%1%f%b~ %F{red}%B(%?%)%f%b%) "
 

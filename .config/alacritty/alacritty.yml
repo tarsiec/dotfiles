@@ -16,19 +16,19 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: terminus
-    style: Retina
+    family: iosevka
+    style: Normal
 
   bold:
-    family: terminus
+    family: iosevka
     style: Bold
 
   italic:
-    family: terminus
+    family: iosevka
     style: Italic
 
   bold_italic:
-    family: terminus
+    family: iosevka
     style: Bold Italic
 
   size: 8
@@ -73,7 +73,7 @@ draw_bold_text_with_bright_colors: false
 #  color: '#ffffff'
 
 # Background opacity
-background_opacity: 0.85
+background_opacity: 0.9
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -91,7 +91,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  style: Underline
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
@@ -355,40 +355,40 @@ cursor:
   #print_events: false
 
 # Start flavours
-# Base16 Tomorrow Night - alacritty color config
-# Chris Kempson (http://chriskempson.com)
+# Base16 Solarized Dark - alacritty color config
+# Ethan Schoonover (modified by aramisgithub)
 colors:
   # Default colors
   primary:
-    background: '0x1d1f21'
-    foreground: '0xc5c8c6'
+    background: '0x002b36'
+    foreground: '0x93a1a1'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1d1f21'
-    cursor: '0xc5c8c6'
+    text: '0x002b36'
+    cursor: '0x93a1a1'
 
   # Normal colors
   normal:
-    black:   '0x1d1f21'
-    red:     '0xcc6666'
-    green:   '0xb5bd68'
-    yellow:  '0xf0c674'
-    blue:    '0x81a2be'
-    magenta: '0xb294bb'
-    cyan:    '0x8abeb7'
-    white:   '0xc5c8c6'
+    black:   '0x002b36'
+    red:     '0xdc322f'
+    green:   '0x859900'
+    yellow:  '0xb58900'
+    blue:    '0x268bd2'
+    magenta: '0x6c71c4'
+    cyan:    '0x2aa198'
+    white:   '0x93a1a1'
 
   # Bright colors
   bright:
-    black:   '0x969896'
-    red:     '0xde935f'
-    green:   '0x282a2e'
-    yellow:  '0x373b41'
-    blue:    '0xb4b7b4'
-    magenta: '0xe0e0e0'
-    cyan:    '0xa3685a'
-    white:   '0xffffff'
+    black:   '0x657b83'
+    red:     '0xcb4b16'
+    green:   '0x073642'
+    yellow:  '0x586e75'
+    blue:    '0x839496'
+    magenta: '0xeee8d5'
+    cyan:    '0xd33682'
+    white:   '0xfdf6e3'
 
 draw_bold_text_with_bright_colors: false
 # End flavours

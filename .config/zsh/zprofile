@@ -144,5 +144,7 @@ alias vs="nvim $HOME/.config/sxhkd/sxhkdrc"
 alias vd="nvim $HOME/.config/dunst/dunstrc"
 alias vp="nvim $HOME/.config/picom/picom.conf"
 
+alias spfr="ssh root@tarsiec.com ./pullfromrepo.sh /var/www/tarsiec-site"
+
 bindkey -v
 bindkey "jk" vi-cmd-mode

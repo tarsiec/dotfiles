@@ -21,6 +21,8 @@ bspc monitor -d misc dev web chat git sys doc pic media
 
 bspwmlooks
 
+
+
 bspc rule -a Emacs state=tiled
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a Firefox desktop='^2'
