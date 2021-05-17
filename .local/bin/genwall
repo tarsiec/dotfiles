@@ -12,6 +12,7 @@ then
 	if [ `ls "$HOME/.config" | grep wall.png` == "wall.png" ];then
 		rm "$HOME/.config/wall.png"
 	fi
+	betterlockscreen -u ~/.config/wall.jpg &
 elif [ "$ext" == "png" ]
 then
 	cp "$1" "$HOME/.config/wall.png"
@@ -20,7 +21,9 @@ then
 	if [ `ls "$HOME/.config" | grep wall.jpg` == "wall.jpg" ];then
 		rm "$HOME/.config/wall.png"
 	fi
+	betterlockscreen -u ~/.config/wall.png &
 fi
 flavours apply generated
 xrdb "$HOME/.Xresources" &
+bspwmlooks
 launch_polybar >/dev/null 2>&1 &

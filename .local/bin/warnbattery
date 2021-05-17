@@ -1,0 +1,17 @@
+#!/bin/bash
+
+batttery_level_1=`acpi -b | grep -P -o '[0-9]+(?=%)' | sed -n '1 p'`
+batttery_level_2=`acpi -b | grep -P -o '[0-9]+(?=%)' | sed -n '2 p'`
+is_charging=$(acpi -b | grep -c 'Charging')
+
+
+if [ $batttery_level_1 -le 10 ] && [ $batttery_level_2 -le 10 ] && [ $is_charging -eq 0 ]
+then
+        notify-send --urgency=critical "Battery low" "Battery levels are\n- ${batttery_level_1}\n- ${batttery_level_2}";
+        sudo light -S 50
+elif [ $batttery_level_1 -eq 100 ] && [ $batttery_level_2 -eq 100 ]
+then
+        notify-send "Full battery" "Remove the power supply"
+        sudo light -S 75
+fi
+
