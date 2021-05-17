@@ -275,23 +275,23 @@
     context = ctrl+shift+period
 
 # Start flavours
-frame_color = "#ffcc66"
-separator_color = "#ffcc66"
+frame_color = "#b57614"
+separator_color = "#b57614"
 
 [base16_low]
     msg_urgency = low
-    background = "#2d2d2d"
-    foreground = "#d3d0c8"
+    background = "#fbf1c7"
+    foreground = "#504945"
 
 [base16_normal]
     msg_urgency = normal
-    background = "#2d2d2d"
-    foreground = "#ffcc66"
+    background = "#fbf1c7"
+    foreground = "#b57614"
 
 [base16_critical]
     msg_urgency = critical
-    background = "#f2777a"
-    foreground = "#393939"
+    background = "#9d0006"
+    foreground = "#ebdbb2"
 # End flavours
 
 # Every section that isn't one of the above is interpreted as a rules to
