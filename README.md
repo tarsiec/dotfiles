@@ -1,6 +1,6 @@
 # My personal configuration files
 
-![screenshot](/img.png)
+![img](https://user-images.githubusercontent.com/55630128/118466970-a8d13580-b703-11eb-993c-01f5493bc5d9.png)
 
 These are the dotfiles for the programs I use in my Arch Linux system. The
 amount of modification varies between the programs. And they are gathered here
