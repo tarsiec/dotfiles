@@ -3,7 +3,7 @@
 
 ### DEFAULT SOFTWARE ###
 # export TERM="alacritty"
-export TERM='xterm-256color'
+export TERM='alacritty'
 
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -46,8 +46,8 @@ export PATH=$PATH:$HOME/.local/share/python/python-language-server/output/bin/Re
 
 ### SOFTWARE ###
 # starship.rs
- # export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
- # eval "$(starship init zsh)"
+ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+ eval "$(starship init zsh)"
 # source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### COMPLETION ###
@@ -107,8 +107,8 @@ alias getaudio="youtube-dl --restrict-filenames -x --audio-format best"
 alias smi="sudo make install"
 alias ls="exa"
 alias l="exa -lag"
-alias lsize="exa -lags size"
-alias lname="exa -lags name"
+alias lsize="exa -lags size --icons"
+alias lname="exa -lags name --icons"
 alias v="vim"
 alias nv="nvim"
 alias -g Z="| fzf"
@@ -148,3 +148,6 @@ alias spfr="ssh root@tarsiec.com ./pullfromrepo.sh /var/www/tarsiec-site"
 
 bindkey -v
 bindkey "jk" vi-cmd-mode
+
+export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
+

@@ -1,5 +1,3 @@
-super + alt + v
-	pkill x
 #
 # wm independent hotkeys
 #
@@ -7,6 +5,10 @@ super + alt + v
 # tabbed terminal emulator
 super + Return
 	alacritty
+
+# term in same dir
+super + alt + Return
+	samedir
 
 # terminal emulator
 super + shift + Return
@@ -60,7 +62,7 @@ super + s
 
 #screenshotS
 super + shift + s ; {m,d,w,s}
-	{selscrot,maim pic-full-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -i "$HOME/pics/screenshots/$(xdotool getactivewindow)" pic-window-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -s pic-selected-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"}
+	{selscrot,maim pic-full-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -i "$HOME/pics/screenshots/$(xdotool getactivewindow)" pic-window-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -s "$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"}
 
 # scripts to help
 super + b ; {m,s,p,t}
@@ -90,23 +92,11 @@ super + z
 	dmenutheme
 
 # music controls
-super + comma
-	mpc prev
+super + {comma,period,p}
+	mpc {prev,next,toggle}
 
-super + period
-	mpc next
-
-super + shift + comma
-    spotifycli --prev
-
-super + shift + period
-    spotifycli --next
-
-super + p
-	mpc toggle
-
-super + shift + p
-    spotifycli --playpause
+super + shift + {comma,period,p}
+    spotifycli {--prev,--next,--playpause}
 
 # lockscreen
 super + shift + x
@@ -192,8 +182,8 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local
+super + alt + {comma,period}
+	bspc node -f {prev,next}.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}

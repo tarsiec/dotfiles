@@ -29,16 +29,6 @@ hook = ''
 light = true
 
 [[item]]
-file = '~/.config/gtk-themes/FlatColor/colors2'
-template = 'gtk2'
-subtemplate = 'schemes'
-rewrite = false
-start = '# Start flavours'
-end = '# End flavours'
-hook = ''
-light = true
-
-[[item]]
 file = '~/.config/kitty/kitty.conf'
 template = 'kitty'
 subtemplate = 'default'
@@ -89,9 +79,39 @@ hook = ''
 light = true
 
 [[item]]
+file = '~/.local/pkg/dmenu/config.h'
+template = 'dmenu'
+subtemplate = 'default'
+rewrite = false
+start = '// Start flavours'
+end = '// End flavours'
+hook = ''
+light = true
+
+[[item]]
 file = '~/.local/share/repos/startpages/startpage_1/src/style.css'
 template = 'startpage'
 subtemplate = 'default'
+rewrite = false
+start = '/* Start flavours */'
+end = '/* End flavours */'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.local/share/themes/FlatColor/colors2'
+template = 'gtk-flatcolor'
+subtemplate = 'gtk-2'
+rewrite = false
+start = '# Start flavours'
+end = '# End flavours'
+hook = ''
+light = true
+
+[[item]]
+file = '~/.local/share/themes/FlatColor/colors3'
+template = 'gtk-flatcolor'
+subtemplate = 'gtk-3'
 rewrite = false
 start = '/* Start flavours */'
 end = '/* End flavours */'

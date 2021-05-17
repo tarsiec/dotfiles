@@ -3,10 +3,8 @@
 call plug#begin("~/.config/nvim/plugins")
 	Plug 'tpope/vim-sensible'
 	" Plug 'jaxbot/browserlink.vim'
-
-
-
-    "" LINTING & COMPLETION
+	
+	"" LINTING & COMPLETION
 	Plug 'godlygeek/tabular'
 	Plug 'honza/vim-snippets'
 	Plug 'sirver/ultisnips'
@@ -17,6 +15,7 @@ call plug#begin("~/.config/nvim/plugins")
 	
     
 	"" LANGS
+	Plug 'fatih/vim-go'
 	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'lervag/vimtex'
 	Plug 'plasticboy/vim-markdown'
@@ -130,6 +129,8 @@ set splitright
 set timeoutlen=500
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " set cursorline
+let g:go_def_mapping_enabled = 1
+let g:go_doc_popup_window = 1
 
 """ BASIC FUNCTIONALITY TWEAKS
 "" Tabs
@@ -163,8 +164,8 @@ set termguicolors
 set background=dark
 " colorscheme hybrid
 colorscheme base16-seti
-" highlight Normal ctermbg=NONE guibg=NONE
-" highlight LineNr ctermbg=NONE guibg=NONE
+ highlight Normal ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
 " highlight SignColumn ctermbg=NONE guibg=NONE
 " highlight Column ctermbg=NONE guibg=NONE
 " highlight CursorLine ctermbg=NONE guibg=NONE
@@ -337,9 +338,10 @@ augroup END
 
 augroup filetype_html
 	autocmd!
-	autocmd FileType html set tabstop=2
- 	autocmd FileType html set shiftwidth=2
+	autocmd FileType html	set tabstop=2
+ 	autocmd FileType html	set shiftwidth=2
 	autocmd FileType html	nnoremap <buffer> <localleader>f Vatzf
+	autocmd FileType html	nnoremap <silent> <leader>cc :!live-server . >/dev/null 2>&1 &<cr>
 augroup END
 
 augroup filetype_c
@@ -369,30 +371,30 @@ augroup END
 augroup filetype_go
 	autocmd FileType go		nnoremap <silent> <leader>cc :FloatermNew --autoclose=0 go run %<cr>
 " 	autocmd FileType go :GoAutoTypeInfoToggle
-" 	autocmd FileType go nnoremap <leader>cr :GoRun<cr>
-" 	autocmd FileType go nnoremap <leader>cb :GoBuild<cr>
-" 	autocmd FileType go nnoremap <leader>ce :GoDescribe<cr>
-" 	autocmd FileType go nnoremap <leader>ce :GoDescribe<cr>
-" 	autocmd FileType go nnoremap <leader>co :GoDoc<cr>
-" 	autocmd FileType go nnoremap <leader>cob :GoDocBrowser<cr>
+	autocmd FileType go nnoremap <leader>cr :GoRun<cr>
+	autocmd FileType go nnoremap <leader>cb :GoBuild<cr>
+	autocmd FileType go nnoremap <leader>ce :GoDescribe<cr>
+	autocmd FileType go nnoremap <leader>ce :GoDescribe<cr>
+	autocmd FileType go nnoremap <leader>co :GoDoc<cr>
+	autocmd FileType go nnoremap <leader>cob :GoDocBrowser<cr>
 " 	" change
-" 	autocmd FileType go nnoremap <leader>cn :GoRename<cr>
+	autocmd FileType go nnoremap <leader>cn :GoRename<cr>
 " 	" goto
-" 	autocmd FileType go nnoremap <leader>cp :GoPointsTo<cr>
-" 	autocmd FileType go nnoremap <leader>cfr :GoReferrers<cr>
+	autocmd FileType go nnoremap <leader>cp :GoPointsTo<cr>
+	autocmd FileType go nnoremap <leader>cfr :GoReferrers<cr>
 " 	" calls
-" 	autocmd FileType go nnoremap <leader>cfc :GoCallers<cr>
-" 	autocmd FileType go nnoremap <leader>cfe :GoCallees<cr>
+	autocmd FileType go nnoremap <leader>cfc :GoCallers<cr>
+	autocmd FileType go nnoremap <leader>cfe :GoCallees<cr>
 " 	" tests
-" 	autocmd FileType go nnoremap <leader>ct :GoTest<cr>
-" 	autocmd FileType go nnoremap <leader>ctf :GoTestFunc<cr>
-" 	autocmd FileType go nnoremap <leader>ctc :GoTestCompile<cr>
+	autocmd FileType go nnoremap <leader>ct :GoTest<cr>
+	autocmd FileType go nnoremap <leader>ctf :GoTestFunc<cr>
+	autocmd FileType go nnoremap <leader>ctc :GoTestCompile<cr>
 " 	" debug
-" 	autocmd FileType go nnoremap <leader>cds :GoDebugStart<cr>
-" 	autocmd FileType go nnoremap <leader>cdt :GoDebugTestFunc<cr>
-" 	autocmd FileType go nnoremap <leader>cdb :GoDebugBreakpoint<cr>
-" 	autocmd FileType go nnoremap <leader>cdc :GoDebugContinue<cr>
-" 	autocmd FileType go nnoremap <leader>cdq :GoDebugStop<cr>
+	autocmd FileType go nnoremap <leader>cds :GoDebugStart<cr>
+	autocmd FileType go nnoremap <leader>cdt :GoDebugTestFunc<cr>
+	autocmd FileType go nnoremap <leader>cdb :GoDebugBreakpoint<cr>
+	autocmd FileType go nnoremap <leader>cdc :GoDebugContinue<cr>
+	autocmd FileType go nnoremap <leader>cdq :GoDebugStop<cr>
 augroup END
 
 
@@ -440,24 +442,25 @@ inoremap <c-p> <esc>:CtrlP<cr>
 
 
 
-nnoremap <leader>zf :Files<cr>
-nnoremap <leader>zc :Colors<cr>
-nnoremap <leader>zb :Buffers<cr>
-nnoremap <leader>zr :Rg 
-nnoremap <leader>zs :Lines<cr>
-nnoremap <leader>zls :BLines<cr>
-nnoremap <leader>zt :Tags<cr>
-nnoremap <leader>zlt :BTags<cr>
-nnoremap <leader>zm :Marks<cr>
-nnoremap <leader>zw :Windows<cr>
-nnoremap <leader>zo :Locate 
-nnoremap <leader>zp :History<cr>
-nnoremap <leader>zi :History/<cr>
-nnoremap <leader>zn :Snippets<cr>
-snoremap <leader>zhc :Commands<cr>
-nnoremap <leader>zhc :Maps<cr>
-nnoremap <leader>zht :Helptags<cr>
-nnoremap <leader>zt :Filetypes<cr>
+nnoremap zf :Files<cr>
+nnoremap zc :Colors<cr>
+nnoremap ze :Buffers<cr>
+nnoremap zr :Rg 
+nnoremap zs :Lines<cr>
+nnoremap zls :BLines<cr>
+nnoremap zt :Tags<cr>
+nnoremap zlt :BTags<cr>
+nnoremap zm :Marks<cr>
+nnoremap zw :Windows<cr>
+nnoremap zo :Locate 
+nnoremap zp :History<cr>
+nnoremap zi :History/<cr>
+nnoremap zn :Snippets<cr>
+snoremap zhc :Commands<cr>
+nnoremap zhc :Maps<cr>
+nnoremap zht :Helptags<cr>
+nnoremap zf :Filetypes<cr>
+
 
 
 """" LANGUAGE SERVER
@@ -530,14 +533,14 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>ca  <Plug>(coc-codeaction-selected)
+xmap <leader>xa  <Plug>(coc-codeaction-selected)
+nmap <leader>xa  <Plug>(coc-codeaction-selected)
 
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>cac  <Plug>(coc-codeaction)
+nmap <leader>xac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>ch   <Plug>(coc-fix-current)
+nmap <leader>xh   <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.

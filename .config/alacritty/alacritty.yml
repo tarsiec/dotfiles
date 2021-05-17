@@ -16,25 +16,25 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: iosevka
+    family: CaskaydiaCove Nerd Font
     style: Normal
 
   bold:
-    family: iosevka
+    family: CaskaydiaCove Nerd Font
     style: Bold
 
   italic:
-    family: iosevka
+    family: CaskaydiaCove Nerd Font
     style: Italic
 
   bold_italic:
-    family: iosevka
+    family: CaskaydiaCove Nerd Font
     style: Bold Italic
 
-  size: 8
+  size: 6.5
   tabspaces: 4
 
-  # Offset is the extra space around each character. `offset.y` can be thought of
+  # Offset is the extra space around each character. `` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
@@ -50,7 +50,7 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Visual Bell
 #
@@ -73,7 +73,7 @@ draw_bold_text_with_bright_colors: false
 #  color: '#ffffff'
 
 # Background opacity
-background_opacity: 0.9
+background_opacity: 0.85
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -91,7 +91,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Underline
+  style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
@@ -355,40 +355,40 @@ cursor:
   #print_events: false
 
 # Start flavours
-# Base16 Solarized Dark - alacritty color config
-# Ethan Schoonover (modified by aramisgithub)
+# Base16 Eighties - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
   primary:
-    background: '0x002b36'
-    foreground: '0x93a1a1'
+    background: '0x2d2d2d'
+    foreground: '0xd3d0c8'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x002b36'
-    cursor: '0x93a1a1'
+    text: '0x2d2d2d'
+    cursor: '0xd3d0c8'
 
   # Normal colors
   normal:
-    black:   '0x002b36'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0x93a1a1'
+    black:   '0x2d2d2d'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xd3d0c8'
 
   # Bright colors
   bright:
-    black:   '0x657b83'
-    red:     '0xcb4b16'
-    green:   '0x073642'
-    yellow:  '0x586e75'
-    blue:    '0x839496'
-    magenta: '0xeee8d5'
-    cyan:    '0xd33682'
-    white:   '0xfdf6e3'
+    black:   '0x747369'
+    red:     '0xf99157'
+    green:   '0x393939'
+    yellow:  '0x515151'
+    blue:    '0xa09f93'
+    magenta: '0xe8e6df'
+    cyan:    '0xd27b53'
+    white:   '0xf2f0ec'
 
 draw_bold_text_with_bright_colors: false
 # End flavours

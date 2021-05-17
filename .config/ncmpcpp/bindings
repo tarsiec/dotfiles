@@ -213,8 +213,6 @@ def_key "ctrl-b"
 #def_key "#"
 #  toggle_bitrate_visibility
 #
-#def_key "Z"
-#  shuffle
 #
 #def_key "x"
 #  toggle_crossfade
@@ -395,8 +393,7 @@ def_key "ctrl-b"
 #
 #def_key "q"
 #  quit
-#
-#
+# 
 #def_key "f"
 #	find
 #def_key "f"
@@ -477,4 +474,6 @@ def_key "x"
   delete_playlist_items
 def_key "P"
   show_playlist
+def_key "s"
+  shuffle
 

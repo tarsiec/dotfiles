@@ -3,16 +3,9 @@
 xrdb .Xresources
 setxkbmap gb
 picom --config ~/.config/picom/picom.conf &
-xwallpaper --zoom ~/.config/wall* &
 sxhkd /home/tlb/.config/sxhkd/sxhkdrc &
-dropbox &
 calcurse --daemon &
-pkill dunst
-dunst ~/.config/dunst/dunstrc &
 mpd &
-xset +fp /home/tlb/.local/share/fonts
-xset fp rehash
-launch_polybar &
 setxkbmap -option caps:ctrl_modifier gb
 
 #bspc monitor -d 1 2 3 4 5 6 7 8 9
