@@ -16,23 +16,25 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: CaskaydiaCove Nerd Font
+    family: cherry
     style: Normal
 
   bold:
-    family: CaskaydiaCove Nerd Font
+    family: cherry
     style: Bold
 
   italic:
-    family: CaskaydiaCove Nerd Font
+    family: cherry
     style: Italic
 
   bold_italic:
-    family: CaskaydiaCove Nerd Font
+    family: cherry
     style: Bold Italic
 
   size: 6.5
   tabspaces: 4
+
+  # cherry, tewi, scientifica, proggy, profont, peep, orp, lode, kakwa, haxor-narrow, gohufont, envypn, dina, cherry, unscii, terminus
 
   # Offset is the extra space around each character. `` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -355,40 +357,40 @@ cursor:
   #print_events: false
 
 # Start flavours
-# Base16 Gruvbox light, medium - alacritty color config
-# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Base16 Tomorrow Night - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
   primary:
-    background: '0xfbf1c7'
-    foreground: '0x504945'
+    background: '0x1d1f21'
+    foreground: '0xc5c8c6'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xfbf1c7'
-    cursor: '0x504945'
+    text: '0x1d1f21'
+    cursor: '0xc5c8c6'
 
   # Normal colors
   normal:
-    black:   '0xfbf1c7'
-    red:     '0x9d0006'
-    green:   '0x79740e'
-    yellow:  '0xb57614'
-    blue:    '0x076678'
-    magenta: '0x8f3f71'
-    cyan:    '0x427b58'
-    white:   '0x504945'
+    black:   '0x1d1f21'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
+    cyan:    '0x8abeb7'
+    white:   '0xc5c8c6'
 
   # Bright colors
   bright:
-    black:   '0xbdae93'
-    red:     '0xaf3a03'
-    green:   '0xebdbb2'
-    yellow:  '0xd5c4a1'
-    blue:    '0x665c54'
-    magenta: '0x3c3836'
-    cyan:    '0xd65d0e'
-    white:   '0x282828'
+    black:   '0x969896'
+    red:     '0xde935f'
+    green:   '0x282a2e'
+    yellow:  '0x373b41'
+    blue:    '0xb4b7b4'
+    magenta: '0xe0e0e0'
+    cyan:    '0xa3685a'
+    white:   '0xffffff'
 
 draw_bold_text_with_bright_colors: false
 # End flavours

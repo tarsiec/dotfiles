@@ -38,7 +38,6 @@ format-volume-padding 		= 2
 label-muted-padding 		= 2
 label-mounted-padding 		= 2
 label-unmounted-padding 	= 2
-enable-ipc = true
 
 
 [settings]
@@ -57,7 +56,7 @@ margin-bottom = 0
 bottom          = false
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 12
+height = 14
 offset-x = 0%
 offset-y = 0%
 radius = 0
@@ -78,17 +77,17 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = cherry:size=11;2
-; font-0 = terminus:pixelsize=5;2
+; font-0 = envypn:pixelsize=7;1
+font-0 = terminus:pixelsize=5;2
 font-1 = siji:size=8:antialias=true;2
-font-2 = scientifica:size=8:antialias=true;1
+; font-2 = Material Design Icons Desktop:size=8:antialias=true;1
 
 
 modules-left = bspwm
 ; modules-center = mpd
 ; modules-center = s spotify mocp r
 ; modules-right =  s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
-modules-right = s spotify d s mpdScript d s pac d torrent s rss d filesystem1 s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+modules-right =s  mpdScript d torrent s rss d filesystem1 s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2
@@ -234,7 +233,6 @@ include-file = ~/.config/polybar/mocp.ini
 type = custom/text
 
 content = ""
-content-font = 3
 ; content = ""
 content-foreground = ${colors.background-alt}
 
@@ -243,7 +241,6 @@ content-foreground = ${colors.background-alt}
 type = custom/text
 
 content = ""
-content-font = 3
 ; content = ""
 
 content-foreground = ${colors.background}
@@ -253,7 +250,6 @@ content-background = ${colors.background-alt}
 type=custom/text
 
 content = ""
-content-font = 3
 ; content = ""
 content-foreground = ${colors.background-alt}
 content-background = ${colors.background}
@@ -262,7 +258,6 @@ content-background = ${colors.background}
 type=custom/text
 
 content = ""
-content-font = 3
 ; content = ""
 content-foreground = ${colors.background}
 content-background = ${colors.background-alt}
@@ -289,12 +284,6 @@ content=""
 content-background=${colors.background}
 content-foreground=${colors.yellow}
 
-[module/rtg]
-type="custom/text"
-content=""
-content-background=${colors.background}
-content-foreground=${colors.green}
-
 [module/mpdScript]
 inherit = defaults
 include-file = ~/.config/polybar/mpdScript.ini
@@ -306,9 +295,5 @@ include-file = ~/.config/polybar/rss.ini
 [module/torrent]
 inherit = defaults
 include-file = ~/.config/polybar/torrent.ini
-
-[module/pac]
-inherit = defaults
-include-file = ~/.config/polybar/pac.ini
 
 ; vim:ft=dosini

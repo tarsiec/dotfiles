@@ -1,16 +1,84 @@
-[prompt]
-add_newline = true
-
+# PERSONAL
 [battery]
-full_symbol = "󰁹"
-[[battery.display]]
-threshold = 20
-style = "bold yellow"
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+empty_symbol = " "
+unknown_symbol = " "
 
 [character]
-symbol = "λ"
-error_symbol = "ε"
-vicmd_symbol = "Λ"
+success_symbol = "[>](green)"
+error_symbol = "[?](bold red)[](red)"
+vicmd_symbol = "[*](bold green)[](green)"
+
+[hostname]
+format = "[$hostname]($style) in "
+style = "bold green"
+disabled = false
+
+[prompt]
+add_newline = false
 
 [username]
-show_always = false
+show_always = true
+
+[time]
+symbol = " "
+time_format = "%R"
+format = '[ $time]($style) '
+disabled = true
+
+# ICONS
+[aws]
+icon = " "
+[cmake]
+symbol = " "
+[conda]
+symbol = "C "
+[directory]
+read_only = " "
+[elixir]
+symbol = " "
+[git_branch]
+symbol = " "
+[git_commit]
+tag_symbol = " "
+[git_status]
+ahead = " "
+behind = " "
+diverged = " "
+renamed = " "
+deleted = "X"
+[golang]
+symbol = "GO "
+[java]
+symbol = "JAVA "
+[jobs]
+symbol = " "
+[julia]
+symbol = "∴ "
+[kubernetes]
+symbol = " "
+[lua]
+symbol = " "
+[memory_usage]
+symbol = " "
+[nim]
+symbol = " "
+[nix_shell]
+symbol = " "
+[package]
+symbol = " "
+[python]
+symbol = "PY "
+[ruby]
+symbol = " "
+[rust]
+symbol = "RS "
+[shell]
+powershell_indicator = " "
+[shlvl]
+symbol = " "
+[zig]
+symbol = " "
+

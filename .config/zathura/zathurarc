@@ -1,7 +1,7 @@
+# Start flavours
 # Base16 Tomorrow Night
 # Author: Chris Kempson (http://chriskempson.com)
 
-#set default-bg                  "#282a2e"
 set default-bg                  "#1d1f21"
 set default-fg                  "#282a2e"
 
@@ -32,6 +32,9 @@ set completion-highlight-bg     "#81a2be"
 set recolor-lightcolor          "#1d1f21"
 set recolor-darkcolor           "#e0e0e0"
 
-set recolor                     "true"
+set recolor                     "false"
 set recolor-keephue             "false"
-set font                        "Iosevka Nerd Font 12"
+# End flavours
+set font                        "terminus 8"
+set recolor
+set selection-clipboard clipboard

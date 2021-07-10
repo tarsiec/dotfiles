@@ -3,18 +3,18 @@
 xrdb .Xresources
 setxkbmap gb
 picom --config ~/.config/picom/picom.conf &
-sxhkd /home/tlb/.config/sxhkd/sxhkdrc &
+sxhkd $HOME/.config/sxhkd/sxhkdrc &
 calcurse --daemon &
 mpd &
+newsup &
+transmission-daemon
 setxkbmap -option caps:ctrl_modifier gb
 
 #bspc monitor -d 1 2 3 4 5 6 7 8 9
 bspc monitor -d misc dev web chat git sys doc pic media
 #bspc monitor -d 1 2 3 4 5 6
 
-bspwmlooks
-
-
+~/.local/bin/theme/bspwmlooks
 
 bspc rule -a Emacs state=tiled
 bspc rule -a Gimp desktop='^8' follow=on
@@ -23,3 +23,4 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Zathura state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+

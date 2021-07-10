@@ -4,13 +4,13 @@
 ### DEFAULT SOFTWARE ###
 # export TERM="alacritty"
 export TERM='alacritty'
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 export READER="zathura"
 export BROWSER="brave"
 export PAGER="less"
 export BAT_THEME="base16-256"
+export DO_NOT_TRACK=1
 
 
 ### scripts
@@ -18,8 +18,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
 # DAT
-export PATH="$PATH:/home/tlb/.dat/releases/dat-14.0.2-linux-x64"
-
 ### CODE & LANGS ###
 export CODE_DIR=$HOME/code
 export CODE_RSC=$CODE_DIR/resources
@@ -42,12 +40,12 @@ export PATH=$PATH:$HOME/.nimble/bin
 # python
 export PATH=$PATH:$HOME/.local/share/python/python-language-server/output/bin/Release
 
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+[ -f "/home/tarsiec/.ghcup/env" ] && source "/home/tarsiec/.ghcup/env" # ghcup-env
 
 ### SOFTWARE ###
 # starship.rs
- export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
- eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+eval "$(starship init zsh)"
 # source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### COMPLETION ###
@@ -93,20 +91,40 @@ setopt HIST_REDUCE_BLANKS
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source $HOME/.local/share/zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.zsh
-source $HOME/.local/share/zsh/plugins/vi-mode/vi-mode.zsh
+
+# source $HOME/.local/share/zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.zsh
+# source $HOME/.local/share/zsh/plugins/vi-mode/vi-mode.zsh
 source $HOME/.local/share/zsh/plugins/git/git.zsh
-source $HOME/.local/share/zsh/plugins/colored-man-pages/colored-man-pages.zsh
-source $HOME/.local/share/zsh/plugins/zsh-histdb/sqlite-history.zsh
+#source $HOME/.local/share/zsh/plugins/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
 
 
+# Other program settings:
+export DICS="/usr/share/stardict/dic/"
+export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export LESS=-R
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
+export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+
 alias python3="python"
-alias getvid="youtube-dl --restrict-filenames -f 22"
-alias getaudio="youtube-dl --restrict-filenames -x --audio-format best"
+alias ytrss="python $HOME/code/repos/youtube_rss/youtube_rss.py"
+alias getvid="youtube-dl --add-metadata --restrict-filenames -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+alias getaudio="youtube-dl --add-metadata --restrict-filenames -x --audio-format best"
 alias smi="sudo make install"
 alias ls="exa"
 alias l="exa -lag"
+alias ll="exa -l"
 alias lsize="exa -lags size --icons"
 alias lname="exa -lags name --icons"
 alias v="vim"
@@ -117,6 +135,7 @@ alias mkdir="mkdir -p"
 alias cp="cp -v"
 alias grep="grep --color"
 alias m="mocp"
+alias haskell-language-server="haskell-language-server-wrapper"
 alias screenshot="scrot"
 alias newsboat="newsboat -C $HOME/.config/newsboat/config -u $HOME/.config/newsboat/urls -c $HOME/.config/newsboat/cache.db"
 alias :q="exit"
@@ -146,8 +165,10 @@ alias vp="nvim $HOME/.config/picom/picom.conf"
 
 alias spfr="ssh root@tarsiec.com ./pullfromrepo.sh /var/www/tarsiec-site"
 
-bindkey -v
+bindkey -e
 bindkey "jk" vi-cmd-mode
+
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
 
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 
