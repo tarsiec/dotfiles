@@ -1,20 +1,7 @@
-# PERSONAL
-[battery]
-full_symbol = " "
-charging_symbol = " "
-discharging_symbol = " "
-empty_symbol = " "
-unknown_symbol = " "
-
 [character]
 success_symbol = "[>](green)"
 error_symbol = "[?](bold red)[](red)"
 vicmd_symbol = "[*](bold green)[](green)"
-
-[hostname]
-format = "[$hostname]($style) in "
-style = "bold green"
-disabled = false
 
 [prompt]
 add_newline = false
@@ -22,15 +9,15 @@ add_newline = false
 [username]
 show_always = true
 
-[time]
-symbol = " "
-time_format = "%R"
-format = '[ $time]($style) '
-disabled = true
-
 # ICONS
 [aws]
 icon = " "
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+empty_symbol = " "
+unknown_symbol = " "
 [cmake]
 symbol = " "
 [conda]
@@ -79,6 +66,8 @@ symbol = "RS "
 powershell_indicator = " "
 [shlvl]
 symbol = " "
+[time]
+format = '[ $time]($style) '
 [zig]
 symbol = " "
 
