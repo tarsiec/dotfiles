@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cd $HOME/.local/pkg/dmenu
-sudo make install
