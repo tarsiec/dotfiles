@@ -38,7 +38,6 @@ format-volume-padding 		= 2
 label-muted-padding 		= 2
 label-mounted-padding 		= 2
 label-unmounted-padding 	= 2
-enable-ipc = true
 
 
 [settings]
@@ -88,7 +87,7 @@ modules-left = bspwm
 ; modules-center = mpd
 ; modules-center = s spotify mocp r
 ; modules-right =  s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
-modules-right = s spotify d s mpdScript d s pac d torrent s rss d filesystem1 s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+modules-right = s song d torrent s rss d filesystem1 s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2
@@ -140,10 +139,6 @@ include-file = ~/.config/polybar/filesystem2.ini
 
 [module/bspwm]
 include-file = ~/.config/polybar/bspwm.ini
-
-[module/mpd]
-inherit = defaults
-include-file = ~/.config/polybar/mpd.ini
 
 [module/xbacklight]
 inherit = defaults
@@ -310,5 +305,9 @@ include-file = ~/.config/polybar/torrent.ini
 [module/pac]
 inherit = defaults
 include-file = ~/.config/polybar/pac.ini
+
+[module/song]
+inherit = defaults
+include-file = ~/.config/polybar/song.ini
 
 ; vim:ft=dosini

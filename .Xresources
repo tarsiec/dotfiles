@@ -1,3 +1,10 @@
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
 ! Start flavours
 ! Base16 Tomorrow Night
 ! Scheme: Chris Kempson (http://chriskempson.com)

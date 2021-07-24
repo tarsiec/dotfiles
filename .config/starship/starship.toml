@@ -7,7 +7,7 @@ vicmd_symbol = "[*](bold green)[](green)"
 add_newline = false
 
 [username]
-show_always = true
+show_always = false
 
 # ICONS
 [aws]

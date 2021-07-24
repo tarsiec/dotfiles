@@ -69,8 +69,8 @@ super + shift + s ; {m,d,w,s}
 	{selscrot,maim pic-full-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -i "$HOME/pics/screenshots/$(xdotool getactivewindow)" pic-window-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -s "$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"}
 
 # scripts to help
-super + b ; {m,s,p,t}
-	{mansplain,playit,passmenu-otp -i,notiftask}
+super + b ; {m,p,t}
+	{mansplain,passmenu-otp -i,notiftask}
 
 # irssi
 super + i
@@ -97,7 +97,10 @@ super + z
 
 # music controls
 super + {comma,period,p}
-	mpc {prev,next,toggle}
+	controls {prev,next,toggle}
+
+super + alt + p
+    playit
 
 super + shift + {comma,period,p}
     spotifycli {--prev,--next,--playpause}

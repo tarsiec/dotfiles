@@ -91,11 +91,9 @@ setopt HIST_REDUCE_BLANKS
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# source $HOME/.local/share/zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.zsh
 # source $HOME/.local/share/zsh/plugins/vi-mode/vi-mode.zsh
 source $HOME/.local/share/zsh/plugins/git/git.zsh
-#source $HOME/.local/share/zsh/plugins/zsh-histdb/sqlite-history.zsh
+source $HOME/.local/share/zsh/plugins/emacs/emacs.zsh
 autoload -Uz add-zsh-hook
 
 

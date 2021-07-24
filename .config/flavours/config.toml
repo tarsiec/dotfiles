@@ -79,6 +79,16 @@ hook = ''
 light = true
 
 [[item]]
+file = '/home/tarsiec/.local/pkg/tabbed/config.h'
+template = 'tabbed'
+subtemplate = 'default'
+rewrite = false
+start = '/* Start flavours */'
+end = '/* End flavours */'
+hook = ''
+light = true
+
+[[item]]
 file = '~/.local/share/repos/startpage/style.css'
 template = 'startpage'
 subtemplate = 'default'

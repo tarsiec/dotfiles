@@ -1,0 +1,226 @@
+#+TITLE: Emacs Configuration
+#+AUTHOR: Tarsiec
+#+EMAIL: tarsiec@protonmail.com
+
+#+STARTUP: overview hidestars indent
+
+* Configure =use-package=
+I use =use-package= to install and configure my packages. My =init.el= includes the
+initial setup for =package.el= and ensures that =use-package= is installed, since I
+wanna do that right away.
+ #+begin_src emacs-lisp
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src
+
+Always compile packages, and use the newest version available.
+ #+begin_src elisp
+  (use-package auto-compile
+    :config (auto-compile-on-load-mode))
+   (setq load-prefer-newer t)
+#+end_src
+
+* The basics
+** Complete parenthesis
+#+begin_src elisp
+  (electric-pair-mode)
+#+end_src
+
+** Scroll nicely, like IDE's do
+#+begin_src elisp
+  (setq scroll-conservatively 100)
+#+end_src
+
+** Use which key
+=which-key= displays at the bottom of the screen all of the possible
+terminations of each keybind you start. I *wouldn't* be able to live
+without it
+#+begin_src elisp
+  (use-package which-key
+    :config (which-key-mode 1))
+#+end_src
+
+* Set personal info
+#+begin_src elisp
+  (setq user-full-name "Tarsiec"
+ user-mail-address "tarsiec@protonmail.com")
+#+end_src
+
+* Aesthetics
+** GUI stuff
+In short:
+- Stop emacs from having its annoying startup screen
+- Stop emacs from having its annoying gui all over my valuable screen space
+- Get emacs to display line nums
+
+#+begin_src elisp
+  (setq inhibit-startup-message t)
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (scroll-bar-mode 0)
+  (global-display-line-numbers-mode)
+ #+end_src
+ 
+** Font
+Configure emacs to use =Cascadia Code= as my default font
+#+begin_src elisp
+  (set-face-attribute 'default nil :family "Iosevka" :height 120)
+  (set-face-attribute 'fixed-pitch nil :family "Iosevka" :height 120)
+  (set-face-attribute 'variable-pitch nil :family "Iosevka" :height 120)
+  #+end_src
+
+** Theme
+I love =zenburn=, so that's the theme i pretty much always use.
+#+begin_src elisp
+  (use-package zenburn-theme)
+#+end_src
+
+* Add =elisp= files to =load-file=
+#+begin_src elisp
+  (add-to-list 'load-path "~/.emacs.d/lisp")
+#+end_src
+
+* Auto-completion engine (=ivy=, =swiper=, =counsel=)
+#+begin_src elisp
+  (use-package ivy
+    :config
+    (ivy-mode)
+    :bind
+    (("C-x b" . ivy-switch-buffer))
+    :custom
+    ((ivy-use-virtual-buffers t)
+     (ivy-display-style 'fancy)))
+
+  (use-package counsel)
+
+  (use-package swiper
+    :bind
+    (("M-x"     . counsel-M-x)
+     ("C-s"     . swiper)
+     ("C-c C-r" . ivy-resume)
+     ("C-c g"   . counsel-git)
+     ("C-c k"   . counsel-ag)
+     ("C-x C-f" . counsel-find-file)
+     ("C-c l"   . counsel-locate)))
+#+end_src
+
+* Frame switching
+=ace-window= allows me to switch between frames quickly, so I consider it
+a must have in my config. It is used with =M-o=
+
+#+begin_src elisp
+  (use-package ace-window
+    :bind (("M-o" . ace-window)))
+#+end_src
+
+* LSP! (=eglot=)
+=eglot= is a /kind of/ lightweight lsp frontend for emacs. I choose to use
+it instead of the more commonly recommended =lsp-mode= because after
+having used that one for some brief time, I found out that the UI was
+waay too invasive, and I just didn't like the all-turned-on by default
+mentality that it seemed to have
+#+begin_src elisp
+  (use-package eglot
+    :bind (("C-c r"  . eglot-rename)
+           ("C-c f"  . eglot-format-buffer)
+           ("C-c A"  . eglot-code-actions)
+           ("C-c ai" . eglot-code-actions-inline)
+           ("C-c D"  . eglot-find-declaration)
+           ("C-c i"  . eglot-find-implementation)
+           ("C-c t"  . eglot-find-typeDefinition)
+           ("C-c af" . eglot-code-action-quickfix)
+           ("C-c ai" . eglot-code-action-organize-imports)
+           ("C-c ae" . eglot-code-action-extract)))
+#+end_src
+
+* Company
+#+begin_src elisp
+  (use-package company
+    :config (global-company-mode))
+#+end_src
+* Languages
+** Org
+I followed [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][this guide]] to make org mode look prettier, in which itself reffers to
+[[https://irreal.org/blog/?p=9038][this other guide]] as a basis for its config, which also has its origins in
+[[https://explog.in/notes/writingsetup.html][this other other guide]] for writing in org mode. Some of these changes are done acording
+to those posts.
+*** Line length
+I restrict my files to 80 characters to allow for easily readable,
+short horizontal lines. It's much easier to scan, and follows the
+standards for typography: 45-90 characters per line. The other
+advantage is to allow for comfortable screen splits.
+#+begin_src elisp
+  (add-hook 'text-mode-hook 'auto-fill-mode)
+#+end_src
+
+*** Spelling
+#+begin_src elisp
+  (customize-set-variable 'ispell-program-name "aspell")
+  (customize-set-variable 'ispell-extra-args '("--sug-mode=ultra"))
+  (add-hook 'text-mode-hook 'flyspell-mode)
+#+end_src
+
+*** Hiding emphasis markers
+I rather enjoy having the markup disappear till I need to edit it: and
+I wish more editors (particularly Markdown editors) had this
+behavior. Org enables this with =org-hide-emphasis-markers.=
+#+begin_src elisp
+  (setq org-hide-emphasis-markers t)
+#+end_src
+
+*** Editing with a sans-serif font
+#+begin_src elisp
+  (add-hook 'text-mode-hook
+            'variable-pitch-mode)
+#+end_src
+
+*** Better bullets
+Just prettier files
+#+begin_src elisp
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode))
+#+end_src
+
+*** Better exporting
+**** To HTML
+#+begin_src elisp
+  (use-package htmlize)
+#+end_src
+
+**** To Bootstrap
+#+begin_src elisp
+  (use-package ox-twbs)
+#+end_src
+
+**** To Beamer
+#+begin_src elisp
+  (require 'ox-beamer)
+#+end_src
+
+**** To Markdown
+#+begin_src elisp
+  (require 'ox-md)
+#+end_src
+
+**** To =man=
+#+begin_src elisp
+  (require 'ox-man)
+#+end_src
+
+**** To reveal
+#+begin_src elisp
+  (use-package ox-reveal)
+  (setq org-reveal-root "file:///home/tarsiec/.local/pkg/reveal.js")
+#+end_src
+
+** Python
+I use =eglot= with =python=
+#+begin_src elisp
+  (add-hook 'python-mode-hook 'eglot-ensure)
+#+end_src
+** C
+I use =eglot= with =C=
+#+begin_src elisp
+  (add-hook 'c-mode-hook 'eglot-ensure)
+#+end_src
+
