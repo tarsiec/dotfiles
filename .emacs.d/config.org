@@ -59,9 +59,9 @@ easily
 Rainbow delimeters helps me differentiate the hierarchy of brackets in
 any kind of file
 #+begin_src elisp
-  ;; (use-package rainbow-delimeters
-    ;; :hook (prog-mode . rainbow-delimeters-mode))
-  ;; (add-hook 'prog-mode-hook 'rainbow-delimeters-mode)
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 #+end_src
 
 * Set personal info
@@ -104,6 +104,11 @@ All the icons!
   (use-package all-the-icons)
   (use-package all-the-icons-dired
     :hook (dired-mode . all-the-icons-dired-mode))
+#+end_src
+Emojis
+#+begin_src emacs-lisp :tangle yes
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 #+end_src
 
 ** Theme
@@ -192,9 +197,26 @@ Projectile integration
     :bind
     ([remap describe-function] . counsel-describe-function)
     ([remap describe-command] . helpful-command)
-    ([remap describe-variable] . counsel-describe-variable)
+    ([remap describe-variable] . helpful-variable)
     ([remap describe-key] . helpful-key))
 #+end_src
+
+* Writting text
+** Line length
+I restrict my files to 80 characters to allow for easily readable,
+short horizontal lines. It's much easier to scan, and follows the
+standards for typography: 45-90 characters per line. The other
+advantage is to allow for comfortable screen splits.
+#+begin_src elisp
+  (add-hook 'text-mode-hook 'auto-fill-mode)
+#+end_src
+
+** Spelling
+# #+begin_src elisp
+#   (customize-set-variable 'ispell-program-name "aspell")
+#   (customize-set-variable 'ispell-extra-args '("--sug-mode=ultra"))
+#   (add-hook 'text-mode-hook 'flyspell-mode)
+# #+end_src
 
 * Frame switching
 =ace-window= allows me to switch between frames quickly, so I consider it
@@ -264,7 +286,7 @@ git. It's much better than the default behaviour
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
     (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
     (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
-  ;; (global-hl-line-mode)
+  (global-hl-line-mode)
 #+end_src
 
 * Project management (with =projectile=)
@@ -293,66 +315,157 @@ Yasnippet is *the* tool for snippets in emacs
   (use-package yasnippet-snippets)
 #+end_src
 
-* Languages
-** Org
-I followed [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][this guide]] to make org mode look prettier, in which itself reffers to
-[[https://irreal.org/blog/?p=9038][this other guide]] as a basis for its config, which also has its origins in
-[[https://explog.in/notes/writingsetup.html][this other other guide]] for writing in org mode. Some of these changes are done acording
-to those posts.
-*** Line length
-I restrict my files to 80 characters to allow for easily readable,
-short horizontal lines. It's much easier to scan, and follows the
-standards for typography: 45-90 characters per line. The other
-advantage is to allow for comfortable screen splits.
+* Org mode
+I followed [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][this guide]] to make org mode look prettier, in which itself
+reffers to [[https://irreal.org/blog/?p=9038][this other guide]] as a basis for its config, which also has
+its origins in [[https://explog.in/notes/writingsetup.html][this other other guide]] for writing in org mode. Some of
+these changes are done acording to those posts.
+** Org appearance
+*** Basic configuration
 #+begin_src elisp
-  (add-hook 'text-mode-hook 'auto-fill-mode)
+  (defun tarsiec/org-mode-setup ()
+    (org-indent-mode)
+    ;; (variable-pitch-mode 1)
+    (visual-line-mode 1)
+    (setq org-ellipsis ""))
+    (add-hook 'org-mode-hook 'tarsiec/org-mode-setup)
 #+end_src
 
-*** Spelling
-# #+begin_src elisp
-#   (customize-set-variable 'ispell-program-name "aspell")
-#   (customize-set-variable 'ispell-extra-args '("--sug-mode=ultra"))
-#   (add-hook 'text-mode-hook 'flyspell-mode)
-# #+end_src
-
-*** Editing with a sans-serif font
+*** Better bullets
+With =org-bullets=
 #+begin_src elisp
-  (add-hook 'text-mode-hook
-            'variable-pitch-mode)
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode))
 #+end_src
 
-*** Better exporting
-**** To HTML
+** Exporting
+*** To "=html="
 #+begin_src elisp
   (use-package htmlize)
 #+end_src
 
-**** To Bootstrap
+*** To Bootstrap
 #+begin_src elisp
   (use-package ox-twbs)
 #+end_src
 
-**** To Beamer
+*** To Beamer
 #+begin_src elisp
   (require 'ox-beamer)
 #+end_src
 
-**** To Markdown
+*** To Markdown
 #+begin_src elisp
   (require 'ox-md)
 #+end_src
 
-**** To =man=
+*** To "=man="
 #+begin_src elisp
   (require 'ox-man)
 #+end_src
 
-**** To reveal
+*** To reveal
 #+begin_src elisp
   (use-package ox-reveal)
   (setq org-reveal-root "file:///home/tarsiec/.local/pkg/reveal.js")
 #+end_src
 
+** Source blocks
+#+begin_src elisp
+  (setq org-edit-src-content-indentation 2
+        org-src-tab-acts-natively t
+	    org-hide-leading-stars t
+        org-src-preserve-indentation t)
+#+end_src
+
+** Agenda
+*** Agenda files
+Set up =org-mode= to use certain files as agendas and pull TODO's and
+everythin else from them
+#+begin_src elisp
+  (setq org-agenda-files
+	      '("~/docs/org/agenda.org"))
+  (setq org-log-done 'time
+	      org-agenda-start-with-log-mode t
+	      org-log-into-drawer t)
+  (setq org-todo-keywords
+	  '((sequence "TODO(t)" "NEXT(n)"
+		      "|" "DONE(d!)")
+	    (sequence "LISTO(l!)" "PLAN(f)" "REVISA(r!)" "ESPERA(e@/!)" "BUG(b)"
+		      "|" "COMPLETADO(c@/!)" "CANCELADO(x@/!)")))
+#+end_src
+*** Agenda modules
+Add =habit=, =crypt= in =org-modules=
+#+begin_src elisp
+  (custom-set-variables
+   '(org-modules
+     '(ol-bbdb ol-bibtex org-crypt ol-docview ol-eww ol-gnus org-habit
+	       ol-info ol-irc ol-mhe ol-rmail ol-w3m))
+#+end_src
+
+*** Agenda summaries
+TODO entries automatically change to DONE when all children are done
+#+begin_src elisp
+  (defun org-summary-todo (n-done n-not-done)
+    "Switch entry to DONE when all subentries are done, to TODO otherwise."
+    (let (org-log-done org-log-states)   ; turn off logging
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+#+end_src
+
+
+*** Org tags
+#+begin_src elisp
+  (setq org-tag-alist
+	'((:startgroup  . nil)
+	  ("@instituto" .  ?i)
+	  ("@casa"      .  ?c)	     
+	  ("@portatil"  .  ?p)
+	  (:endgroup    . nil)
+	  ("estudios"   .  ?e)
+	  ("personal"   .  ?m)
+	  ("stembach"   .  ?s)
+	  ("citas"      .  ?a)))
+#+end_src
+
+*** Keep the clock history
+:LOGBOOK:
+CLOCK: [2021-07-30 Fri 00:04]
+CLOCK: [2021-07-30 Fri 00:03]--[2021-07-30 Fri 00:04] =>  0:01
+:END:
+#+begin_src elisp
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
+#+end_src
+
+*** Agenda custom commands
+#+begin_src elisp
+  ;; (setq org-agenda-custom-commands
+  ;; 	  '(("d" "Dashboard"
+  ;; 	     ((agenda "" ((ord-deadline-warning-days 7)))
+  ;; 	      (todo "NEXT"
+  ;; 		    ((org-agenda-overrinding-header "Próximas tareas")))
+  ;; 	      (tags-todo "agenda/ACTIVE"
+  ;; 			 ((org-agenda-overriding-header "Proyectos activos")))))
+
+  ;; 	    ("n" "Próximas tareas"
+  ;; 	     ((todo "NEXT"
+  ;; 		    ((org-agenda-overriding-header "Próximas tareas")))))
+
+  ;; 	    ("I" "Tareas de instituto" tags'todo "+insti")
+
+  ;; 	    ;; De poco esfuerzo
+  ;; 	    ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+  ;; 	     ((org-agenda-overriding-header "Tareas de bajo esfuerzo")
+  ;; 	      (org-agenda-max-todos 20)
+  ;; 	      (org-agenda-files org-agenda-files)))
+
+  ;; 	    ("w"))))
+#+end_src
+
+*** TODO Add =org-mode= rss feed
+
+* Languages
 ** Python
 # I use =eglot= with =python=
 # #+begin_src elisp
@@ -402,4 +515,3 @@ advantage is to allow for comfortable screen splits.
     :config
     (setq typescript-indent-level 4))
 #+end_src
-
