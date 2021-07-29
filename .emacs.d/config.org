@@ -1,7 +1,6 @@
 #+TITLE: Emacs Configuration
 #+AUTHOR: Tarsiec
 #+EMAIL: tarsiec@protonmail.com
-
 #+STARTUP: overview hidestars indent
 
 * Configure (=use-package=)
@@ -62,7 +61,7 @@ any kind of file
 #+begin_src elisp
   ;; (use-package rainbow-delimeters
     ;; :hook (prog-mode . rainbow-delimeters-mode))
-  (add-hook 'prog-mode-hook 'rainbow-delimeters-mode)
+  ;; (add-hook 'prog-mode-hook 'rainbow-delimeters-mode)
 #+end_src
 
 * Set personal info
@@ -257,7 +256,7 @@ Add icons, w/company-box
 #+end_src
 
 =diff-hl= highlights the changes in the file from previous versions in
-git.
+git. It's much better than the default behaviour
 #+begin_src elisp
   (use-package diff-hl
     :config
@@ -265,7 +264,7 @@ git.
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
     (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
     (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
-  (global-hl-line-mode)
+  ;; (global-hl-line-mode)
 #+end_src
 
 * Project management (with =projectile=)

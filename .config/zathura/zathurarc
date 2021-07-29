@@ -1,36 +1,36 @@
 # Start flavours
-# Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
+# Base16 Solarized Dark
+# Author: Ethan Schoonover (modified by aramisgithub)
 
-set default-bg                  "#1d1f21"
-set default-fg                  "#282a2e"
+set default-bg                  "#002b36"
+set default-fg                  "#073642"
 
-set statusbar-fg                "#b4b7b4"
-set statusbar-bg                "#373b41"
+set statusbar-fg                "#839496"
+set statusbar-bg                "#586e75"
 
-set inputbar-bg                 "#1d1f21"
-set inputbar-fg                 "#ffffff"
+set inputbar-bg                 "#002b36"
+set inputbar-fg                 "#fdf6e3"
 
-set notification-bg             "#1d1f21"
-set notification-fg             "#ffffff"
+set notification-bg             "#002b36"
+set notification-fg             "#fdf6e3"
 
-set notification-error-bg       "#1d1f21"
-set notification-error-fg       "#cc6666"
+set notification-error-bg       "#002b36"
+set notification-error-fg       "#dc322f"
 
-set notification-warning-bg     "#1d1f21"
-set notification-warning-fg     "#cc6666"
+set notification-warning-bg     "#002b36"
+set notification-warning-fg     "#dc322f"
 
-set highlight-color             "#f0c674"
-set highlight-active-color      "#81a2be"
+set highlight-color             "#b58900"
+set highlight-active-color      "#268bd2"
 
-set completion-bg               "#282a2e"
-set completion-fg               "#81a2be"
+set completion-bg               "#073642"
+set completion-fg               "#268bd2"
 
-set completion-highlight-fg     "#ffffff"
-set completion-highlight-bg     "#81a2be"
+set completion-highlight-fg     "#fdf6e3"
+set completion-highlight-bg     "#268bd2"
 
-set recolor-lightcolor          "#1d1f21"
-set recolor-darkcolor           "#e0e0e0"
+set recolor-lightcolor          "#002b36"
+set recolor-darkcolor           "#eee8d5"
 
 set recolor                     "false"
 set recolor-keephue             "false"
