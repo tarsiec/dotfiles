@@ -4,7 +4,7 @@
 
 #+STARTUP: overview hidestars indent
 
-* Configure =use-package=
+* Configure (=use-package=)
 I use =use-package= to install and configure my packages. My =init.el= includes the
 initial setup for =package.el= and ensures that =use-package= is installed, since I
 wanna do that right away.
@@ -31,19 +31,48 @@ Always compile packages, and use the newest version available.
   (setq scroll-conservatively 100)
 #+end_src
 
+** Use the DOOM modeline
+#+begin_src elisp
+  (use-package doom-modeline
+    :init (doom-modeline-mode 1)
+    :custom ((doom-modeline-height 30)))
+#+end_src
+
 ** Use which key
 =which-key= displays at the bottom of the screen all of the possible
 terminations of each keybind you start. I *wouldn't* be able to live
 without it
 #+begin_src elisp
   (use-package which-key
-    :config (which-key-mode 1))
+    :config
+    (which-key-mode 1)
+    (setq which-key-idle-delay 1))
+#+end_src
+
+** Use hydra
+Hydra is an utility to create combinations of related keybindings
+easily
+#+begin_src elisp
+  (use-package hydra)
+#+end_src
+
+** Use rainbow delimeters for parens, etc.
+Rainbow delimeters helps me differentiate the hierarchy of brackets in
+any kind of file
+#+begin_src elisp
+  ;; (use-package rainbow-delimeters
+    ;; :hook (prog-mode . rainbow-delimeters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimeters-mode)
 #+end_src
 
 * Set personal info
 #+begin_src elisp
   (setq user-full-name "Tarsiec"
  user-mail-address "tarsiec@protonmail.com")
+#+end_src
+
+#+begin_src elisp
+(setq auth-sources '("~/.authinfo"))
 #+end_src
 
 * Aesthetics
@@ -58,16 +87,25 @@ In short:
   (tool-bar-mode 0)
   (menu-bar-mode 0)
   (scroll-bar-mode 0)
+  (set-fringe-mode 10)
+  (setq display-line-numbers 'relative)
   (global-display-line-numbers-mode)
  #+end_src
  
 ** Font
-Configure emacs to use =Cascadia Code= as my default font
+Configure emacs to use =Cascadia Code= and =cherry= as my coding
+fonts, and I usually switch between them
 #+begin_src elisp
-  (set-face-attribute 'default nil :family "Iosevka" :height 120)
-  (set-face-attribute 'fixed-pitch nil :family "Iosevka" :height 120)
-  (set-face-attribute 'variable-pitch nil :family "Iosevka" :height 120)
-  #+end_src
+  (set-face-attribute 'default nil :family "Cascadia Code" :height 90)
+  (set-face-attribute 'fixed-pitch nil :family "Cascadia Code" :height 90)
+  (set-face-attribute 'variable-pitch nil :family "Cascadia Code" :height 90)
+#+end_src
+All the icons!
+#+begin_src elisp
+  (use-package all-the-icons)
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode))
+#+end_src
 
 ** Theme
 I love =zenburn=, so that's the theme i pretty much always use.
@@ -75,10 +113,33 @@ I love =zenburn=, so that's the theme i pretty much always use.
   (use-package zenburn-theme)
 #+end_src
 
-* Add =elisp= files to =load-file=
+Just in case I change my mind, I keep two versions of the
+tomorrow-night theme, another favourite of mine; also =doom-themes=
+#+begin_src elisp
+  (use-package doom-themes
+    :config (load-theme 'doom-tomorrow-night t))
+#+end_src
+
+* Add =elisp= files to (=load-file=)
 #+begin_src elisp
   (add-to-list 'load-path "~/.emacs.d/lisp")
 #+end_src
+
+* EVIL!
+# #+begin_src elisp
+#   (use-package evil
+#     :config
+#     (evil-mode)
+# #+end_src
+
+# =key-chord=
+# #+begin_src elisp
+#   (use-package key-chord
+#     :config
+#     (setq key-chord-two-keys-delay 0.5)
+#     (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+#     (key-chord-mode 1))
+# #+end_src
 
 * Auto-completion engine (=ivy=, =swiper=, =counsel=)
 #+begin_src elisp
@@ -90,6 +151,20 @@ I love =zenburn=, so that's the theme i pretty much always use.
     :custom
     ((ivy-use-virtual-buffers t)
      (ivy-display-style 'fancy)))
+#+end_src
+
+Have a history of commands in =ivy= with =smex=
+#+begin_src elisp
+  (use-package smex)
+#+end_src
+
+Display info about any command with =ivy-rich=
+#+begin_src elisp
+  (use-package ivy-rich
+    :config (ivy-rich-mode 1))
+#+end_src
+
+#+begin_src elisp
 
   (use-package counsel)
 
@@ -100,8 +175,26 @@ I love =zenburn=, so that's the theme i pretty much always use.
      ("C-c C-r" . ivy-resume)
      ("C-c g"   . counsel-git)
      ("C-c k"   . counsel-ag)
-     ("C-x C-f" . counsel-find-file)
-     ("C-c l"   . counsel-locate)))
+     ("C-x C-f" . counsel-find-file)))
+#+end_src
+
+Projectile integration
+#+begin_src elisp
+  (use-package counsel-projectile
+    :config (counsel-projectile-mode))
+#+end_src
+
+* Better help page (with =helpful=)
+#+begin_src elisp
+  (use-package helpful
+    :custom
+    (counsel-describe-function-function #'helpful-callable)
+    (counsel-describe-variable-function #'helpful-callable)
+    :bind
+    ([remap describe-function] . counsel-describe-function)
+    ([remap describe-command] . helpful-command)
+    ([remap describe-variable] . counsel-describe-variable)
+    ([remap describe-key] . helpful-key))
 #+end_src
 
 * Frame switching
@@ -120,24 +213,87 @@ having used that one for some brief time, I found out that the UI was
 waay too invasive, and I just didn't like the all-turned-on by default
 mentality that it seemed to have
 #+begin_src elisp
-  (use-package eglot
-    :bind (("C-c r"  . eglot-rename)
-           ("C-c f"  . eglot-format-buffer)
-           ("C-c A"  . eglot-code-actions)
-           ("C-c ai" . eglot-code-actions-inline)
-           ("C-c D"  . eglot-find-declaration)
-           ("C-c i"  . eglot-find-implementation)
-           ("C-c t"  . eglot-find-typeDefinition)
-           ("C-c af" . eglot-code-action-quickfix)
-           ("C-c ai" . eglot-code-action-organize-imports)
-           ("C-c ae" . eglot-code-action-extract)))
+  ;; (use-package eglot
+  ;;   :bind (("C-c r"  . eglot-rename)
+  ;;          ("C-c f"  . eglot-format-buffer)
+  ;;          ("C-c A"  . eglot-code-actions)
+  ;;          ("C-c ai" . eglot-code-actions-inline)
+  ;;          ("C-c D"  . eglot-find-declaration)
+  ;;          ("C-c i"  . eglot-find-implementation)
+  ;;          ("C-c t"  . eglot-find-typeDefinition)
+  ;;          ("C-c af" . eglot-code-action-quickfix)
+  ;;          ("C-c ai" . eglot-code-action-organize-imports)
+  ;;          ("C-c ae" . eglot-code-action-extract)))
+#+end_src
+
+LSP mode is the most used LSP client for emacs
+#+begin_src elisp
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (lsp-enable-which-key-integration t))
 #+end_src
 
 * Company
 #+begin_src elisp
   (use-package company
-    :config (global-company-mode))
+    :config
+    (global-company-mode))
 #+end_src
+Add icons, w/company-box
+#+begin_src elisp
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
+#+end_src
+
+* Git (with =magit=)
+=magit= is the best piece of software ever written for emacs.
+#+begin_src elisp
+  (use-package magit)
+  (use-package forge
+    :after magit)
+#+end_src
+
+=diff-hl= highlights the changes in the file from previous versions in
+git.
+#+begin_src elisp
+  (use-package diff-hl
+    :config
+    (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+    (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+    (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+  (global-hl-line-mode)
+#+end_src
+
+* Project management (with =projectile=)
+Projectile is a project management tool that works great with =git= and
+=magit= (and a ton of other plugins)
+#+begin_src elisp
+  (use-package projectile
+    :bind-keymap
+    ("C-x M-p" . projectile-command-map)
+    ("C-c p"  . projectile-command-map)
+    :config (projectile-mode)
+    :custom ((projectile-complation-system 'ivy))
+    :init
+    (when (file-directory-p "~/code/projects")
+      (setq projectile-project-search-path '("~/code/projects")))
+    (when (file-directory-p "~/code/repos")
+      (setq projectile-project-search-path '("~/code/repos")))
+    (setq projectile-switch-project-action #'projectile-dired))
+#+end_src
+
+* Snippets (with =yasnippet=)
+Yasnippet is *the* tool for snippets in emacs
+#+begin_src elisp
+  (use-package yasnippet
+    :config (yas-global-mode 1))
+  (use-package yasnippet-snippets)
+#+end_src
+
 * Languages
 ** Org
 I followed [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][this guide]] to make org mode look prettier, in which itself reffers to
@@ -154,31 +310,16 @@ advantage is to allow for comfortable screen splits.
 #+end_src
 
 *** Spelling
-#+begin_src elisp
-  (customize-set-variable 'ispell-program-name "aspell")
-  (customize-set-variable 'ispell-extra-args '("--sug-mode=ultra"))
-  (add-hook 'text-mode-hook 'flyspell-mode)
-#+end_src
-
-*** Hiding emphasis markers
-I rather enjoy having the markup disappear till I need to edit it: and
-I wish more editors (particularly Markdown editors) had this
-behavior. Org enables this with =org-hide-emphasis-markers.=
-#+begin_src elisp
-  (setq org-hide-emphasis-markers t)
-#+end_src
+# #+begin_src elisp
+#   (customize-set-variable 'ispell-program-name "aspell")
+#   (customize-set-variable 'ispell-extra-args '("--sug-mode=ultra"))
+#   (add-hook 'text-mode-hook 'flyspell-mode)
+# #+end_src
 
 *** Editing with a sans-serif font
 #+begin_src elisp
   (add-hook 'text-mode-hook
             'variable-pitch-mode)
-#+end_src
-
-*** Better bullets
-Just prettier files
-#+begin_src elisp
-  (use-package org-bullets
-    :hook (org-mode . org-bullets-mode))
 #+end_src
 
 *** Better exporting
@@ -214,13 +355,52 @@ Just prettier files
 #+end_src
 
 ** Python
-I use =eglot= with =python=
-#+begin_src elisp
-  (add-hook 'python-mode-hook 'eglot-ensure)
-#+end_src
+# I use =eglot= with =python=
+# #+begin_src elisp
+#   (add-hook 'python-mode-hook 'eglot-ensure)
+# #+end_src
+
+** Go
+# I use =eglot= with =go=
+# #+begin_src elisp
+#         (use-package go-mode)
+#         (autoload 'go-mode "go-mode" nil t)
+#         (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+#         (add-hook 'go-mode-hook 'eglot-ensure)
+#       (add-hook 'go-mode-hook
+#                 (lambda ()
+#                   (setq-default indent-tabs-mode 1)
+#                   (setq-default tab-width 4)))
+# #+end_src
+
 ** C
-I use =eglot= with =C=
+# I use =eglot= with =C=
+# #+begin_src elisp
+#   (eval-after-load 'latex
+#     '(define-key c-mode-map (kbd "C-c C-c" 'compile)))
+#   (add-hook 'c-mode-hook 'eglot-ensure)
+#   (setq-default c-basic-offset 4
+#                 c-default-style '((java-mode . "java")
+#                                   (awk-mode  . "awk")
+#                                   (other     . "linux")))
+# #+end_src
+
+** Haskell
+# I use =eglot= with =C=
+# #+begin_src elisp
+#   (use-package haskell-mode)
+#   (use-package dante
+#     :hook (haskell-mode . dante-mode))
+#   (add-hook 'haskell-mode-hook 'eglot-ensure)
+#   ()
+# #+end_src
+
+** JS/TS
 #+begin_src elisp
-  (add-hook 'c-mode-hook 'eglot-ensure)
+  (use-package typescript-mode
+    :mode "\\.ts\\'"
+    :hook (typescript-mode . lsp-deferred)
+    :config
+    (setq typescript-indent-level 4))
 #+end_src
 
