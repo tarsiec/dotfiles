@@ -149,6 +149,7 @@ alias -g ........='../../../../../../..'
 alias zathura="devour zathura"
 alias sxiv="devour sxiv"
 alias feh="devour feh"
+alias mpv="devour mpv"
 alias code="devour code"
 alias code-insiders="devour code-insiders"
 alias codium="devour codium"
