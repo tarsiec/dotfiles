@@ -7,7 +7,7 @@
 I use =use-package= to install and configure my packages. My =init.el= includes the
 initial setup for =package.el= and ensures that =use-package= is installed, since I
 wanna do that right away.
- #+begin_src emacs-lisp
+#+begin_src elisp
   (require 'use-package-ensure)
   (setq use-package-always-ensure t)
 #+end_src
@@ -17,6 +17,11 @@ Always compile packages, and use the newest version available.
   (use-package auto-compile
     :config (auto-compile-on-load-mode))
    (setq load-prefer-newer t)
+#+end_src
+
+Use =diminish=
+#+begin_src elisp
+  (use-package diminish)
 #+end_src
 
 * The basics
@@ -35,6 +40,10 @@ Always compile packages, and use the newest version available.
   (use-package doom-modeline
     :init (doom-modeline-mode 1)
     :custom ((doom-modeline-height 30)))
+
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+    '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs "  "))
 #+end_src
 
 ** Use which key
@@ -106,10 +115,10 @@ All the icons!
     :hook (dired-mode . all-the-icons-dired-mode))
 #+end_src
 Emojis
-#+begin_src emacs-lisp :tangle yes
-(use-package emojify
-  :hook (after-init . global-emojify-mode))
-#+end_src
+# #+begin_src emacs-lisp :tangle yes
+# (use-package emojify
+#   :hook (after-init . global-emojify-mode))
+# #+end_src
 
 ** Theme
 I love =zenburn=, so that's the theme i pretty much always use.
@@ -165,11 +174,18 @@ Have a history of commands in =ivy= with =smex=
 Display info about any command with =ivy-rich=
 #+begin_src elisp
   (use-package ivy-rich
-    :config (ivy-rich-mode 1))
+    :config
+    (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+    (ivy-rich-mode 1))
+#+end_src
+
+All the icons with ivy
+#+begin_src elisp
+  (use-package all-the-icons-ivy-rich
+    :hook (ivy-rich-mode . all-the-icons-ivy-rich-mode))
 #+end_src
 
 #+begin_src elisp
-
   (use-package counsel)
 
   (use-package swiper
@@ -199,6 +215,13 @@ Projectile integration
     ([remap describe-command] . helpful-command)
     ([remap describe-variable] . helpful-variable)
     ([remap describe-key] . helpful-key))
+#+end_src
+
+* Error checking (with =flycheck=)
+#+begin_src elisp
+  (use-package flycheck
+    :config
+    (global-flycheck-mode))
 #+end_src
 
 * Writting text
@@ -252,21 +275,37 @@ LSP mode is the most used LSP client for emacs
   (use-package lsp-mode
     :commands (lsp lsp-deferred)
     :init
-    (setq lsp-keymap-prefix "C-c l")
+    (setq lsp-keymap-prefix "C-c l"
+	    lsp-dired-mode t)
     :config
     (lsp-enable-which-key-integration t))
+#+end_src
+
+LSP integration with =ivy=
+#+begin_src elisp
+  (use-package lsp-ivy)
 #+end_src
 
 * Company
 #+begin_src elisp
   (use-package company
+    :defer t
+    :bind ("C-;" . company-complete-common)
     :config
+    (setq company-idle-delay nil
+	    company-minimum-prefix-length 2
+	    company-show-numbers t
+	    company-tooltip-limit 20
+	    company-dabbrev-downcase nil
+	    company-backends '((company-irony company-gtags)))
     (global-company-mode))
 #+end_src
+
 Add icons, w/company-box
 #+begin_src elisp
   (use-package company-box
-    :hook (company-mode . company-box-mode))
+    ;; :hook (company-mode . company-box-mode)
+    )
 #+end_src
 
 * Git (with =magit=)
@@ -297,7 +336,8 @@ Projectile is a project management tool that works great with =git= and
     :bind-keymap
     ("C-x M-p" . projectile-command-map)
     ("C-c p"  . projectile-command-map)
-    :config (projectile-mode)
+    :config
+    (projectile-mode)
     :custom ((projectile-complation-system 'ivy))
     :init
     (when (file-directory-p "~/code/projects")
@@ -305,6 +345,75 @@ Projectile is a project management tool that works great with =git= and
     (when (file-directory-p "~/code/repos")
       (setq projectile-project-search-path '("~/code/repos")))
     (setq projectile-switch-project-action #'projectile-dired))
+#+end_src
+
+* File tree with (=treemacs= or =neotree=)
+Treemacs
+#+begin_src elisp
+  (use-package treemacs
+    :defer t
+    :config
+    (progn
+      (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+            treemacs-deferred-git-apply-delay      0.5
+            treemacs-directory-name-transformer    #'identity
+            treemacs-display-in-side-window        t
+            treemacs-eldoc-display                 t
+            treemacs-file-event-delay              5000
+            treemacs-file-extension-regex          treemacs-last-period-regex-value
+            treemacs-file-follow-delay             0.2
+            treemacs-file-name-transformer         #'identity
+            treemacs-follow-after-init             t
+            treemacs-expand-after-init             t
+            treemacs-git-command-pipe              ""
+            treemacs-goto-tag-strategy             'refetch-index
+            treemacs-indentation                   2
+            treemacs-indentation-string            " "
+            treemacs-is-never-other-window         nil
+            treemacs-max-git-entries               5000
+            treemacs-missing-project-action        'ask
+            treemacs-move-forward-on-expand        nil
+            treemacs-no-png-images                 nil
+            treemacs-no-delete-other-windows       t
+            treemacs-project-follow-cleanup        nil
+            treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+            treemacs-position                      'left
+            treemacs-read-string-input             'from-child-frame
+            treemacs-recenter-distance             0.1
+            treemacs-recenter-after-file-follow    nil
+            treemacs-recenter-after-tag-follow     nil
+            treemacs-recenter-after-project-jump   'always
+            treemacs-recenter-after-project-expand 'on-distance
+            treemacs-litter-directories            '("/node_modules" "/.venv" "/.cask")
+            treemacs-show-cursor                   nil
+            treemacs-show-hidden-files             t
+            treemacs-silent-filewatch              nil
+            treemacs-silent-refresh                nil
+            treemacs-sorting                       'alphabetic-asc
+            treemacs-space-between-root-nodes      t
+            treemacs-tag-follow-cleanup            t
+            treemacs-tag-follow-delay              1.5
+            treemacs-user-mode-line-format         nil
+            treemacs-user-header-line-format       nil
+            treemacs-width                         35
+            treemacs-width-is-initially-locked     t
+            treemacs-workspace-switch-cleanup      nil)
+
+      (treemacs-follow-mode t)
+      (treemacs-filewatch-mode t)
+      (treemacs-fringe-indicator-mode t)
+      (pcase (cons (not (null (executable-find "git")))
+		     (not (null (treemacs-python-executable))))))
+    :bind
+    (:map global-map
+	  ("M-0" . treemacs-select-window)
+	  ("C-x t 1" . treemacs-delete-other-windows)
+	  ("C-x t t" . treemacs)
+	  ("C-x t B" . treemacs-bookmark)
+	  ("C-x t C-t" . treemacs-find-file)
+	  ("C-x t M-t" . treemacs-find-tag)))
+
+  (use-package gruvbox-theme)
 #+end_src
 
 * Snippets (with =yasnippet=)
@@ -395,14 +504,7 @@ everythin else from them
 		      "|" "COMPLETADO(c@/!)" "CANCELADO(x@/!)")))
 #+end_src
 *** Agenda modules
-Add =habit=, =crypt= in =org-modules=
-#+begin_src elisp
-  (custom-set-variables
-   '(org-modules
-     '(ol-bbdb ol-bibtex org-crypt ol-docview ol-eww ol-gnus org-habit
-	       ol-info ol-irc ol-mhe ol-rmail ol-w3m))
-#+end_src
-
+Add =habit=, =crypt= in =org-modules= through =customize-variables=
 *** Agenda summaries
 TODO entries automatically change to DONE when all children are done
 #+begin_src elisp
@@ -412,7 +514,6 @@ TODO entries automatically change to DONE when all children are done
       (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
   (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 #+end_src
-
 
 *** Org tags
 #+begin_src elisp
@@ -429,10 +530,6 @@ TODO entries automatically change to DONE when all children are done
 #+end_src
 
 *** Keep the clock history
-:LOGBOOK:
-CLOCK: [2021-07-30 Fri 00:04]
-CLOCK: [2021-07-30 Fri 00:03]--[2021-07-30 Fri 00:04] =>  0:01
-:END:
 #+begin_src elisp
   (setq org-clock-persist 'history)
   (org-clock-persistence-insinuate)
@@ -440,27 +537,27 @@ CLOCK: [2021-07-30 Fri 00:03]--[2021-07-30 Fri 00:04] =>  0:01
 
 *** Agenda custom commands
 #+begin_src elisp
-  ;; (setq org-agenda-custom-commands
-  ;; 	  '(("d" "Dashboard"
-  ;; 	     ((agenda "" ((ord-deadline-warning-days 7)))
-  ;; 	      (todo "NEXT"
-  ;; 		    ((org-agenda-overrinding-header "Próximas tareas")))
-  ;; 	      (tags-todo "agenda/ACTIVE"
-  ;; 			 ((org-agenda-overriding-header "Proyectos activos")))))
+  (setq org-agenda-custom-commands
+	  '(("d" "Dashboard"
+	     ((agenda "" ((ord-deadline-warning-days 7)))
+	      (todo "NEXT"
+		    ((org-agenda-overrinding-header "Próximas tareas")))
+	      (tags-todo "agenda/ACTIVE"
+			 ((org-agenda-overriding-header "Proyectos activos")))))
 
-  ;; 	    ("n" "Próximas tareas"
-  ;; 	     ((todo "NEXT"
-  ;; 		    ((org-agenda-overriding-header "Próximas tareas")))))
+	    ("n" "Próximas tareas"
+	     ((todo "NEXT"
+		    ((org-agenda-overriding-header "Próximas tareas")))))
 
-  ;; 	    ("I" "Tareas de instituto" tags'todo "+insti")
+	    ("I" "Tareas de instituto" tags'todo "+insti")
 
-  ;; 	    ;; De poco esfuerzo
-  ;; 	    ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
-  ;; 	     ((org-agenda-overriding-header "Tareas de bajo esfuerzo")
-  ;; 	      (org-agenda-max-todos 20)
-  ;; 	      (org-agenda-files org-agenda-files)))
+	    ;; De poco esfuerzo
+	    ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+	     ((org-agenda-overriding-header "Tareas de bajo esfuerzo")
+	      (org-agenda-max-todos 20)
+	      (org-agenda-files org-agenda-files)))
 
-  ;; 	    ("w"))))
+	    ("w")))
 #+end_src
 
 *** TODO Add =org-mode= rss feed
@@ -486,16 +583,46 @@ CLOCK: [2021-07-30 Fri 00:03]--[2021-07-30 Fri 00:04] =>  0:01
 # #+end_src
 
 ** C
-# I use =eglot= with =C=
-# #+begin_src elisp
-#   (eval-after-load 'latex
-#     '(define-key c-mode-map (kbd "C-c C-c" 'compile)))
-#   (add-hook 'c-mode-hook 'eglot-ensure)
-#   (setq-default c-basic-offset 4
-#                 c-default-style '((java-mode . "java")
-#                                   (awk-mode  . "awk")
-#                                   (other     . "linux")))
-# #+end_src
+I *don't* use =lsp-mode= with =C=
+#+begin_src elisp
+  (setq-default c-basic-offset 4
+                c-default-style '((java-mode . "java")
+                                  (awk-mode  . "awk")
+                                  (other     . "linux")))
+#+end_src
+
+#+begin_src elisp
+  (defun my-irony-mode-hook ()
+    (define-key irony-mode-map [remap completion-at-point]
+      'irony-completion-at-point-async)
+    (define-key irony-mode-map [remap complete-symbol]
+      'irony-completion-at-point-async))
+#+end_src
+
+#+begin_src elisp
+  (use-package irony
+    ;; :defer t
+    :hook
+    ((c-mode . irony-mode)
+     (c++-mode-hook . irony-mode)
+     (objc-mode-hook . irony-mode)
+     (irony-mode . irony-cbd-autosetup-compile-options))
+    :config
+    (local-set-key (kbd "C-c C-c") 'compile)
+    (local-set-key (kbd "C-c C-j") 'gdb)
+    (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+#+end_src
+
+Irony company
+#+begin_src elisp
+  (use-package company-irony :defer t)
+#+end_src
+
+#+begin_src elisp
+  (use-package flycheck-irony
+    :hook (irony-mode . flycheck-irony-setup))
+#+end_src
 
 ** Haskell
 # I use =eglot= with =C=
