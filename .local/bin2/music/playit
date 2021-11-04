@@ -1,0 +1,3 @@
+#!/bin/sh
+
+du -a musica | sed 's/musica\///' | awk '{$1=""; print $0}' | grep ".*\..*" | dmenu -i -l 30 | xargs -I {} mpc insert "{}" ; mpc play ; mpc next

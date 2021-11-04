@@ -1,0 +1,4 @@
+#!/bin/sh
+
+query=$(echo "" | dmenu -p "Watch YouTube")
+ytfzf -D dmenu $query

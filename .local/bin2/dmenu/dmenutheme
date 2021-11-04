@@ -1,0 +1,17 @@
+#!/bin/bash
+
+selected="$(flavours list | sed 's/ /\n/g' | rofi -font "terminus 8" -dmenu)"
+if [$selected == ""];then exit 0;fi
+flavours apply $selected
+flavour=`grep "\#define base00 " "$HOME/.Xresources" | sed 's/.*#//'`
+flavour="#"$flavour
+if [ `ls "$HOME/.config" | grep wall.jpg` == "wall.jpg" ];then
+	rm "$HOME/.config/wall.jpg"
+fi
+xrdb "$HOME/.Xresources"
+touch "~.config/wall.png"
+convert -size 1920x1080 xc:$flavour "$HOME/.config/wall.png"
+sudo builddmenu &
+sudo buildtabbed &
+betterlockscreen -u ~/.config/wall.png &
+bspwmlooks

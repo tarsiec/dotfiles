@@ -1,0 +1,31 @@
+#!/bin/bash
+
+case $1 in
+	"prev")
+        if [ "$(mpc status | grep playing)" ]; then
+			mpc prev
+        elif [ "$(pgrep spotify)" != "" ]; then
+			spotifycli --prev
+		else
+			mpc prev
+		fi
+		;;
+	"next")
+        if [ "$(mpc status | grep playing)" ]; then
+			mpc next
+        elif [ "$(pgrep spotify)" != "" ]; then
+			spotifycli --next
+		else
+			mpc next
+		fi
+		;;
+	"toggle")
+        if [ "$(mpc status | grep playing)" ]; then
+			mpc toggle
+        elif [ "$(pgrep spotify)" != "" ]; then
+			spotifycli --playpause
+		else
+			mpc toggle
+		fi
+		;;
+esac

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+case "$(cat $HOME/.local/share/currentkeymap)" in
+	"ES")
+		kgb
+		notify-send -u low "Keymap switched to GB" &
+		echo "GB" > $HOME/.local/share/currentkeymap
+		;;
+	"GB")
+		kes
+		notify-send -u low "Keymap switched to ES"
+		echo "ES" > $HOME/.local/share/currentkeymap
+		;;
+esac
+

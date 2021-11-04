@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo " $(calcurse -t | grep "[0-9].*" | wc -l)"

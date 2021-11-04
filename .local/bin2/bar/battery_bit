@@ -1,0 +1,13 @@
+#!/bin/sh
+# Give a battery name (Check the battery name from sys/class/power_supply/ e.g. BAT0 or BAT1 and pass it as an argument.
+
+for battery in /sys/class/power_supply/BAT?
+do
+capacity=$(cat "$battery"/capacity) || exit
+status=$(cat "$battery"/status)
+
+# [ "$status" = "Charging" ] && color="#ffffff"
+
+printf "%s%s%s\n" "$(echo "$status" | sed "s/,//;s/Discharging/ /;s/Not charging/ /;s/Charging/ /;s/Unknown/ /;s/Full//;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+done
+

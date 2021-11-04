@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ "$(mpc | grep playing)" != "" ]; then
+    echo "" `mpc current -f "%albumartist% : %title%"`
+    # echo "" `mpc current -f "%albumartist%  %title%"`
+elif [ "$(pgrep spotify)" ]; then
+    echo "$(python $HOME/.local/bin/bar/spotify_status.py -t 70 -p ' , ' -f '{play_pause}{artist} : {song}')"
+else
+    echo "" `mpc current -f "%albumartist% : %title%"`
+fi

@@ -16,31 +16,31 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: cherry
-    style: Normal
+    family: iosevka nerd font
+    style: Retina
 
   bold:
-    family: cherry
+    family: iosevka nerd font
     style: Bold
 
   italic:
-    family: cherry
+    family: iosevka nerd font
     style: Italic
 
   bold_italic:
-    family: cherry
+    family: iosevka nerd font
     style: Bold Italic
 
-  size: 10
+  size: 11
   tabspaces: 4
 
-  # cherry, tewi, scientifica, proggy, profont, peep, orp, lode, kakwa, haxor-narrow, gohufont, envypn, dina, cherry, unscii, terminus
+  # iosevka nerd font, dina, unscii, iosevka, fkp
 
   # Offset is the extra space around each character. `` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 0
+    y: -1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -75,7 +75,8 @@ draw_bold_text_with_bright_colors: true
 #  color: '#ffffff'
 
 # Background opacity
-background_opacity: 0.85
+background_opacity: 1
+# background_opacity: 0.9
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -357,40 +358,46 @@ key_bindings:
   #print_events: false
 
 # Start flavours
-# Base16 Tomorrow Night - alacritty color config
-# Chris Kempson (http://chriskempson.com)
+# Base16 Nord 256 - alacritty color config
+# arcticicestudio
 colors:
   # Default colors
   primary:
-    background: '0x1d1f21'
-    foreground: '0xc5c8c6'
+    background: '0x2E3440'
+    foreground: '0xE5E9F0'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1d1f21'
-    cursor: '0xc5c8c6'
+    text: '0x2E3440'
+    cursor: '0xE5E9F0'
 
   # Normal colors
   normal:
-    black:   '0x1d1f21'
-    red:     '0xcc6666'
-    green:   '0xb5bd68'
-    yellow:  '0xf0c674'
-    blue:    '0x81a2be'
-    magenta: '0xb294bb'
-    cyan:    '0x8abeb7'
-    white:   '0xc5c8c6'
+    black:   '0x2E3440'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan:    '0x88C0D0'
+    white:   '0xE5E9F0'
 
   # Bright colors
   bright:
-    black:   '0x969896'
-    red:     '0xde935f'
-    green:   '0x282a2e'
-    yellow:  '0x373b41'
-    blue:    '0xb4b7b4'
-    magenta: '0xe0e0e0'
-    cyan:    '0xa3685a'
-    white:   '0xffffff'
+    black:   '0x4C566A'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan:    '0x88C0D0'
+    white:   '0x8FBCBB'
 
-draw_bold_text_with_bright_colors: false
+  indexed_colors:
+    - { index: 16, color: '0xD08770' }
+    - { index: 17, color: '0x5E81AC' }
+    - { index: 18, color: '0x3B4252' }
+    - { index: 19, color: '0x434C5E' }
+    - { index: 20, color: '0xD8DEE9' }
+    - { index: 21, color: '0xECEFF4' }
 # End flavours

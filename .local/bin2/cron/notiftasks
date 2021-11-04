@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send "Tareas:" "$(calcurse -t | grep "[:number:].*")"

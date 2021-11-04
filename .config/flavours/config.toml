@@ -1,7 +1,7 @@
 [[item]]
 file = '~/.config/alacritty/alacritty.yml'
 template = 'alacritty'
-subtemplate = 'default'
+subtemplate = 'default-256'
 rewrite = false
 start = '# Start flavours'
 end = '# End flavours'
@@ -28,15 +28,25 @@ end = '! End flavours'
 hook = ''
 light = true
 
-[[item]]
-file = '~/.config/nvim/plugins/base16-vim/colors/base16-3024.vim'
-template = 'vim'
-subtemplate = 'default'
-rewrite = false
-start = '" Start flavours'
-end = '" End flavours'
-hook = ''
-light = true
+# [[item]]
+# file = '~/.config/nvim/plugins/base16-vim/colors/base16-3024.vim'
+# template = 'vim'
+# subtemplate = 'default'
+# rewrite = false
+# start = '" Start flavours'
+# end = '" End flavours'
+# hook = ''
+# light = true
+
+# [[item]]
+# file = '~/.config/nvim/plugins/vim-airline-themes/autoload/airline/themes/base16_3024.vim'
+# template = 'vim-airline-themes'
+# subtemplate = 'default'
+# rewrite = false
+# start = '" Start flavours'
+# end = '" End flavours'
+# hook = ''
+# light = true
 
 [[item]]
 file = '~/.config/rofi/config.rasi'
@@ -89,7 +99,7 @@ hook = ''
 light = true
 
 [[item]]
-file = '~/.local/share/repos/startpage/style.css'
+file = '/home/tarsiec/.local/share/startpage/style.css'
 template = 'startpage'
 subtemplate = 'default'
 rewrite = false
@@ -97,3 +107,14 @@ start = '/* Start flavours */'
 end = '/* End flavours */'
 hook = ''
 light = true
+
+[[item]]
+file = '/home/tarsiec/.config/kitty/kitty.conf'
+template = 'kitty'
+subtemplate = 'default-256'
+rewrite = false
+start = '# Start flavours #'
+end = '# End flavours #'
+hook = ''
+light = true
+

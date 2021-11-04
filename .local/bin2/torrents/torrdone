@@ -1,0 +1,9 @@
+#!/bin/sh
+# * TR_APP_VERSION
+# * TR_TIME_LOCALTIME
+# * TR_TORRENT_DOR
+# * TR_TORRENT_HASH
+# * TR_TORRENT_ID
+# * TR_TORRENT_NAME
+notify-send "Transmission" " $TR_TORRENT_NAME Has finished downloading"
+

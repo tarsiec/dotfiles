@@ -1,0 +1,2 @@
+#!/bin/sh
+youtube-dl -f 22 --username "paulabreasalgueiro@gmail.com" --password "1971"

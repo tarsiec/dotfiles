@@ -12,10 +12,14 @@ export PAGER="less"
 export BAT_THEME="base16-256"
 export DO_NOT_TRACK=1
 
+export XDG_CONFIG_HOME=$HOME/.config
 
 ### scripts
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
+
+### QT
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 # DAT
 ### CODE & LANGS ###
@@ -39,14 +43,16 @@ export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:$HOME/.nimble/bin
 # python
 export PATH=$PATH:$HOME/.local/share/python/python-language-server/output/bin/Release
+# gdb (gef)
+export GEF_RC=$HOME/.config/gef/gef.rc
 
 [ -f "/home/tarsiec/.ghcup/env" ] && source "/home/tarsiec/.ghcup/env" # ghcup-env
 
 ### SOFTWARE ###
 # starship.rs
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-eval "$(starship init zsh)"
-# source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
+# eval "$(starship init zsh)"
+source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### COMPLETION ###
 setopt AUTO_CD
@@ -93,7 +99,7 @@ source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-s
 source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source $HOME/.local/share/zsh/plugins/vi-mode/vi-mode.zsh
 source $HOME/.local/share/zsh/plugins/git/git.zsh
-source $HOME/.local/share/zsh/plugins/emacs/emacs.zsh
+#source $HOME/.local/share/zsh/plugins/emacs/emacs.zsh
 autoload -Uz add-zsh-hook
 
 
@@ -117,17 +123,18 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
 alias python3="python"
 alias ytrss="python $HOME/code/repos/youtube_rss/youtube_rss.py"
-alias getvid="youtube-dl --add-metadata --restrict-filenames -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+alias getvid="youtube-dl --add-metadata --restrict-filenames -f bestvideo+bestaudio --merge-output-format mkv --all-subs"
 alias getaudio="youtube-dl --add-metadata --restrict-filenames -x --audio-format best"
 alias smi="sudo make install"
-alias ls="exa"
-alias l="exa -lag"
-alias ll="exa -l"
+alias ls="exa --icons"
+alias l="exa -lag --icons"
+alias ll="exa -l --icons"
 alias lsize="exa -lags size --icons"
 alias lname="exa -lags name --icons"
 alias v="vim"
 alias nv="nvim"
 alias -g Z="| fzf"
+alias -g C="| xclip -selection clipboard"
 alias mv="mv -i -v"
 alias mkdir="mkdir -p"
 alias cp="cp -v"
@@ -162,12 +169,26 @@ alias vs="nvim $HOME/.config/sxhkd/sxhkdrc"
 alias vd="nvim $HOME/.config/dunst/dunstrc"
 alias vp="nvim $HOME/.config/picom/picom.conf"
 
-alias spfr="ssh root@tarsiec.com ./pullfromrepo.sh /var/www/tarsiec-site"
+alias cfv="cd $HOME/.config/nvim"
+alias cfz="cd $HOME/.config/zsh"
+alias cfb="cd $HOME/.config/bspwm"
+alias cfs="cd $HOME/.config/sxhkd"
+alias cfd="cd $HOME/.config/dunst"
+alias cfp="cd $HOME/.config/picom"
+alias cfpfr="ssh root@tarsiec.com ./pullfromrepo.sh /var/www/tarsiec-site"
+
+alias py="python"
+alias ipy="ipython"
 
 bindkey -e
 bindkey "jk" vi-cmd-mode
 
+eval $(thefuck --alias)
+
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
 
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
+
+# Z
+. /usr/share/z/z.sh
 

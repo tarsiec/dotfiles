@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rmdir "/home/tlb/Downloads" "/home/tlb/Desktop"

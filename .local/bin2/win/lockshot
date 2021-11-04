@@ -1,0 +1,6 @@
+#!/bin/bash
+
+scrot -o /tmp/scrot.png
+convert /tmp/scrot.png -blur 0x10 /tmp/blur_scrot.png
+i3lock -i /tmp/blur_scrot.png -p default -n
+

@@ -2,7 +2,7 @@
 
 ncmpcpp_directory = "~/.config/ncmpcpp"
 lyrics_directory = "~/.local/share/lyrics"
-mpd_music_dir = "~/music"
+mpd_music_dir = "~/musica"
 message_delay_time = "1"
 # execute_on_song_change = "~/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
 visualizer_type = "spectrum" # spectrum wave wave_filled ellipse

@@ -57,14 +57,14 @@
     padding = 4
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 4
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#c5c8c6"
+    frame_color = "#282a2e"
 
     # Define a color for the separator.
     # possible values are:
@@ -86,12 +86,13 @@
 
     ### Text ###
 
-    font = Terminus, Siji
+    # font = Terminus, Siji
+    font = iosevka nerd font 11
 
 
     # Th		e spacing between lines.  If the height is smaller than th1
     line_height = 0
-    # font height, it wil		l get raised to the font height1
+    # font height, it will get raised to the font height1
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -275,25 +276,26 @@
     context = ctrl+shift+period
 
 # Start flavours
-separator_color = "#f0c674"
-
 [base16_low]
-    msg_urgency = low
-    background = "#1d1f21"
-    foreground = "#f0c674"
-	frame_color = "#f0c674"
+	msg_urgency		= low
+	background		= "#2E3440"
+	foreground		= "#A3BE8C"
+	frame_color 	= "#A3BE8C"
+	separator_color	= "#A3BE8C"
 
 [base16_normal]
-    msg_urgency = normal
-    background = "#1d1f21"
-    foreground = "#de935f"
-	frame_color = "#de935f"
+	msg_urgency		= normal
+	background		= "#2E3440"
+	foreground		= "#EBCB8B"
+	frame_color 	= "#EBCB8B"
+	separator_color	= "#EBCB8B"
 
 [base16_critical]
-    msg_urgency = critical
-    background = "#282a2e"
-    foreground = "#cc6666"
-	frame_color = "#cc6666"
+	msg_urgency		= critical
+	background		= "#BF616A"
+	foreground		= "#2E3440"
+	frame_color 	= "#BF616A"
+	separator_color	= "#BF616A"
 # End flavours
 
 # Every section that isn't one of the above is interpreted as a rules to

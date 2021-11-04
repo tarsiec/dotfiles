@@ -87,7 +87,7 @@ modules-left = bspwm
 ; modules-center = mpd
 ; modules-center = s spotify mocp r
 ; modules-right =  s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
-modules-right =s  mpdScript d torrent s rss d filesystem1 s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+modules-right =s  mpdScript d torrent s rss d filesystem1 s eth wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2

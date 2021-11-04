@@ -1,0 +1,2 @@
+killall polybar
+polybar main

@@ -1,0 +1,206 @@
+[colors]
+background      = ${xrdb:background:#1d1f21}
+background-alt  = ${xrdb:color10:#282a2e}
+foreground      = ${xrdb:color7:#c5c8c6}
+foreground-alt  = ${xrdb:color15:#ffffff}
+primary         = ${xrdb:color3:#f0c674}
+secondary       = ${xrdb:color2:#b5bd68}
+alert           = ${xrdb:color1:#cc6666}
+
+black           = ${xrdb:color0:#1f1d21}
+red             = ${xrdb:color1:#cc6666}
+green           = ${xrdb:color2:#b5bd68}
+yellow          = ${xrdb:color3:#f0c674}
+blue            = ${xrdb:color4:#81a2be}
+purple          = ${xrdb:color5:#b294bb}
+cyan            = ${xrdb:color6:#8abeb7}
+white           = ${xrdb:color7:#c5c8c6}
+
+
+[defaults]
+;format-prefix-foreground    = ${colors.foreground}
+;format-background           = ${colors.background-alt}
+;format-foreground           = ${colors.foreground}
+;format-underline           = ${colors.primary}
+;format-volume-underline     = ${colors.blue}
+;format-charging-underline   = ${colors.yellow}
+;format-discharging-underline= ${colors.yellow}
+;format-full-underline       = ${colors.yellow}
+;format-connected-underline  = ${colors.purple}
+format-padding              = 2
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/main]
+bottom = false
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 18
+offset-x = 0%
+offset-y = 0%
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = ${colors.background}
+
+border-size = 2
+border-color = ${colors.background}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 0
+
+font-0 = Iosevka Nerd Font:pixelsize=9;3
+font-1 = Material Design Icons Desktop:pixelsize=10;3
+font-2 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;3
+
+modules-left = eth pulseaudio backlight wlan filesystem
+;modules-left = cpu memory wlan eth pulseaudio backlight keymap
+modules-center = bspwm
+modules-right = keymap spotify battery0 battery1 date
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = "%title:0:30:...%"
+;label-background = ${colors.background-alt}
+label-foreground = ${colors.primary}
+label-font = 3
+label-padding = 2
+format-padding-left = 0
+format-padding-right = 2
+
+[module/spotify]
+inherit = defaults
+include-file = ~/.config/polybar/spotify.ini
+
+[module/keymap]
+inherit = defaults
+include-file = ~/.config/polybar/keymap.ini
+
+[module/weather]
+inherit = defaults
+include-file = ~/.config/polybar/weather.ini
+format-underline = ${colors.secondary}
+
+
+[module/xkeyboard]
+inherit = defaults
+include-file = ~/.config/polybar/xkeyboard.ini
+
+[module/filesystem]
+inherit = defaults
+include-file = ~/.config/polybar/filesystem.ini
+
+[module/bspwm]
+include-file = ~/.config/polybar/bspwm.ini
+
+[module/mpd]
+inherit = defaults
+include-file = ~/.config/polybar/mpd.ini
+
+[module/xbacklight]
+inherit = defaults
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/sep]
+type = custom/text
+content = "|"
+
+[module/backlight]
+inherit = defaults
+include-file = ~/.config/polybar/backlight.ini
+
+[module/cpu]
+inherit = defaults
+include-file = ~/.config/polybar/cpu.ini
+
+[module/memory]
+inherit = defaults
+include-file = ~/.config/polybar/memory.ini
+
+[module/wlan]
+inherit = defaults
+include-file = ~/.config/polybar/wlan.ini
+
+[module/eth]
+inherit = defaults
+include-file = ~/.config/polybar/eth.ini
+
+[module/date]
+inherit = defaults
+include-file = ~/.config/polybar/date.ini
+
+[module/pulseaudio]
+inherit = defaults
+include-file = ~/.config/polybar/pulseaudio.ini
+
+[module/alsa]
+inherit = defaults
+include-file = ~/.config/polybar/alsa.ini
+
+[module/battery0]
+inherit = defaults
+include-file = ~/.config/polybar/batteryScript.ini
+
+[module/battery1]
+inherit = defaults
+type = custom/script
+interval = 10
+format = <label>
+exec = "battery | sed -n 2p"
+format-foreground = ${colors.yellow}
+format-background = ${colors.background-alt}
+
+
+[module/temperature]
+inherit = defaults
+include-file = ~/.config/polybar/temperature.ini
+
+[module/powermenu]
+inherit = defaults
+include-file = ~/.config/polybar/powermenu.ini
+
+; vim:ft=dosini

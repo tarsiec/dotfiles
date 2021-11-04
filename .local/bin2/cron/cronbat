@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Notify me with notify-send if my battery is below 25%.
+# You can set this to run via cron.
+
+if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ] || [ "$(cat /sys/class/power_supply/BAT1/status)" = "Charging" ];
+then
+	exit
+fi
+
+if [ "$(cat /sys/class/power_supply/BAT0/capacity)" -gt 20 ] || [ "$(cat /sys/class/power_supply/BAT1/capacity)" -gt 20 ];
+then
+	exit
+fi
+
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus &&
+notify-send -u "critical" "Battery critically low:
+`cat /sys/class/power_supply/BAT0/capacity`% and `cat /sys/class/power_supply/BAT1/capacity`%"
+sudo light -S 20
+

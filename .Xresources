@@ -6,25 +6,25 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 ! Start flavours
-! Base16 Tomorrow Night
-! Scheme: Chris Kempson (http://chriskempson.com)
+! Base16 Nord
+! Scheme: arcticicestudio
 
-#define base00 #1d1f21
-#define base01 #282a2e
-#define base02 #373b41
-#define base03 #969896
-#define base04 #b4b7b4
-#define base05 #c5c8c6
-#define base06 #e0e0e0
-#define base07 #ffffff
-#define base08 #cc6666
-#define base09 #de935f
-#define base0A #f0c674
-#define base0B #b5bd68
-#define base0C #8abeb7
-#define base0D #81a2be
-#define base0E #b294bb
-#define base0F #a3685a
+#define base00 #2E3440
+#define base01 #3B4252
+#define base02 #434C5E
+#define base03 #4C566A
+#define base04 #D8DEE9
+#define base05 #E5E9F0
+#define base06 #ECEFF4
+#define base07 #8FBCBB
+#define base08 #BF616A
+#define base09 #D08770
+#define base0A #EBCB8B
+#define base0B #A3BE8C
+#define base0C #88C0D0
+#define base0D #81A1C1
+#define base0E #B48EAD
+#define base0F #5E81AC
 
 *foreground:   base05
 #ifdef background_opacity

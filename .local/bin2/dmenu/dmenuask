@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ask=`echo "" | dmenu -p "Ask:"`
+answer=`tuxi $ask | sed '1 d;$ d'`
+notify-send "Answer:" "$answer"

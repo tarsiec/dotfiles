@@ -2,9 +2,10 @@
 # wm independent hotkeys
 #
 
+
 # tabbed terminal emulator
 super + Return
-	alacritty
+	kitty
 
 # term in same dir
 super + alt + Return
@@ -16,15 +17,12 @@ super + shift + Return
 
 # program launcher
 super+@space
-	dmenu_run
-
-# super+@space; {@space,w,s,f,c,k,o}
-	# rofi -show {drun,window,ssh,file-browser,calc,keys,combi}
+    rofi -combi-modi window,drun,ssh -font "Iosevka 9" -show combi
+    # rofi -combi-modi window,drun,ssh -font "Iosevka 11" -show combi -icon-theme "Papirus" -show-icons
 
 # file browser
 super + r
 	alacritty -e ranger
-
 
 super + e
 	emacs
@@ -107,7 +105,7 @@ super + shift + {comma,period,p}
 
 # lockscreen
 super + shift + x
-	betterlockscreen -l blur -t "hackers gtfo"
+	lockshot
 
 # confirm shutdown
 super + alt + shift + z
@@ -186,7 +184,7 @@ super + ctrl + {m,x,y,z}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,next.local.!hidden.window,prev.local.!hidden.window,east}
 
 # focus the next/previous node in the current desktop
 super + alt + {comma,period}

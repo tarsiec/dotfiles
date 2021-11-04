@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+export ZSH="/home/tarsiec/.oh-my-zsh"
+ZSH_THEME="aussiegeek"
+# CASE_SENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' frequency 13
+# DISABLE_AUTO_TITLE="true"
+# ENABLE_CORRECTION="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="yyyy-mm-dd"
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM="$HOME/.local/share/zsh"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+fi
+export ARCHFLAGS="-arch x86_64"

@@ -1,0 +1,73 @@
+[character]
+#success_symbol = "[>](green)[>](bold green)"
+#error_symbol = "[?](bold red)[>](bold red)"
+#vicmd_symbol = "[<](bold green)[<](green)"
+#success_symbol = "[>](green)"
+#error_symbol = "[?](bold red)[](red)"
+#vicmd_symbol = "[*](bold green)[](green)"
+
+[username]
+show_always = false
+
+# ICONS
+[aws]
+symbol = " "
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+empty_symbol = " "
+unknown_symbol = " "
+[cmake]
+symbol = " "
+[conda]
+symbol = "C "
+[directory]
+read_only = " "
+[elixir]
+symbol = " "
+[git_branch]
+symbol = " "
+[git_commit]
+tag_symbol = " "
+[git_status]
+ahead = " "
+behind = " "
+diverged = " "
+renamed = " "
+deleted = "X"
+[golang]
+symbol = "GO "
+[java]
+symbol = "JAVA "
+[jobs]
+symbol = " "
+[julia]
+symbol = "∴ "
+[kubernetes]
+symbol = " "
+[lua]
+symbol = " "
+[memory_usage]
+symbol = " "
+[nim]
+symbol = " "
+[nix_shell]
+symbol = " "
+[package]
+symbol = " "
+[python]
+symbol = "PY "
+[ruby]
+symbol = " "
+[rust]
+symbol = "RS "
+[shell]
+powershell_indicator = " "
+[shlvl]
+symbol = " "
+[time]
+format = '[ $time]($style) '
+[zig]
+symbol = " "
+

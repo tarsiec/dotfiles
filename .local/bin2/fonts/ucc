@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ucode "$1" | sed 's/.*- //' | tee /dev/tty | tr '\n' ' ' | xclip -selection clipboard

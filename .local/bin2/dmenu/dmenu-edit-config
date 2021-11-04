@@ -1,0 +1,61 @@
+#!/bin/bash
+
+declare options=("alacritty
+bspwm
+dunst
+emacs.d/init.el
+neovim
+picom
+polybar
+sxhkd
+tabbed
+xresources
+zsh
+quit")
+
+choice=$(echo -e "${options[@]}" | dmenu -p 'Edit config file: ')
+
+case "$choice" in
+	quit)
+		echo "Program terminated." && exit 1
+	;;
+	alacritty)
+		choice="$HOME/.config/alacritty/alacritty.yml"
+	;;
+	bspwm)
+		choice="$HOME/.config/bspwm/bspwmrc"
+	;;
+	dunst)
+		choice="$HOME/.config/dunst/dunstrc"
+	;;
+	emacs.d/init.el)
+		choice="$HOME/.emacs.d/init.el"
+	;;
+	neovim)
+		choice="$HOME/.config/nvim/init.vim"
+	;;
+	picom)
+		choice="$HOME/.config/picom/picom.conf"
+	;;
+	polybar)
+		choice="$HOME/.config/polybar/config"
+	;;
+	sxhkd)
+		choice="$HOME/.config/sxhkd/sxhkdrc"
+	;;
+	tabbed)
+		choice="$HOME/tabbed-distrotube/config.h"
+	;;
+	xresources)
+		choice="$HOME/.Xresources"
+	;;
+	zsh)
+		choice="$HOME/.zshrc"
+	;;
+	*)
+		exit 1
+	;;
+esac
+alacritty -e nvim "$choice"
+# emacsclient -c -a emacs "$choice"
+
