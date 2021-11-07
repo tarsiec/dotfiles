@@ -180,6 +180,8 @@ alias cfpfr="ssh root@tarsiec.com ./pullfromrepo.sh /var/www/tarsiec-site"
 alias py="python"
 alias ipy="ipython"
 
+alias lo2pdf="libreoffice --headless --convert-to pdf"
+
 bindkey -e
 bindkey "jk" vi-cmd-mode
 

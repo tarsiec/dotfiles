@@ -100,9 +100,6 @@ super + {comma,period,p}
 super + alt + p
     playit
 
-super + shift + {comma,period,p}
-    spotifycli {--prev,--next,--playpause}
-
 # lockscreen
 super + shift + x
 	lockshot

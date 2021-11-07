@@ -2,7 +2,6 @@
 #+AUTHOR: Tarsiec
 #+EMAIL: tarsiec@protonmail.com
 #+STARTUP: overview hidestars indent
-
 * Configure (=use-package=)
 I use =use-package= to install and configure my packages. My =init.el= includes the
 initial setup for =package.el= and ensures that =use-package= is installed, since I
@@ -27,7 +26,12 @@ Use =diminish=
 * The basics
 ** Complete parenthesis
 #+begin_src elisp
-  (electric-pair-mode)
+  (use-package paredit
+    :hook (text-mode . paredit-mode))
+#+end_src
+** Scratch in org mode
+#+begin_src elisp
+  (setq initial-major-mode 'org-mode)
 #+end_src
 
 ** Scroll nicely, like IDE's do
@@ -37,13 +41,36 @@ Use =diminish=
 
 ** Use the DOOM modeline
 #+begin_src elisp
-  (use-package doom-modeline
-    :init (doom-modeline-mode 1)
-    :custom ((doom-modeline-height 30)))
+    ;; (use-package doom-modeline
+    ;;   :init (doom-modeline-mode 1)
+    ;;   :custom ((doom-modeline-height 30)))
 
-  (doom-modeline-def-modeline 'main
-    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-    '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs "  "))
+    ;; (doom-modeline-def-modeline 'main
+    ;;   '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+    ;;   '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs "  "))
+#+end_src
+
+** Use the powerline
+#+begin_src elisp
+  ;; (use-package mode-icons)
+  ;; (use-package mood-line
+  ;;   :config (mood-line-mode))
+
+  (use-package moody
+    :config
+    (setq x-underline-at-descent-line t)
+    (moody-replace-mode-line-buffer-identification)
+    (moody-replace-vc-mode)
+      (let ((line (face-attribute 'mode-line :underline)))
+        (set-face-attribute 'mode-line          nil :overline   line)
+        (set-face-attribute 'mode-line-inactive nil :overline   line)
+        (set-face-attribute 'mode-line-inactive nil :underline  line)
+        (set-face-attribute 'mode-line          nil :box        nil)
+        ;; (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")
+        (set-face-attribute 'mode-line-inactive nil :box        nil)))
+
+  (use-package minions
+  :config (minions-mode))
 #+end_src
 
 ** Use which key
@@ -104,15 +131,21 @@ In short:
 Configure emacs to use =Cascadia Code= and =cherry= as my coding
 fonts, and I usually switch between them
 #+begin_src elisp
-  (set-face-attribute 'default nil :family "Cascadia Code" :height 90)
-  (set-face-attribute 'fixed-pitch nil :family "Cascadia Code" :height 90)
-  (set-face-attribute 'variable-pitch nil :family "Cascadia Code" :height 90)
+  (set-face-attribute 'default nil :family "iosevka" :height 105)
+  (set-face-attribute 'fixed-pitch nil :family "iosevka" :height 105)
+  (set-face-attribute 'variable-pitch nil :family "iosevka" :height 105)
+  ;; (set-face-attribute 'default nil :family "cherry" :height 105)
+  ;; (set-face-attribute 'fixed-pitch nil :family "cherry" :height 105)
+  ;; (set-face-attribute 'variable-pitch nil :family "cherry" :height 105)
+  ;; (set-face-attribute 'default nil :family "iosevka" :height 105)
+  ;; (set-face-attribute 'fixed-pitch nil :family "iosevka" :height 105)
+  ;; (set-face-attribute 'variable-pitch nil :family "iosevka" :height 105)
 #+end_src
 All the icons!
 #+begin_src elisp
   (use-package all-the-icons)
-  (use-package all-the-icons-dired
-    :hook (dired-mode . all-the-icons-dired-mode))
+  ;; (use-package all-the-icons-dired
+    ;; :hook (dired-mode . all-the-icons-dired-mode))
 #+end_src
 Emojis
 # #+begin_src emacs-lisp :tangle yes
@@ -138,21 +171,157 @@ tomorrow-night theme, another favourite of mine; also =doom-themes=
   (add-to-list 'load-path "~/.emacs.d/lisp")
 #+end_src
 
-* EVIL!
-# #+begin_src elisp
-#   (use-package evil
-#     :config
-#     (evil-mode)
-# #+end_src
+* Company
+#+begin_src elisp
+  (use-package company
+    :defer t
+    :bind ("C-;" . company-complete)
+    :config
+    (setq company-backends '(company-capf
+                             company-keywords
+                             company-semantic
+                             company-files
+                             company-etags
+                             company-elisp
+			       company-emacs-lisp
+                             company-clang
+                             company-irony-c-headers
+                             company-irony
+                             company-jedi
+                             company-cmake
+                             company-ispell
+                             company-auctex
+                             company-yasnippet))
+    (setq company-idle-delay nil
+	    company-minimum-prefix-length 2
+	    company-show-numbers t
+	    company-tooltip-limit 20
+	    company-tooltip-align-annotations t
+	    company-dabbrev-downcase nil)
+    (global-company-mode))
+#+end_src
 
-# =key-chord=
-# #+begin_src elisp
-#   (use-package key-chord
-#     :config
-#     (setq key-chord-two-keys-delay 0.5)
-#     (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-#     (key-chord-mode 1))
-# #+end_src
+	    ;; company-backends '((company-irony company-gtags))
+Add icons, w/company-box
+#+begin_src elisp
+  ;; (use-package company-box
+  ;;   :hook (company-mode . company-box-mode))
+#+end_src
+
+* Semantic
+#+begin_src elisp
+  (use-package semantic
+    :config
+    ;; (global-semanticdb-minor-mode 1)
+    ;; (global-semantic-idle-scheduler-mode 1)
+    (semantic-mode 1))
+#+end_src
+
+* Undo tree
+#+begin_src elisp
+  (use-package undo-tree
+    :config (global-undo-tree-mode))
+#+end_src
+
+* EVIL!
+** Base
+#+begin_src elisp
+  (use-package evil
+    :init (setq evil-want-keybinding nil)
+    :config
+    (evil-mode))
+#+end_src
+
+** Evil commentary
+#+begin_src elisp
+  (use-package evil-commentary
+    :config (evil-commentary-mode))
+#+end_src
+
+** Evil collection
+#+begin_src elisp
+  (use-package evil-collection
+    :config
+    (setq evil-want-integration t))
+#+end_src
+
+** Evil matchit
+#+begin_src elisp
+  (use-package evil-matchit
+    :config (global-evil-matchit-mode 1))
+#+end_src
+
+** Evil surround
+#+begin_src elisp
+  (use-package evil-surround
+    :config (global-evil-surround-mode 1))
+#+end_src
+
+** Evil Leader emulation
+#+begin_src elisp
+  (use-package general
+    :config
+    (general-create-definer tarsiec/leader-keys
+      :keymaps '(normal insert visual emacs)
+      :prefix "SPC"
+      :global-prefix "C-SPC")
+    (tarsiec/leader-keys
+      "SPC" '(counsel-find-file :which-key "find file")
+      ","   '(counsel-switch-buffer :which-key "switch buffer")
+      "."   '(dired :which-key "browse files")
+      ":"   '(counsel-M-x :which-key "M-x")
+      ";"   '(shell-command :which-key "run shell command")
+      "u"   '(universal-arguement :which-mode "C-u")
+    
+      "/"   '(:ignore t :which-key "code")
+      "/b"  '(counsel-switch-buffer :which-key "buffer")
+      "/d"  '(counsel-dired :which-key "directory")
+      "/p"  '(counsel-projectile :which-key "project")
+    
+    
+      "["   '(:ignore t :which-key "prev")
+     
+      "]"   '(:ignore t :which-key "next")
+     
+      "b"   '(:ignore t :which-key "buffer")
+     
+      "c"   '(:ignore t :which-key "code")
+     
+      "f"   '(:ignore t :which-key "file")
+     
+      "g"   '(:ignore t :which-key "git")
+     
+      "o"   '(:ignore t :which-key "open")
+     
+      ;; "m"  '(:ignore t :which-key "localleader")
+     
+      "n"   '(:ignore t :which-key "notes")
+     
+      "p"   '(:ignore t :which-key "project")
+     
+      "r"   '(:ignore t :which-key "remote")
+     
+      "s"   '(:ignore t :which-key "snippets")
+     
+      "t"   '(:ignore t :which-key "toggles")
+      "tt"  '(counsel-load-theme :which-key "choose theme")
+     
+      "w"   '(:ignore t :which-key "window")
+      "wh"  '(evil-window-left  :which-key "left window")
+      "wj"  '(evil-window-down  :which-key "down window")
+      "wk"  '(evil-window-up    :which-key "up window")
+      "wl"  '(evil-window-right :which-key "right window")))
+#+end_src
+
+
+=key-chord=
+#+begin_src elisp
+  (use-package key-chord
+    :config
+    (setq key-chord-two-keys-delay 0.5)
+    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+    (key-chord-mode 1))
+#+end_src
 
 * Auto-completion engine (=ivy=, =swiper=, =counsel=)
 #+begin_src elisp
@@ -181,8 +350,8 @@ Display info about any command with =ivy-rich=
 
 All the icons with ivy
 #+begin_src elisp
-  (use-package all-the-icons-ivy-rich
-    :hook (ivy-rich-mode . all-the-icons-ivy-rich-mode))
+  ;; (use-package all-the-icons-ivy-rich
+  ;;   :hook (ivy-rich-mode . all-the-icons-ivy-rich-mode))
 #+end_src
 
 #+begin_src elisp
@@ -231,7 +400,7 @@ short horizontal lines. It's much easier to scan, and follows the
 standards for typography: 45-90 characters per line. The other
 advantage is to allow for comfortable screen splits.
 #+begin_src elisp
-  (add-hook 'text-mode-hook 'auto-fill-mode)
+  ;; (add-hook 'text-mode-hook 'auto-fill-mode)
 #+end_src
 
 ** Spelling
@@ -250,7 +419,7 @@ a must have in my config. It is used with =M-o=
     :bind (("M-o" . ace-window)))
 #+end_src
 
-* LSP! (=eglot=)
+* LSP (=eglot=)
 =eglot= is a /kind of/ lightweight lsp frontend for emacs. I choose to use
 it instead of the more commonly recommended =lsp-mode= because after
 having used that one for some brief time, I found out that the UI was
@@ -279,6 +448,9 @@ LSP mode is the most used LSP client for emacs
 	    lsp-dired-mode t)
     :config
     (lsp-enable-which-key-integration t))
+
+  (use-package lsp-ui
+    :hook (lsp-mode . lsp-ui-mode))
 #+end_src
 
 LSP integration with =ivy=
@@ -286,26 +458,18 @@ LSP integration with =ivy=
   (use-package lsp-ivy)
 #+end_src
 
-* Company
+* Refactoring & formatting(=with emacs-refactor=)
+Refactor
 #+begin_src elisp
-  (use-package company
-    :defer t
-    :bind ("C-;" . company-complete-common)
-    :config
-    (setq company-idle-delay nil
-	    company-minimum-prefix-length 2
-	    company-show-numbers t
-	    company-tooltip-limit 20
-	    company-dabbrev-downcase nil
-	    company-backends '((company-irony company-gtags)))
-    (global-company-mode))
+  (use-package emr
+    :bind ("C-x M-;" . emr-show-refactor-menu))
 #+end_src
 
-Add icons, w/company-box
+Format
 #+begin_src elisp
-  (use-package company-box
-    ;; :hook (company-mode . company-box-mode)
-    )
+  ;; (use-package format-all
+  ;;   :hook (prog-mode . format-all)
+  ;;   :bind (("C-c f"  . format-all-buffer)))
 #+end_src
 
 * Git (with =magit=)
@@ -352,6 +516,12 @@ Treemacs
 #+begin_src elisp
   (use-package treemacs
     :defer t
+          :bind (("M-0" . treemacs-select-windowx)
+	     ("C-x t 1" . treemacs-delete-other-windows)
+	     ("C-x t t" . treemacs)
+	     ("C-x t B" . treemacs-bookmark)
+	     ("C-x t C-t" . treemacs-find-file)
+	     ("C-x t M-t" . treemacs-find-tag))
     :config
     (progn
       (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
@@ -398,22 +568,12 @@ Treemacs
             treemacs-width                         35
             treemacs-width-is-initially-locked     t
             treemacs-workspace-switch-cleanup      nil)
-
       (treemacs-follow-mode t)
       (treemacs-filewatch-mode t)
-      (treemacs-fringe-indicator-mode t)
-      (pcase (cons (not (null (executable-find "git")))
-		     (not (null (treemacs-python-executable))))))
-    :bind
-    (:map global-map
-	  ("M-0" . treemacs-select-window)
-	  ("C-x t 1" . treemacs-delete-other-windows)
-	  ("C-x t t" . treemacs)
-	  ("C-x t B" . treemacs-bookmark)
-	  ("C-x t C-t" . treemacs-find-file)
-	  ("C-x t M-t" . treemacs-find-tag)))
+      (treemacs-fringe-indicator-mode t)))
 
-  (use-package gruvbox-theme)
+
+(use-package treemacs-magit)
 #+end_src
 
 * Snippets (with =yasnippet=)
@@ -487,14 +647,38 @@ With =org-bullets=
         org-src-preserve-indentation t)
 #+end_src
 
+# #+begin_src elisp
+#   (org-babel-load-languages
+#    'org-babel-load-languages
+#    '((python . t)
+#      (elisp . t)
+#      (js . t)
+#      (ruby . t)
+#      (C .t)
+#      (shell .t)
+#      (mathematica .t)
+#      (clojure .t)
+#      (R .t)))
+# #+end_src
+
 ** Agenda
 *** Agenda files
 Set up =org-mode= to use certain files as agendas and pull TODO's and
 everythin else from them
 #+begin_src elisp
-  (setq org-agenda-files
-	      '("~/docs/org/agenda.org"))
-  (setq org-log-done 'time
+  (use-package org
+    :bind (("C-c l" . org-store-link)
+           ("C-c a" . org-agenda)
+           ("M-n"   . org-next-visible-heading)
+           ("M-p"   . org-previous-visible-heading)
+	   :map org-mode-map
+	   ("C-;"     . completion-at-point)))
+
+  (setq org-agenda-files (list "~/notas/insti.org"
+                               "~/notas/tec.org"
+                               "~/notas/personal.org"
+                               "~/notas/roam/diario")
+        org-log-done 'time
 	      org-agenda-start-with-log-mode t
 	      org-log-into-drawer t)
   (setq org-todo-keywords
@@ -549,49 +733,92 @@ TODO entries automatically change to DONE when all children are done
 	     ((todo "NEXT"
 		    ((org-agenda-overriding-header "Próximas tareas")))))
 
-	    ("I" "Tareas de instituto" tags'todo "+insti")
+	    ("I" "Tareas de instituto" tags-todo "estudios")
 
 	    ;; De poco esfuerzo
 	    ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
 	     ((org-agenda-overriding-header "Tareas de bajo esfuerzo")
 	      (org-agenda-max-todos 20)
-	      (org-agenda-files org-agenda-files)))
-
-	    ("w")))
+	      (org-agenda-files org-agenda-files)))))
 #+end_src
 
 *** TODO Add =org-mode= rss feed
 
+** Org Roam!
+Org roam
+#+begin_src elisp
+  (use-package org-roam
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory (file-truename "~/notas/roam"))
+    (org-roam-dailies-directory "~/notas/roam/diario")
+    (org-roam-completion-everywhere t)
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n g" . org-roam-graph)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n c" . org-roam-capture)
+           ; Dailies
+	       :map org-roam-dailies-map
+           ("Y" . org-roam-dailies-capture-yesterday)
+           ("T" . org-roam-dailies-capture-tomorrow)
+           :map org-mode-map
+           ("C-M-i" . completion-at-point))
+    :bind-keymap
+    ("C-c n d" . org-roam-dailies-map)
+    :config
+    (org-roam-db-autosync-mode)
+    (org-roam-setup)
+    (require 'org-roam-dailies)
+    (require 'org-roam-protocol))
+#+end_src
+
 * Languages
 ** Python
-# I use =eglot= with =python=
-# #+begin_src elisp
-#   (add-hook 'python-mode-hook 'eglot-ensure)
-# #+end_src
+I use =eglot= with =python=
+#+begin_src elisp
+  (add-hook 'python-mode-hook 'lsp-defer)
+#+end_src
+
+#+begin_src elisp
+  (use-package elpy
+    :hook (python-mode . elpy-mode))
+#+end_src
 
 ** Go
-# I use =eglot= with =go=
-# #+begin_src elisp
-#         (use-package go-mode)
-#         (autoload 'go-mode "go-mode" nil t)
-#         (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-#         (add-hook 'go-mode-hook 'eglot-ensure)
-#       (add-hook 'go-mode-hook
-#                 (lambda ()
-#                   (setq-default indent-tabs-mode 1)
-#                   (setq-default tab-width 4)))
-# #+end_src
+#+begin_src elisp
+  (use-package go-mode
+    :hook (go-mode . lsp-deferred)
+    :config (setq-default
+			 indent-tabs-mode 1
+			 tab-width        4))
+  #+end_src
 
 ** C
 I *don't* use =lsp-mode= with =C=
 #+begin_src elisp
   (setq-default c-basic-offset 4
-                c-default-style '((java-mode . "java")
-                                  (awk-mode  . "awk")
-                                  (other     . "linux")))
+        c-default-style '((java-mode . "java")
+                          (awk-mode  . "awk")
+		                  (c++-mode  . "linux")
+                          (other     . "linux")))
 #+end_src
 
 #+begin_src elisp
+  (defun clang-format-save-hook-for-this-buffer ()
+    "Create a buffer local save hook."
+    (add-hook 'before-save-hook
+               (lambda ()
+                (when (locate-dominating-file "." ".clang-format")
+                    (clang-format-buffer))
+                ;; Continue to save.
+                nil)
+                nil
+                ;; Buffer local hook.
+                t))
+
+
   (defun my-irony-mode-hook ()
     (define-key irony-mode-map [remap completion-at-point]
       'irony-completion-at-point-async)
@@ -601,15 +828,19 @@ I *don't* use =lsp-mode= with =C=
 
 #+begin_src elisp
   (use-package irony
-    ;; :defer t
+    :bind (("C-<tab>" . tab-to-tab-stop))
     :hook
     ((c-mode . irony-mode)
      (c++-mode-hook . irony-mode)
-     (objc-mode-hook . irony-mode)
-     (irony-mode . irony-cbd-autosetup-compile-options))
+     (objc-mode-hook . irony-mode))
     :config
+    (irony-eldoc)
+    (setq tab-always-indent 'complete)
+    (setq-default indent-tabs-mode t)
+    (setq-default tab-width 4)
     (local-set-key (kbd "C-c C-c") 'compile)
     (local-set-key (kbd "C-c C-j") 'gdb)
+    (add-hook 'c-mode-hook (lambda () (clang-format-save-hook-for-this-buffer)))
     (add-hook 'irony-mode-hook 'my-irony-mode-hook)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+end_src
@@ -624,21 +855,96 @@ Irony company
     :hook (irony-mode . flycheck-irony-setup))
 #+end_src
 
+** Rust
+#+begin_src elisp
+  (use-package rust-mode
+    :hook (rust-mode . lsp-defer)
+	:config (add-hook 'before-save-hook (lambda () (when (eq 'rust-mode major-mode)
+                                           (lsp-format-buffer)))))
+#+end_src
+
+#+begin_src elisp
+  (use-package cargo
+    :hook (rust-mode . cargo-minor-mode))
+#+end_src
+
 ** Haskell
-# I use =eglot= with =C=
-# #+begin_src elisp
-#   (use-package haskell-mode)
-#   (use-package dante
-#     :hook (haskell-mode . dante-mode))
-#   (add-hook 'haskell-mode-hook 'eglot-ensure)
-#   ()
-# #+end_src
+I use =eglot= with =Haskell=
+#+begin_src elisp
+  (use-package haskell-mode)
+  (use-package dante
+    :hook (haskell-mode . dante-mode))
+  ;; (use-package flycheck-liquidhs
+  ;;   :config (add-hook 'haskell-mode-hook
+  ;; 		          '(lambda () (flycheck-select-checker 'haskell-liquid))))
+  (use-package hlint-refactor)
+  (use-package hindent)
+#+end_src
+
+#+begin_src elisp
+  (use-package dante)
+#+end_src
+
+** LaTeX
+#+begin_src elisp
+  (use-package pdf-tools)
+  
+  (use-package auctex
+    :bind (("C-<tab>" . TeX-complete-symbol))
+    :hook ((TeX-mode . TeX-fold-mode))
+    :config
+    (prettify-symbols-mode)
+    (set-face-attribute 'default nil :family "pragmata pro" :height 105)
+    (set-face-attribute 'fixed-pitch nil :family "pragmata pro" :height 105)
+    (set-face-attribute 'variable-pitch nil :family "pragmata pro" :height 105)
+    (setq-default line-spacing 1)
+    (TeX-source-correlate-mode)
+    (TeX-PDF-mode)
+    ;; (add-to-list 'TeX-view-program-list
+    ;;            '("Zathura"
+    ;;              ("zathura "
+    ;;               (mode-io-correlate " --synctex-forward %n:0:%b -x \"emacsclient +%{line} %{input}\" ")
+    ;;               " %o")
+    ;;              "zathura"))
+  
+    (setq 'TeX-view-program-selection '(((output-dvi has-no-display-manager)
+					 "dvi2tty")
+					((output-dvi style-pstricks)
+					 "dvips and gv")
+					(output-dvi "xdvi")
+					(output-pdf "Zathura")
+					(output-html "xdg-open")))
+  	(setq TeX-source-correlate-mode		t
+  		  TeX-source-correlate-method	'synctex
+  		  TeX-auto-save					t
+  		  TeX-parse-self				t)
+  	(setq-default TeX-master nil)
+	(outline-minor-mode 1)
+ 
+	(add-hook 'LaTeX-mode-hook 'turn-on-outline-minor-mode)
+	(add-hook 'latex-mode-hook 'turn-on-outline-minor-mode)
+	(setq outline-minor-mode-prefix "\C-c o"))
+  
+  (use-package auctex-latexmk
+    :config
+    (auctex-latexmk-setup))
+  
+  (use-package reftex
+    :defer t
+	:hook (tex-mode . reftex-mode)
+    :config
+    (setq reftex-cite-prompt-optional-args t
+  		reftex-plug-into-AUCTeX t))
+  
+  (use-package company-auctex
+    :init (company-auctex-init))
+#+end_src
 
 ** JS/TS
 #+begin_src elisp
   (use-package typescript-mode
     :mode "\\.ts\\'"
-    :hook (typescript-mode . lsp-deferred)
+    :hook (typescript-mode . lsp-defer)
     :config
     (setq typescript-indent-level 4))
 #+end_src
