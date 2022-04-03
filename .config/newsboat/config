@@ -23,6 +23,8 @@ bind-key U show-urls
 bind-key x pb-delete
 
 browser linkhandler
+
+# MACROS
 macro , open-in-browser
 macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
@@ -38,14 +40,17 @@ color listfocus_unread black blue bold
 
 # HILIGHT
 highlight all "---.*---" yellow
-highlight feedlist ".*(0/0))" black
-highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
-highlight article "(^Link:.*|^Date:.*)" default default
-highlight article "https?://[^ ]+" green default
-highlight article "^(Title):.*$" red default
+highlight feedlist ".*(0/0))" black # eliminar numero de feeds vacias
+highlight article "(^Fuente:.*|^Título:.*|^Autor:.*)" default default bold # contenido de fuente autor y titulo
+highlight article "(^Fuente:|^Título:|^Autor:)" cyan default bold # titulo de fuente autor y titulo
+highlight article "(^Enlace:|^Fecha:)" magenta default bold # titulo de enlace y fecha
+highlight article "https?://[^ ]+" green default underline # enlaces
+highlight article "[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}.*$" default default underline # fecha y hora
+# highlight article "^(Título):.*$" red default
 highlight article "\\[[0-9][0-9]*\\]" magenta default bold
-highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[imagen\\ [0-9]+.*)]" green default bold
+highlight article "enlace\\ \\#[0-9]+" yellow default underline
 highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
-highlight article ":.*\\(link\\)$" cyan default
-highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(enlace\\)$" cyan default
+highlight article ":.*\\(imagen\\)$" blue default
 highlight article ":.*\\(embedded flash\\)$" magenta default

@@ -1,6 +1,7 @@
 [colors]
 background      = ${xrdb:background:#1d1f21}
 background-alt  = ${xrdb:color10:#282a2e}
+background-dim	= ${xrdb:color11:#373b41}
 foreground      = ${xrdb:color7:#c5c8c6}
 foreground-alt  = ${xrdb:color15:#ffffff}
 primary         = ${xrdb:color3:#f0c674}
@@ -16,6 +17,9 @@ purple          = ${xrdb:color5:#b294bb}
 cyan            = ${xrdb:color6:#8abeb7}
 white           = ${xrdb:color7:#c5c8c6}
 
+orange			= ${xrdb:color9:#de935f}
+brown			= ${xrdb:color14:#a3685a}
+
 
 [defaults]
 ;format-prefix-foreground    = ${colors.foreground}
@@ -28,6 +32,12 @@ white           = ${xrdb:color7:#c5c8c6}
 ;format-full-underline       = ${colors.yellow}
 ;format-connected-underline  = ${colors.purple}
 format-padding              = 2
+format-connected-padding 	= 2
+format-disconnected-padding = 2
+format-volume-padding 		= 2
+label-muted-padding 		= 2
+label-mounted-padding 		= 2
+label-unmounted-padding 	= 2
 
 
 [settings]
@@ -43,7 +53,7 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-bottom = false
+bottom          = false
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 18
@@ -55,26 +65,30 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 0
 line-color = ${colors.background}
 
-border-size = 2
+border-size = 0
 border-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Iosevka Nerd Font:pixelsize=9;3
-font-1 = Material Design Icons Desktop:pixelsize=10;3
-font-2 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;3
+; font-0 = envypn:pixelsize=7;1
+font-0 = terminus:pixelsize=5;2
+font-1 = siji:size=8:antialias=true;2
+; font-2 = Material Design Icons Desktop:size=8:antialias=true;1
 
-modules-left = pulseaudio backlight wlan eth filesystem
-;modules-left = cpu memory wlan eth pulseaudio backlight keymap
-modules-center = bspwm
-modules-right = keymap spotify battery0 battery1 date
+
+modules-left = bspwm
+modules-center = music
+; modules-center = s spotify mocp r
+; modules-right =  s wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+; modules-right =s  music d torrent s rss d filesystem1 s eth wlan d pulseaudio s backlight d battery0 rt battery1 s date d
+modules-right = filesystem1 s key d rss s eth wlan d pulseaudio s backlight d battery0 rt battery1 s date d
 
 tray-position = right
 tray-padding = 2
@@ -116,9 +130,13 @@ format-underline = ${colors.secondary}
 inherit = defaults
 include-file = ~/.config/polybar/xkeyboard.ini
 
-[module/filesystem]
+[module/filesystem1]
 inherit = defaults
-include-file = ~/.config/polybar/filesystem.ini
+include-file = ~/.config/polybar/filesystem1.ini
+
+[module/filesystem2]
+inherit = defaults
+include-file = ~/.config/polybar/filesystem2.ini
 
 [module/bspwm]
 include-file = ~/.config/polybar/bspwm.ini
@@ -181,29 +199,24 @@ include-file = ~/.config/polybar/pulseaudio.ini
 inherit = defaults
 include-file = ~/.config/polybar/alsa.ini
 
-[module/battery-0]
-inherit = defaults
-include-file = ~/.config/polybar/battery.ini
-battery = BAT0
-
-[module/battery-1]
-inherit = defaults
-include-file = ~/.config/polybar/battery.ini
-battery = BAT1
-
 [module/battery0]
 inherit = defaults
+exec = "battery | sed -n 1p"
 include-file = ~/.config/polybar/batteryScript.ini
 
 [module/battery1]
 inherit = defaults
-type = custom/script
-interval = 10
-format = <label>
 exec = "battery | sed -n 2p"
-format-foreground = ${colors.yellow}
-format-background = ${colors.background-alt}
+include-file = ~/.config/polybar/batteryScript.ini
 
+[module/todos]
+inherit = defaults
+type = custom/script
+interval = 120
+format = <label>
+exec = "todoamount"
+format-foreground = ${colors.yellow}
+format-background = ${colors.background}
 
 [module/temperature]
 inherit = defaults
@@ -213,4 +226,78 @@ include-file = ~/.config/polybar/temperature.ini
 inherit = defaults
 include-file = ~/.config/polybar/powermenu.ini
 
+[module/mocp]
+inherit = defaults
+include-file = ~/.config/polybar/mocp.ini
+
+[module/s]
+type = custom/text
+
+content = ""
+; content = ""
+content-foreground = ${colors.background-alt}
+
+
+[module/d]
+type = custom/text
+
+content = ""
+; content = ""
+
+content-foreground = ${colors.background}
+content-background = ${colors.background-alt}
+
+[module/r]
+type=custom/text
+
+content = ""
+; content = ""
+content-foreground = ${colors.background-alt}
+content-background = ${colors.background}
+
+[module/f]
+type=custom/text
+
+content = ""
+; content = ""
+content-foreground = ${colors.background}
+content-background = ${colors.background-alt}
+
+[module/arch]
+type=custom/text
+
+click-left = "jgmenu --at-pointer"
+
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background-alt}
+
+[module/ct]
+type="custom/text"
+
+content=""
+content-background=${colors.background-alt}
+content-foreground=${colors.cyan}
+
+[module/rt]
+type="custom/text"
+content=""
+content-background=${colors.background}
+content-foreground=${colors.yellow}
+
+[module/music]
+inherit = defaults
+include-file = ~/.config/polybar/music.ini
+
+[module/rss]
+inherit = defaults
+include-file = ~/.config/polybar/rss.ini
+
+[module/torrent]
+inherit = defaults
+include-file = ~/.config/polybar/torrent.ini
+
+[module/key]
+inherit = defaults
+include-file = ~/.config/polybar/key.ini
 ; vim:ft=dosini

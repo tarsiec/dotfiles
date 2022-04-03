@@ -16,25 +16,25 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: iosevka nerd font
+    family: iosevka nerd font 
     style: Retina
 
   bold:
-    family: iosevka nerd font
+    family: iosevka nerd font 
     style: Bold
 
   italic:
-    family: iosevka nerd font
+    family: iosevka nerd font 
     style: Italic
 
   bold_italic:
-    family: iosevka nerd font
+    family: iosevka nerd font 
     style: Bold Italic
 
   size: 11
   tabspaces: 4
-
-  # iosevka nerd font, dina, unscii, iosevka, fkp
+ 
+  # iosevka nerd font , dina, unscii, iosevka, fkp
 
   # Offset is the extra space around each character. `` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -52,7 +52,7 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Visual Bell
 #
@@ -75,8 +75,8 @@ draw_bold_text_with_bright_colors: true
 #  color: '#ffffff'
 
 # Background opacity
-background_opacity: 1
-# background_opacity: 0.9
+# background_opacity: 1
+opacity: 0.9
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -358,46 +358,46 @@ key_bindings:
   #print_events: false
 
 # Start flavours
-# Base16 Nord 256 - alacritty color config
-# arcticicestudio
+# Base16 Tomorrow Night 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
   # Default colors
   primary:
-    background: '0x2E3440'
-    foreground: '0xE5E9F0'
+    background: '0x1d1f21'
+    foreground: '0xc5c8c6'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x2E3440'
-    cursor: '0xE5E9F0'
+    text: '0x1d1f21'
+    cursor: '0xc5c8c6'
 
   # Normal colors
   normal:
-    black:   '0x2E3440'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x88C0D0'
-    white:   '0xE5E9F0'
+    black:   '0x1d1f21'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
+    cyan:    '0x8abeb7'
+    white:   '0xc5c8c6'
 
   # Bright colors
   bright:
-    black:   '0x4C566A'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x88C0D0'
-    white:   '0x8FBCBB'
+    black:   '0x969896'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
+    cyan:    '0x8abeb7'
+    white:   '0xffffff'
 
   indexed_colors:
-    - { index: 16, color: '0xD08770' }
-    - { index: 17, color: '0x5E81AC' }
-    - { index: 18, color: '0x3B4252' }
-    - { index: 19, color: '0x434C5E' }
-    - { index: 20, color: '0xD8DEE9' }
-    - { index: 21, color: '0xECEFF4' }
+    - { index: 16, color: '0xde935f' }
+    - { index: 17, color: '0xa3685a' }
+    - { index: 18, color: '0x282a2e' }
+    - { index: 19, color: '0x373b41' }
+    - { index: 20, color: '0xb4b7b4' }
+    - { index: 21, color: '0xe0e0e0' }
 # End flavours

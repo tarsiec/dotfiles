@@ -5,7 +5,7 @@
 
 # tabbed terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # term in same dir
 super + alt + Return
@@ -64,7 +64,7 @@ super + s
 
 #screenshotS
 super + shift + s ; {m,d,w,s}
-	{selscrot,maim pic-full-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -i "$HOME/pics/screenshots/$(xdotool getactivewindow)" pic-window-"$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -s "$HOME/pics/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"}
+	{selscrot,maim pic-full-"$HOME/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -i "$HOME/img/screenshots/$(xdotool getactivewindow)" pic-window-"$HOME/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png",maim -s "$HOME/img/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"}
 
 # scripts to help
 super + b ; {m,p,t}
@@ -102,7 +102,7 @@ super + alt + p
 
 # lockscreen
 super + shift + x
-	lockshot
+	lock.sh
 
 # confirm shutdown
 super + alt + shift + z

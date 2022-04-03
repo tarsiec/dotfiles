@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 ### DEFAULT SOFTWARE ###
 # export TERM="alacritty"
 export TERM='alacritty'
@@ -17,13 +16,14 @@ export XDG_CONFIG_HOME=$HOME/.config
 ### scripts
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:.emacs.d/bin"
 
 ### QT
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # DAT
 ### CODE & LANGS ###
-export CODE_DIR=$HOME/code
+export CODE_DIR=$HOME/codigo
 export CODE_RSC=$CODE_DIR/resources
 export CODE_PRJ=$CODE_DIR/projects
 # rust
@@ -50,9 +50,9 @@ export GEF_RC=$HOME/.config/gef/gef.rc
 
 ### SOFTWARE ###
 # starship.rs
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 # eval "$(starship init zsh)"
-source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
+# source "$HOME/.local/share/zsh/prompts/powerlevel10k/powerlevel10k.zsh-theme"
 
 ### COMPLETION ###
 setopt AUTO_CD
@@ -76,31 +76,27 @@ HISTFILE=$HOME/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
 
-setopt EXTENDED_HISTORY
-setopt APPEND_HISTORY
-setopt HIST_FIND_NO_DUPS
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_VERIFY
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt INC_APPEND_HISTORY
-setopt HIST_REDUCE_BLANKS
-
-
-
-
-
+# setopt EXTENDED_HISTORY
+# setopt APPEND_HISTORY
+# setopt HIST_FIND_NO_DUPS
+# setopt HIST_EXPIRE_DUPS_FIRST
+# setopt HIST_VERIFY
+# setopt SHARE_HISTORY
+# setopt HIST_IGNORE_DUPS
+# setopt INC_APPEND_HISTORY
+# setopt HIST_REDUCE_BLANKS
 
 ### "PLUGINS" ###
 # TODO loop to these instead of sourcing them all manuallyj
 #source $HOME/.local/share/zsh/plugins/compleat/compleat.zsh
-source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+# source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+# source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# source $HOME/.local/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
 # source $HOME/.local/share/zsh/plugins/vi-mode/vi-mode.zsh
-source $HOME/.local/share/zsh/plugins/git/git.zsh
-#source $HOME/.local/share/zsh/plugins/emacs/emacs.zsh
-autoload -Uz add-zsh-hook
+# source $HOME/.local/share/zsh/plugins/git/git.zsh
+# source $HOME/.local/share/zsh/plugins/emacs/emacs.zsh
+# autoload -Uz add-zsh-hook
 
 
 # Other program settings:
@@ -122,15 +118,20 @@ export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
 alias python3="python"
-alias ytrss="python $HOME/code/repos/youtube_rss/youtube_rss.py"
+alias ytrss="python $HOME/codigo/repos/youtube_rss/youtube_rss.py"
 alias getvid="youtube-dl --add-metadata --restrict-filenames -f bestvideo+bestaudio --merge-output-format mkv --all-subs"
 alias getaudio="youtube-dl --add-metadata --restrict-filenames -x --audio-format best"
 alias smi="sudo make install"
-alias ls="exa --icons"
-alias l="exa -lag --icons"
-alias ll="exa -l --icons"
-alias lsize="exa -lags size --icons"
-alias lname="exa -lags name --icons"
+alias ls="exa"
+alias l="exa -lag"
+alias ll="exa -l"
+alias lsize="exa -lags size"
+alias lname="exa -lags name"
+# alias ls="exa --icons"
+# alias l="exa -lag --icons"
+# alias ll="exa -l --icons"
+# alias lsize="exa -lags size --icons"
+# alias lname="exa -lags name --icons"
 alias v="vim"
 alias nv="nvim"
 alias -g Z="| fzf"
@@ -153,22 +154,24 @@ alias -g .......='../../../../../..'
 alias -g ........='../../../../../../..'
 
 # alias zathura="devour zathura"
-alias zathura="devour zathura"
-alias sxiv="devour sxiv"
-alias feh="devour feh"
-alias mpv="devour mpv"
-alias code="devour code"
-alias code-insiders="devour code-insiders"
-alias codium="devour codium"
+# alias zathura="devour zathura"
+# alias sxiv="devour sxiv"
+# alias feh="devour feh"
+# alias mpv="devour mpv"
+# alias code="devour code"
+# alias code-insiders="devour code-insiders"
+# alias codium="devour codium"
 
 # config aliases
 alias vn="nvim $HOME/.config/nvim/init.vim"
+alias vl="nvim $HOME/.config/nvim/init.lua"
 alias vz="nvim $HOME/.config/zsh/zprofile"
 alias vb="nvim $HOME/.config/bspwm/bspwmrc"
 alias vs="nvim $HOME/.config/sxhkd/sxhkdrc"
 alias vd="nvim $HOME/.config/dunst/dunstrc"
 alias vp="nvim $HOME/.config/picom/picom.conf"
 
+alias cdi="cd \`ls Z\`"
 alias cfv="cd $HOME/.config/nvim"
 alias cfz="cd $HOME/.config/zsh"
 alias cfb="cd $HOME/.config/bspwm"
@@ -181,6 +184,8 @@ alias py="python"
 alias ipy="ipython"
 
 alias lo2pdf="libreoffice --headless --convert-to pdf"
+
+alias D="devour"
 
 bindkey -e
 bindkey "jk" vi-cmd-mode

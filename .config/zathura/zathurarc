@@ -1,41 +1,41 @@
 # Start flavours
-# Base16 Nord
-# Author: arcticicestudio
+# Base16 Tomorrow Night
+# Author: Chris Kempson (http://chriskempson.com)
 
-set default-bg                  "#2E3440"
-set default-fg                  "#3B4252"
+set default-bg                  "#1d1f21"
+set default-fg                  "#282a2e"
 
-set statusbar-fg                "#D8DEE9"
-set statusbar-bg                "#434C5E"
+set statusbar-fg                "#b4b7b4"
+set statusbar-bg                "#373b41"
 
-set inputbar-bg                 "#2E3440"
-set inputbar-fg                 "#8FBCBB"
+set inputbar-bg                 "#1d1f21"
+set inputbar-fg                 "#ffffff"
 
-set notification-bg             "#2E3440"
-set notification-fg             "#8FBCBB"
+set notification-bg             "#1d1f21"
+set notification-fg             "#ffffff"
 
-set notification-error-bg       "#2E3440"
-set notification-error-fg       "#BF616A"
+set notification-error-bg       "#1d1f21"
+set notification-error-fg       "#cc6666"
 
-set notification-warning-bg     "#2E3440"
-set notification-warning-fg     "#BF616A"
+set notification-warning-bg     "#1d1f21"
+set notification-warning-fg     "#cc6666"
 
-set highlight-color             "#EBCB8B"
-set highlight-active-color      "#81A1C1"
+set highlight-color             "#f0c674"
+set highlight-active-color      "#81a2be"
 
-set completion-bg               "#3B4252"
-set completion-fg               "#81A1C1"
+set completion-bg               "#282a2e"
+set completion-fg               "#81a2be"
 
-set completion-highlight-fg     "#8FBCBB"
-set completion-highlight-bg     "#81A1C1"
+set completion-highlight-fg     "#ffffff"
+set completion-highlight-bg     "#81a2be"
 
-set recolor-lightcolor          "#2E3440"
-set recolor-darkcolor           "#ECEFF4"
+set recolor-lightcolor          "#1d1f21"
+set recolor-darkcolor           "#e0e0e0"
 
 set recolor                     "false"
 set recolor-keephue             "false"
 # End flavours
-set font                        "iosevka 8"
+set font                        "iosevka 10"
 set recolor
 set guioptions none
 set selection-clipboard clipboard

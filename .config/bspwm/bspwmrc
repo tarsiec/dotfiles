@@ -8,14 +8,14 @@ calcurse --daemon &
 mpd &
 newsup &
 transmission-daemon
-blueman-applet &
+bluema n-applet &
+eval "$(ssh-agent)" &
+dropbox &
 setxkbmap -option caps:ctrl_modifier gb
 
 #bspc monitor -d 1 2 3 4 5 6 7 8 9
 bspc monitor -d misc dev web chat git sys doc pic media
 #bspc monitor -d 1 2 3 4 5 6
-
-~/.config/bspwn/bspwmlooks
 
 bspc rule -a Emacs state=tiled
 bspc rule -a Gimp desktop='^8' follow=on
@@ -26,3 +26,4 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
+~/.config/bspwm/bspwmlooks

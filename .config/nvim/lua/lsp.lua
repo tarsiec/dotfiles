@@ -1,85 +1,81 @@
--- utility  --
--- vars
-local opts = { noremap = true, silent = true }
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- TREESITTER
+local ts = require("nvim-treesitter.configs")
+ts.setup {
+	ensure_installed = "maintained", -- install parsers
+	sync_install = false, -- install synchronously
+	highlight = {
+		enable = true,
+		disable = { "html", "markdown", "fish" },
+	},
+}
 
--- funcs
-local function setmap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local function setopt(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+-- LSPCONFIG
+lspconf = require("lspconfig")
+servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "texlab", "html", "cssls" }
+			-- "html", "cssls" }
 
--- lspconfig --
-local nvim_lsp = require('lspconfig')
-local protocol = require('vim.lsp.protocol')
--- lspsaga --
-local saga = require('lspsaga')
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+            vim.lsp.handlers.signature_help, {
+                border = 'rounded',
+                close_events = {"CursorMoved", "BufHidden", "InsertCharPre" }})
 
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+            vim.lsp.handlers.hover, { border = 'rounded' })
 
-local on_attach = function(client, bufnr)
-	-- goto
-	setmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)		-- show definition
-	setmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)		-- show declaration
-	setmap('n', 'gh', '<cmd>Lspsaga lsp_finder<cr>', opts)					-- show ref. [lspsaga]
-	setmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)	-- show implementation
-	setmap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)	-- show implementation
-	setmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)		-- show references
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-	-- rename
-	setmap('n', '<f2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)			-- rename symbol
-	setmap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)	-- rename symbol
-
-	-- diagnostics
-	setmap('i', '<c-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)		-- next error
-	setmap('i', '<c-k>', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)		-- next error
-	setmap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)		-- next error
-	setmap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)		-- next error
-
-	-- types
-	setmap('i', '<c-k>', '<cmd>Lspsaga signature_help<cr>', opts)
-	setmap('n', '<leader>cs', '<cmd>Lspsaga signature_help<cr>', opts)
-	setmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-	--setmap('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
-
-	-- code actions
-	setmap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-
-	-- formatting
-	setmap('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-end
-
--- LANGS
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls' }
-for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup {
-		on_attach = on_attach,
+for _, lsp in pairs(servers) do
+	lspconf[lsp].setup{
 		capabilities = capabilities,
-		flags = {
-			debounce_text_changes = 150
-		}
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = {},
 	}
 end
 
-saga.init_lsp_saga {
-	border_style = "round",
-	error_sign = '',
-	warn_sign = '',
-	hint_sign = '',
-	infor_sign = '',
-	dianostic_header_icon = '   ',
-	code_action_icon = ' ',
-	finder_definition_icon = '  ',
-	finder_reference_icon = '  ',
-	rename_prompt_prefix = '>',
-	max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
-
-	finder_action_keys = {
-	  open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<C-f>', scroll_up = '<C-b>' -- quit can be a table
-	},
-	code_action_keys = {
-	  quit = 'q',exec = '<CR>'
-	},
-	rename_action_keys = {
-	  quit = '<C-c>',exec = '<CR>'  -- quit can be a table
-	},
-	definition_preview_icon = '  '
+require'lspconfig'.tsserver.setup{
+	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+	root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
 }
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+
+-- LSPFUZZY
+-- local lspfuzzy = require("lspfuzzy")
+-- lspfuzzy.setup{
+-- 	methods = 'all',         -- either 'all' or a list of LSP methods (see below)
+-- 	jump_one = true,         -- jump immediately if there is only one location
+-- 	save_last = false,       -- save last location results for the :LspFuzzyLast command
+-- 	callback = nil,          -- callback called after jumping to a location
+-- 	fzf_preview = {          -- arguments to the FZF '--preview-window' option
+-- 		'right:+{2}-/2'          -- preview on the right and centered on entry
+-- 	},
+-- 	fzf_action = {               -- FZF actions
+-- 		['ctrl-t'] = 'tab split',  -- go to location in a new tab
+-- 		['ctrl-v'] = 'vsplit',     -- go to location in a vertical split
+-- 		['ctrl-x'] = 'split',      -- go to location in a horizontal split
+-- 	},
+-- 	fzf_modifier = ':~:.',   -- format FZF entries, see |filename-modifiers|
+-- 	fzf_trim = true,         -- trim FZF entries
+-- }
+
+-- LSP SIGNATURE
+local lspsig = require("lsp_signature")
+lspsig.setup{
+	hint_enable = false,
+	hint_prefix = "> ",
+	handler_opts = {
+		border = "rounded"
+	}
+}
+
+-- DEBUGGING
+dap = require("dap")
+-- dap_ui_variables = require("dap.ui.variables")
+-- dap_ui_widgets = require("dap.ui.widgets")
 
