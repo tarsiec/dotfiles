@@ -32,31 +32,19 @@ return require("packer").startup(function()
 	use "dag/vim-fish"
 
 	-- GIT
-	use {
-		"lewis6991/gitsigns.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim"
-		}
-	}
 	use "jreybert/vimagit"
 	use "tpope/vim-fugitive"
 
 	-- SYNTAX
 	use "euclidianAce/BetterLua.vim"
 	use "junegunn/goyo.vim" -- writing mode
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-			opt = true
-		}
-	}
+	use "nvim-treesitter/nvim-treesitter"
 
 	-- UI
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
-			'kyazdani42/nvim-web-devicons', -- optional, for file icons
+			-- 'kyazdani42/nvim-web-devicons', -- optional, for file icons
 		}
 	}
 	use {
@@ -84,6 +72,8 @@ return require("packer").startup(function()
 	use "jnurmine/zenburn"
 	use "morhetz/gruvbox"
 	use "chriskempson/base16-vim"
+	use "w0ng/vim-hybrid"
+	use "jnurmine/Zenburn"
 
 	-- HELPFUL
 	use "svermeulen/vimpeccable"

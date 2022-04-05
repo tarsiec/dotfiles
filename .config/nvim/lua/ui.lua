@@ -9,7 +9,7 @@ set.background = "dark"
 vim.g.solarized_visibility = "low"
 vim.g.solarized_statusline = "flat"
 vim.g.solarized_diffmode = "low"
-vim.cmd([[ colorscheme tokyonight ]])
+vim.cmd([[ colorscheme hybrid ]])
 
 -- LINE
 set.cursorline = true -- show current line
@@ -25,6 +25,9 @@ set.list = false
 -- NUMBERS
 set.number = true
 set.relativenumber = true
+
+-- HIDE COLORCOLUMN IN DIFF MODE
+set.diffopt:append('foldcolumn:0')
 
 -- WHICH KEY
 local which_key = require("which-key")
@@ -82,10 +85,10 @@ config = nvim_tree.setup{
 		enable = false,
 		show_on_dirs = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			-- hint = "",
+			-- info = "",
+			-- warning = "",
+			-- error = "",
 		},
 	},
 	filters = {
@@ -132,10 +135,11 @@ config = nvim_tree.setup{
 }
 
 -- STATUSLINE
+local colors_tomorrow_night = require("lualine.themes.seoul256")
 local lualine = require("lualine").setup{
 	options = {
 		icons_enabled = true,
-		theme = 'auto',
+		theme = colors_tomorrow_night, -- 'auto'
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
 		disabled_filetypes = {},
